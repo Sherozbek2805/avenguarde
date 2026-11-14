@@ -31,6 +31,16 @@
 /cube/phase4/percentiles.npy
 /export/site_assets/*.zip
 
+# --- results: the JSON files and the map images of preset runs; never the 48 MB full-resolution maps
+!/runs/
+/runs/*
+!/runs/README.md
+!/runs/*.json
+!/runs/_controls/
+!/runs/moon_*/
+!/runs/mars_*/
+/runs/*/*.npy
+
 # --- of the raw sources, only the small tables written by this project
 !/sources/
 /sources/*

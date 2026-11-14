@@ -1,0 +1,6325 @@
+{
+ "contract_version": "2.4",
+ "run": {
+  "code_version": "b4b857a+engine-uncommitted",
+  "run_utc": "2026-11-14T06:57:47Z",
+  "target": {
+   "body": "moon",
+   "name": "Peak near Cabeus B",
+   "selection": {
+    "method": "named_feature",
+    "params": {
+     "catalogue": "targets_moon",
+     "feature_id": "Peak near Cabeus B",
+     "construction": "all_dimensions"
+    }
+   },
+   "cells": 7,
+   "cells_distinct": 7,
+   "spread": 4.2004,
+   "abs_lat_range": [
+    83.42,
+    83.97
+   ]
+  },
+  "variables": [
+   {
+    "name": "slope",
+    "group": "terrain",
+    "units": "degrees",
+    "modelled": false,
+    "weak": false,
+    "ranked": true
+   },
+   {
+    "name": "roughness_5.25km",
+    "group": "terrain",
+    "units": "m",
+    "modelled": false,
+    "weak": false,
+    "ranked": true
+   },
+   {
+    "name": "roughness_10.5km",
+    "group": "terrain",
+    "units": "m",
+    "modelled": false,
+    "weak": false,
+    "ranked": true
+   },
+   {
+    "name": "roughness_21km",
+    "group": "terrain",
+    "units": "m",
+    "modelled": false,
+    "weak": false,
+    "ranked": true
+   },
+   {
+    "name": "roughness_42km",
+    "group": "terrain",
+    "units": "m",
+    "modelled": false,
+    "weak": false,
+    "ranked": true
+   },
+   {
+    "name": "tpi_21km",
+    "group": "terrain",
+    "units": "m",
+    "modelled": false,
+    "weak": false,
+    "ranked": true
+   },
+   {
+    "name": "tpi_7km",
+    "group": "terrain",
+    "units": "m",
+    "modelled": false,
+    "weak": false,
+    "ranked": true
+   },
+   {
+    "name": "svf_30km",
+    "group": "terrain",
+    "units": "dimensionless, 0..1",
+    "modelled": false,
+    "weak": false,
+    "ranked": true
+   },
+   {
+    "name": "temp_level",
+    "group": "thermal",
+    "units": "K",
+    "modelled": false,
+    "weak": false,
+    "ranked": true
+   },
+   {
+    "name": "temp_range_diurnal",
+    "group": "thermal",
+    "units": "K",
+    "modelled": false,
+    "weak": false,
+    "ranked": true
+   },
+   {
+    "name": "SiO2",
+    "group": "composition",
+    "units": "wt%",
+    "modelled": false,
+    "weak": true,
+    "ranked": true
+   },
+   {
+    "name": "FeO",
+    "group": "composition",
+    "units": "wt%",
+    "modelled": false,
+    "weak": true,
+    "ranked": true
+   }
+  ],
+  "groups": {
+   "terrain": {
+    "n_variables": 8
+   },
+   "thermal": {
+    "n_variables": 2
+   },
+   "composition": {
+    "n_variables": 2
+   }
+  },
+  "grid": {
+   "scheme": "healpix_nested",
+   "nside_target": 256,
+   "nside_earth": 1024
+  },
+  "target_cells_used": "all",
+  "ranking": {
+   "system": "all_variables",
+   "rule": "A variable is left out of the ranking, and reported as one of Earth's limits, when the median of the target's cells lies outside the whole range of Earth's reference population in physical units.",
+   "ranking_set": "earth_moon",
+   "ranked_variables": [
+    "slope",
+    "roughness_5.25km",
+    "roughness_10.5km",
+    "roughness_21km",
+    "roughness_42km",
+    "tpi_21km",
+    "tpi_7km",
+    "svf_30km",
+    "temp_level",
+    "temp_range_diurnal",
+    "SiO2",
+    "FeO"
+   ],
+   "out_of_range": [
+    {
+     "variable": "temp_level",
+     "units": "K",
+     "target_median": 157.147,
+     "earth_min": 232.141,
+     "earth_max": 314.276,
+     "side": "below Earth's range",
+     "gap": 74.994,
+     "share_of_target_cells_outside": 1.0
+    },
+    {
+     "variable": "temp_range_diurnal",
+     "units": "K",
+     "target_median": 209.614,
+     "earth_min": 0.622,
+     "earth_max": 43.997,
+     "side": "above Earth's range",
+     "gap": 165.617,
+     "share_of_target_cells_outside": 1.0
+    }
+   ]
+  },
+  "rank_bands": [
+   0.01,
+   0.05
+  ],
+  "distance": "mahalanobis_whitened",
+  "scale": "minmax",
+  "eigen_floor": 0.1,
+  "floored_directions": 4,
+  "d_bar_earth": 3.7247,
+  "d_bar_target": 15.6455,
+  "dims_used": 12,
+  "verdict_thresholds": {
+   "agrees_below": 0.1,
+   "differs_above": 0.25
+  },
+  "site_rule": "patches_of_top_share",
+  "site_top_share": 0.01,
+  "patches_total": 4701,
+  "reference_population": {
+   "pixels": 3258022,
+   "definition": "Ice-free, water-free land with every used dimension present. Antarctica enters as exposed rock; the ice sheet is excluded from ranking."
+  }
+ },
+ "null_test": {
+  "B": 1000,
+  "statistic": "minimum di_combined over the Earth sample",
+  "null_source": "live",
+  "band_abs_lat": [
+   81.64,
+   85.64
+  ],
+  "patch_cells": 7,
+  "earth_sample_n": 100000,
+  "seed": 20261114,
+  "di_observed": 10.2099,
+  "null_median": 8.1445,
+  "p": 0.993007,
+  "p_at_floor": false,
+  "positive_control": {
+   "name": "Atacama, Yungay core",
+   "di_observed": 0.6012,
+   "p": 0.000999,
+   "passed": true
+  }
+ },
+ "sites": [
+  {
+   "lat": 19.8277,
+   "lon": -155.3906,
+   "healpix_pixel": 2271728,
+   "di_combined": 10.0242,
+   "di_target": 2.3865,
+   "di_group": {
+    "terrain": 6.4164,
+    "thermal": 19.3601,
+    "composition": 0.4934
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 19.3601
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "new candidate",
+    "name": null,
+    "citation": null,
+    "distance_km": 4203.8
+   },
+   "koppen": {
+    "code": 29,
+    "symbol": "ET",
+    "description": "Polar, tundra"
+   },
+   "lithology": {
+    "l1_code": "vi",
+    "description": "intermediate volcanic",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 9.4603,
+     "target_median": 17.5913,
+     "earth_position": 0.3299,
+     "target_position": 0.6135,
+     "position_gap": -0.2836,
+     "physical_gap": -8.131,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 278.15,
+     "target_median": 494.6819,
+     "earth_position": 0.2971,
+     "target_position": 0.5284,
+     "position_gap": -0.2313,
+     "physical_gap": -216.5319,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 485.3022,
+     "target_median": 870.7702,
+     "earth_position": 0.3085,
+     "target_position": 0.5536,
+     "position_gap": -0.245,
+     "physical_gap": -385.468,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 718.9278,
+     "target_median": 1367.1734,
+     "earth_position": 0.2919,
+     "target_position": 0.555,
+     "position_gap": -0.2632,
+     "physical_gap": -648.2456,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 838.3008,
+     "target_median": 1487.5202,
+     "earth_position": 0.2772,
+     "target_position": 0.492,
+     "position_gap": -0.2147,
+     "physical_gap": -649.2194,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 393.3852,
+     "target_median": 1102.0415,
+     "earth_position": 0.6306,
+     "target_position": 0.7902,
+     "position_gap": -0.1596,
+     "physical_gap": -708.6563,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 26.126,
+     "target_median": 163.3783,
+     "earth_position": 0.6182,
+     "target_position": 0.7616,
+     "position_gap": -0.1435,
+     "physical_gap": -137.2522,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.9368,
+     "target_median": 0.885,
+     "earth_position": 0.8329,
+     "target_position": 0.696,
+     "position_gap": 0.1369,
+     "physical_gap": 0.0518,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 289.1804,
+     "target_median": 157.1469,
+     "earth_position": 0.9085,
+     "target_position": 0.4274,
+     "position_gap": 0.4811,
+     "physical_gap": 132.0335,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 31.9883,
+     "target_median": 209.6139,
+     "earth_position": 0.0909,
+     "target_position": 0.6054,
+     "position_gap": -0.5146,
+     "physical_gap": -177.6256,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 58.5,
+     "target_median": 45.846,
+     "earth_position": 0.6686,
+     "target_position": 0.5215,
+     "position_gap": 0.1471,
+     "physical_gap": 12.654,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 6.2,
+     "target_median": 5.1022,
+     "earth_position": 0.2016,
+     "target_position": 0.1659,
+     "position_gap": 0.0357,
+     "physical_gap": 1.0978,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "FeO"
+   ],
+   "partial": [
+    "svf_30km",
+    "tpi_7km",
+    "SiO2",
+    "tpi_21km",
+    "roughness_42km",
+    "roughness_5.25km",
+    "roughness_10.5km"
+   ],
+   "differs": [
+    "roughness_21km",
+    "slope",
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "FeO",
+    "svf_30km",
+    "tpi_7km"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "slope"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "iron",
+      "group": "composition",
+      "label": "Iron oxide",
+      "variables": [
+       "FeO"
+      ],
+      "text": "The ground is as iron-rich as the target's: practise spectrometer and resource-prospecting work on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [
+     {
+      "key": "slope",
+      "group": "terrain",
+      "label": "Slope",
+      "variables": [
+       "slope"
+      ],
+      "text": "Gradients are different: mobility and landing-slope results from this site do not transfer."
+     },
+     {
+      "key": "relief_regional",
+      "group": "terrain",
+      "label": "Relief over 21 to 42 km",
+      "variables": [
+       "roughness_21km",
+       "roughness_42km"
+      ],
+      "text": "Regional relief is different: long-range route and communication planning from this site does not transfer."
+     }
+    ],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 1,
+   "patch_cells": 20,
+   "patch_area_km2": 810.7
+  },
+  {
+   "lat": 19.4317,
+   "lon": -155.5664,
+   "healpix_pixel": 2271635,
+   "di_combined": 10.0264,
+   "di_target": 2.387,
+   "di_group": {
+    "terrain": 6.9369,
+    "thermal": 19.1001,
+    "composition": 1.373
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 19.1001
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "new candidate",
+    "name": null,
+    "citation": null,
+    "distance_km": 4242.8
+   },
+   "koppen": {
+    "code": 29,
+    "symbol": "ET",
+    "description": "Polar, tundra"
+   },
+   "lithology": {
+    "l1_code": "vb",
+    "description": "basic volcanic",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 7.0141,
+     "target_median": 17.5913,
+     "earth_position": 0.2446,
+     "target_position": 0.6135,
+     "position_gap": -0.3689,
+     "physical_gap": -10.5772,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 201.3342,
+     "target_median": 494.6819,
+     "earth_position": 0.215,
+     "target_position": 0.5284,
+     "position_gap": -0.3133,
+     "physical_gap": -293.3477,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 379.154,
+     "target_median": 870.7702,
+     "earth_position": 0.241,
+     "target_position": 0.5536,
+     "position_gap": -0.3125,
+     "physical_gap": -491.6163,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 614.6436,
+     "target_median": 1367.1734,
+     "earth_position": 0.2495,
+     "target_position": 0.555,
+     "position_gap": -0.3055,
+     "physical_gap": -752.5298,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 813.3231,
+     "target_median": 1487.5202,
+     "earth_position": 0.269,
+     "target_position": 0.492,
+     "position_gap": -0.223,
+     "physical_gap": -674.1971,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 544.2099,
+     "target_median": 1102.0415,
+     "earth_position": 0.6646,
+     "target_position": 0.7902,
+     "position_gap": -0.1257,
+     "physical_gap": -557.8315,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 81.6015,
+     "target_median": 163.3783,
+     "earth_position": 0.6761,
+     "target_position": 0.7616,
+     "position_gap": -0.0855,
+     "physical_gap": -81.7768,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.9575,
+     "target_median": 0.885,
+     "earth_position": 0.8875,
+     "target_position": 0.696,
+     "position_gap": 0.1915,
+     "physical_gap": 0.0724,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 289.3737,
+     "target_median": 157.1469,
+     "earth_position": 0.9093,
+     "target_position": 0.4274,
+     "position_gap": 0.4818,
+     "physical_gap": 132.2269,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 35.075,
+     "target_median": 209.6139,
+     "earth_position": 0.0998,
+     "target_position": 0.6054,
+     "position_gap": -0.5056,
+     "physical_gap": -174.5389,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 49.5,
+     "target_median": 45.846,
+     "earth_position": 0.564,
+     "target_position": 0.5215,
+     "position_gap": 0.0425,
+     "physical_gap": 3.654,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 10.2,
+     "target_median": 5.1022,
+     "earth_position": 0.3317,
+     "target_position": 0.1659,
+     "position_gap": 0.1658,
+     "physical_gap": 5.0978,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "SiO2",
+    "tpi_7km"
+   ],
+   "partial": [
+    "tpi_21km",
+    "FeO",
+    "svf_30km",
+    "roughness_42km"
+   ],
+   "differs": [
+    "roughness_21km",
+    "roughness_10.5km",
+    "roughness_5.25km",
+    "slope",
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "SiO2",
+    "tpi_7km",
+    "tpi_21km"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "slope"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "rock_type",
+      "group": "composition",
+      "label": "Silica (rock type)",
+      "variables": [
+       "SiO2"
+      ],
+      "text": "The rock is of the same bulk type as the target's (basalt-like or silica-rich): practise sampling, drilling and contact instruments on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [
+     {
+      "key": "slope",
+      "group": "terrain",
+      "label": "Slope",
+      "variables": [
+       "slope"
+      ],
+      "text": "Gradients are different: mobility and landing-slope results from this site do not transfer."
+     },
+     {
+      "key": "relief_local",
+      "group": "terrain",
+      "label": "Relief over 5 to 10 km",
+      "variables": [
+       "roughness_5.25km",
+       "roughness_10.5km"
+      ],
+      "text": "Local relief is different: short-traverse and descent planning from this site does not transfer."
+     },
+     {
+      "key": "relief_regional",
+      "group": "terrain",
+      "label": "Relief over 21 to 42 km",
+      "variables": [
+       "roughness_21km",
+       "roughness_42km"
+      ],
+      "text": "Regional relief is different: long-range route and communication planning from this site does not transfer."
+     }
+    ],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 2,
+   "patch_cells": 48,
+   "patch_area_km2": 1945.7
+  },
+  {
+   "lat": -16.6071,
+   "lon": -70.9277,
+   "healpix_pixel": 7435739,
+   "di_combined": 10.0848,
+   "di_target": 2.4009,
+   "di_group": {
+    "terrain": 7.0833,
+    "thermal": 19.178,
+    "composition": 0.4934
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 19.178
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "new candidate",
+    "name": null,
+    "citation": null,
+    "distance_km": 200.2
+   },
+   "koppen": {
+    "code": 29,
+    "symbol": "ET",
+    "description": "Polar, tundra"
+   },
+   "lithology": {
+    "l1_code": "vi",
+    "description": "intermediate volcanic",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 10.2694,
+     "target_median": 17.5913,
+     "earth_position": 0.3581,
+     "target_position": 0.6135,
+     "position_gap": -0.2553,
+     "physical_gap": -7.3219,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 374.1649,
+     "target_median": 494.6819,
+     "earth_position": 0.3996,
+     "target_position": 0.5284,
+     "position_gap": -0.1287,
+     "physical_gap": -120.517,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 608.5836,
+     "target_median": 870.7702,
+     "earth_position": 0.3869,
+     "target_position": 0.5536,
+     "position_gap": -0.1667,
+     "physical_gap": -262.1867,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 857.2582,
+     "target_median": 1367.1734,
+     "earth_position": 0.348,
+     "target_position": 0.555,
+     "position_gap": -0.207,
+     "physical_gap": -509.9152,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 1066.3344,
+     "target_median": 1487.5202,
+     "earth_position": 0.3527,
+     "target_position": 0.492,
+     "position_gap": -0.1393,
+     "physical_gap": -421.1858,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 523.6103,
+     "target_median": 1102.0415,
+     "earth_position": 0.6599,
+     "target_position": 0.7902,
+     "position_gap": -0.1303,
+     "physical_gap": -578.4312,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 91.0571,
+     "target_median": 163.3783,
+     "earth_position": 0.686,
+     "target_position": 0.7616,
+     "position_gap": -0.0756,
+     "physical_gap": -72.3211,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.8838,
+     "target_median": 0.885,
+     "earth_position": 0.6927,
+     "target_position": 0.696,
+     "position_gap": -0.0034,
+     "physical_gap": -0.0013,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 283.2356,
+     "target_median": 157.1469,
+     "earth_position": 0.8869,
+     "target_position": 0.4274,
+     "position_gap": 0.4595,
+     "physical_gap": 126.0887,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 31.8643,
+     "target_median": 209.6139,
+     "earth_position": 0.0905,
+     "target_position": 0.6054,
+     "position_gap": -0.5149,
+     "physical_gap": -177.7496,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 58.5,
+     "target_median": 45.846,
+     "earth_position": 0.6686,
+     "target_position": 0.5215,
+     "position_gap": 0.1471,
+     "physical_gap": 12.654,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 6.2,
+     "target_median": 5.1022,
+     "earth_position": 0.2016,
+     "target_position": 0.1659,
+     "position_gap": 0.0357,
+     "physical_gap": 1.0978,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "svf_30km",
+    "FeO",
+    "tpi_7km"
+   ],
+   "partial": [
+    "roughness_5.25km",
+    "tpi_21km",
+    "roughness_42km",
+    "SiO2",
+    "roughness_10.5km",
+    "roughness_21km"
+   ],
+   "differs": [
+    "slope",
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "svf_30km",
+    "FeO",
+    "tpi_7km"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "slope"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "open_sky",
+      "group": "terrain",
+      "label": "Open sky",
+      "variables": [
+       "svf_30km"
+      ],
+      "text": "The same share of the sky is open: rehearse solar-power siting and antenna pointing under the same horizon."
+     },
+     {
+      "key": "iron",
+      "group": "composition",
+      "label": "Iron oxide",
+      "variables": [
+       "FeO"
+      ],
+      "text": "The ground is as iron-rich as the target's: practise spectrometer and resource-prospecting work on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [
+     {
+      "key": "slope",
+      "group": "terrain",
+      "label": "Slope",
+      "variables": [
+       "slope"
+      ],
+      "text": "Gradients are different: mobility and landing-slope results from this site do not transfer."
+     }
+    ],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 3,
+   "patch_cells": 6902,
+   "patch_area_km2": 279781.4
+  },
+  {
+   "lat": -15.3654,
+   "lon": -72.9492,
+   "healpix_pixel": 7438108,
+   "di_combined": 10.1216,
+   "di_target": 2.4097,
+   "di_group": {
+    "terrain": 6.6801,
+    "thermal": 19.4992,
+    "composition": 0.4934
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 19.4992
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "new candidate",
+    "name": null,
+    "citation": null,
+    "distance_km": 441.1
+   },
+   "koppen": {
+    "code": 29,
+    "symbol": "ET",
+    "description": "Polar, tundra"
+   },
+   "lithology": {
+    "l1_code": "vi",
+    "description": "intermediate volcanic",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 6.8729,
+     "target_median": 17.5913,
+     "earth_position": 0.2397,
+     "target_position": 0.6135,
+     "position_gap": -0.3738,
+     "physical_gap": -10.7184,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 203.5984,
+     "target_median": 494.6819,
+     "earth_position": 0.2175,
+     "target_position": 0.5284,
+     "position_gap": -0.3109,
+     "physical_gap": -291.0834,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 427.42,
+     "target_median": 870.7702,
+     "earth_position": 0.2717,
+     "target_position": 0.5536,
+     "position_gap": -0.2818,
+     "physical_gap": -443.3503,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 805.6199,
+     "target_median": 1367.1734,
+     "earth_position": 0.3271,
+     "target_position": 0.555,
+     "position_gap": -0.228,
+     "physical_gap": -561.5535,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 994.114,
+     "target_median": 1487.5202,
+     "earth_position": 0.3288,
+     "target_position": 0.492,
+     "position_gap": -0.1632,
+     "physical_gap": -493.4062,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 645.5065,
+     "target_median": 1102.0415,
+     "earth_position": 0.6874,
+     "target_position": 0.7902,
+     "position_gap": -0.1028,
+     "physical_gap": -456.5349,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 91.0391,
+     "target_median": 163.3783,
+     "earth_position": 0.686,
+     "target_position": 0.7616,
+     "position_gap": -0.0756,
+     "physical_gap": -72.3392,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.9468,
+     "target_median": 0.885,
+     "earth_position": 0.8595,
+     "target_position": 0.696,
+     "position_gap": 0.1634,
+     "physical_gap": 0.0618,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 279.1835,
+     "target_median": 157.1469,
+     "earth_position": 0.8721,
+     "target_position": 0.4274,
+     "position_gap": 0.4447,
+     "physical_gap": 122.0367,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 26.6675,
+     "target_median": 209.6139,
+     "earth_position": 0.0755,
+     "target_position": 0.6054,
+     "position_gap": -0.53,
+     "physical_gap": -182.9464,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 58.5,
+     "target_median": 45.846,
+     "earth_position": 0.6686,
+     "target_position": 0.5215,
+     "position_gap": 0.1471,
+     "physical_gap": 12.654,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 6.2,
+     "target_median": 5.1022,
+     "earth_position": 0.2016,
+     "target_position": 0.1659,
+     "position_gap": 0.0357,
+     "physical_gap": 1.0978,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "FeO",
+    "tpi_7km"
+   ],
+   "partial": [
+    "tpi_21km",
+    "SiO2",
+    "roughness_42km",
+    "svf_30km",
+    "roughness_21km"
+   ],
+   "differs": [
+    "roughness_10.5km",
+    "roughness_5.25km",
+    "slope",
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "FeO",
+    "tpi_7km",
+    "tpi_21km"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "slope"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "iron",
+      "group": "composition",
+      "label": "Iron oxide",
+      "variables": [
+       "FeO"
+      ],
+      "text": "The ground is as iron-rich as the target's: practise spectrometer and resource-prospecting work on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [
+     {
+      "key": "slope",
+      "group": "terrain",
+      "label": "Slope",
+      "variables": [
+       "slope"
+      ],
+      "text": "Gradients are different: mobility and landing-slope results from this site do not transfer."
+     },
+     {
+      "key": "relief_local",
+      "group": "terrain",
+      "label": "Relief over 5 to 10 km",
+      "variables": [
+       "roughness_5.25km",
+       "roughness_10.5km"
+      ],
+      "text": "Local relief is different: short-traverse and descent planning from this site does not transfer."
+     }
+    ],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 4,
+   "patch_cells": 103,
+   "patch_area_km2": 4175.2
+  },
+  {
+   "lat": -28.9715,
+   "lon": -67.8955,
+   "healpix_pixel": 12304917,
+   "di_combined": 10.1318,
+   "di_target": 2.4121,
+   "di_group": {
+    "terrain": 6.2324,
+    "thermal": 19.6728,
+    "composition": 0.5404
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 19.6728
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "new candidate",
+    "name": null,
+    "citation": null,
+    "distance_km": 515.1
+   },
+   "koppen": {
+    "code": 29,
+    "symbol": "ET",
+    "description": "Polar, tundra"
+   },
+   "lithology": {
+    "l1_code": "sm",
+    "description": "mixed sedimentary",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 11.0589,
+     "target_median": 17.5913,
+     "earth_position": 0.3857,
+     "target_position": 0.6135,
+     "position_gap": -0.2278,
+     "physical_gap": -6.5324,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 324.6531,
+     "target_median": 494.6819,
+     "earth_position": 0.3468,
+     "target_position": 0.5284,
+     "position_gap": -0.1816,
+     "physical_gap": -170.0288,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 612.7267,
+     "target_median": 870.7702,
+     "earth_position": 0.3895,
+     "target_position": 0.5536,
+     "position_gap": -0.164,
+     "physical_gap": -258.0436,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 965.7087,
+     "target_median": 1367.1734,
+     "earth_position": 0.392,
+     "target_position": 0.555,
+     "position_gap": -0.163,
+     "physical_gap": -401.4647,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 1093.5802,
+     "target_median": 1487.5202,
+     "earth_position": 0.3617,
+     "target_position": 0.492,
+     "position_gap": -0.1303,
+     "physical_gap": -393.94,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 256.0983,
+     "target_median": 1102.0415,
+     "earth_position": 0.5997,
+     "target_position": 0.7902,
+     "position_gap": -0.1906,
+     "physical_gap": -845.9431,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": -7.4106,
+     "target_median": 163.3783,
+     "earth_position": 0.5831,
+     "target_position": 0.7616,
+     "position_gap": -0.1785,
+     "physical_gap": -170.7888,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.8914,
+     "target_median": 0.885,
+     "earth_position": 0.7127,
+     "target_position": 0.696,
+     "position_gap": 0.0167,
+     "physical_gap": 0.0063,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 273.6569,
+     "target_median": 157.1469,
+     "earth_position": 0.852,
+     "target_position": 0.4274,
+     "position_gap": 0.4246,
+     "physical_gap": 116.51,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 22.6758,
+     "target_median": 209.6139,
+     "earth_position": 0.0639,
+     "target_position": 0.6054,
+     "position_gap": -0.5415,
+     "physical_gap": -186.9381,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 45.0,
+     "target_median": 45.846,
+     "earth_position": 0.5116,
+     "target_position": 0.5215,
+     "position_gap": -0.0098,
+     "physical_gap": -0.846,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 3.1,
+     "target_median": 5.1022,
+     "earth_position": 0.1008,
+     "target_position": 0.1659,
+     "position_gap": -0.0651,
+     "physical_gap": -2.0022,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "SiO2",
+    "svf_30km",
+    "FeO"
+   ],
+   "partial": [
+    "roughness_42km",
+    "roughness_21km",
+    "roughness_10.5km",
+    "tpi_7km",
+    "roughness_5.25km",
+    "tpi_21km",
+    "slope"
+   ],
+   "differs": [
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "SiO2",
+    "svf_30km",
+    "FeO"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "slope"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "open_sky",
+      "group": "terrain",
+      "label": "Open sky",
+      "variables": [
+       "svf_30km"
+      ],
+      "text": "The same share of the sky is open: rehearse solar-power siting and antenna pointing under the same horizon."
+     },
+     {
+      "key": "rock_type",
+      "group": "composition",
+      "label": "Silica (rock type)",
+      "variables": [
+       "SiO2"
+      ],
+      "text": "The rock is of the same bulk type as the target's (basalt-like or silica-rich): practise sampling, drilling and contact instruments on it. Composition is a weak variable; check the site's rock in the field."
+     },
+     {
+      "key": "iron",
+      "group": "composition",
+      "label": "Iron oxide",
+      "variables": [
+       "FeO"
+      ],
+      "text": "The ground is as iron-rich as the target's: practise spectrometer and resource-prospecting work on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 5,
+   "patch_cells": 46,
+   "patch_area_km2": 1864.7
+  },
+  {
+   "lat": -15.0948,
+   "lon": -73.2568,
+   "healpix_pixel": 7438230,
+   "di_combined": 10.154,
+   "di_target": 2.4174,
+   "di_group": {
+    "terrain": 6.9714,
+    "thermal": 19.4112,
+    "composition": 0.4934
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 19.4112
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "new candidate",
+    "name": null,
+    "citation": null,
+    "distance_km": 482.7
+   },
+   "koppen": {
+    "code": 29,
+    "symbol": "ET",
+    "description": "Polar, tundra"
+   },
+   "lithology": {
+    "l1_code": "vi",
+    "description": "intermediate volcanic",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 6.2803,
+     "target_median": 17.5913,
+     "earth_position": 0.219,
+     "target_position": 0.6135,
+     "position_gap": -0.3945,
+     "physical_gap": -11.311,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 164.3794,
+     "target_median": 494.6819,
+     "earth_position": 0.1756,
+     "target_position": 0.5284,
+     "position_gap": -0.3528,
+     "physical_gap": -330.3025,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 386.6028,
+     "target_median": 870.7702,
+     "earth_position": 0.2458,
+     "target_position": 0.5536,
+     "position_gap": -0.3078,
+     "physical_gap": -484.1674,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 676.6866,
+     "target_median": 1367.1734,
+     "earth_position": 0.2747,
+     "target_position": 0.555,
+     "position_gap": -0.2803,
+     "physical_gap": -690.4868,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 739.4091,
+     "target_median": 1487.5202,
+     "earth_position": 0.2445,
+     "target_position": 0.492,
+     "position_gap": -0.2474,
+     "physical_gap": -748.1111,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 660.9185,
+     "target_median": 1102.0415,
+     "earth_position": 0.6909,
+     "target_position": 0.7902,
+     "position_gap": -0.0994,
+     "physical_gap": -441.1229,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 121.7215,
+     "target_median": 163.3783,
+     "earth_position": 0.7181,
+     "target_position": 0.7616,
+     "position_gap": -0.0435,
+     "physical_gap": -41.6568,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.9641,
+     "target_median": 0.885,
+     "earth_position": 0.9051,
+     "target_position": 0.696,
+     "position_gap": 0.2091,
+     "physical_gap": 0.0791,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 280.16,
+     "target_median": 157.1469,
+     "earth_position": 0.8757,
+     "target_position": 0.4274,
+     "position_gap": 0.4483,
+     "physical_gap": 123.0131,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 28.0383,
+     "target_median": 209.6139,
+     "earth_position": 0.0794,
+     "target_position": 0.6054,
+     "position_gap": -0.526,
+     "physical_gap": -181.5756,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 58.5,
+     "target_median": 45.846,
+     "earth_position": 0.6686,
+     "target_position": 0.5215,
+     "position_gap": 0.1471,
+     "physical_gap": 12.654,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 6.2,
+     "target_median": 5.1022,
+     "earth_position": 0.2016,
+     "target_position": 0.1659,
+     "position_gap": 0.0357,
+     "physical_gap": 1.0978,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "FeO",
+    "tpi_7km",
+    "tpi_21km"
+   ],
+   "partial": [
+    "SiO2",
+    "svf_30km",
+    "roughness_42km"
+   ],
+   "differs": [
+    "roughness_21km",
+    "roughness_10.5km",
+    "roughness_5.25km",
+    "slope",
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "FeO",
+    "tpi_7km",
+    "tpi_21km"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "slope"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "landform",
+      "group": "terrain",
+      "label": "Landform position (bowl or ridge)",
+      "variables": [
+       "tpi_7km",
+       "tpi_21km"
+      ],
+      "text": "The site sits in the same kind of landform as the target (basin floor, slope or ridge): access routes and what can be seen from the ground behave alike."
+     },
+     {
+      "key": "iron",
+      "group": "composition",
+      "label": "Iron oxide",
+      "variables": [
+       "FeO"
+      ],
+      "text": "The ground is as iron-rich as the target's: practise spectrometer and resource-prospecting work on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [
+     {
+      "key": "slope",
+      "group": "terrain",
+      "label": "Slope",
+      "variables": [
+       "slope"
+      ],
+      "text": "Gradients are different: mobility and landing-slope results from this site do not transfer."
+     },
+     {
+      "key": "relief_local",
+      "group": "terrain",
+      "label": "Relief over 5 to 10 km",
+      "variables": [
+       "roughness_5.25km",
+       "roughness_10.5km"
+      ],
+      "text": "Local relief is different: short-traverse and descent planning from this site does not transfer."
+     },
+     {
+      "key": "relief_regional",
+      "group": "terrain",
+      "label": "Relief over 21 to 42 km",
+      "variables": [
+       "roughness_21km",
+       "roughness_42km"
+      ],
+      "text": "Regional relief is different: long-range route and communication planning from this site does not transfer."
+     }
+    ],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 6,
+   "patch_cells": 32,
+   "patch_area_km2": 1297.2
+  },
+  {
+   "lat": -15.3654,
+   "lon": -73.3887,
+   "healpix_pixel": 7438123,
+   "di_combined": 10.239,
+   "di_target": 2.4376,
+   "di_group": {
+    "terrain": 6.5917,
+    "thermal": 19.8032,
+    "composition": 0.4934
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 19.8032
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "new candidate",
+    "name": null,
+    "citation": null,
+    "distance_km": 485.7
+   },
+   "koppen": {
+    "code": 29,
+    "symbol": "ET",
+    "description": "Polar, tundra"
+   },
+   "lithology": {
+    "l1_code": "vi",
+    "description": "intermediate volcanic",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 8.1899,
+     "target_median": 17.5913,
+     "earth_position": 0.2856,
+     "target_position": 0.6135,
+     "position_gap": -0.3279,
+     "physical_gap": -9.4014,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 234.1633,
+     "target_median": 494.6819,
+     "earth_position": 0.2501,
+     "target_position": 0.5284,
+     "position_gap": -0.2783,
+     "physical_gap": -260.5186,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 469.1506,
+     "target_median": 870.7702,
+     "earth_position": 0.2982,
+     "target_position": 0.5536,
+     "position_gap": -0.2553,
+     "physical_gap": -401.6197,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 802.5294,
+     "target_median": 1367.1734,
+     "earth_position": 0.3258,
+     "target_position": 0.555,
+     "position_gap": -0.2292,
+     "physical_gap": -564.644,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 737.1846,
+     "target_median": 1487.5202,
+     "earth_position": 0.2438,
+     "target_position": 0.492,
+     "position_gap": -0.2482,
+     "physical_gap": -750.3356,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 495.2507,
+     "target_median": 1102.0415,
+     "earth_position": 0.6535,
+     "target_position": 0.7902,
+     "position_gap": -0.1367,
+     "physical_gap": -606.7908,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 57.6904,
+     "target_median": 163.3783,
+     "earth_position": 0.6512,
+     "target_position": 0.7616,
+     "position_gap": -0.1105,
+     "physical_gap": -105.6878,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.9307,
+     "target_median": 0.885,
+     "earth_position": 0.8167,
+     "target_position": 0.696,
+     "position_gap": 0.1207,
+     "physical_gap": 0.0456,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 286.4121,
+     "target_median": 157.1469,
+     "earth_position": 0.8985,
+     "target_position": 0.4274,
+     "position_gap": 0.471,
+     "physical_gap": 129.2652,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 25.8283,
+     "target_median": 209.6139,
+     "earth_position": 0.073,
+     "target_position": 0.6054,
+     "position_gap": -0.5324,
+     "physical_gap": -183.7856,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 58.5,
+     "target_median": 45.846,
+     "earth_position": 0.6686,
+     "target_position": 0.5215,
+     "position_gap": 0.1471,
+     "physical_gap": 12.654,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 6.2,
+     "target_median": 5.1022,
+     "earth_position": 0.2016,
+     "target_position": 0.1659,
+     "position_gap": 0.0357,
+     "physical_gap": 1.0978,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "FeO"
+   ],
+   "partial": [
+    "tpi_7km",
+    "svf_30km",
+    "tpi_21km",
+    "SiO2",
+    "roughness_21km",
+    "roughness_42km"
+   ],
+   "differs": [
+    "roughness_10.5km",
+    "roughness_5.25km",
+    "slope",
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "FeO",
+    "tpi_7km",
+    "svf_30km"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "slope"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "iron",
+      "group": "composition",
+      "label": "Iron oxide",
+      "variables": [
+       "FeO"
+      ],
+      "text": "The ground is as iron-rich as the target's: practise spectrometer and resource-prospecting work on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [
+     {
+      "key": "slope",
+      "group": "terrain",
+      "label": "Slope",
+      "variables": [
+       "slope"
+      ],
+      "text": "Gradients are different: mobility and landing-slope results from this site do not transfer."
+     },
+     {
+      "key": "relief_local",
+      "group": "terrain",
+      "label": "Relief over 5 to 10 km",
+      "variables": [
+       "roughness_5.25km",
+       "roughness_10.5km"
+      ],
+      "text": "Local relief is different: short-traverse and descent planning from this site does not transfer."
+     }
+    ],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 7,
+   "patch_cells": 30,
+   "patch_area_km2": 1216.1
+  },
+  {
+   "lat": -3.0976,
+   "lon": 37.3535,
+   "healpix_pixel": 4529655,
+   "di_combined": 10.24,
+   "di_target": 2.4378,
+   "di_group": {
+    "terrain": 6.4273,
+    "thermal": 19.8406,
+    "composition": 0.4934
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 19.8406
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "known",
+    "name": "Kilimanjaro",
+    "citation": "Preston & Dartnell 2014, Int. J. Astrobiology 13(1) 81-98",
+    "distance_km": 3.7
+   },
+   "koppen": {
+    "code": 29,
+    "symbol": "ET",
+    "description": "Polar, tundra"
+   },
+   "lithology": {
+    "l1_code": "vi",
+    "description": "intermediate volcanic",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 13.0851,
+     "target_median": 17.5913,
+     "earth_position": 0.4563,
+     "target_position": 0.6135,
+     "position_gap": -0.1571,
+     "physical_gap": -4.5062,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 458.1745,
+     "target_median": 494.6819,
+     "earth_position": 0.4894,
+     "target_position": 0.5284,
+     "position_gap": -0.039,
+     "physical_gap": -36.5074,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 724.1357,
+     "target_median": 870.7702,
+     "earth_position": 0.4603,
+     "target_position": 0.5536,
+     "position_gap": -0.0932,
+     "physical_gap": -146.6345,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 887.0631,
+     "target_median": 1367.1734,
+     "earth_position": 0.3601,
+     "target_position": 0.555,
+     "position_gap": -0.1949,
+     "physical_gap": -480.1103,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 974.3189,
+     "target_median": 1487.5202,
+     "earth_position": 0.3222,
+     "target_position": 0.492,
+     "position_gap": -0.1697,
+     "physical_gap": -513.2014,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 871.5231,
+     "target_median": 1102.0415,
+     "earth_position": 0.7383,
+     "target_position": 0.7902,
+     "position_gap": -0.0519,
+     "physical_gap": -230.5184,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 137.7061,
+     "target_median": 163.3783,
+     "earth_position": 0.7348,
+     "target_position": 0.7616,
+     "position_gap": -0.0268,
+     "physical_gap": -25.6722,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.8873,
+     "target_median": 0.885,
+     "earth_position": 0.702,
+     "target_position": 0.696,
+     "position_gap": 0.006,
+     "physical_gap": 0.0023,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 276.6313,
+     "target_median": 157.1469,
+     "earth_position": 0.8628,
+     "target_position": 0.4274,
+     "position_gap": 0.4354,
+     "physical_gap": 119.4844,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 21.82,
+     "target_median": 209.6139,
+     "earth_position": 0.0614,
+     "target_position": 0.6054,
+     "position_gap": -0.544,
+     "physical_gap": -187.7939,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 58.5,
+     "target_median": 45.846,
+     "earth_position": 0.6686,
+     "target_position": 0.5215,
+     "position_gap": 0.1471,
+     "physical_gap": 12.654,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 6.2,
+     "target_median": 5.1022,
+     "earth_position": 0.2016,
+     "target_position": 0.1659,
+     "position_gap": 0.0357,
+     "physical_gap": 1.0978,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "svf_30km",
+    "tpi_7km",
+    "FeO",
+    "roughness_5.25km",
+    "tpi_21km",
+    "roughness_10.5km"
+   ],
+   "partial": [
+    "SiO2",
+    "slope",
+    "roughness_42km",
+    "roughness_21km"
+   ],
+   "differs": [
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "svf_30km",
+    "tpi_7km",
+    "FeO"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "roughness_21km"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "relief_local",
+      "group": "terrain",
+      "label": "Relief over 5 to 10 km",
+      "variables": [
+       "roughness_5.25km",
+       "roughness_10.5km"
+      ],
+      "text": "Local relief is like the target's: plan and rehearse short traverses and descent paths over the same ups and downs."
+     },
+     {
+      "key": "landform",
+      "group": "terrain",
+      "label": "Landform position (bowl or ridge)",
+      "variables": [
+       "tpi_7km",
+       "tpi_21km"
+      ],
+      "text": "The site sits in the same kind of landform as the target (basin floor, slope or ridge): access routes and what can be seen from the ground behave alike."
+     },
+     {
+      "key": "open_sky",
+      "group": "terrain",
+      "label": "Open sky",
+      "variables": [
+       "svf_30km"
+      ],
+      "text": "The same share of the sky is open: rehearse solar-power siting and antenna pointing under the same horizon."
+     },
+     {
+      "key": "iron",
+      "group": "composition",
+      "label": "Iron oxide",
+      "variables": [
+       "FeO"
+      ],
+      "text": "The ground is as iron-rich as the target's: practise spectrometer and resource-prospecting work on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 8,
+   "patch_cells": 23,
+   "patch_area_km2": 932.3
+  },
+  {
+   "lat": 14.9789,
+   "lon": -24.4336,
+   "healpix_pixel": 4974496,
+   "di_combined": 10.2917,
+   "di_target": 2.4502,
+   "di_group": {
+    "terrain": 4.7568,
+    "thermal": 20.6227,
+    "composition": 1.373
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 20.6227
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "new candidate",
+    "name": null,
+    "citation": null,
+    "distance_km": 1375.7
+   },
+   "koppen": {
+    "code": 6,
+    "symbol": "BSh",
+    "description": "Arid, steppe, hot"
+   },
+   "lithology": {
+    "l1_code": "vb",
+    "description": "basic volcanic",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 14.1507,
+     "target_median": 17.5913,
+     "earth_position": 0.4935,
+     "target_position": 0.6135,
+     "position_gap": -0.12,
+     "physical_gap": -3.4406,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 393.0086,
+     "target_median": 494.6819,
+     "earth_position": 0.4198,
+     "target_position": 0.5284,
+     "position_gap": -0.1086,
+     "physical_gap": -101.6733,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 758.015,
+     "target_median": 870.7702,
+     "earth_position": 0.4819,
+     "target_position": 0.5536,
+     "position_gap": -0.0717,
+     "physical_gap": -112.7553,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 1204.1912,
+     "target_median": 1367.1734,
+     "earth_position": 0.4889,
+     "target_position": 0.555,
+     "position_gap": -0.0662,
+     "physical_gap": -162.9822,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 1418.0089,
+     "target_median": 1487.5202,
+     "earth_position": 0.469,
+     "target_position": 0.492,
+     "position_gap": -0.023,
+     "physical_gap": -69.5113,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 728.416,
+     "target_median": 1102.0415,
+     "earth_position": 0.7061,
+     "target_position": 0.7902,
+     "position_gap": -0.0842,
+     "physical_gap": -373.6255,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 93.58,
+     "target_median": 163.3783,
+     "earth_position": 0.6887,
+     "target_position": 0.7616,
+     "position_gap": -0.073,
+     "physical_gap": -69.7983,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.9025,
+     "target_median": 0.885,
+     "earth_position": 0.7423,
+     "target_position": 0.696,
+     "position_gap": 0.0462,
+     "physical_gap": 0.0175,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 295.1171,
+     "target_median": 157.1469,
+     "earth_position": 0.9302,
+     "target_position": 0.4274,
+     "position_gap": 0.5028,
+     "physical_gap": 137.9702,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 19.61,
+     "target_median": 209.6139,
+     "earth_position": 0.055,
+     "target_position": 0.6054,
+     "position_gap": -0.5504,
+     "physical_gap": -190.0039,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 49.5,
+     "target_median": 45.846,
+     "earth_position": 0.564,
+     "target_position": 0.5215,
+     "position_gap": 0.0425,
+     "physical_gap": 3.654,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 10.2,
+     "target_median": 5.1022,
+     "earth_position": 0.3317,
+     "target_position": 0.1659,
+     "position_gap": 0.1658,
+     "physical_gap": 5.0978,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "roughness_42km",
+    "SiO2",
+    "svf_30km",
+    "roughness_21km",
+    "roughness_10.5km",
+    "tpi_7km",
+    "tpi_21km"
+   ],
+   "partial": [
+    "roughness_5.25km",
+    "slope",
+    "FeO"
+   ],
+   "differs": [
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "roughness_42km",
+    "SiO2",
+    "svf_30km"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "FeO"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "relief_regional",
+      "group": "terrain",
+      "label": "Relief over 21 to 42 km",
+      "variables": [
+       "roughness_21km",
+       "roughness_42km"
+      ],
+      "text": "Regional relief is like the target's: rehearse long traverses and line-of-sight communication across the same scale of hills and basins."
+     },
+     {
+      "key": "landform",
+      "group": "terrain",
+      "label": "Landform position (bowl or ridge)",
+      "variables": [
+       "tpi_7km",
+       "tpi_21km"
+      ],
+      "text": "The site sits in the same kind of landform as the target (basin floor, slope or ridge): access routes and what can be seen from the ground behave alike."
+     },
+     {
+      "key": "open_sky",
+      "group": "terrain",
+      "label": "Open sky",
+      "variables": [
+       "svf_30km"
+      ],
+      "text": "The same share of the sky is open: rehearse solar-power siting and antenna pointing under the same horizon."
+     },
+     {
+      "key": "rock_type",
+      "group": "composition",
+      "label": "Silica (rock type)",
+      "variables": [
+       "SiO2"
+      ],
+      "text": "The rock is of the same bulk type as the target's (basalt-like or silica-rich): practise sampling, drilling and contact instruments on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 9,
+   "patch_cells": 11,
+   "patch_area_km2": 445.9
+  },
+  {
+   "lat": -12.6739,
+   "lon": -76.1133,
+   "healpix_pixel": 7462803,
+   "di_combined": 10.3212,
+   "di_target": 2.4572,
+   "di_group": {
+    "terrain": 6.5749,
+    "thermal": 19.9899,
+    "composition": 0.4934
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 19.9899
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "new candidate",
+    "name": null,
+    "citation": null,
+    "distance_km": 879.8
+   },
+   "koppen": {
+    "code": 29,
+    "symbol": "ET",
+    "description": "Polar, tundra"
+   },
+   "lithology": {
+    "l1_code": "vi",
+    "description": "intermediate volcanic",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 8.5444,
+     "target_median": 17.5913,
+     "earth_position": 0.298,
+     "target_position": 0.6135,
+     "position_gap": -0.3155,
+     "physical_gap": -9.0469,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 240.5976,
+     "target_median": 494.6819,
+     "earth_position": 0.257,
+     "target_position": 0.5284,
+     "position_gap": -0.2714,
+     "physical_gap": -254.0842,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 439.7701,
+     "target_median": 870.7702,
+     "earth_position": 0.2796,
+     "target_position": 0.5536,
+     "position_gap": -0.274,
+     "physical_gap": -431.0002,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 744.457,
+     "target_median": 1367.1734,
+     "earth_position": 0.3022,
+     "target_position": 0.555,
+     "position_gap": -0.2528,
+     "physical_gap": -622.7164,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 1013.617,
+     "target_median": 1487.5202,
+     "earth_position": 0.3352,
+     "target_position": 0.492,
+     "position_gap": -0.1567,
+     "physical_gap": -473.9032,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 700.0434,
+     "target_median": 1102.0415,
+     "earth_position": 0.6997,
+     "target_position": 0.7902,
+     "position_gap": -0.0906,
+     "physical_gap": -401.9981,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 121.8937,
+     "target_median": 163.3783,
+     "earth_position": 0.7183,
+     "target_position": 0.7616,
+     "position_gap": -0.0434,
+     "physical_gap": -41.4846,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.9458,
+     "target_median": 0.885,
+     "earth_position": 0.8567,
+     "target_position": 0.696,
+     "position_gap": 0.1606,
+     "physical_gap": 0.0607,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 283.7096,
+     "target_median": 157.1469,
+     "earth_position": 0.8886,
+     "target_position": 0.4274,
+     "position_gap": 0.4612,
+     "physical_gap": 126.5627,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 22.6783,
+     "target_median": 209.6139,
+     "earth_position": 0.0639,
+     "target_position": 0.6054,
+     "position_gap": -0.5415,
+     "physical_gap": -186.9356,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 58.5,
+     "target_median": 45.846,
+     "earth_position": 0.6686,
+     "target_position": 0.5215,
+     "position_gap": 0.1471,
+     "physical_gap": 12.654,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 6.2,
+     "target_median": 5.1022,
+     "earth_position": 0.2016,
+     "target_position": 0.1659,
+     "position_gap": 0.0357,
+     "physical_gap": 1.0978,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "FeO",
+    "tpi_7km",
+    "tpi_21km"
+   ],
+   "partial": [
+    "SiO2",
+    "roughness_42km",
+    "svf_30km"
+   ],
+   "differs": [
+    "roughness_21km",
+    "roughness_5.25km",
+    "roughness_10.5km",
+    "slope",
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "FeO",
+    "tpi_7km",
+    "tpi_21km"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "slope"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "landform",
+      "group": "terrain",
+      "label": "Landform position (bowl or ridge)",
+      "variables": [
+       "tpi_7km",
+       "tpi_21km"
+      ],
+      "text": "The site sits in the same kind of landform as the target (basin floor, slope or ridge): access routes and what can be seen from the ground behave alike."
+     },
+     {
+      "key": "iron",
+      "group": "composition",
+      "label": "Iron oxide",
+      "variables": [
+       "FeO"
+      ],
+      "text": "The ground is as iron-rich as the target's: practise spectrometer and resource-prospecting work on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [
+     {
+      "key": "slope",
+      "group": "terrain",
+      "label": "Slope",
+      "variables": [
+       "slope"
+      ],
+      "text": "Gradients are different: mobility and landing-slope results from this site do not transfer."
+     },
+     {
+      "key": "relief_local",
+      "group": "terrain",
+      "label": "Relief over 5 to 10 km",
+      "variables": [
+       "roughness_5.25km",
+       "roughness_10.5km"
+      ],
+      "text": "Local relief is different: short-traverse and descent planning from this site does not transfer."
+     },
+     {
+      "key": "relief_regional",
+      "group": "terrain",
+      "label": "Relief over 21 to 42 km",
+      "variables": [
+       "roughness_21km",
+       "roughness_42km"
+      ],
+      "text": "Regional relief is different: long-range route and communication planning from this site does not transfer."
+     }
+    ],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 10,
+   "patch_cells": 23,
+   "patch_area_km2": 932.3
+  },
+  {
+   "lat": -10.6551,
+   "lon": -77.2119,
+   "healpix_pixel": 7645189,
+   "di_combined": 10.3271,
+   "di_target": 2.4586,
+   "di_group": {
+    "terrain": 6.6794,
+    "thermal": 19.9431,
+    "composition": 0.2571
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 19.9431
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "new candidate",
+    "name": null,
+    "citation": null,
+    "distance_km": 1106.2
+   },
+   "koppen": {
+    "code": 29,
+    "symbol": "ET",
+    "description": "Polar, tundra"
+   },
+   "lithology": {
+    "l1_code": "sm",
+    "description": "mixed sedimentary",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 12.9063,
+     "target_median": 17.5913,
+     "earth_position": 0.4501,
+     "target_position": 0.6135,
+     "position_gap": -0.1634,
+     "physical_gap": -4.685,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 471.7954,
+     "target_median": 494.6819,
+     "earth_position": 0.5039,
+     "target_position": 0.5284,
+     "position_gap": -0.0244,
+     "physical_gap": -22.8865,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 733.932,
+     "target_median": 870.7702,
+     "earth_position": 0.4666,
+     "target_position": 0.5536,
+     "position_gap": -0.087,
+     "physical_gap": -136.8382,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 962.3322,
+     "target_median": 1367.1734,
+     "earth_position": 0.3907,
+     "target_position": 0.555,
+     "position_gap": -0.1644,
+     "physical_gap": -404.8412,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 1084.5624,
+     "target_median": 1487.5202,
+     "earth_position": 0.3587,
+     "target_position": 0.492,
+     "position_gap": -0.1333,
+     "physical_gap": -402.9579,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 609.3078,
+     "target_median": 1102.0415,
+     "earth_position": 0.6792,
+     "target_position": 0.7902,
+     "position_gap": -0.111,
+     "physical_gap": -492.7337,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 43.297,
+     "target_median": 163.3783,
+     "earth_position": 0.6361,
+     "target_position": 0.7616,
+     "position_gap": -0.1255,
+     "physical_gap": -120.0812,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.8438,
+     "target_median": 0.885,
+     "earth_position": 0.587,
+     "target_position": 0.696,
+     "position_gap": -0.109,
+     "physical_gap": -0.0412,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 282.5763,
+     "target_median": 157.1469,
+     "earth_position": 0.8845,
+     "target_position": 0.4274,
+     "position_gap": 0.4571,
+     "physical_gap": 125.4294,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 22.8017,
+     "target_median": 209.6139,
+     "earth_position": 0.0643,
+     "target_position": 0.6054,
+     "position_gap": -0.5412,
+     "physical_gap": -186.8122,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 51.0,
+     "target_median": 45.846,
+     "earth_position": 0.5814,
+     "target_position": 0.5215,
+     "position_gap": 0.0599,
+     "physical_gap": 5.154,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 4.49,
+     "target_median": 5.1022,
+     "earth_position": 0.146,
+     "target_position": 0.1659,
+     "position_gap": -0.0199,
+     "physical_gap": -0.6122,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "FeO",
+    "roughness_5.25km",
+    "SiO2",
+    "roughness_10.5km"
+   ],
+   "partial": [
+    "svf_30km",
+    "tpi_21km",
+    "tpi_7km",
+    "roughness_42km",
+    "slope",
+    "roughness_21km"
+   ],
+   "differs": [
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "FeO",
+    "roughness_5.25km",
+    "SiO2"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "roughness_21km"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "relief_local",
+      "group": "terrain",
+      "label": "Relief over 5 to 10 km",
+      "variables": [
+       "roughness_5.25km",
+       "roughness_10.5km"
+      ],
+      "text": "Local relief is like the target's: plan and rehearse short traverses and descent paths over the same ups and downs."
+     },
+     {
+      "key": "rock_type",
+      "group": "composition",
+      "label": "Silica (rock type)",
+      "variables": [
+       "SiO2"
+      ],
+      "text": "The rock is of the same bulk type as the target's (basalt-like or silica-rich): practise sampling, drilling and contact instruments on it. Composition is a weak variable; check the site's rock in the field."
+     },
+     {
+      "key": "iron",
+      "group": "composition",
+      "label": "Iron oxide",
+      "variables": [
+       "FeO"
+      ],
+      "text": "The ground is as iron-rich as the target's: practise spectrometer and resource-prospecting work on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 11,
+   "patch_cells": 34,
+   "patch_area_km2": 1378.2
+  },
+  {
+   "lat": -29.656,
+   "lon": -69.4775,
+   "healpix_pixel": 12293849,
+   "di_combined": 10.3301,
+   "di_target": 2.4593,
+   "di_group": {
+    "terrain": 7.5062,
+    "thermal": 19.5185,
+    "composition": 0.6791
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 19.5185
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "new candidate",
+    "name": null,
+    "citation": null,
+    "distance_km": 573.8
+   },
+   "koppen": {
+    "code": 29,
+    "symbol": "ET",
+    "description": "Polar, tundra"
+   },
+   "lithology": {
+    "l1_code": "sm",
+    "description": "mixed sedimentary",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 6.9367,
+     "target_median": 17.5913,
+     "earth_position": 0.2419,
+     "target_position": 0.6135,
+     "position_gap": -0.3716,
+     "physical_gap": -10.6545,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 256.95,
+     "target_median": 494.6819,
+     "earth_position": 0.2744,
+     "target_position": 0.5284,
+     "position_gap": -0.2539,
+     "physical_gap": -237.7319,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 448.4401,
+     "target_median": 870.7702,
+     "earth_position": 0.2851,
+     "target_position": 0.5536,
+     "position_gap": -0.2685,
+     "physical_gap": -422.3302,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 624.6783,
+     "target_median": 1367.1734,
+     "earth_position": 0.2536,
+     "target_position": 0.555,
+     "position_gap": -0.3014,
+     "physical_gap": -742.4951,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 702.8828,
+     "target_median": 1487.5202,
+     "earth_position": 0.2325,
+     "target_position": 0.492,
+     "position_gap": -0.2595,
+     "physical_gap": -784.6374,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 613.9226,
+     "target_median": 1102.0415,
+     "earth_position": 0.6803,
+     "target_position": 0.7902,
+     "position_gap": -0.11,
+     "physical_gap": -488.1189,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 71.406,
+     "target_median": 163.3783,
+     "earth_position": 0.6655,
+     "target_position": 0.7616,
+     "position_gap": -0.0961,
+     "physical_gap": -91.9722,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.922,
+     "target_median": 0.885,
+     "earth_position": 0.7939,
+     "target_position": 0.696,
+     "position_gap": 0.0978,
+     "physical_gap": 0.037,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 267.8695,
+     "target_median": 157.1469,
+     "earth_position": 0.8309,
+     "target_position": 0.4274,
+     "position_gap": 0.4035,
+     "physical_gap": 110.7226,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 22.3849,
+     "target_median": 209.6139,
+     "earth_position": 0.063,
+     "target_position": 0.6054,
+     "position_gap": -0.5424,
+     "physical_gap": -187.2289,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 38.4,
+     "target_median": 45.846,
+     "earth_position": 0.4349,
+     "target_position": 0.5215,
+     "position_gap": -0.0866,
+     "physical_gap": -7.446,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 2.66,
+     "target_median": 5.1022,
+     "earth_position": 0.0865,
+     "target_position": 0.1659,
+     "position_gap": -0.0794,
+     "physical_gap": -2.4422,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "FeO",
+    "SiO2",
+    "tpi_7km",
+    "svf_30km"
+   ],
+   "partial": [
+    "tpi_21km"
+   ],
+   "differs": [
+    "roughness_5.25km",
+    "roughness_42km",
+    "roughness_10.5km",
+    "roughness_21km",
+    "slope",
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "FeO",
+    "SiO2",
+    "tpi_7km"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "slope"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "open_sky",
+      "group": "terrain",
+      "label": "Open sky",
+      "variables": [
+       "svf_30km"
+      ],
+      "text": "The same share of the sky is open: rehearse solar-power siting and antenna pointing under the same horizon."
+     },
+     {
+      "key": "rock_type",
+      "group": "composition",
+      "label": "Silica (rock type)",
+      "variables": [
+       "SiO2"
+      ],
+      "text": "The rock is of the same bulk type as the target's (basalt-like or silica-rich): practise sampling, drilling and contact instruments on it. Composition is a weak variable; check the site's rock in the field."
+     },
+     {
+      "key": "iron",
+      "group": "composition",
+      "label": "Iron oxide",
+      "variables": [
+       "FeO"
+      ],
+      "text": "The ground is as iron-rich as the target's: practise spectrometer and resource-prospecting work on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [
+     {
+      "key": "slope",
+      "group": "terrain",
+      "label": "Slope",
+      "variables": [
+       "slope"
+      ],
+      "text": "Gradients are different: mobility and landing-slope results from this site do not transfer."
+     },
+     {
+      "key": "relief_local",
+      "group": "terrain",
+      "label": "Relief over 5 to 10 km",
+      "variables": [
+       "roughness_5.25km",
+       "roughness_10.5km"
+      ],
+      "text": "Local relief is different: short-traverse and descent planning from this site does not transfer."
+     },
+     {
+      "key": "relief_regional",
+      "group": "terrain",
+      "label": "Relief over 21 to 42 km",
+      "variables": [
+       "roughness_21km",
+       "roughness_42km"
+      ],
+      "text": "Regional relief is different: long-range route and communication planning from this site does not transfer."
+     }
+    ],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 12,
+   "patch_cells": 95,
+   "patch_area_km2": 3850.9
+  },
+  {
+   "lat": 31.914,
+   "lon": 78.7061,
+   "healpix_pixel": 328505,
+   "di_combined": 10.3489,
+   "di_target": 2.4638,
+   "di_group": {
+    "terrain": 6.8562,
+    "thermal": 19.9165,
+    "composition": 0.616
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 19.9165
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "new candidate",
+    "name": null,
+    "citation": null,
+    "distance_km": 737.6
+   },
+   "koppen": {
+    "code": 29,
+    "symbol": "ET",
+    "description": "Polar, tundra"
+   },
+   "lithology": {
+    "l1_code": "mt",
+    "description": "metamorphic rocks",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 8.9107,
+     "target_median": 17.5913,
+     "earth_position": 0.3108,
+     "target_position": 0.6135,
+     "position_gap": -0.3027,
+     "physical_gap": -8.6806,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 297.8644,
+     "target_median": 494.6819,
+     "earth_position": 0.3181,
+     "target_position": 0.5284,
+     "position_gap": -0.2102,
+     "physical_gap": -196.8175,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 549.8923,
+     "target_median": 870.7702,
+     "earth_position": 0.3496,
+     "target_position": 0.5536,
+     "position_gap": -0.204,
+     "physical_gap": -320.8779,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 961.4625,
+     "target_median": 1367.1734,
+     "earth_position": 0.3903,
+     "target_position": 0.555,
+     "position_gap": -0.1647,
+     "physical_gap": -405.7109,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 928.8807,
+     "target_median": 1487.5202,
+     "earth_position": 0.3072,
+     "target_position": 0.492,
+     "position_gap": -0.1848,
+     "physical_gap": -558.6396,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 797.2052,
+     "target_median": 1102.0415,
+     "earth_position": 0.7216,
+     "target_position": 0.7902,
+     "position_gap": -0.0687,
+     "physical_gap": -304.8363,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 118.1235,
+     "target_median": 163.3783,
+     "earth_position": 0.7143,
+     "target_position": 0.7616,
+     "position_gap": -0.0473,
+     "physical_gap": -45.2548,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.8961,
+     "target_median": 0.885,
+     "earth_position": 0.7253,
+     "target_position": 0.696,
+     "position_gap": 0.0292,
+     "physical_gap": 0.0111,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 264.744,
+     "target_median": 157.1469,
+     "earth_position": 0.8195,
+     "target_position": 0.4274,
+     "position_gap": 0.3921,
+     "physical_gap": 107.5971,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 16.7492,
+     "target_median": 209.6139,
+     "earth_position": 0.0467,
+     "target_position": 0.6054,
+     "position_gap": -0.5587,
+     "physical_gap": -192.8647,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 64.0,
+     "target_median": 45.846,
+     "earth_position": 0.7326,
+     "target_position": 0.5215,
+     "position_gap": 0.2111,
+     "physical_gap": 18.154,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 5.4,
+     "target_median": 5.1022,
+     "earth_position": 0.1756,
+     "target_position": 0.1659,
+     "position_gap": 0.0097,
+     "physical_gap": 0.2978,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "FeO",
+    "svf_30km",
+    "tpi_7km",
+    "tpi_21km"
+   ],
+   "partial": [
+    "roughness_21km",
+    "roughness_42km",
+    "roughness_10.5km",
+    "roughness_5.25km",
+    "SiO2"
+   ],
+   "differs": [
+    "slope",
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "FeO",
+    "svf_30km",
+    "tpi_7km"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "slope"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "landform",
+      "group": "terrain",
+      "label": "Landform position (bowl or ridge)",
+      "variables": [
+       "tpi_7km",
+       "tpi_21km"
+      ],
+      "text": "The site sits in the same kind of landform as the target (basin floor, slope or ridge): access routes and what can be seen from the ground behave alike."
+     },
+     {
+      "key": "open_sky",
+      "group": "terrain",
+      "label": "Open sky",
+      "variables": [
+       "svf_30km"
+      ],
+      "text": "The same share of the sky is open: rehearse solar-power siting and antenna pointing under the same horizon."
+     },
+     {
+      "key": "iron",
+      "group": "composition",
+      "label": "Iron oxide",
+      "variables": [
+       "FeO"
+      ],
+      "text": "The ground is as iron-rich as the target's: practise spectrometer and resource-prospecting work on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [
+     {
+      "key": "slope",
+      "group": "terrain",
+      "label": "Slope",
+      "variables": [
+       "slope"
+      ],
+      "text": "Gradients are different: mobility and landing-slope results from this site do not transfer."
+     }
+    ],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 13,
+   "patch_cells": 36,
+   "patch_area_km2": 1459.3
+  },
+  {
+   "lat": 36.7488,
+   "lon": 84.9023,
+   "healpix_pixel": 344355,
+   "di_combined": 10.3742,
+   "di_target": 2.4698,
+   "di_group": {
+    "terrain": 8.6847,
+    "thermal": 18.7382,
+    "composition": 1.1576
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 18.7382
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "new candidate",
+    "name": null,
+    "citation": null,
+    "distance_km": 849.4
+   },
+   "koppen": {
+    "code": 29,
+    "symbol": "ET",
+    "description": "Polar, tundra"
+   },
+   "lithology": {
+    "l1_code": "pa",
+    "description": "acid plutonic",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 9.8674,
+     "target_median": 17.5913,
+     "earth_position": 0.3441,
+     "target_position": 0.6135,
+     "position_gap": -0.2694,
+     "physical_gap": -7.7239,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 303.3643,
+     "target_median": 494.6819,
+     "earth_position": 0.324,
+     "target_position": 0.5284,
+     "position_gap": -0.2043,
+     "physical_gap": -191.3176,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 497.0501,
+     "target_median": 870.7702,
+     "earth_position": 0.316,
+     "target_position": 0.5536,
+     "position_gap": -0.2376,
+     "physical_gap": -373.7202,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 564.9719,
+     "target_median": 1367.1734,
+     "earth_position": 0.2294,
+     "target_position": 0.555,
+     "position_gap": -0.3257,
+     "physical_gap": -802.2015,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 515.7156,
+     "target_median": 1487.5202,
+     "earth_position": 0.1706,
+     "target_position": 0.492,
+     "position_gap": -0.3214,
+     "physical_gap": -971.8046,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 87.3532,
+     "target_median": 1102.0415,
+     "earth_position": 0.5616,
+     "target_position": 0.7902,
+     "position_gap": -0.2286,
+     "physical_gap": -1014.6882,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": -5.9074,
+     "target_median": 163.3783,
+     "earth_position": 0.5847,
+     "target_position": 0.7616,
+     "position_gap": -0.177,
+     "physical_gap": -169.2856,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.9055,
+     "target_median": 0.885,
+     "earth_position": 0.75,
+     "target_position": 0.696,
+     "position_gap": 0.054,
+     "physical_gap": 0.0204,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 274.45,
+     "target_median": 157.1469,
+     "earth_position": 0.8549,
+     "target_position": 0.4274,
+     "position_gap": 0.4275,
+     "physical_gap": 117.3031,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 33.6933,
+     "target_median": 209.6139,
+     "earth_position": 0.0958,
+     "target_position": 0.6054,
+     "position_gap": -0.5096,
+     "physical_gap": -175.9206,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 71.5,
+     "target_median": 45.846,
+     "earth_position": 0.8198,
+     "target_position": 0.5215,
+     "position_gap": 0.2983,
+     "physical_gap": 25.654,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 2.7,
+     "target_median": 5.1022,
+     "earth_position": 0.0878,
+     "target_position": 0.1659,
+     "position_gap": -0.0781,
+     "physical_gap": -2.4022,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "svf_30km",
+    "FeO"
+   ],
+   "partial": [
+    "tpi_7km",
+    "roughness_5.25km",
+    "tpi_21km",
+    "roughness_10.5km"
+   ],
+   "differs": [
+    "slope",
+    "SiO2",
+    "roughness_42km",
+    "roughness_21km",
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "svf_30km",
+    "FeO",
+    "tpi_7km"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "roughness_21km"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "open_sky",
+      "group": "terrain",
+      "label": "Open sky",
+      "variables": [
+       "svf_30km"
+      ],
+      "text": "The same share of the sky is open: rehearse solar-power siting and antenna pointing under the same horizon."
+     },
+     {
+      "key": "iron",
+      "group": "composition",
+      "label": "Iron oxide",
+      "variables": [
+       "FeO"
+      ],
+      "text": "The ground is as iron-rich as the target's: practise spectrometer and resource-prospecting work on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [
+     {
+      "key": "slope",
+      "group": "terrain",
+      "label": "Slope",
+      "variables": [
+       "slope"
+      ],
+      "text": "Gradients are different: mobility and landing-slope results from this site do not transfer."
+     },
+     {
+      "key": "relief_regional",
+      "group": "terrain",
+      "label": "Relief over 21 to 42 km",
+      "variables": [
+       "roughness_21km",
+       "roughness_42km"
+      ],
+      "text": "Regional relief is different: long-range route and communication planning from this site does not transfer."
+     },
+     {
+      "key": "rock_type",
+      "group": "composition",
+      "label": "Silica (rock type)",
+      "variables": [
+       "SiO2"
+      ],
+      "text": "The rock is of a different bulk type: sampling and drilling results from this site do not transfer."
+     }
+    ],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 14,
+   "patch_cells": 839,
+   "patch_area_km2": 34009.9
+  },
+  {
+   "lat": 38.5867,
+   "lon": 75.1025,
+   "healpix_pixel": 361873,
+   "di_combined": 10.3831,
+   "di_target": 2.4719,
+   "di_group": {
+    "terrain": 7.4275,
+    "thermal": 19.5347,
+    "composition": 0.9384
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 19.5347
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "new candidate",
+    "name": null,
+    "citation": null,
+    "distance_km": 151.0
+   },
+   "koppen": {
+    "code": 29,
+    "symbol": "ET",
+    "description": "Polar, tundra"
+   },
+   "lithology": {
+    "l1_code": "su",
+    "description": "unconsolidated sediments",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 11.349,
+     "target_median": 17.5913,
+     "earth_position": 0.3958,
+     "target_position": 0.6135,
+     "position_gap": -0.2177,
+     "physical_gap": -6.2423,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 329.0301,
+     "target_median": 494.6819,
+     "earth_position": 0.3514,
+     "target_position": 0.5284,
+     "position_gap": -0.1769,
+     "physical_gap": -165.6518,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 662.6111,
+     "target_median": 870.7702,
+     "earth_position": 0.4212,
+     "target_position": 0.5536,
+     "position_gap": -0.1323,
+     "physical_gap": -208.1591,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 914.9215,
+     "target_median": 1367.1734,
+     "earth_position": 0.3714,
+     "target_position": 0.555,
+     "position_gap": -0.1836,
+     "physical_gap": -452.2519,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 852.4183,
+     "target_median": 1487.5202,
+     "earth_position": 0.2819,
+     "target_position": 0.492,
+     "position_gap": -0.21,
+     "physical_gap": -635.1019,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 13.5481,
+     "target_median": 1102.0415,
+     "earth_position": 0.545,
+     "target_position": 0.7902,
+     "position_gap": -0.2452,
+     "physical_gap": -1088.4933,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": -56.0464,
+     "target_median": 163.3783,
+     "earth_position": 0.5323,
+     "target_position": 0.7616,
+     "position_gap": -0.2294,
+     "physical_gap": -219.4246,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.8694,
+     "target_median": 0.885,
+     "earth_position": 0.6547,
+     "target_position": 0.696,
+     "position_gap": -0.0413,
+     "physical_gap": -0.0156,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 269.8589,
+     "target_median": 157.1469,
+     "earth_position": 0.8381,
+     "target_position": 0.4274,
+     "position_gap": 0.4107,
+     "physical_gap": 112.7121,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 22.9033,
+     "target_median": 209.6139,
+     "earth_position": 0.0645,
+     "target_position": 0.6054,
+     "position_gap": -0.5409,
+     "physical_gap": -186.7106,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 28.4,
+     "target_median": 45.846,
+     "earth_position": 0.3186,
+     "target_position": 0.5215,
+     "position_gap": -0.2029,
+     "physical_gap": -17.446,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 2.14,
+     "target_median": 5.1022,
+     "earth_position": 0.0696,
+     "target_position": 0.1659,
+     "position_gap": -0.0963,
+     "physical_gap": -2.9622,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "svf_30km",
+    "FeO"
+   ],
+   "partial": [
+    "roughness_10.5km",
+    "roughness_5.25km",
+    "roughness_21km",
+    "SiO2",
+    "roughness_42km",
+    "slope",
+    "tpi_7km",
+    "tpi_21km"
+   ],
+   "differs": [
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "svf_30km",
+    "FeO",
+    "roughness_10.5km"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "tpi_21km"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "open_sky",
+      "group": "terrain",
+      "label": "Open sky",
+      "variables": [
+       "svf_30km"
+      ],
+      "text": "The same share of the sky is open: rehearse solar-power siting and antenna pointing under the same horizon."
+     },
+     {
+      "key": "iron",
+      "group": "composition",
+      "label": "Iron oxide",
+      "variables": [
+       "FeO"
+      ],
+      "text": "The ground is as iron-rich as the target's: practise spectrometer and resource-prospecting work on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 15,
+   "patch_cells": 5,
+   "patch_area_km2": 202.7
+  },
+  {
+   "lat": -11.796,
+   "lon": -76.5088,
+   "healpix_pixel": 7468498,
+   "di_combined": 10.3939,
+   "di_target": 2.4745,
+   "di_group": {
+    "terrain": 7.0722,
+    "thermal": 19.9138,
+    "composition": 0.4934
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 19.9138
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "new candidate",
+    "name": null,
+    "citation": null,
+    "distance_km": 969.1
+   },
+   "koppen": {
+    "code": 29,
+    "symbol": "ET",
+    "description": "Polar, tundra"
+   },
+   "lithology": {
+    "l1_code": "vi",
+    "description": "intermediate volcanic",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 8.1891,
+     "target_median": 17.5913,
+     "earth_position": 0.2856,
+     "target_position": 0.6135,
+     "position_gap": -0.3279,
+     "physical_gap": -9.4022,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 291.8507,
+     "target_median": 494.6819,
+     "earth_position": 0.3117,
+     "target_position": 0.5284,
+     "position_gap": -0.2166,
+     "physical_gap": -202.8312,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 483.7659,
+     "target_median": 870.7702,
+     "earth_position": 0.3075,
+     "target_position": 0.5536,
+     "position_gap": -0.246,
+     "physical_gap": -387.0044,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 873.045,
+     "target_median": 1367.1734,
+     "earth_position": 0.3544,
+     "target_position": 0.555,
+     "position_gap": -0.2006,
+     "physical_gap": -494.1284,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 1045.9983,
+     "target_median": 1487.5202,
+     "earth_position": 0.3459,
+     "target_position": 0.492,
+     "position_gap": -0.146,
+     "physical_gap": -441.5219,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 661.8065,
+     "target_median": 1102.0415,
+     "earth_position": 0.6911,
+     "target_position": 0.7902,
+     "position_gap": -0.0992,
+     "physical_gap": -440.2349,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 104.5842,
+     "target_median": 163.3783,
+     "earth_position": 0.7002,
+     "target_position": 0.7616,
+     "position_gap": -0.0615,
+     "physical_gap": -58.7941,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.9065,
+     "target_median": 0.885,
+     "earth_position": 0.7529,
+     "target_position": 0.696,
+     "position_gap": 0.0569,
+     "physical_gap": 0.0215,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 280.2158,
+     "target_median": 157.1469,
+     "earth_position": 0.8759,
+     "target_position": 0.4274,
+     "position_gap": 0.4485,
+     "physical_gap": 123.0689,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 22.2767,
+     "target_median": 209.6139,
+     "earth_position": 0.0627,
+     "target_position": 0.6054,
+     "position_gap": -0.5427,
+     "physical_gap": -187.3372,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 58.5,
+     "target_median": 45.846,
+     "earth_position": 0.6686,
+     "target_position": 0.5215,
+     "position_gap": 0.1471,
+     "physical_gap": 12.654,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 6.2,
+     "target_median": 5.1022,
+     "earth_position": 0.2016,
+     "target_position": 0.1659,
+     "position_gap": 0.0357,
+     "physical_gap": 1.0978,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "FeO",
+    "svf_30km",
+    "tpi_7km",
+    "tpi_21km"
+   ],
+   "partial": [
+    "roughness_42km",
+    "SiO2",
+    "roughness_21km",
+    "roughness_5.25km",
+    "roughness_10.5km"
+   ],
+   "differs": [
+    "slope",
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "FeO",
+    "svf_30km",
+    "tpi_7km"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "slope"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "landform",
+      "group": "terrain",
+      "label": "Landform position (bowl or ridge)",
+      "variables": [
+       "tpi_7km",
+       "tpi_21km"
+      ],
+      "text": "The site sits in the same kind of landform as the target (basin floor, slope or ridge): access routes and what can be seen from the ground behave alike."
+     },
+     {
+      "key": "open_sky",
+      "group": "terrain",
+      "label": "Open sky",
+      "variables": [
+       "svf_30km"
+      ],
+      "text": "The same share of the sky is open: rehearse solar-power siting and antenna pointing under the same horizon."
+     },
+     {
+      "key": "iron",
+      "group": "composition",
+      "label": "Iron oxide",
+      "variables": [
+       "FeO"
+      ],
+      "text": "The ground is as iron-rich as the target's: practise spectrometer and resource-prospecting work on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [
+     {
+      "key": "slope",
+      "group": "terrain",
+      "label": "Slope",
+      "variables": [
+       "slope"
+      ],
+      "text": "Gradients are different: mobility and landing-slope results from this site do not transfer."
+     }
+    ],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 16,
+   "patch_cells": 8,
+   "patch_area_km2": 324.3
+  },
+  {
+   "lat": 28.2492,
+   "lon": -16.6992,
+   "healpix_pixel": 3427539,
+   "di_combined": 10.4012,
+   "di_target": 2.4762,
+   "di_group": {
+    "terrain": 7.1203,
+    "thermal": 19.867,
+    "composition": 1.373
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 19.867
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "known",
+    "name": "Tenerife",
+    "citation": "Dypvik et al. 2021, PTAL (Planetary Terrestrial Analogue Library)",
+    "distance_km": 9.4
+   },
+   "koppen": {
+    "code": 9,
+    "symbol": "Csb",
+    "description": "Temperate, dry summer, warm summer"
+   },
+   "lithology": {
+    "l1_code": "vb",
+    "description": "basic volcanic",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 7.9174,
+     "target_median": 17.5913,
+     "earth_position": 0.2761,
+     "target_position": 0.6135,
+     "position_gap": -0.3374,
+     "physical_gap": -9.6739,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 261.4315,
+     "target_median": 494.6819,
+     "earth_position": 0.2792,
+     "target_position": 0.5284,
+     "position_gap": -0.2491,
+     "physical_gap": -233.2504,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 453.4543,
+     "target_median": 870.7702,
+     "earth_position": 0.2883,
+     "target_position": 0.5536,
+     "position_gap": -0.2653,
+     "physical_gap": -417.3159,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 670.4197,
+     "target_median": 1367.1734,
+     "earth_position": 0.2722,
+     "target_position": 0.555,
+     "position_gap": -0.2829,
+     "physical_gap": -696.7537,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 1043.1541,
+     "target_median": 1487.5202,
+     "earth_position": 0.345,
+     "target_position": 0.492,
+     "position_gap": -0.147,
+     "physical_gap": -444.3661,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 559.0991,
+     "target_median": 1102.0415,
+     "earth_position": 0.6679,
+     "target_position": 0.7902,
+     "position_gap": -0.1223,
+     "physical_gap": -542.9424,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 77.3642,
+     "target_median": 163.3783,
+     "earth_position": 0.6717,
+     "target_position": 0.7616,
+     "position_gap": -0.0899,
+     "physical_gap": -86.014,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.9334,
+     "target_median": 0.885,
+     "earth_position": 0.824,
+     "target_position": 0.696,
+     "position_gap": 0.1279,
+     "physical_gap": 0.0484,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 290.1075,
+     "target_median": 157.1469,
+     "earth_position": 0.9119,
+     "target_position": 0.4274,
+     "position_gap": 0.4845,
+     "physical_gap": 132.9606,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 26.47,
+     "target_median": 209.6139,
+     "earth_position": 0.0749,
+     "target_position": 0.6054,
+     "position_gap": -0.5305,
+     "physical_gap": -183.1439,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 49.5,
+     "target_median": 45.846,
+     "earth_position": 0.564,
+     "target_position": 0.5215,
+     "position_gap": 0.0425,
+     "physical_gap": 3.654,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 10.2,
+     "target_median": 5.1022,
+     "earth_position": 0.3317,
+     "target_position": 0.1659,
+     "position_gap": 0.1658,
+     "physical_gap": 5.0978,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "SiO2",
+    "tpi_7km"
+   ],
+   "partial": [
+    "tpi_21km",
+    "svf_30km",
+    "roughness_42km",
+    "FeO",
+    "roughness_5.25km"
+   ],
+   "differs": [
+    "roughness_10.5km",
+    "roughness_21km",
+    "slope",
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "SiO2",
+    "tpi_7km",
+    "tpi_21km"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "slope"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "rock_type",
+      "group": "composition",
+      "label": "Silica (rock type)",
+      "variables": [
+       "SiO2"
+      ],
+      "text": "The rock is of the same bulk type as the target's (basalt-like or silica-rich): practise sampling, drilling and contact instruments on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [
+     {
+      "key": "slope",
+      "group": "terrain",
+      "label": "Slope",
+      "variables": [
+       "slope"
+      ],
+      "text": "Gradients are different: mobility and landing-slope results from this site do not transfer."
+     },
+     {
+      "key": "relief_local",
+      "group": "terrain",
+      "label": "Relief over 5 to 10 km",
+      "variables": [
+       "roughness_5.25km",
+       "roughness_10.5km"
+      ],
+      "text": "Local relief is different: short-traverse and descent planning from this site does not transfer."
+     },
+     {
+      "key": "relief_regional",
+      "group": "terrain",
+      "label": "Relief over 21 to 42 km",
+      "variables": [
+       "roughness_21km",
+       "roughness_42km"
+      ],
+      "text": "Regional relief is different: long-range route and communication planning from this site does not transfer."
+     }
+    ],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 17,
+   "patch_cells": 32,
+   "patch_area_km2": 1297.2
+  },
+  {
+   "lat": -8.1217,
+   "lon": -78.6621,
+   "healpix_pixel": 7734040,
+   "di_combined": 10.4111,
+   "di_target": 2.4786,
+   "di_group": {
+    "terrain": 6.4699,
+    "thermal": 20.2514,
+    "composition": 0.4934
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 20.2514
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "new candidate",
+    "name": null,
+    "citation": null,
+    "distance_km": 1410.7
+   },
+   "koppen": {
+    "code": 7,
+    "symbol": "BSk",
+    "description": "Arid, steppe, cold"
+   },
+   "lithology": {
+    "l1_code": "vi",
+    "description": "intermediate volcanic",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 8.7543,
+     "target_median": 17.5913,
+     "earth_position": 0.3053,
+     "target_position": 0.6135,
+     "position_gap": -0.3082,
+     "physical_gap": -8.837,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 278.7778,
+     "target_median": 494.6819,
+     "earth_position": 0.2978,
+     "target_position": 0.5284,
+     "position_gap": -0.2306,
+     "physical_gap": -215.9041,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 532.5759,
+     "target_median": 870.7702,
+     "earth_position": 0.3386,
+     "target_position": 0.5536,
+     "position_gap": -0.215,
+     "physical_gap": -338.1943,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 886.1231,
+     "target_median": 1367.1734,
+     "earth_position": 0.3597,
+     "target_position": 0.555,
+     "position_gap": -0.1953,
+     "physical_gap": -481.0503,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 1090.8999,
+     "target_median": 1487.5202,
+     "earth_position": 0.3608,
+     "target_position": 0.492,
+     "position_gap": -0.1312,
+     "physical_gap": -396.6203,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 663.4885,
+     "target_median": 1102.0415,
+     "earth_position": 0.6914,
+     "target_position": 0.7902,
+     "position_gap": -0.0988,
+     "physical_gap": -438.5529,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 115.7836,
+     "target_median": 163.3783,
+     "earth_position": 0.7119,
+     "target_position": 0.7616,
+     "position_gap": -0.0498,
+     "physical_gap": -47.5947,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.9255,
+     "target_median": 0.885,
+     "earth_position": 0.803,
+     "target_position": 0.696,
+     "position_gap": 0.1069,
+     "physical_gap": 0.0404,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 286.3402,
+     "target_median": 157.1469,
+     "earth_position": 0.8982,
+     "target_position": 0.4274,
+     "position_gap": 0.4708,
+     "physical_gap": 129.1933,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 20.6333,
+     "target_median": 209.6139,
+     "earth_position": 0.058,
+     "target_position": 0.6054,
+     "position_gap": -0.5475,
+     "physical_gap": -188.9806,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 58.5,
+     "target_median": 45.846,
+     "earth_position": 0.6686,
+     "target_position": 0.5215,
+     "position_gap": 0.1471,
+     "physical_gap": 12.654,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 6.2,
+     "target_median": 5.1022,
+     "earth_position": 0.2016,
+     "target_position": 0.1659,
+     "position_gap": 0.0357,
+     "physical_gap": 1.0978,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "FeO",
+    "tpi_7km",
+    "tpi_21km"
+   ],
+   "partial": [
+    "svf_30km",
+    "roughness_42km",
+    "SiO2",
+    "roughness_21km",
+    "roughness_10.5km",
+    "roughness_5.25km"
+   ],
+   "differs": [
+    "slope",
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "FeO",
+    "tpi_7km",
+    "tpi_21km"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "slope"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "landform",
+      "group": "terrain",
+      "label": "Landform position (bowl or ridge)",
+      "variables": [
+       "tpi_7km",
+       "tpi_21km"
+      ],
+      "text": "The site sits in the same kind of landform as the target (basin floor, slope or ridge): access routes and what can be seen from the ground behave alike."
+     },
+     {
+      "key": "iron",
+      "group": "composition",
+      "label": "Iron oxide",
+      "variables": [
+       "FeO"
+      ],
+      "text": "The ground is as iron-rich as the target's: practise spectrometer and resource-prospecting work on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [
+     {
+      "key": "slope",
+      "group": "terrain",
+      "label": "Slope",
+      "variables": [
+       "slope"
+      ],
+      "text": "Gradients are different: mobility and landing-slope results from this site do not transfer."
+     }
+    ],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 18,
+   "patch_cells": 12,
+   "patch_area_km2": 486.4
+  },
+  {
+   "lat": -29.9569,
+   "lon": -70.4004,
+   "healpix_pixel": 12294487,
+   "di_combined": 10.4121,
+   "di_target": 2.4788,
+   "di_group": {
+    "terrain": 7.2291,
+    "thermal": 19.8322,
+    "composition": 1.1576
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 19.8322
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "new candidate",
+    "name": null,
+    "citation": null,
+    "distance_km": 617.3
+   },
+   "koppen": {
+    "code": 29,
+    "symbol": "ET",
+    "description": "Polar, tundra"
+   },
+   "lithology": {
+    "l1_code": "pa",
+    "description": "acid plutonic",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 6.9216,
+     "target_median": 17.5913,
+     "earth_position": 0.2414,
+     "target_position": 0.6135,
+     "position_gap": -0.3721,
+     "physical_gap": -10.6697,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 246.4762,
+     "target_median": 494.6819,
+     "earth_position": 0.2633,
+     "target_position": 0.5284,
+     "position_gap": -0.2651,
+     "physical_gap": -248.2057,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 482.555,
+     "target_median": 870.7702,
+     "earth_position": 0.3068,
+     "target_position": 0.5536,
+     "position_gap": -0.2468,
+     "physical_gap": -388.2153,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 837.8659,
+     "target_median": 1367.1734,
+     "earth_position": 0.3401,
+     "target_position": 0.555,
+     "position_gap": -0.2149,
+     "physical_gap": -529.3075,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 933.5095,
+     "target_median": 1487.5202,
+     "earth_position": 0.3087,
+     "target_position": 0.492,
+     "position_gap": -0.1832,
+     "physical_gap": -554.0107,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 833.0875,
+     "target_median": 1102.0415,
+     "earth_position": 0.7296,
+     "target_position": 0.7902,
+     "position_gap": -0.0606,
+     "physical_gap": -268.954,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 94.0253,
+     "target_median": 163.3783,
+     "earth_position": 0.6891,
+     "target_position": 0.7616,
+     "position_gap": -0.0725,
+     "physical_gap": -69.353,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.919,
+     "target_median": 0.885,
+     "earth_position": 0.7858,
+     "target_position": 0.696,
+     "position_gap": 0.0897,
+     "physical_gap": 0.0339,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 282.2379,
+     "target_median": 157.1469,
+     "earth_position": 0.8833,
+     "target_position": 0.4274,
+     "position_gap": 0.4558,
+     "physical_gap": 125.091,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 23.9533,
+     "target_median": 209.6139,
+     "earth_position": 0.0676,
+     "target_position": 0.6054,
+     "position_gap": -0.5378,
+     "physical_gap": -185.6606,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 71.5,
+     "target_median": 45.846,
+     "earth_position": 0.8198,
+     "target_position": 0.5215,
+     "position_gap": 0.2983,
+     "physical_gap": 25.654,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 2.7,
+     "target_median": 5.1022,
+     "earth_position": 0.0878,
+     "target_position": 0.1659,
+     "position_gap": -0.0781,
+     "physical_gap": -2.4022,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "tpi_21km",
+    "tpi_7km",
+    "FeO",
+    "svf_30km"
+   ],
+   "partial": [
+    "roughness_42km",
+    "roughness_21km",
+    "roughness_10.5km"
+   ],
+   "differs": [
+    "roughness_5.25km",
+    "SiO2",
+    "slope",
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "tpi_21km",
+    "tpi_7km",
+    "FeO"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "slope"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "landform",
+      "group": "terrain",
+      "label": "Landform position (bowl or ridge)",
+      "variables": [
+       "tpi_7km",
+       "tpi_21km"
+      ],
+      "text": "The site sits in the same kind of landform as the target (basin floor, slope or ridge): access routes and what can be seen from the ground behave alike."
+     },
+     {
+      "key": "open_sky",
+      "group": "terrain",
+      "label": "Open sky",
+      "variables": [
+       "svf_30km"
+      ],
+      "text": "The same share of the sky is open: rehearse solar-power siting and antenna pointing under the same horizon."
+     },
+     {
+      "key": "iron",
+      "group": "composition",
+      "label": "Iron oxide",
+      "variables": [
+       "FeO"
+      ],
+      "text": "The ground is as iron-rich as the target's: practise spectrometer and resource-prospecting work on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [
+     {
+      "key": "slope",
+      "group": "terrain",
+      "label": "Slope",
+      "variables": [
+       "slope"
+      ],
+      "text": "Gradients are different: mobility and landing-slope results from this site do not transfer."
+     },
+     {
+      "key": "relief_local",
+      "group": "terrain",
+      "label": "Relief over 5 to 10 km",
+      "variables": [
+       "roughness_5.25km",
+       "roughness_10.5km"
+      ],
+      "text": "Local relief is different: short-traverse and descent planning from this site does not transfer."
+     },
+     {
+      "key": "rock_type",
+      "group": "composition",
+      "label": "Silica (rock type)",
+      "variables": [
+       "SiO2"
+      ],
+      "text": "The rock is of a different bulk type: sampling and drilling results from this site do not transfer."
+     }
+    ],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 19,
+   "patch_cells": 16,
+   "patch_area_km2": 648.6
+  },
+  {
+   "lat": -31.3882,
+   "lon": -70.0049,
+   "healpix_pixel": 12292517,
+   "di_combined": 10.415,
+   "di_target": 2.4795,
+   "di_group": {
+    "terrain": 7.8799,
+    "thermal": 19.4805,
+    "composition": 0.8466
+   },
+   "worst_group": {
+    "name": "thermal",
+    "di": 19.4805
+   },
+   "dims_used_here": 12,
+   "catalogue": {
+    "status": "new candidate",
+    "name": null,
+    "citation": null,
+    "distance_km": 567.7
+   },
+   "koppen": {
+    "code": 29,
+    "symbol": "ET",
+    "description": "Polar, tundra"
+   },
+   "lithology": {
+    "l1_code": "va",
+    "description": "acid volcanic",
+    "source": "GLiM"
+   },
+   "variables": [
+    {
+     "name": "slope",
+     "group": "terrain",
+     "units": "degrees",
+     "earth": 8.1977,
+     "target_median": 17.5913,
+     "earth_position": 0.2859,
+     "target_position": 0.6135,
+     "position_gap": -0.3276,
+     "physical_gap": -9.3936,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_5.25km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 292.7563,
+     "target_median": 494.6819,
+     "earth_position": 0.3127,
+     "target_position": 0.5284,
+     "position_gap": -0.2157,
+     "physical_gap": -201.9256,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_10.5km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 479.573,
+     "target_median": 870.7702,
+     "earth_position": 0.3049,
+     "target_position": 0.5536,
+     "position_gap": -0.2487,
+     "physical_gap": -391.1973,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 624.9682,
+     "target_median": 1367.1734,
+     "earth_position": 0.2537,
+     "target_position": 0.555,
+     "position_gap": -0.3013,
+     "physical_gap": -742.2052,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "roughness_42km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 635.6321,
+     "target_median": 1487.5202,
+     "earth_position": 0.2102,
+     "target_position": 0.492,
+     "position_gap": -0.2817,
+     "physical_gap": -851.8881,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_21km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 535.7996,
+     "target_median": 1102.0415,
+     "earth_position": 0.6627,
+     "target_position": 0.7902,
+     "position_gap": -0.1276,
+     "physical_gap": -566.2419,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "tpi_7km",
+     "group": "terrain",
+     "units": "m",
+     "earth": 72.0058,
+     "target_median": 163.3783,
+     "earth_position": 0.6661,
+     "target_position": 0.7616,
+     "position_gap": -0.0955,
+     "physical_gap": -91.3724,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "svf_30km",
+     "group": "terrain",
+     "units": "dimensionless, 0..1",
+     "earth": 0.8995,
+     "target_median": 0.885,
+     "earth_position": 0.7343,
+     "target_position": 0.696,
+     "position_gap": 0.0383,
+     "physical_gap": 0.0145,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_level",
+     "group": "thermal",
+     "units": "K",
+     "earth": 273.0231,
+     "target_median": 157.1469,
+     "earth_position": 0.8497,
+     "target_position": 0.4274,
+     "position_gap": 0.4223,
+     "physical_gap": 115.8762,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "temp_range_diurnal",
+     "group": "thermal",
+     "units": "K",
+     "earth": 24.6533,
+     "target_median": 209.6139,
+     "earth_position": 0.0696,
+     "target_position": 0.6054,
+     "position_gap": -0.5358,
+     "physical_gap": -184.9606,
+     "verdict": "differs",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "SiO2",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 65.7,
+     "target_median": 45.846,
+     "earth_position": 0.7523,
+     "target_position": 0.5215,
+     "position_gap": 0.2309,
+     "physical_gap": 19.854,
+     "verdict": "partial",
+     "modelled": false,
+     "ranked": true
+    },
+    {
+     "name": "FeO",
+     "group": "composition",
+     "units": "wt%",
+     "earth": 3.53,
+     "target_median": 5.1022,
+     "earth_position": 0.1148,
+     "target_position": 0.1659,
+     "position_gap": -0.0511,
+     "physical_gap": -1.5722,
+     "verdict": "agrees",
+     "modelled": false,
+     "ranked": true
+    }
+   ],
+   "agrees": [
+    "svf_30km",
+    "FeO",
+    "tpi_7km"
+   ],
+   "partial": [
+    "tpi_21km",
+    "roughness_5.25km",
+    "SiO2",
+    "roughness_10.5km"
+   ],
+   "differs": [
+    "roughness_42km",
+    "roughness_21km",
+    "slope",
+    "temp_level",
+    "temp_range_diurnal"
+   ],
+   "best3": [
+    "svf_30km",
+    "FeO",
+    "tpi_7km"
+   ],
+   "worst3": [
+    "temp_range_diurnal",
+    "temp_level",
+    "slope"
+   ],
+   "use": {
+    "succeeds": [
+     {
+      "key": "open_sky",
+      "group": "terrain",
+      "label": "Open sky",
+      "variables": [
+       "svf_30km"
+      ],
+      "text": "The same share of the sky is open: rehearse solar-power siting and antenna pointing under the same horizon."
+     },
+     {
+      "key": "iron",
+      "group": "composition",
+      "label": "Iron oxide",
+      "variables": [
+       "FeO"
+      ],
+      "text": "The ground is as iron-rich as the target's: practise spectrometer and resource-prospecting work on it. Composition is a weak variable; check the site's rock in the field."
+     }
+    ],
+    "fails": [
+     {
+      "key": "slope",
+      "group": "terrain",
+      "label": "Slope",
+      "variables": [
+       "slope"
+      ],
+      "text": "Gradients are different: mobility and landing-slope results from this site do not transfer."
+     },
+     {
+      "key": "relief_regional",
+      "group": "terrain",
+      "label": "Relief over 21 to 42 km",
+      "variables": [
+       "roughness_21km",
+       "roughness_42km"
+      ],
+      "text": "Regional relief is different: long-range route and communication planning from this site does not transfer."
+     }
+    ],
+    "beyond_earth": [
+     {
+      "key": "temperature",
+      "group": "thermal",
+      "label": "Temperature level",
+      "variables": [
+       "temp_level"
+      ],
+      "text": "No ground on Earth is this cold. Tests at the target's temperature need a chamber, not a field site."
+     },
+     {
+      "key": "day_night",
+      "group": "thermal",
+      "label": "Day-night swing",
+      "variables": [
+       "temp_range_diurnal"
+      ],
+      "text": "No ground on Earth swings this far between day and night. Earth's air and oceans damp it."
+     }
+    ],
+    "general": null
+   },
+   "rank": 20,
+   "patch_cells": 10,
+   "patch_area_km2": 405.4
+  }
+ ],
+ "rasters": [
+  {
+   "name": "di_combined",
+   "file": "runs/moon_peak_near_cabeus_b__all_variables/di_combined_nside1024.npy",
+   "format": "healpix_npy",
+   "units": "dimensionless (DI)",
+   "vmin": 10.0242,
+   "vmax": 12.3798,
+   "colormap": "viridis_r",
+   "views": {
+    "global": "runs/moon_peak_near_cabeus_b__all_variables/di_combined_global.png",
+    "north_polar": "runs/moon_peak_near_cabeus_b__all_variables/di_combined_north.png",
+    "south_polar": "runs/moon_peak_near_cabeus_b__all_variables/di_combined_south.png"
+   },
+   "encoding": null
+  },
+  {
+   "name": "di_terrain",
+   "file": "runs/moon_peak_near_cabeus_b__all_variables/di_terrain_nside1024.npy",
+   "format": "healpix_npy",
+   "units": "dimensionless (DI)",
+   "vmin": 4.5398,
+   "vmax": 11.8654,
+   "colormap": "viridis_r",
+   "views": {
+    "global": "runs/moon_peak_near_cabeus_b__all_variables/di_terrain_global.png",
+    "north_polar": "runs/moon_peak_near_cabeus_b__all_variables/di_terrain_north.png",
+    "south_polar": "runs/moon_peak_near_cabeus_b__all_variables/di_terrain_south.png"
+   },
+   "encoding": null
+  },
+  {
+   "name": "di_thermal",
+   "file": "runs/moon_peak_near_cabeus_b__all_variables/di_thermal_nside1024.npy",
+   "format": "healpix_npy",
+   "units": "dimensionless (DI)",
+   "vmin": 18.2366,
+   "vmax": 21.9956,
+   "colormap": "viridis_r",
+   "views": {
+    "global": "runs/moon_peak_near_cabeus_b__all_variables/di_thermal_global.png",
+    "north_polar": "runs/moon_peak_near_cabeus_b__all_variables/di_thermal_north.png",
+    "south_polar": "runs/moon_peak_near_cabeus_b__all_variables/di_thermal_south.png"
+   },
+   "encoding": null
+  },
+  {
+   "name": "di_composition",
+   "file": "runs/moon_peak_near_cabeus_b__all_variables/di_composition_nside1024.npy",
+   "format": "healpix_npy",
+   "units": "dimensionless (DI)",
+   "vmin": 0.2571,
+   "vmax": 1.8479,
+   "colormap": "viridis_r",
+   "views": {
+    "global": "runs/moon_peak_near_cabeus_b__all_variables/di_composition_global.png",
+    "north_polar": "runs/moon_peak_near_cabeus_b__all_variables/di_composition_north.png",
+    "south_polar": "runs/moon_peak_near_cabeus_b__all_variables/di_composition_south.png"
+   },
+   "encoding": null
+  },
+  {
+   "name": "rank_combined",
+   "file": "runs/moon_peak_near_cabeus_b__all_variables/rank_combined_nside1024.npy",
+   "format": "healpix_npy",
+   "units": "rank among reference cells, 0 = best on Earth",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "colormap": "none (data)",
+   "views": {
+    "global": "runs/moon_peak_near_cabeus_b__all_variables/rank_combined_global.png",
+    "north_polar": "runs/moon_peak_near_cabeus_b__all_variables/rank_combined_north.png",
+    "south_polar": "runs/moon_peak_near_cabeus_b__all_variables/rank_combined_south.png"
+   },
+   "encoding": "8-bit grey v; rank = (v / 255) squared"
+  }
+ ],
+ "earths_limits": [
+  {
+   "what": "Gravity",
+   "numbers": "Moon 1.62 m/s2, Mars 3.72 m/s2, Earth 9.81 m/s2",
+   "invalidates": "Regolith mechanics, dust settling, drill reaction forces, lander dynamics, human gait and load testing"
+  },
+  {
+   "what": "Atmospheric pressure",
+   "numbers": "Moon ~1e-12 bar, Mars ~0.006 bar, Earth 1 bar",
+   "invalidates": "Vacuum seals, boiling points, convective heat rejection, anything pneumatic"
+  },
+  {
+   "what": "Radiation",
+   "numbers": "No global magnetic field and no thick atmosphere on either target",
+   "invalidates": "Electronics tolerance, crew dose planning, material ageing"
+  },
+  {
+   "what": "Day length",
+   "numbers": "Lunar day about 29.5 Earth days; Mars 24.66 h",
+   "invalidates": "Power and thermal cycling on the Moon; Mars is close enough that the swing is ranked"
+  },
+  {
+   "what": "Weathering history",
+   "numbers": "Earth's surfaces are water- and life-altered; the targets' are not",
+   "invalidates": "Grain shape, soil chemistry, mineral alteration products"
+  }
+ ],
+ "limits": "Chance test: not significant, p = 0.993. Control (Atacama patch): passed, p = 0.000999. Ranking system: all_variables. The other system is reported in its own file; neither is 'the' result until the team names one. The index is a cell's mean distance to EVERY cell of the target, so it measures likeness to the region as a whole; the target's own spread is 4.2004 and an index above 1 is expected for a varied target. Read ranks, not index values. A best 1% exists for every target: it is an order, not a quality. Variables no Earth cell reaches are listed in run.ranking.out_of_range and DO rank in this file; they may carry most of the distance. Composition is a weak variable at both ends (a rock-class lookup on Earth, 60 km blocks on the Moon). One cell is 6 to 7 km across; nothing here describes boulders or soil. Every site is a partial analog: see earths_limits.",
+ "ai_disclosure": "The data pipeline and this engine were written with Claude (Anthropic) under the team's direction. Every method decision was made by the team and is recorded in VARIABLES.md.",
+ "sources": [
+  {
+   "name": "LOLA 118 m lunar DEM",
+   "url": "https://pds-geosciences.wustl.edu/missions/lro/lola.htm",
+   "used_for": "lunar terrain layers"
+  },
+  {
+   "name": "MOLA 463 m Mars DEM",
+   "url": "https://astrogeology.usgs.gov/search/map/Mars/GlobalSurveyor/MOLA/Mars_MGS_MOLA_DEM_mosaic_global_463m",
+   "used_for": "Mars terrain layers"
+  },
+  {
+   "name": "ETOPO 2022 15 arc-second",
+   "url": "https://www.ncei.noaa.gov/products/etopo-global-relief-model",
+   "used_for": "Earth terrain layers"
+  },
+  {
+   "name": "Diviner GCP",
+   "url": "https://doi.org/10.17189/1520655",
+   "used_for": "lunar temperature level and diurnal range"
+  },
+  {
+   "name": "MODIS MOD11C3 / MYD11C3",
+   "url": "https://lpdaac.usgs.gov/products/mod11c3v061/",
+   "used_for": "Earth temperature level and diurnal range"
+  },
+  {
+   "name": "Lunar Prospector GRS",
+   "url": "https://pds-geosciences.wustl.edu/missions/lunarp/",
+   "used_for": "lunar SiO2 and FeO"
+  },
+  {
+   "name": "GLiM, Hartmann & Moosdorf 2012",
+   "url": "https://doi.org/10.1029/2012GC004370",
+   "used_for": "Earth lithology, SiO2 and FeO"
+  },
+  {
+   "name": "SCAR GeoMAP v.2022-08, Cox et al. 2023",
+   "url": "https://doi.org/10.1594/PANGAEA.951482",
+   "used_for": "rock class of exposed ground in Antarctica and South Georgia"
+  },
+  {
+   "name": "Gard, Hasterok & Halpin 2019",
+   "url": "https://doi.org/10.5281/zenodo.3359791",
+   "used_for": "check of the class-to-composition lookup"
+  }
+ ]
+}

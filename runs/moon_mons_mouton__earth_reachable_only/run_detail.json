@@ -1,0 +1,40 @@
+{
+ "seconds": 36.2,
+ "set_id": "earth_moon__minus__temp_level__temp_range_diurnal",
+ "parent": "earth_moon",
+ "construction": "all_dimensions",
+ "target_spread": 4.0125,
+ "null_spread_p5_p50_p95": [
+  0.7783464214336363,
+  2.2347933702401885,
+  4.5795451135720615
+ ],
+ "null_min_p5_p50_p95": [
+  0.5732070192153715,
+  1.5737483012236495,
+  3.4169122510185583
+ ],
+ "null_discards": 0,
+ "null_north_share": 0.503,
+ "full_map_min": 2.5740559101104736,
+ "control": {
+  "set_id": "earth_moon__minus__temp_level__temp_range_diurnal",
+  "band_abs_lat": [
+   22.05,
+   26.05
+  ],
+  "patch_cells": 20,
+  "earth_sample_n": 100020,
+  "atacama_cells_added_to_sample": 20,
+  "null_median": 1.7750142437988172,
+  "null_min": 0.17413866771892214,
+  "target_spread": 0.970209243432819,
+  "null_spread_median": 2.4806055805065035,
+  "discards": 0
+ },
+ "best_cells_group_di": {
+  "terrain": 3.476141929626465,
+  "thermal": null,
+  "composition": 0.5263910889625549
+ }
+}

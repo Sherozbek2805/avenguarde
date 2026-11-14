@@ -1,0 +1,24 @@
+[
+ {
+  "system": "earth_reachable_only",
+  "set": "earth_moon__minus__temp_level__temp_range_diurnal",
+  "p": 0.676324,
+  "di_observed": 2.2204,
+  "null_median": 1.8599,
+  "control_p": 0.106893,
+  "control_passed": false,
+  "patches_total": 4920,
+  "out_dir": "runs/moon_haworth__earth_reachable_only"
+ },
+ {
+  "system": "all_variables",
+  "set": "earth_moon",
+  "p": 0.71029,
+  "di_observed": 7.9777,
+  "null_median": 7.6836,
+  "control_p": 0.000999,
+  "control_passed": true,
+  "patches_total": 1546,
+  "out_dir": "runs/moon_haworth__all_variables"
+ }
+]

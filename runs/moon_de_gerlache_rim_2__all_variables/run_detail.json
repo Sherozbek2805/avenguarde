@@ -1,0 +1,40 @@
+{
+ "seconds": 18.4,
+ "set_id": "earth_moon",
+ "parent": "earth_moon",
+ "construction": "all_dimensions",
+ "target_spread": 2.5037,
+ "null_spread_p5_p50_p95": [
+  0.847329931014898,
+  2.0398245310870764,
+  4.5395376401514484
+ ],
+ "null_min_p5_p50_p95": [
+  6.596339670971848,
+  7.4235039021816265,
+  8.475590944482654
+ ],
+ "null_discards": 0,
+ "null_north_share": 0.503,
+ "full_map_min": 8.00633430480957,
+ "control": {
+  "set_id": "earth_moon",
+  "band_abs_lat": [
+   22.05,
+   26.05
+  ],
+  "patch_cells": 20,
+  "earth_sample_n": 100020,
+  "atacama_cells_added_to_sample": 20,
+  "null_median": 11.340580994226343,
+  "null_min": 10.923835996724401,
+  "target_spread": 0.7846212499566458,
+  "null_spread_median": 1.9812721394360917,
+  "discards": 0
+ },
+ "best_cells_group_di": {
+  "terrain": 4.062229156494141,
+  "thermal": 16.00714683532715,
+  "composition": 0.4506036639213562
+ }
+}

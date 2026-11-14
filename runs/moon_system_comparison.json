@@ -1,0 +1,344 @@
+{
+ "earth_reachable_only": {
+  "targets": 9,
+  "variables": [
+   10
+  ],
+  "q1_shared_best1pct_haworth_vs_mons_mouton_plateau": 0.761,
+  "q1_shared_best1pct_all_pairs_min_median_max": [
+   0.275,
+   0.516,
+   0.895
+  ],
+  "q1_cells_in_best1pct_of_every_target": 3541,
+  "q1_cells_in_best1pct_of_any_target": 84346,
+  "q2_control_passed": false,
+  "q2_control_p": [
+   0.106893
+  ],
+  "q3_group_di_at_best_cell": {
+   "Peak near Cabeus B": {
+    "terrain": 4.58070182800293,
+    "thermal": null,
+    "composition": 1.4095607995986938
+   },
+   "Haworth": {
+    "terrain": 2.7186851501464844,
+    "thermal": null,
+    "composition": 0.502147376537323
+   },
+   "Malapert Massif": {
+    "terrain": 4.444210052490234,
+    "thermal": null,
+    "composition": 1.4928926229476929
+   },
+   "Mons Mouton Plateau": {
+    "terrain": 4.320184707641602,
+    "thermal": null,
+    "composition": 0.465693861246109
+   },
+   "Mons Mouton": {
+    "terrain": 3.476141929626465,
+    "thermal": null,
+    "composition": 0.5263910889625549
+   },
+   "Nobile Rim 1": {
+    "terrain": 4.681321620941162,
+    "thermal": null,
+    "composition": 0.5176302790641785
+   },
+   "Nobile Rim 2": {
+    "terrain": 3.8782217502593994,
+    "thermal": null,
+    "composition": 0.5763846039772034
+   },
+   "de Gerlache Rim 2": {
+    "terrain": 2.743349552154541,
+    "thermal": null,
+    "composition": 0.5228835344314575
+   },
+   "Slater Plain": {
+    "terrain": 2.017573118209839,
+    "thermal": null,
+    "composition": 0.5000672340393066
+   }
+  },
+  "significant_targets": [],
+  "p_values": {
+   "Peak near Cabeus B": 0.981019,
+   "Haworth": 0.676324,
+   "Malapert Massif": 0.976024,
+   "Mons Mouton Plateau": 0.904096,
+   "Mons Mouton": 0.886114,
+   "Nobile Rim 1": 0.946054,
+   "Nobile Rim 2": 0.854146,
+   "de Gerlache Rim 2": 0.739261,
+   "Slater Plain": 0.452547
+  },
+  "target_spread_vs_null_median": {
+   "Peak near Cabeus B": [
+    5.2153,
+    2.531
+   ],
+   "Haworth": [
+    2.8025,
+    2.589
+   ],
+   "Malapert Massif": [
+    4.831,
+    2.273
+   ],
+   "Mons Mouton Plateau": [
+    4.4294,
+    3.156
+   ],
+   "Mons Mouton": [
+    4.0125,
+    2.235
+   ],
+   "Nobile Rim 1": [
+    4.9295,
+    2.441
+   ],
+   "Nobile Rim 2": [
+    4.2138,
+    2.68
+   ],
+   "de Gerlache Rim 2": [
+    2.9956,
+    2.286
+   ],
+   "Slater Plain": [
+    2.197,
+    2.317
+   ]
+  },
+  "best_sites": {
+   "Peak near Cabeus B": {
+    "lat": 15.0175,
+    "lon": -24.3896,
+    "koppen": "BSh",
+    "catalogue": "new candidate"
+   },
+   "Haworth": {
+    "lat": -7.8957,
+    "lon": 126.2988,
+    "koppen": "Aw",
+    "catalogue": "new candidate"
+   },
+   "Malapert Massif": {
+    "lat": 14.9789,
+    "lon": -24.4336,
+    "koppen": "BSh",
+    "catalogue": "new candidate"
+   },
+   "Mons Mouton Plateau": {
+    "lat": 18.6031,
+    "lon": -74.0479,
+    "koppen": "Af",
+    "catalogue": "new candidate"
+   },
+   "Mons Mouton": {
+    "lat": -3.2096,
+    "lon": 126.0791,
+    "koppen": "Af",
+    "catalogue": "new candidate"
+   },
+   "Nobile Rim 1": {
+    "lat": -7.7074,
+    "lon": 126.0791,
+    "koppen": "Aw",
+    "catalogue": "new candidate"
+   },
+   "Nobile Rim 2": {
+    "lat": -16.5682,
+    "lon": -71.1475,
+    "koppen": "BSk",
+    "catalogue": "new candidate"
+   },
+   "de Gerlache Rim 2": {
+    "lat": -8.1594,
+    "lon": 115.3564,
+    "koppen": "Am",
+    "catalogue": "new candidate"
+   },
+   "Slater Plain": {
+    "lat": 1.1937,
+    "lon": 34.585,
+    "koppen": "Cfb",
+    "catalogue": "new candidate"
+   }
+  }
+ },
+ "all_variables": {
+  "targets": 9,
+  "variables": [
+   12
+  ],
+  "q1_shared_best1pct_haworth_vs_mons_mouton_plateau": 0.875,
+  "q1_shared_best1pct_all_pairs_min_median_max": [
+   0.468,
+   0.687,
+   0.924
+  ],
+  "q1_cells_in_best1pct_of_every_target": 12240,
+  "q1_cells_in_best1pct_of_any_target": 61306,
+  "q2_control_passed": true,
+  "q2_control_p": [
+   0.000999
+  ],
+  "q3_group_di_at_best_cell": {
+   "Peak near Cabeus B": {
+    "terrain": 6.416426181793213,
+    "thermal": 19.360061645507812,
+    "composition": 0.49338698387145996
+   },
+   "Haworth": {
+    "terrain": 3.6637864112854004,
+    "thermal": 15.88491153717041,
+    "composition": 0.6435973644256592
+   },
+   "Malapert Massif": {
+    "terrain": 6.034850120544434,
+    "thermal": 18.65302276611328,
+    "composition": 1.4541312456130981
+   },
+   "Mons Mouton Plateau": {
+    "terrain": 4.907452583312988,
+    "thermal": 17.831134796142578,
+    "composition": 0.750384509563446
+   },
+   "Mons Mouton": {
+    "terrain": 5.110530376434326,
+    "thermal": 16.25087547302246,
+    "composition": 0.6452376246452332
+   },
+   "Nobile Rim 1": {
+    "terrain": 6.664493560791016,
+    "thermal": 17.56722640991211,
+    "composition": 1.3516427278518677
+   },
+   "Nobile Rim 2": {
+    "terrain": 4.597170352935791,
+    "thermal": 17.047382354736328,
+    "composition": 0.3263646066188812
+   },
+   "de Gerlache Rim 2": {
+    "terrain": 4.062229156494141,
+    "thermal": 16.00714683532715,
+    "composition": 0.4506036639213562
+   },
+   "Slater Plain": {
+    "terrain": 2.551774263381958,
+    "thermal": 16.154706954956055,
+    "composition": 0.4563288986682892
+   }
+  },
+  "significant_targets": [],
+  "p_values": {
+   "Peak near Cabeus B": 0.993007,
+   "Haworth": 0.71029,
+   "Malapert Massif": 0.991009,
+   "Mons Mouton Plateau": 0.935065,
+   "Mons Mouton": 0.77023,
+   "Nobile Rim 1": 0.967033,
+   "Nobile Rim 2": 0.752248,
+   "de Gerlache Rim 2": 0.854146,
+   "Slater Plain": 0.721279
+  },
+  "target_spread_vs_null_median": {
+   "Peak near Cabeus B": [
+    4.2004,
+    2.178
+   ],
+   "Haworth": [
+    2.4907,
+    2.255
+   ],
+   "Malapert Massif": [
+    3.9449,
+    2.006
+   ],
+   "Mons Mouton Plateau": [
+    3.7243,
+    2.739
+   ],
+   "Mons Mouton": [
+    3.3921,
+    1.967
+   ],
+   "Nobile Rim 1": [
+    4.1552,
+    2.119
+   ],
+   "Nobile Rim 2": [
+    3.523,
+    2.306
+   ],
+   "de Gerlache Rim 2": [
+    2.5037,
+    2.04
+   ],
+   "Slater Plain": [
+    1.8951,
+    2.036
+   ]
+  },
+  "best_sites": {
+   "Peak near Cabeus B": {
+    "lat": 19.8277,
+    "lon": -155.3906,
+    "koppen": "ET",
+    "catalogue": "new candidate"
+   },
+   "Haworth": {
+    "lat": -20.344,
+    "lon": -69.0381,
+    "koppen": "BWk",
+    "catalogue": "new candidate"
+   },
+   "Malapert Massif": {
+    "lat": 19.4317,
+    "lon": -155.5664,
+    "koppen": "ET",
+    "catalogue": "new candidate"
+   },
+   "Mons Mouton Plateau": {
+    "lat": -20.3042,
+    "lon": -69.1699,
+    "koppen": "BWk",
+    "catalogue": "new candidate"
+   },
+   "Mons Mouton": {
+    "lat": -20.344,
+    "lon": -69.0381,
+    "koppen": "BWk",
+    "catalogue": "new candidate"
+   },
+   "Nobile Rim 1": {
+    "lat": 19.4712,
+    "lon": -155.5225,
+    "koppen": "ET",
+    "catalogue": "new candidate"
+   },
+   "Nobile Rim 2": {
+    "lat": -25.1589,
+    "lon": -68.0273,
+    "koppen": "BWk",
+    "catalogue": "new candidate"
+   },
+   "de Gerlache Rim 2": {
+    "lat": -25.1589,
+    "lon": -68.0273,
+    "koppen": "BWk",
+    "catalogue": "new candidate"
+   },
+   "Slater Plain": {
+    "lat": -25.1589,
+    "lon": -68.0273,
+    "koppen": "BWk",
+    "catalogue": "new candidate"
+   }
+  }
+ }
+}
