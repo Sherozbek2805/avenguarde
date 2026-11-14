@@ -1,0 +1,248 @@
+{
+ "earth_reachable_only": {
+  "targets": 6,
+  "variables": [
+   9
+  ],
+  "q1_shared_best1pct_haworth_vs_mons_mouton_plateau": null,
+  "q1_shared_best1pct_all_pairs_min_median_max": [
+   0.0,
+   0.0,
+   0.434
+  ],
+  "q1_cells_in_best1pct_of_every_target": 0,
+  "q1_cells_in_best1pct_of_any_target": 170606,
+  "q2_control_passed": false,
+  "q2_control_p": [
+   0.711289
+  ],
+  "q3_group_di_at_best_cell": {
+   "Jezero crater": {
+    "terrain": 1.2713316679000854,
+    "thermal": 0.08582069724798203,
+    "composition": null
+   },
+   "Gale crater": {
+    "terrain": 2.6355035305023193,
+    "thermal": 0.16239190101623535,
+    "composition": null
+   },
+   "Meridiani Planum, Endeavour": {
+    "terrain": 0.5817601680755615,
+    "thermal": 0.046384140849113464,
+    "composition": null
+   },
+   "Gusev crater": {
+    "terrain": 1.7573286294937134,
+    "thermal": 0.05511912330985069,
+    "composition": null
+   },
+   "Erebus Montes, Arcadia": {
+    "terrain": 0.32795825600624084,
+    "thermal": 0.06617823988199234,
+    "composition": null
+   },
+   "Deuteronilus Mensae": {
+    "terrain": 1.990842580795288,
+    "thermal": 0.30456265807151794,
+    "composition": null
+   }
+  },
+  "significant_targets": [],
+  "p_values": {
+   "Jezero crater": 0.825175,
+   "Gale crater": 0.941059,
+   "Meridiani Planum, Endeavour": 0.34965,
+   "Gusev crater": 0.92008,
+   "Erebus Montes, Arcadia": 0.218781,
+   "Deuteronilus Mensae": 0.957043
+  },
+  "target_spread_vs_null_median": {
+   "Jezero crater": [
+    1.5095,
+    0.92
+   ],
+   "Gale crater": [
+    3.0286,
+    0.976
+   ],
+   "Meridiani Planum, Endeavour": [
+    0.7324,
+    0.978
+   ],
+   "Gusev crater": [
+    2.026,
+    0.955
+   ],
+   "Erebus Montes, Arcadia": [
+    0.4251,
+    0.924
+   ],
+   "Deuteronilus Mensae": [
+    2.3012,
+    0.925
+   ]
+  },
+  "best_sites": {
+   "Jezero crater": {
+    "lat": 23.3586,
+    "lon": 56.8652,
+    "koppen": "BWh",
+    "catalogue": "new candidate"
+   },
+   "Gale crater": {
+    "lat": 51.643,
+    "lon": 104.909,
+    "koppen": "Dwb",
+    "catalogue": "new candidate"
+   },
+   "Meridiani Planum, Endeavour": {
+    "lat": 28.716,
+    "lon": 16.3037,
+    "koppen": "BWh",
+    "catalogue": "new candidate"
+   },
+   "Gusev crater": {
+    "lat": 39.8384,
+    "lon": 92.9443,
+    "koppen": "BWk",
+    "catalogue": "new candidate"
+   },
+   "Erebus Montes, Arcadia": {
+    "lat": 65.9767,
+    "lon": 117.5,
+    "koppen": "Dfc",
+    "catalogue": "new candidate"
+   },
+   "Deuteronilus Mensae": {
+    "lat": 51.0136,
+    "lon": 90.4839,
+    "koppen": "BSk",
+    "catalogue": "new candidate"
+   }
+  }
+ },
+ "all_variables": {
+  "targets": 6,
+  "variables": [
+   11
+  ],
+  "q1_shared_best1pct_haworth_vs_mons_mouton_plateau": null,
+  "q1_shared_best1pct_all_pairs_min_median_max": [
+   0.867,
+   0.949,
+   0.975
+  ],
+  "q1_cells_in_best1pct_of_every_target": 27805,
+  "q1_cells_in_best1pct_of_any_target": 37230,
+  "q2_control_passed": true,
+  "q2_control_p": [
+   0.000999
+  ],
+  "q3_group_di_at_best_cell": {
+   "Jezero crater": {
+    "terrain": 1.8636548519134521,
+    "thermal": 7.923835754394531,
+    "composition": null
+   },
+   "Gale crater": {
+    "terrain": 2.841078042984009,
+    "thermal": 7.876190185546875,
+    "composition": null
+   },
+   "Meridiani Planum, Endeavour": {
+    "terrain": 1.6390979290008545,
+    "thermal": 9.086431503295898,
+    "composition": null
+   },
+   "Gusev crater": {
+    "terrain": 2.2552924156188965,
+    "thermal": 8.258450508117676,
+    "composition": null
+   },
+   "Erebus Montes, Arcadia": {
+    "terrain": 1.598828673362732,
+    "thermal": 7.807487487792969,
+    "composition": null
+   },
+   "Deuteronilus Mensae": {
+    "terrain": 2.391688823699951,
+    "thermal": 7.022302150726318,
+    "composition": null
+   }
+  },
+  "significant_targets": [],
+  "p_values": {
+   "Jezero crater": 0.246753,
+   "Gale crater": 0.131868,
+   "Meridiani Planum, Endeavour": 0.286713,
+   "Gusev crater": 0.26973,
+   "Erebus Montes, Arcadia": 0.789211,
+   "Deuteronilus Mensae": 0.729271
+  },
+  "target_spread_vs_null_median": {
+   "Jezero crater": [
+    1.3606,
+    0.883
+   ],
+   "Gale crater": [
+    2.5067,
+    0.944
+   ],
+   "Meridiani Planum, Endeavour": [
+    0.753,
+    0.956
+   ],
+   "Gusev crater": [
+    1.8578,
+    0.916
+   ],
+   "Erebus Montes, Arcadia": [
+    0.4533,
+    0.823
+   ],
+   "Deuteronilus Mensae": [
+    1.9521,
+    0.822
+   ]
+  },
+  "best_sites": {
+   "Jezero crater": {
+    "lat": -18.1314,
+    "lon": -69.2139,
+    "koppen": "BSk",
+    "catalogue": "new candidate"
+   },
+   "Gale crater": {
+    "lat": -18.21,
+    "lon": -69.3896,
+    "koppen": "ET",
+    "catalogue": "new candidate"
+   },
+   "Meridiani Planum, Endeavour": {
+    "lat": -18.1314,
+    "lon": -69.2139,
+    "koppen": "BSk",
+    "catalogue": "new candidate"
+   },
+   "Gusev crater": {
+    "lat": -18.1314,
+    "lon": -69.2139,
+    "koppen": "BSk",
+    "catalogue": "new candidate"
+   },
+   "Erebus Montes, Arcadia": {
+    "lat": -18.1314,
+    "lon": -69.2139,
+    "koppen": "BSk",
+    "catalogue": "new candidate"
+   },
+   "Deuteronilus Mensae": {
+    "lat": -18.1314,
+    "lon": -69.2139,
+    "koppen": "BSk",
+    "catalogue": "new candidate"
+   }
+  }
+ }
+}

@@ -1,0 +1,27 @@
+[
+ {
+  "test": "Mars circle, all_variables",
+  "passed": true,
+  "detail": "61 cells selected, 58 used (all_dimensions), 13 variables, set earth_mars; beyond Earth ['temp_level', 'temp_range_diurnal']; p = 0.365; control passed; best site -20.3042, -69.1699; modelled rows 3; 165 s"
+ },
+ {
+  "test": "Mars circle, earth_reachable_only",
+  "passed": true,
+  "detail": "61 cells selected, 58 used (all_dimensions), 11 variables, set earth_mars__minus__temp_level__temp_range_diurnal; beyond Earth ['temp_level', 'temp_range_diurnal']; p = 0.989; control FAILED; best site 19.4317, -155.8301; modelled rows 3; 154 s"
+ },
+ {
+  "test": "Mars rectangle, all_variables",
+  "passed": true,
+  "detail": "71 cells selected, 71 used (without_composition), 11 variables, set earth_mars_no_composition; beyond Earth ['temp_level', 'temp_range_diurnal']; p = 0.525; control passed; best site -18.1314, -69.2139; modelled rows 3; 151 s"
+ },
+ {
+  "test": "Mars rectangle, earth_reachable_only",
+  "passed": true,
+  "detail": "71 cells selected, 71 used (without_composition), 9 variables, set earth_mars_no_composition__minus__temp_level__temp_range_diurnal; beyond Earth ['temp_level', 'temp_range_diurnal']; p = 0.684; control FAILED; best site 10.731, 37.2217; modelled rows 3; 160 s"
+ },
+ {
+  "test": "a click on Earth against the Mars rectangle validates",
+  "passed": true,
+  "detail": "DI 1.1348, groups {'terrain': 1.4059, 'thermal': 0.2871, 'composition': None}"
+ }
+]

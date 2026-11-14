@@ -1,0 +1,40 @@
+{
+ "seconds": 157.5,
+ "set_id": "earth_mars",
+ "parent": "earth_mars",
+ "construction": "all_dimensions",
+ "target_spread": 2.0816,
+ "null_spread_p5_p50_p95": [
+  0.5378985011977625,
+  1.1088044394730971,
+  3.08248159747088
+ ],
+ "null_min_p5_p50_p95": [
+  4.471442001854979,
+  5.742431387421526,
+  7.514880180574576
+ ],
+ "null_discards": 49,
+ "null_north_share": 0.495,
+ "full_map_min": 4.572463035583496,
+ "control": {
+  "set_id": "earth_mars",
+  "band_abs_lat": [
+   22.05,
+   26.05
+  ],
+  "patch_cells": 20,
+  "earth_sample_n": 100020,
+  "atacama_cells_added_to_sample": 20,
+  "null_median": 4.532405585809933,
+  "null_min": 2.9120833040260514,
+  "target_spread": 0.7351866563207915,
+  "null_spread_median": 0.7667694912312879,
+  "discards": 120
+ },
+ "best_cells_group_di": {
+  "terrain": 2.573617458343506,
+  "thermal": 7.558539867401123,
+  "composition": 2.076826333999634
+ }
+}
