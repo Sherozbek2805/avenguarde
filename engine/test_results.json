@@ -1,0 +1,237 @@
+[
+ {
+  "test": "variables 12, complete Earth cells 3,245,417",
+  "passed": true,
+  "detail": "12, 3,245,417"
+ },
+ {
+  "test": "layer sizes: Moon 786,432 cells",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "Moon cells complete in all 12 = 786,176",
+  "passed": true,
+  "detail": "786176"
+ },
+ {
+  "test": "parent d_bar reproduced from the loaded files (1e-6)",
+  "passed": true,
+  "detail": "3.724745 vs 3.724745"
+ },
+ {
+  "test": "ranking-set d_bar reproduced (1e-6)",
+  "passed": true,
+  "detail": "2.968196 vs 2.968196"
+ },
+ {
+  "test": "d_bar of group terrain reproduced",
+  "passed": true,
+  "detail": "2.203134"
+ },
+ {
+  "test": "d_bar of group thermal reproduced",
+  "passed": true,
+  "detail": "1.774204"
+ },
+ {
+  "test": "d_bar of group composition reproduced",
+  "passed": true,
+  "detail": "1.551123"
+ },
+ {
+  "test": "whitening matrix is zero outside the group blocks",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "floored eigenvalues: parent 4, ranking set 4",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "within each group the whitened Earth cloud has eigenvalues <= 1",
+  "passed": true,
+  "detail": "largest 1.000000"
+ },
+ {
+  "test": "[1] stored positions equal recomputed ones (slope)",
+  "passed": true,
+  "detail": "max error 3.0e-08"
+ },
+ {
+  "test": "[1a] one formula for both bodies (Moon slope through the same lo, hi)",
+  "passed": true,
+  "detail": "max error 3.0e-08"
+ },
+ {
+  "test": "[1b] lo and hi enter no distance: DI from raw values = DI from positions",
+  "passed": true,
+  "detail": "max difference 1.1e-06"
+ },
+ {
+  "test": "[3] DI of three cells equals a plain loop over all target cells",
+  "passed": true,
+  "detail": "max difference 6.8e-08"
+ },
+ {
+  "test": "[4] a one-cell Earth target scores 0 at that cell",
+  "passed": true,
+  "detail": "0.0"
+ },
+ {
+  "test": "[4] a 15-cell target never scores 0",
+  "passed": true,
+  "detail": "smallest DI on Earth 2.018; target's own spread 2.80"
+ },
+ {
+  "test": "[5] shuffled and duplicated target cells change nothing",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "[6] DI >= 0 and no NaN",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "[7] the map computed twice is bit-identical",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "[8] combined squared distance = sum of the group squared distances",
+  "passed": true,
+  "detail": "0.0e+00"
+ },
+ {
+  "test": "[9] a group with no ranked variable has no map",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "[14] all_variables ranks 12, with a thermal map",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "[15] earth_reachable_only ranks terrain 8 + SiO2 + FeO",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "[16] out_of_range is the same list in both systems",
+  "passed": true,
+  "detail": "['temp_level', 'temp_range_diurnal']"
+ },
+ {
+  "test": "[17] the terrain distance is the same in both systems",
+  "passed": true,
+  "detail": "max difference 3.8e-06"
+ },
+ {
+  "test": "[17] ... and so is di_terrain",
+  "passed": false,
+  "detail": "NO: the two calibrations estimated terrain d_bar on different 5,000-cell subsamples: 2.2031 vs 2.1834 (+0.90%)"
+ },
+ {
+  "test": "[19] every random patch has exactly N distinct cells",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "[19] patches are compact blobs (largest radius, degrees of arc)",
+  "passed": true,
+  "detail": "0.54 deg; nominal radius 0.50 deg"
+ },
+ {
+  "test": "[20] same seed, identical null; different seed, different null",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "[21] patches come from BOTH hemispheres",
+  "passed": true,
+  "detail": "north share 0.54"
+ },
+ {
+  "test": "[21] ... inside the target's |latitude| band",
+  "passed": true,
+  "detail": "patch mean |lat| 84.74 to 88.72; band [84.76, 88.76]"
+ },
+ {
+  "test": "[22] p is never 0 and never above 1",
+  "passed": true,
+  "detail": "0.0083, 0.504, 1.000"
+ },
+ {
+  "test": "[23] di_observed on the Earth sample >= the minimum of the full map",
+  "passed": true,
+  "detail": "2.220 >= 2.018"
+ },
+ {
+  "test": "[25] each random patch's own spread is recorded",
+  "passed": true,
+  "detail": "median 2.47; Haworth 2.80"
+ },
+ {
+  "test": "[26] the best cell has rank 0",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "[27] the best 1% holds 1% of the cells",
+  "passed": true,
+  "detail": "32,455 cells"
+ },
+ {
+  "test": "[28] rank survives the 8-bit image",
+  "passed": true,
+  "detail": "0.01 -> 0.0104; 0.05 -> 0.0500"
+ },
+ {
+  "test": "[30] every cell of the best 1% is in exactly one patch",
+  "passed": true,
+  "detail": "4920 patches"
+ },
+ {
+  "test": "[31] same map, same list",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "[32] every 1% patch lies inside one 5% patch",
+  "passed": true,
+  "detail": "13374 patches at 5%"
+ },
+ {
+  "test": "[34] the first entry is the best cell on Earth",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "[35] verdict boundaries: 0.10 and 0.25 are partial",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "[36] physical gap = position gap x the range of the variable",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "[16] every variable has a row; unranked ones are counted nowhere",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "[38] the use block: beyond-Earth rows are temperature and day-night",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "[39] the printed lat/lon gives back the scored cell",
+  "passed": true,
+  "detail": "-7.8957, 126.2988"
+ }
+]

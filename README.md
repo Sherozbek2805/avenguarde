@@ -4,7 +4,31 @@ NASA Space Apps Challenge 2026. Where on Earth is most like a place on the Moon 
 
 Give the tool a region on the Moon or Mars. It scores every piece of Earth's ice-free land against it, ranks the result, tests the best match against chance, and says where the match holds, where it breaks, and what no place on Earth can offer.
 
-**State on 14 November 2026:** the data cube, the calibration, the output contract and the specifications are finished. The engine (score, chance test, sites, description) is written on the hackathon days, 14–15 November.
+**State on 14 November 2026:** the data cube, the calibration, the output contract and the specifications were finished before the hackathon. The engine (score, chance test, sites, description) was written on the first hackathon day and is in `engine/`.
+
+## Run the engine
+
+```bash
+python build/phase4b_minmax_scale.py          # once: rebuilds three calibration files (30 s)
+python engine/tests.py                        # the specification's tests
+python engine/run.py moon Haworth             # one target, both ranking systems, maps and JSON
+python engine/run_all.py moon                 # all nine Artemis regions
+```
+
+From Python:
+
+```python
+import sys; sys.path.insert(0, "engine")
+from analog_engine import Pairing
+
+P = Pairing("moon")                                               # load once, about 1 s
+doc, detail, state = P.run_preset("Haworth", system="all_variables", out_dir="runs/haworth")
+doc, detail, state = P.run_custom("circle", dict(lat=-43.3, lon=-11.4, radius_km=43),
+                                  system="earth_reachable_only", name="Tycho", out_dir="runs/tycho")
+click = P.point(state, lat=-24.05, lon=-69.92)                    # any Earth cell against that target
+```
+
+`doc` is the output of `contract/output_schema.json`; `click` is `contract/point_schema.json`. `system` is `all_variables` or `earth_reachable_only`: both are always run, and the team names one the main result. Results go to `runs/` (not in this repository: each run holds about 250 MB of full-resolution maps).
 
 ## Start here
 

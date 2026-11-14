@@ -1,0 +1,72 @@
+[
+ {
+  "test": "the engine's out-of-range rule gives the recorded list and gaps for all nine Artemis regions",
+  "passed": true,
+  "detail": "[]"
+ },
+ {
+  "test": "[12] a 10 km disc near the pole and at the equator have the same cell count (within two)",
+  "passed": true,
+  "detail": "6 and 4"
+ },
+ {
+  "test": "a disc centred at longitude 179.9 includes cells on both sides of the 180 line",
+  "passed": true,
+  "detail": "105 cells, lon -179.82 .. 180.00"
+ },
+ {
+  "test": "a rectangle crossing the 180 line selects the intended cells, not their complement",
+  "passed": true,
+  "detail": "150 cells"
+ },
+ {
+  "test": "doubling the radius gives about four times the cells",
+  "passed": true,
+  "detail": "58 -> 237"
+ },
+ {
+  "test": "the same area given as a pixel list selects the same cells",
+  "passed": true,
+  "detail": ""
+ },
+ {
+  "test": "custom circle runs and validates (earth_reachable_only)",
+  "passed": true,
+  "detail": "122 cells, 10 variables, set earth_moon__minus__temp_level__temp_range_diurnal, Earth's limits ['temp_level', 'temp_range_diurnal'], p = 0.999, best site -27.1538, -65.8301; 156 s"
+ },
+ {
+  "test": "custom circle runs and validates (all_variables)",
+  "passed": true,
+  "detail": "122 cells, 12 variables, set earth_moon, Earth's limits ['temp_level', 'temp_range_diurnal'], p = 0.001, best site -23.3992, -67.8955; 145 s"
+ },
+ {
+  "test": "[10] a one-cell target runs end to end",
+  "passed": true,
+  "detail": "p = 0.002, 20 sites"
+ },
+ {
+  "test": "a shape too small to hold a cell centre is refused with a clear message",
+  "passed": true,
+  "detail": "the shape contains no cell centre; make it larger (one cell is 6 to 7 km across)"
+ },
+ {
+  "test": "a click on Atacama validates",
+  "passed": true,
+  "detail": "in population True, reason None, DI 10.3795, koppen BWh"
+ },
+ {
+  "test": "a click on mid-Atlantic validates",
+  "passed": true,
+  "detail": "in population False, reason ocean, DI None, koppen None"
+ },
+ {
+  "test": "a click on Greenland ice sheet validates",
+  "passed": true,
+  "detail": "in population False, reason ice, DI None, koppen EF"
+ },
+ {
+  "test": "[39] the click's printed lat/lon gives back its cell",
+  "passed": true,
+  "detail": ""
+ }
+]
