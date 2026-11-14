@@ -630,6 +630,36 @@ class Pairing:
         name = name or f"custom {method}"
         return self._run(name, dict(method=method, params=params), pixels, band, rk, parent, construction, out_dir, write_rasters, control)
 
+    # ---------------------------------------------------------------- a finished run, read back from disk
+    def target_pixels(self, selection, parent):
+        """the cells of a run's target, from the selection written in its output file."""
+        if selection["method"] == "named_feature":
+            pixels = np.asarray(self.targets[selection["params"]["feature_id"]]["healpix_pixels"], dtype=np.int64)
+        else:
+            pixels = self.select_pixels(selection["method"], selection["params"])
+        prow = [self.names.index(d) for d in self.parents[parent]["dimensions"]]
+        return pixels[np.isfinite(self.Bd[prow][:, pixels]).all(0)]
+
+    def state_from_disk(self, out_dir):
+        """what point() needs, rebuilt from a run folder: the maps on disk and the target's medians."""
+        doc = jl(ROOT, out_dir, "output.json")
+        run = doc["run"]
+        order = [v["name"] for v in run["variables"]]
+        parent = [k for k, v in self.parents.items() if set(v["dimensions"]) == set(order)][0]
+        pixels = self.target_pixels(run["target"]["selection"], parent)
+        maps, rank = {}, None
+        for r in doc["rasters"]:
+            arr = np.load(os.path.join(ROOT, r["file"]), mmap_mode="r")[self.epix]
+            if r["name"] == "rank_combined":
+                rank = np.asarray(arr)
+            else:
+                maps[r["name"].replace("di_", "")] = np.asarray(arr)
+        return dict(name=run["target"]["name"], maps=maps, rank=rank, order=order,
+                    t_pos={d: float(np.nanmedian(self.Bd[self.names.index(d), pixels])) for d in order},
+                    ranked={v["name"] for v in run["variables"] if v["ranked"]},
+                    beyond={o["variable"] for o in run["ranking"]["out_of_range"]},
+                    d_bar_target=run["d_bar_target"], d_bar=run["d_bar_earth"], limits=doc["limits"])
+
     # ---------------------------------------------------------------- click anywhere (contract/point_schema.json)
     def point(self, state, lat, lon):
         """Any Earth cell against the target of a finished run (`state` is the third value a run returns)."""

@@ -28,6 +28,37 @@ doc, detail, state = P.run_custom("circle", dict(lat=-43.3, lon=-11.4, radius_km
 click = P.point(state, lat=-24.05, lon=-69.92)                    # any Earth cell against that target
 ```
 
+## The web API
+
+For the website and the backend. It only calls the engine above.
+
+```bash
+pip install fastapi uvicorn
+python -m uvicorn api:app --app-dir engine --host 127.0.0.1 --port 8000
+```
+
+Then open `http://127.0.0.1:8000/docs`: every endpoint is listed there with a "Try it out" button.
+
+| call | what it does |
+|---|---|
+| `GET /presets?body=moon` | the preset targets: name, centre, shape, number of cells |
+| `GET /runs` | finished runs on disk, newest first |
+| `GET /runs/{run_id}` | one run: the contract's output JSON |
+| `GET /runs/{run_id}/files/{name}` | a map of that run, for example `rank_combined_global.png` |
+| `POST /search` | start a search; answers at once with a `job_id` |
+| `GET /jobs/{job_id}` | `queued`, `running`, `done` (with `run_id`) or `failed` (with the reason) |
+| `GET /point?run_id=..&lat=..&lon=..` | any Earth cell against that run's target (the click payload) |
+
+A search body is one of:
+
+```json
+{"body": "moon", "system": "all_variables", "preset": {"name": "Haworth"}}
+{"body": "moon", "system": "earth_reachable_only", "name": "my crater",
+ "selection": {"method": "circle", "params": {"lat": 9.6, "lon": -20.1, "radius_km": 14}}}
+```
+
+A search takes about 40 seconds for a 15-cell region and several minutes for a few hundred cells, so `/search` does not wait. Poll `/jobs/{job_id}` every few seconds, then fetch `/runs/{run_id}`. One search runs at a time; a shape of more than 1,500 cells is refused. `python engine/test_api.py` exercises all of it against a running server.
+
 `doc` is the output of `contract/output_schema.json`; `click` is `contract/point_schema.json`. `system` is `all_variables` or `earth_reachable_only`: both are always run, and the team names one the main result. Results go to `runs/` (not in this repository: each run holds about 250 MB of full-resolution maps).
 
 ## Start here
