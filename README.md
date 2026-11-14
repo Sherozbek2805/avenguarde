@@ -59,7 +59,7 @@ A search body is one of:
 
 A search takes about 40 seconds for a 15-cell region and several minutes for a few hundred cells, so `/search` does not wait. Poll `/jobs/{job_id}` every few seconds, then fetch `/runs/{run_id}`. One search runs at a time; a shape of more than 1,500 cells is refused. `python engine/test_api.py` exercises all of it against a running server.
 
-`doc` is the output of `contract/output_schema.json`; `click` is `contract/point_schema.json`. `system` is `all_variables` or `earth_reachable_only`: both are always run, and the team names one the main result. Results go to `runs/` (not in this repository: each run holds about 250 MB of full-resolution maps).
+`doc` is the output of `contract/output_schema.json`; `click` is `contract/point_schema.json`. `system` is `all_variables` or `earth_reachable_only`: both are always run. **The main result is `all_variables`** (the team's decision, 14 November 2026, after both had been run on all fifteen preset targets); `earth_reachable_only` is the second view. Results go to `runs/` (not in this repository: each run holds about 250 MB of full-resolution maps).
 
 ## Start here
 

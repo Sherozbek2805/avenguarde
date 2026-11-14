@@ -127,7 +127,7 @@ def blocks(img):
             ["Antarctic reference land is defined by measured exposed rock (SCAR GeoMAP), not by ice thickness; Antarctic composition comes from GeoMAP", "Step 2 Rev 10, Step 3 Rev 10 (B31)"],
             [f"The Earth composition lookup was checked against one million analysed rocks: {n_ver} of {n_tested} testable classes verified, no value changed", "Step 2 Rev 10 (B31)"],
             ["Step 4 calibration rebuilt as this document decides: whitening within groups, not across all variables", "Step 4 Rev 10 (B34)"],
-            ["The score uses every target cell; the map carries percentile bands and a slider; two ranking systems are built, with and without the variables no Earth cell reaches, and choosing between them is the one decision left for the hackathon day", "Step 6 Rev 10 (B36, B37, B38)"],
+            ["The score uses every target cell; the map carries percentile bands and a slider; two ranking systems are built, with and without the variables no Earth cell reaches, and the one that counts every variable is the main result", "Step 6 Rev 10 (B36, B37, B38, B39)"],
             ["One control, the Atacama patch; results are reported as they come out", "Step 7 Rev 10 (B38)"],
             ["Sites are patches of the best 1% of Earth; the spacing rule is not built in version 1", "Step 8 Rev 10 (B38)"],
             ["A gap is a share of the variable's full range; a fixed use table for every variable, in three groups, says where a site succeeds, fails and where Earth's limits are", "Step 9 Rev 10 (B38)"],
@@ -352,7 +352,7 @@ def blocks(img):
     B["step6"] = heading("Revision 10 — which variables rank, which target cells count, and percentile bands", 2) + para(
         "Three decisions of 11 November 2026 change this step. Two of them override text below, which stays on the page as the "
         "record of what was argued before.", bold_lead="The decisions (Sherozbek). ") + heading(
-        "1. Two ranking systems; choosing between them is the one decision left for the day", 3) + para(
+        "1. Two ranking systems; the main result counts every variable", 3) + para(
         "System 1 ranks on every variable of the set, also those no Earth cell reaches. System 2 ranks only on what Earth can "
         "match, by the rule below. The engine takes the system as one argument and everything else is the same code. Sherozbek: "
         "\"this is the only thing we decide on the hackathon\", after both have been run on real maps. For every preset target both "
@@ -384,7 +384,13 @@ def blocks(img):
             ["Does the control behave?", "The Atacama patch is significant"],
             ["Which group carries the result?", "The per-group index at the best cell"],
         ], [3800, 5226]) + para(
-        "The team then names one system the main result; the other is shown beside it. No rule forces the pick.") + heading(
+        "On 14 November 2026, after both systems had been run on the nine Artemis regions and the six Mars zones, Sherozbek named "
+        "system 1, every variable, the main result. System 2 is the second view, and both are still run and shown for every "
+        "target. What was measured that day, and what the choice costs: under system 1 two different lunar regions share 69% of "
+        "their best 1% of Earth (median) and two Mars zones 95%; temperature carries the score; and the Atacama control passes "
+        "mostly because the Moon and Mars are colder than the Atacama. Under system 2 the regions share 52% and the Mars zones "
+        "0%, terrain carries the score, and the control fails. No target is significant under either. The result page says so.",
+        bold_lead="The choice, made on the day. ") + heading(
         "2. Every target cell counts", 3) + para(
         "The score of an Earth cell is its mean distance to ALL distinct cells of the target, divided by d-bar of the variables in "
         "use. This overrides \"k = min(5, distinct target cells)\" below. Of the four claims in the table below it is nearest to (b), "
@@ -498,7 +504,7 @@ def blocks(img):
         ["2", "Thermal inertia", "No longer ranks: Earth's and Mars's layers are different quantities. Characterization only (Sherozbek, 11 Nov)"],
         ["2", "Dimension counts", f"Earth–Moon {len(em['dimensions'])}; Earth–Mars {len(ex13['dimensions'])}; Earth–Mars without composition {len(ex11['dimensions'])}"],
         ["4", "Whitening", "Within groups (block-diagonal), eigenvalue floor 0.10, as step 4 decides (Sherozbek confirmed, 11 Nov)"],
-        ["6", "Ranking system", f"TWO are built: every variable ranks, or only the variables Earth can match (Artemis regions then rank on {n_moon}, Mars zones on {n_mars_nc}, or {n_mars_c} with composition). The ONE choice left for the hackathon day; both are printed for every preset target (Sherozbek, 11 Nov)"],
+        ["6", "Ranking system", f"TWO are built: every variable ranks, or only the variables Earth can match (Artemis regions then rank on {n_moon}, Mars zones on {n_mars_nc}, or {n_mars_c} with composition). Both are printed for every preset target. MAIN RESULT: every variable ranks (Sherozbek, 14 Nov, after both were run on all presets, B39)"],
         ["6", "Target cells", f"ALL distinct target cells; overrides k = 5. Kept knowing that an exact copy of one target cell would score {copy_moon} for an Artemis region (Sherozbek, 11 Nov)"],
         ["6", "Percentile bands", "Rank among reference cells; bands at the best 1% and 5%; a slider on the website. No threshold on the index"],
         ["7", "Controls", "One: the Atacama patch, used as a target on the other body. No negative control, no Apollo control (Sherozbek, 11 Nov)"],

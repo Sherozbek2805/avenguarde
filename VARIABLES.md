@@ -4506,3 +4506,152 @@ sentence is limited to what a 6 to 7 km cell can say.
    choices"; they stay listed as future work).
 4. One control, a positive one. Nothing checks that the test stays quiet
    where it should.
+
+---
+
+# §B39 — THE ENGINE, THE FIRST RESULTS, AND THE MAIN RANKING SYSTEM. Hackathon day 1, 2026-11-14.
+
+## (a) What was built on the day
+
+The engine (spec steps 5 to 9 and 11) was written on 14 November to
+`docs/TEST_SPEC_2026-11-10.md`, in `engine/`: `analog_engine.py` (presets,
+custom targets, both ranking systems, chance test, control, patches,
+description, click payload), `render.py` (maps, the rank image), runners,
+`api.py` (a FastAPI layer), and tests. 60 of 61 specification tests pass; the
+API passes 15 of 15 checks; a user-drawn circle and rectangle on Mars pass 5
+of 5. Everything is public at https://github.com/Sherozbek2805/avenguarde.
+
+**The one failing test, stated as it is:** `di_terrain` differs by 0.9%
+between the two ranking systems. The terrain distance is identical; each
+calibration estimated its group d_bar on its own 5,000-cell subsample (2.2031
+against 2.1834). Ranks are not affected. Not fixed.
+
+## (b) The results, as they came out — 42 preset runs
+
+Every preset target was run under both ranking systems. Nothing was left out.
+
+**Moon, nine Artemis III regions** (12 variables / 10 variables):
+
+| region | cells | own spread | p, all variables | best cell (lat, lon) | p, Earth-reachable | best cell |
+|---|---|---|---|---|---|---|
+| Peak near Cabeus B | 7 | 4.20 | 0.993 | 19.83, -155.39 | 0.981 | 15.02, -24.39 |
+| Haworth | 15 | 2.49 | 0.710 | -20.34, -69.04 | 0.676 | -7.90, 126.30 |
+| Malapert Massif | 6 | 3.94 | 0.991 | 19.43, -155.57 | 0.976 | 14.98, -24.43 |
+| Mons Mouton Plateau | 90 | 3.72 | 0.935 | -20.30, -69.17 | 0.904 | 18.60, -74.05 |
+| Mons Mouton | 5 | 3.39 | 0.770 | -20.34, -69.04 | 0.886 | -3.21, 126.08 |
+| Nobile Rim 1 | 9 | 4.16 | 0.967 | 19.47, -155.52 | 0.946 | -7.71, 126.08 |
+| Nobile Rim 2 | 10 | 3.52 | 0.752 | -25.16, -68.03 | 0.854 | -16.57, -71.15 |
+| de Gerlache Rim 2 | 7 | 2.50 | 0.854 | -25.16, -68.03 | 0.739 | -8.16, 115.36 |
+| Slater Plain | 7 | 1.90 | 0.721 | -25.16, -68.03 | 0.453 | 1.19, 34.59 |
+
+**Mars, six zones, whole zone without composition** (11 / 9 variables):
+
+| zone | cells | own spread | p, all variables | best cell | p, Earth-reachable | best cell |
+|---|---|---|---|---|---|---|
+| Jezero crater | 680 | 1.36 | 0.247 | -18.13, -69.21 | 0.825 | 23.36, 56.87 |
+| Gale crater | 681 | 2.51 | 0.132 | -18.21, -69.39 | 0.941 | 51.64, 104.91 |
+| Meridiani Planum, Endeavour | 681 | 0.75 | 0.287 | -18.13, -69.21 | 0.350 | 28.72, 16.30 |
+| Gusev crater | 683 | 1.86 | 0.270 | -18.13, -69.21 | 0.920 | 39.84, 92.94 |
+| Erebus Montes, Arcadia | 684 | 0.45 | 0.789 | -18.13, -69.21 | 0.219 | 65.98, 117.50 |
+| Deuteronilus Mensae | 680 | 1.95 | 0.729 | -18.13, -69.21 | 0.957 | 51.01, 90.48 |
+
+**Mars, the cells that have composition** (13 / 11 variables):
+
+| zone | cells | own spread | p, all variables | best cell | p, Earth-reachable | best cell |
+|---|---|---|---|---|---|---|
+| Jezero crater | 553 | 1.38 | 0.279 | -18.13, -69.21 | 0.814 | 10.73, 37.22 |
+| Gale crater | 188 | 2.08 | 0.095 | -18.37, -69.39 | 0.924 | -30.52, -70.80 |
+| Meridiani Planum, Endeavour | 596 | 1.55 | 0.447 | -15.91, -71.02 | 0.148 | 28.21, -100.85 |
+| Gusev crater | 105 | 1.64 | 0.196 | -18.13, -69.21 | 0.799 | 41.66, 89.03 |
+| Erebus Montes, Arcadia | 17 | 0.51 | 0.818 | -18.13, -69.21 | 0.090 | 70.40, 112.03 |
+| Deuteronilus Mensae | 271 | 2.24 | 0.784 | -21.78, -67.98 | 0.995 | 44.65, 100.66 |
+
+**No target is significant** (p < 0.05) in any of the 42 runs.
+
+## (c) The control
+
+The Atacama patch, treated as a target on the other body:
+
+| pairing and system | p | outcome |
+|---|---|---|
+| Earth–Moon, all variables | 0.000999 | passed |
+| Earth–Moon, Earth-reachable only | 0.1069 | **FAILED** |
+| Earth–Mars without composition, all variables | 0.000999 | passed |
+| Earth–Mars without composition, Earth-reachable only | 0.7113 | **FAILED** |
+| Earth–Mars with composition, all variables | 0.000999 | passed |
+| Earth–Mars with composition, Earth-reachable only | 0.5075 | **FAILED** |
+
+By the rule written before the day, every p-value under "Earth-reachable only"
+carries the sentence that the control failed and the test has no power there.
+Each output file says so in `limits`.
+
+**Why it fails, measured.** With the "all cells" score (B36c, B38c) a patch's
+best Earth score follows the patch's own spread: rank correlation 0.99 across
+the 1,000 random lunar patches under "Earth-reachable only", 0.60 under "all
+variables". A smooth lunar plain is uniform inside, so it scores lower than
+the Atacama patch whatever Earth looks like. The chance test then asks mostly
+"is this target more uniform than other patches", which B36(c) had predicted.
+The Artemis regions are more varied than a typical polar patch (spread 2.2 to
+5.2 against a null median near 2.5), which is why their p-values are high.
+
+**Why it passes under "all variables", also stated in advance (B38d):** no
+lunar or martian patch is as warm as the Atacama, so every random patch is far
+from Earth. That pass says little about the test's power.
+
+## (d) The three questions of the test specification, for both systems
+
+| question | Moon, all variables | Moon, Earth-reachable | Mars, all variables | Mars, Earth-reachable |
+|---|---|---|---|---|
+| share of best-1% cells two targets have in common (median over pairs) | 0.69 | 0.52 | 0.95 | 0.00 |
+| cells in the best 1% of EVERY target | 12,240 | 3,541 | 27,805 | 0 |
+| control | passed | failed | passed | failed |
+| group that carries the score at the best cell | thermal (16–19; terrain 2.5–6.7) | terrain (2.0–4.7) | thermal (7–9; terrain 1.6–2.8) | terrain (0.3–2.6) |
+
+Under "all variables" 8 of the 12 Mars runs have the SAME best cell
+(18.13°S, 69.21°W, Altiplano), and most lunar runs point at the
+Atacama–Altiplano or Mauna Loa. Under "Earth-reachable only" the best cells
+are spread out (eastern Indonesia, Cape Verde, Haiti, Oman, Ethiopia, Libya,
+south of Lake Baikal).
+
+Sherozbek's expectation of 11 Nov ("Antarctica can be best place for Moon
+data") did not hold: under "all variables" the day–night range is the largest
+gap, and the best ground is the high dry plateaus where Earth's own swing is
+largest, not the coldest ground.
+
+## (e) The decision: the main result is "all variables"
+
+Shown the comparison above, with Claude recommending "Earth-reachable only" as
+the main result (it tells targets apart), Sherozbek answered: **"All
+variables"**. That is the main result. "Earth-reachable only" is the second
+view. Both are still run and shown for every target. This closes the one
+choice B37 and B38(f) left for the day.
+
+**What the choice costs, to be said on the result page and in the write-up:**
+1. The answer depends little on the target: two Mars zones share 95% of their
+   best 1% of Earth, two lunar regions 69%. The tool then says "the most
+   Moon-like or Mars-like ground on Earth", more than "the analog of THIS
+   place".
+2. Temperature carries the score. Terrain and rock decide little.
+3. The control passes for a cheap reason.
+4. No target is significant.
+
+## (f) Changed with it
+
+| where | change |
+|---|---|
+| `engine/analog_engine.py` | `MAIN_SYSTEM = "all_variables"`; the `limits` text of every run names the main result |
+| the 50 finished `output.json` files | ONE sentence of `limits` replaced: "neither is 'the' result until the team names one" → which system is main and whether this file is it. No number changed |
+| `runs/*_system_comparison.json` | `main_system` added |
+| `README.md`, `runs/README.md`, `contract/README.md`, `docs/TEST_SPEC`, `docs/NULL_TABLE_DESIGN`, `docs/TEAM_PLAN`, `HANDOVER.md` | the choice is recorded as made |
+| `docs/analog_finder_method_spec_rev10.docx` | step 6 block and the decisions log: the main result counts every variable |
+| the animated explainer (local files) | one sentence |
+
+## (g) Flagged on the day, not acted on
+
+- Two custom lunar tests came out significant under "all variables": a 43 km
+  circle on Tycho (p = 0.001) and a 14 km circle near Copernicus (p = 0.001).
+  Not examined. A plausible reading, untested: young rocky craters keep more
+  heat at night, so their day–night range is closer to Earth's than typical
+  lunar ground at the same latitude.
+- A warning from `astropy_healpix.neighbours` (invalid value) appeared once
+  during the Mars batch; outputs validated.

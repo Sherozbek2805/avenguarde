@@ -53,6 +53,9 @@ RANK_BANDS = [0.01, 0.05]
 MAX_SITES = 20
 AGREES_BELOW, DIFFERS_ABOVE = 0.10, 0.25
 P_SIGNIFICANT = 0.05
+MAIN_SYSTEM = "all_variables"      # the team's decision, 14 Nov 2026 (VARIABLES.md B39), after both systems had been run on every preset
+MAIN_SENTENCE = {True: "The team named all_variables the main result on 14 November 2026; this file is the main result. The second view, earth_reachable_only, is in its own file.",
+                 False: "The team named all_variables the main result on 14 November 2026; this file is the second view."}
 EARTH_CELL_KM2 = 4.0 * np.pi * RADIUS_KM["earth"] ** 2 / (12 * NSIDE["earth"] ** 2)
 
 GROUP = {"slope": "terrain", "roughness_5.25km": "terrain", "roughness_10.5km": "terrain",
@@ -480,7 +483,7 @@ class Pairing:
         verdict = "significant" if p < P_SIGNIFICANT else "not significant"
         limits = (
             f"Chance test: {verdict}, p = {p:.3g}. Control (Atacama patch): {'passed' if control['passed'] else 'FAILED -- this test has no power; do not read p as evidence'}, p = {control['p']:.3g}. "
-            f"Ranking system: {system}. The other system is reported in its own file; neither is 'the' result until the team names one. "
+            f"Ranking system: {system}. " + MAIN_SENTENCE[system == MAIN_SYSTEM] + " "
             "The index is a cell's mean distance to EVERY cell of the target, so it measures likeness to the region as a whole; "
             f"the target's own spread is {run['target']['spread']} and an index above 1 is expected for a varied target. Read ranks, not index values. "
             "With this score a patch that is uniform inside scores lower than a varied one whatever Earth looks like, so p partly measures how uniform the target is. "

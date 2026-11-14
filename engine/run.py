@@ -22,7 +22,7 @@ import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import analog_engine as AE
 
-SYSTEMS = ("earth_reachable_only", "all_variables")
+SYSTEMS = ("all_variables", "earth_reachable_only")      # the main result first
 
 
 def slug(s):

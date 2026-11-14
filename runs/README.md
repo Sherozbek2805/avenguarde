@@ -16,6 +16,8 @@ Also here:
 - `moon_system_comparison.json`: the three questions of `docs/TEST_SPEC_2026-11-10.md` section 7, answered for both systems.
 - `_controls/`: the Atacama control, once per variable set.
 
+**The main result is `all_variables`** (the team's decision, 14 November 2026). The `earth_reachable_only` folder of the same target is the second view. Both are kept and both are shown.
+
 **Not in the repository:** the full-resolution maps (`*_nside1024.npy`, 48 MB each) that `output.json` names under `rasters[].file`. Recreate a run with `python engine/run.py moon Haworth`, or all of them with `python engine/run_all.py moon`.
 
 **Read the results with these in mind** (they are also written in every `output.json` under `limits`):

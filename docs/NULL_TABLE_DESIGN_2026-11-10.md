@@ -32,7 +32,7 @@ Store the 1,000 minima **sorted**, as float32.
 
 ## The grid
 
-**Build the table for ONE ranking system: the one the team names the main result on the day.** Do not build it before that choice.
+**Build the table for ONE ranking system: the main one, which is `all_variables` (decided 14 November 2026).** So the first axis is the three parent sets, 84 entries.
 
 | axis | values | count |
 |---|---|---|

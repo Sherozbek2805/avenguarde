@@ -28,7 +28,7 @@ Frozen 10 November 2026. Changed four times on 11 November as the method was dec
 
 ## The things that will bite you
 
-1. **There are two ranking systems, and `run.ranking.system` says which one made the file.** `all_variables`: everything ranks. `earth_reachable_only`: variables Earth cannot reach are shown and left out of the ranking. The team names one the main result on the day. For a preset target you get a file from each. Build the result page with a switch between the two.
+1. **There are two ranking systems, and `run.ranking.system` says which one made the file.** `all_variables`: everything ranks. `earth_reachable_only`: variables Earth cannot reach are shown and left out of the ranking. **The main result is `all_variables`** (decided 14 November 2026): show it first. `earth_reachable_only` is the second view, behind a switch. For a preset target you get a file from each.
 2. **DI values are large, and that is not a bug.** The score is a cell's mean distance to every cell of the target, and the targets are varied inside. For an Artemis region even the best Earth cell will score well above 1. **Lead with ranks and bands, not with DI.** Show `d_bar_target` (the target's own spread) beside any DI you print.
 3. **`dims_used` differs between runs and DI is not comparable across it.** Ranks are: "best 1%" means best 1% in every run.
 4. **Temperature is beyond Earth for every preset target.** Under `earth_reachable_only` those rows carry `ranked: false`, and a Moon run has no thermal score: `di_group.thermal` is `null` and there is no `di_thermal` map. Show `physical_gap` with its unit: "103 K colder than Earth's coldest ground".
