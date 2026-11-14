@@ -1,0 +1,145 @@
+{
+ "name": "earth_thermal_inertia",
+ "units": "K^-1",
+ "n_pixels": 12582912,
+ "expected_npix": 12582912,
+ "shape_ok": true,
+ "dtype": "float32",
+ "n_valid": 3739775,
+ "coverage_gate": {
+  "global": 29.7211,
+  "abs_lat_gt_60": 45.4313,
+  "abs_lat_gt_80": 51.2746,
+  "abs_lat_gt_85": 49.9917,
+  "lat_85S_to_90S": 99.9833
+ },
+ "range_gate": {
+  "min": 0.006991176400333643,
+  "p1": 0.021555170714855194,
+  "p25": 0.0387498177587986,
+  "p50": 0.05895619094371796,
+  "p75": 0.08242192491889,
+  "p99": 0.24132370829582184,
+  "max": 0.9962499737739563,
+  "iqr": 0.0436721071600914,
+  "mean": 0.06941658446821175
+ },
+ "support_gate": {
+  "definition": "achieved weight total over expected weight total: the cos(lat)-weighted fraction of the native cells falling in the pixel that carried a usable value",
+  "n_pixels_with_reference": 12277157,
+  "min": 0.0,
+  "p1": 0.0,
+  "p5": 1.0,
+  "p25": 1.0,
+  "p50": 1.0,
+  "p75": 1.0,
+  "max": 1.0,
+  "mean": 0.9653549011039243,
+  "valid_pixels_below_0.05": 106960,
+  "valid_pixels_below_0.10": 107003,
+  "valid_pixels_below_0.25": 109882,
+  "valid_pixels_below_0.50": 124323,
+  "valid_pixels_below_0.90": 152397,
+  "valid_pixels_fully_supported": 3587260,
+  "thin_support_warning": "A pixel passing the coverage gate on a small support fraction is a weak measurement, not a missing one. Filter on support, not on validity alone."
+ },
+ "healpix_pixels_filled": 3739775,
+ "pixels_copied_not_binned": 106960,
+ "range_gate_stated_in_advance": [
+  0.0,
+  1.0
+ ],
+ "pixels_outside_stated_gate": 0,
+ "range_gate_pass": true,
+ "distinct_levels": 3356093,
+ "largest_tie_fraction": 2.13916612630439e-06,
+ "albedo_months_used": [
+  "01",
+  "02",
+  "03",
+  "04",
+  "05",
+  "08",
+  "09",
+  "10",
+  "11",
+  "12"
+ ],
+ "albedo_files": [
+  {
+   "file": "sources/mcd43a3_albedo/mcd43a3_albedo_clim_m01.tif",
+   "month": "01",
+   "sha1": "1233a9f09ac0d1947d59a2652862262e610be5b0",
+   "pct_valid": 28.804,
+   "albedo_p50": 0.3351
+  },
+  {
+   "file": "sources/mcd43a3_albedo/mcd43a3_albedo_clim_m02.tif",
+   "month": "02",
+   "sha1": "cf0d2633956be1c1f256a59a474d69c4b7dda6e5",
+   "pct_valid": 33.012,
+   "albedo_p50": 0.39995
+  },
+  {
+   "file": "sources/mcd43a3_albedo/mcd43a3_albedo_clim_m03.tif",
+   "month": "03",
+   "sha1": "27dba438308a3612a1d385e272fd19192bdd18a2",
+   "pct_valid": 33.922,
+   "albedo_p50": 0.35055000000000003
+  },
+  {
+   "file": "sources/mcd43a3_albedo/mcd43a3_albedo_clim_m04.tif",
+   "month": "04",
+   "sha1": "1750f84223b3971b4aaadf440ed3cc0f14b7393e",
+   "pct_valid": 28.3,
+   "albedo_p50": 0.18705000000000002
+  },
+  {
+   "file": "sources/mcd43a3_albedo/mcd43a3_albedo_clim_m05.tif",
+   "month": "05",
+   "sha1": "296e7f729e77cbe680f73bcfd933dbc8adb0682a",
+   "pct_valid": 27.496,
+   "albedo_p50": 0.16085000000000002
+  },
+  {
+   "file": "sources/mcd43a3_albedo/mcd43a3_albedo_clim_m08.tif",
+   "month": "08",
+   "sha1": "9087433099375f6a48a8284700cb1a128a4a5b3c",
+   "pct_valid": 26.687,
+   "albedo_p50": 0.13720000000000002
+  },
+  {
+   "file": "sources/mcd43a3_albedo/mcd43a3_albedo_clim_m09.tif",
+   "month": "09",
+   "sha1": "752e2f67af0f63cdd873f6bc7141f159b41f0373",
+   "pct_valid": 29.894,
+   "albedo_p50": 0.1447
+  },
+  {
+   "file": "sources/mcd43a3_albedo/mcd43a3_albedo_clim_m10.tif",
+   "month": "10",
+   "sha1": "8dd3348521bf159c5a9762fbca5c0033065251d6",
+   "pct_valid": 34.076,
+   "albedo_p50": 0.18075000000000002
+  },
+  {
+   "file": "sources/mcd43a3_albedo/mcd43a3_albedo_clim_m11.tif",
+   "month": "11",
+   "sha1": "ff49f07844eb4dc3cf9a0f01c4bdb294988c4ada",
+   "pct_valid": 29.016,
+   "albedo_p50": 0.2326
+  },
+  {
+   "file": "sources/mcd43a3_albedo/mcd43a3_albedo_clim_m12.tif",
+   "month": "12",
+   "sha1": "877302bf80839e7d88bf808b617b42984df7f98d",
+   "pct_valid": 24.542,
+   "albedo_p50": 0.27590000000000003
+  }
+ ],
+ "albedo_definition": "blue-sky shortwave = (BSA + WSA)/2, scale 1e-4 (measured on the export), valid where n_composites > 0",
+ "dT_definition": "max minus min over the AVAILABLE LOCAL TIMES -- the SAME quantity the Moon and Mars carry. Sample counts: Earth 4, Mars 12, Moon 96. This replaces the earlier two-sample Terra day-minus-night, which was a different physical quantity and could go negative; max minus min cannot, by construction.",
+ "dT_record": "calendar 2025 only, 12 months, Terra AND Aqua",
+ "dT_floor_K": 1.0,
+ "cells_dT_below_floor": 4331
+}

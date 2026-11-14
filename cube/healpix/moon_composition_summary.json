@@ -1,0 +1,46 @@
+{
+ "SiO2": {
+  "valid_pct": 99.9674,
+  "gate": [
+   15.0,
+   70.0
+  ],
+  "outside_gate": 0,
+  "global_min": 20.566999435424805,
+  "global_p50": 43.27199935913086,
+  "global_max": 66.44000244140625,
+  "polar_min": 42.74300003051758,
+  "polar_p50": 44.65999984741211,
+  "polar_max": 47.53300094604492,
+  "polar_distinct": 24,
+  "polar_pixels": 1512,
+  "sigma_polar_median": 1.4158742427825928,
+  "sigma_polar_min": 0.6231131553649902,
+  "sigma_polar_max": 1.6414018869400024,
+  "sigma_global_median": 4.905303478240967,
+  "distinct_levels": 8322,
+  "largest_tie_fraction": 0.0004731764897427548
+ },
+ "FeO": {
+  "valid_pct": 99.9674,
+  "gate": [
+   0.0,
+   32.0
+  ],
+  "outside_gate": 0,
+  "global_min": 0.0,
+  "global_p50": 5.502500057220459,
+  "global_max": 30.749000549316406,
+  "polar_min": 4.485899925231934,
+  "polar_p50": 5.090199947357178,
+  "polar_max": 5.990099906921387,
+  "polar_distinct": 24,
+  "polar_pixels": 1512,
+  "sigma_polar_median": 0.2922721207141876,
+  "sigma_polar_min": 0.12670832872390747,
+  "sigma_polar_max": 0.34885525703430176,
+  "sigma_global_median": 1.0001499652862549,
+  "distinct_levels": 10440,
+  "largest_tie_fraction": 0.0003421625691957017
+ }
+}

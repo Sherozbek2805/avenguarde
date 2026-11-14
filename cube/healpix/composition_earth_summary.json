@@ -1,0 +1,80 @@
+{
+ "SiO2": {
+  "n_valid": 3354807,
+  "outside_gate": 0,
+  "distinct_levels": 69,
+  "largest_tie_fraction": 0.1143,
+  "reference_valid": 3245524,
+  "reference_total": 3258022,
+  "p1": 4.800000190734863,
+  "p50": 64.0,
+  "p99": 87.0,
+  "source_agrees": true,
+  "vs_before": {
+   "newly_finite": 2349,
+   "newly_nan": 0,
+   "changed": 9361,
+   "changed_in_reference": 267,
+   "changed_north_of_53S": 0,
+   "median_abs_change": 7.5
+  }
+ },
+ "FeO": {
+  "n_valid": 3354807,
+  "outside_gate": 0,
+  "distinct_levels": 74,
+  "largest_tie_fraction": 0.1143,
+  "reference_valid": 3245524,
+  "reference_total": 3258022,
+  "p1": 0.6200000047683716,
+  "p50": 3.799999952316284,
+  "p99": 10.199999809265137,
+  "source_agrees": true,
+  "vs_before": {
+   "newly_finite": 2349,
+   "newly_nan": 0,
+   "changed": 9361,
+   "changed_in_reference": 267,
+   "changed_north_of_53S": 0,
+   "median_abs_change": 1.6000001430511475
+  }
+ },
+ "south_of_53S": {
+  "reference_pixels": 2226,
+  "reference_with_composition": 2205,
+  "reference_from_geomap": 480,
+  "reference_from_glim": 1725,
+  "geomap_pixels_all": 15587,
+  "geomap_pixels_by_lithcode": {
+   "a": 56,
+   "b": 704,
+   "c": 877,
+   "d": 972,
+   "e": 57,
+   "f": 89,
+   "g": 2992,
+   "h": 303,
+   "i": 308,
+   "j": 241,
+   "l": 105,
+   "m": 33,
+   "n": 2705,
+   "p": 942,
+   "q": 88,
+   "s": 2578,
+   "t": 35,
+   "u": 5,
+   "v": 1081,
+   "w": 903,
+   "x": 211,
+   "y": 299,
+   "z": 3
+  }
+ },
+ "source_counts": {
+  "none": 9228105,
+  "glim_subclass_row": 3173044,
+  "glim_level1_row": 166176,
+  "geomap": 15587
+ }
+}

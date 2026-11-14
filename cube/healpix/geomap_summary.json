@@ -1,0 +1,123 @@
+{
+ "source": "SCAR GeoMAP v.2022-08, Cox et al. (2023), doi:10.1594/PANGAEA.951482, CC-BY-4.0",
+ "zip_md5": "b955696dd8ad5fce4ee514d362787db9",
+ "features": 99080,
+ "classes": 75,
+ "cell_m": 100.0,
+ "aggregation": "majority vote by TRUE area (planar cell area / k^2)",
+ "gates": {
+  "G1": {
+   "rock": {
+    "polygon_km2": 41647.7,
+    "raster_km2": 41648.1,
+    "ratio": 1.00001
+   },
+   "ice": {
+    "polygon_km2": 1006.6,
+    "raster_km2": 1006.1,
+    "ratio": 0.99945
+   },
+   "moraine": {
+    "polygon_km2": 8925.4,
+    "raster_km2": 8924.9,
+    "ratio": 0.99995
+   }
+  },
+  "G1_pass": true,
+  "G2_pass": true,
+  "G3_pass": true,
+  "G4_pass": true,
+  "G2_gate": "every pixel with data south of 53 S",
+  "G2_first_statement_failed": "stated as south of 60 S; failed, northernmost pixel -53.96: GeoMAP includes South Georgia. Restated, nothing was written by the failed run.",
+  "pixels_with_data_north_of_60S": 167
+ },
+ "true_area_km2_by_polygtype": {
+  "rock": 42041.6,
+  "ice": 1015.5,
+  "moraine": 9175.2
+ },
+ "true_area_km2_by_lithcode": {
+  "?": 548.8,
+  "a": 155.6,
+  "b": 1760.8,
+  "c": 9175.2,
+  "d": 3964.7,
+  "e": 264.0,
+  "f": 191.2,
+  "g": 8610.6,
+  "h": 536.6,
+  "i": 337.0,
+  "j": 1315.4,
+  "l": 396.1,
+  "m": 248.5,
+  "n": 8837.2,
+  "o": 0.9,
+  "p": 1927.1,
+  "q": 707.4,
+  "s": 5800.9,
+  "t": 129.3,
+  "u": 7.1,
+  "v": 1670.3,
+  "w": 3142.2,
+  "x": 630.5,
+  "y": 858.5,
+  "z": 1.1
+ },
+ "pixels_with_any_rock": 16222,
+ "pixels_with_classified_winner": 15587,
+ "pixels_rock_fraction_gt_0p5": 403,
+ "winning_lithcode_pixels": {
+  "a": 56,
+  "b": 704,
+  "c": 877,
+  "d": 972,
+  "e": 57,
+  "f": 89,
+  "g": 2992,
+  "h": 303,
+  "i": 308,
+  "j": 241,
+  "l": 105,
+  "m": 33,
+  "n": 2705,
+  "p": 942,
+  "q": 88,
+  "s": 2578,
+  "t": 35,
+  "u": 5,
+  "v": 1081,
+  "w": 903,
+  "x": 211,
+  "y": 299,
+  "z": 3
+ },
+ "support_p10_p50_p90": [
+  0.5972,
+  1.0,
+  1.0
+ ],
+ "simpcode_descriptions": {
+  "10": "Seasonal water and ice",
+  "11": "Unknown or unclassified rock",
+  "20": "Unconsolidated colluvium, talus, alluvium and undifferentiated till",
+  "21": "Youngest glacial gravel, till and supraglacial material (Holocene)",
+  "22": "Unconsolidated coastal ice-shelf till, beach or lake deposits",
+  "23": "Older glacial gravel and till (Miocene-Quaternary)",
+  "30": "Sedimentary rock with interbedded volcanic or volcaniclastic rock",
+  "31": "Volcanic rock - basalt to rhyolite lava flows and pyroclastic material",
+  "32": "Intrusive rock - granite, granodiorite, gabbro, or syenite (Eocene-Oligocene)",
+  "40": "Sedimentary and volcanic rocks, pyroclastic material (Jurassic to Paleogene)",
+  "41": "Volcanic rock (Jurassic-Paleogene)",
+  "42": "Ferrar Igneous Province and related volcanic and sedimentary rock (Jurassic)",
+  "43": "Silicic volcanic and continental sedimentary rock (Jurassic)",
+  "44": "Unmetamorphosed granitoid, gabbro and other intrusive rock",
+  "45": "Metamorphosed gneiss and migmatite (Triassic, Cretaceous)",
+  "50": "Beacon Supergroup and other sandstone-rich sedimentary rock (Devonian-Triassic)",
+  "60": "Intrusive rock - granitoid, diorite, gabbro and orthogneiss",
+  "61": "Folded low-grade metasedimentary and metavolcanic rock",
+  "62": "Low to medium-grade metamorphic rock - schist, marble, metavolcanic, metasandstone",
+  "63": "High-grade metamorphic rock - orthogneiss, paragneiss, schist and amphibolite",
+  "70": "Metamorphic and intrusive rock - schist, gneiss, granulite, migmatite and anatectite"
+ },
+ "elapsed_s": 33.2
+}

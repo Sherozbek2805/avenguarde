@@ -1,0 +1,154 @@
+{
+ "thermal_inertia": {
+  "name": "mars_thermal_inertia",
+  "units": "tiu = J m-2 K-1 s-1/2",
+  "n_pixels": 3145728,
+  "expected_npix": 3145728,
+  "shape_ok": true,
+  "dtype": "float32",
+  "n_valid": 3125612,
+  "coverage_gate": {
+   "global": 99.3605,
+   "abs_lat_gt_60": 98.6491,
+   "abs_lat_gt_80": 90.5067,
+   "abs_lat_gt_85": 62.2727,
+   "lat_85S_to_90S": 55.9764
+  },
+  "range_gate": {
+   "min": 5.0,
+   "p1": 30.199737758636473,
+   "p25": 130.85549926757812,
+   "p50": 208.0028076171875,
+   "p75": 256.3716354370117,
+   "p99": 476.7379718017613,
+   "max": 4966.0,
+   "iqr": 125.5161361694336,
+   "mean": 208.05033417898932
+  },
+  "support_gate": {
+   "definition": "achieved weight total over expected weight total: the cos(lat)-weighted fraction of the native cells falling in the pixel that carried a usable value",
+   "n_pixels_with_reference": 3145728,
+   "min": 0.009461382403969765,
+   "p1": 0.33327150344848633,
+   "p5": 0.6000866889953613,
+   "p25": 0.9003261923789978,
+   "p50": 1.0,
+   "p75": 1.0,
+   "max": 1.0,
+   "mean": 0.9302951178234297,
+   "valid_pixels_below_0.05": 84,
+   "valid_pixels_below_0.10": 1062,
+   "valid_pixels_below_0.25": 19554,
+   "valid_pixels_below_0.50": 85289,
+   "valid_pixels_below_0.90": 766687,
+   "valid_pixels_fully_supported": 2261559,
+   "thin_support_warning": "A pixel passing the coverage gate on a small support fraction is a weak measurement, not a missing one. Filter on support, not on validity alone."
+  },
+  "healpix_pixels_filled": 3125612,
+  "range_gate_stated_in_advance": [
+   5.0,
+   5000.0
+  ],
+  "pixels_outside_stated_gate": 0,
+  "range_gate_pass": true,
+  "source": {
+   "source_file": "mgst_9001 (2)/mgst_9001/mgst_9001/data/global_ti_night_2007.img",
+   "mask_file": "mgst_9001 (2)/mgst_9001/mgst_9001/data/global_ti_msk_night_2007.img",
+   "cells": 25920000,
+   "raw_min": 0,
+   "raw_max": 4999,
+   "cells_zero_not_computed": 835853,
+   "cells_nonzero_outside_5_5000": 10,
+   "cells_infilled_excluded": 2193603,
+   "cells_kept": 22890534,
+   "pct_kept": 88.3122,
+   "pct_kept_within_87deg": 91.2516,
+   "infilled_pct_of_in_range": 8.745,
+   "kept_p1": 25.0,
+   "kept_p50": 207.0,
+   "kept_p99": 4034.0
+  },
+  "local_time": "nightside, southbound, ~2 AM",
+  "record": "three Mars years, OCK 1583-24346, Feb 1999 - Apr 2004",
+  "surface_temperature_window_K": [
+   160,
+   400
+  ]
+ },
+ "thermal_inertia_day": {
+  "name": "mars_thermal_inertia_day",
+  "units": "tiu = J m-2 K-1 s-1/2",
+  "n_pixels": 3145728,
+  "expected_npix": 3145728,
+  "shape_ok": true,
+  "dtype": "float32",
+  "n_valid": 3136986,
+  "coverage_gate": {
+   "global": 99.7221,
+   "abs_lat_gt_60": 98.8414,
+   "abs_lat_gt_80": 90.3753,
+   "abs_lat_gt_85": 62.9377,
+   "lat_85S_to_90S": 56.532
+  },
+  "range_gate": {
+   "min": 5.0,
+   "p1": 21.33245153427124,
+   "p25": 133.42813110351562,
+   "p50": 198.49819946289062,
+   "p75": 253.99453735351562,
+   "p99": 949.3950408935536,
+   "max": 4985.0,
+   "iqr": 120.56640625,
+   "mean": 218.08546648604923
+  },
+  "support_gate": {
+   "definition": "achieved weight total over expected weight total: the cos(lat)-weighted fraction of the native cells falling in the pixel that carried a usable value",
+   "n_pixels_with_reference": 3145728,
+   "min": 0.009102110750973225,
+   "p1": 0.3999508321285248,
+   "p5": 0.6663352847099304,
+   "p25": 0.9444533586502075,
+   "p50": 1.0,
+   "p75": 1.0,
+   "max": 1.0,
+   "mean": 0.9385791664996143,
+   "valid_pixels_below_0.05": 123,
+   "valid_pixels_below_0.10": 697,
+   "valid_pixels_below_0.25": 11725,
+   "valid_pixels_below_0.50": 62789,
+   "valid_pixels_below_0.90": 710518,
+   "valid_pixels_fully_supported": 2334554,
+   "thin_support_warning": "A pixel passing the coverage gate on a small support fraction is a weak measurement, not a missing one. Filter on support, not on validity alone."
+  },
+  "healpix_pixels_filled": 3136986,
+  "range_gate_stated_in_advance": [
+   5.0,
+   5000.0
+  ],
+  "pixels_outside_stated_gate": 0,
+  "range_gate_pass": true,
+  "source": {
+   "source_file": "mgst_9001 (2)/mgst_9001/mgst_9001/data/global_ti_day_2007.img",
+   "mask_file": "mgst_9001 (2)/mgst_9001/mgst_9001/data/global_ti_msk_day_2007.img",
+   "cells": 25920000,
+   "raw_min": 0,
+   "raw_max": 4999,
+   "cells_zero_not_computed": 822403,
+   "cells_nonzero_outside_5_5000": 0,
+   "cells_infilled_excluded": 1761830,
+   "cells_kept": 23335767,
+   "pct_kept": 90.03,
+   "pct_kept_within_87deg": 92.975,
+   "infilled_pct_of_in_range": 7.0199,
+   "kept_p1": 18.0,
+   "kept_p50": 220.0,
+   "kept_p99": 4089.0
+  },
+  "local_time": "dayside, northbound, ~2 PM",
+  "record": "three Mars years, OCK 1583-24346, Feb 1999 - Apr 2004",
+  "surface_temperature_window_K": [
+   160,
+   400
+  ]
+ }
+}

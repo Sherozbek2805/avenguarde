@@ -1,0 +1,259 @@
+{
+ "layers": {
+  "SiO2": {
+   "name": "mars_SiO2",
+   "units": "wt%",
+   "n_pixels": 3145728,
+   "expected_npix": 3145728,
+   "shape_ok": true,
+   "dtype": "float32",
+   "n_valid": 1542275,
+   "coverage_gate": {
+    "global": 49.0276,
+    "abs_lat_gt_60": 41.1804,
+    "abs_lat_gt_80": 21.3032,
+    "abs_lat_gt_85": 3.5606,
+    "lat_85S_to_90S": 7.1212
+   },
+   "range_gate": {
+    "min": 1.3569058179855347,
+    "p1": 38.13612747192383,
+    "p25": 51.64965057373047,
+    "p50": 54.750274658203125,
+    "p75": 56.609134674072266,
+    "p99": 61.92960739135742,
+    "max": 71.86752319335938,
+    "iqr": 4.959484100341797,
+    "mean": 53.808670774235125
+   },
+   "support_gate": {
+    "definition": "achieved weight total over expected weight total: the cos(lat)-weighted fraction of the native cells falling in the pixel that carried a usable value",
+    "n_pixels_with_reference": 2004164,
+    "min": 0.0,
+    "p1": 0.0,
+    "p5": 0.0,
+    "p25": 0.0,
+    "p50": 0.0,
+    "p75": 1.0,
+    "max": 1.0,
+    "mean": 0.28664821939113816,
+    "valid_pixels_below_0.05": 1096330,
+    "valid_pixels_below_0.10": 1096330,
+    "valid_pixels_below_0.25": 1096406,
+    "valid_pixels_below_0.50": 1097076,
+    "valid_pixels_below_0.90": 1104152,
+    "valid_pixels_fully_supported": 438123,
+    "thin_support_warning": "A pixel passing the coverage gate on a small support fraction is a weak measurement, not a missing one. Filter on support, not on validity alone."
+   },
+   "healpix_pixels_filled": 1542275,
+   "pixels_copied_not_binned": 1096330,
+   "pct_copied": 71.085,
+   "range_gate_stated_in_advance": [
+    35.0,
+    70.0
+   ],
+   "pixels_outside_stated_gate": 7177,
+   "range_gate_pass": false,
+   "distinct_levels": 432231,
+   "largest_tie_fraction": 0.00016858212705256844,
+   "masks": {
+    "rms_max": 0.0044,
+    "dust_max": 0.8,
+    "mineral_sum_floor": 0.1
+   },
+   "source_cells_kept_pct": 44.955,
+   "sensitivity": {
+    "median_abs_shift_wt_pct": 9.798393069592187,
+    "p95_abs_shift_wt_pct": 15.616326141744848,
+    "spearman_base_vs_low": 0.921678857302413,
+    "spearman_base_vs_high": 0.9552518131631221
+   }
+  },
+  "FeO": {
+   "name": "mars_FeO",
+   "units": "wt%",
+   "n_pixels": 3145728,
+   "expected_npix": 3145728,
+   "shape_ok": true,
+   "dtype": "float32",
+   "n_valid": 1542275,
+   "coverage_gate": {
+    "global": 49.0276,
+    "abs_lat_gt_60": 41.1804,
+    "abs_lat_gt_80": 21.3032,
+    "abs_lat_gt_85": 3.5606,
+    "lat_85S_to_90S": 7.1212
+   },
+   "range_gate": {
+    "min": 0.0,
+    "p1": 1.8487930297851562,
+    "p25": 4.597833871841431,
+    "p50": 6.629937648773193,
+    "p75": 11.78750228881836,
+    "p99": 33.35160446166992,
+    "max": 87.70718383789062,
+    "iqr": 7.189668416976929,
+    "mean": 8.961384732675377
+   },
+   "support_gate": {
+    "definition": "achieved weight total over expected weight total: the cos(lat)-weighted fraction of the native cells falling in the pixel that carried a usable value",
+    "n_pixels_with_reference": 2004164,
+    "min": 0.0,
+    "p1": 0.0,
+    "p5": 0.0,
+    "p25": 0.0,
+    "p50": 0.0,
+    "p75": 1.0,
+    "max": 1.0,
+    "mean": 0.28664821939113816,
+    "valid_pixels_below_0.05": 1096330,
+    "valid_pixels_below_0.10": 1096330,
+    "valid_pixels_below_0.25": 1096406,
+    "valid_pixels_below_0.50": 1097076,
+    "valid_pixels_below_0.90": 1104152,
+    "valid_pixels_fully_supported": 438123,
+    "thin_support_warning": "A pixel passing the coverage gate on a small support fraction is a weak measurement, not a missing one. Filter on support, not on validity alone."
+   },
+   "healpix_pixels_filled": 1542275,
+   "pixels_copied_not_binned": 1096330,
+   "pct_copied": 71.085,
+   "range_gate_stated_in_advance": [
+    0.0,
+    45.0
+   ],
+   "pixels_outside_stated_gate": 2396,
+   "range_gate_pass": false,
+   "distinct_levels": 460507,
+   "largest_tie_fraction": 0.00016858212705256844,
+   "masks": {
+    "rms_max": 0.0044,
+    "dust_max": 0.8,
+    "mineral_sum_floor": 0.1
+   },
+   "source_cells_kept_pct": 44.955,
+   "sensitivity": {
+    "median_abs_shift_wt_pct": 11.43581518467068,
+    "p95_abs_shift_wt_pct": 17.62407788172056,
+    "spearman_base_vs_low": 0.9919788578288788,
+    "spearman_base_vs_high": 0.719949601056855
+   }
+  }
+ },
+ "endmembers": {
+  "Quartz": {
+   "SiO2": 100.0,
+   "FeO": 0.0,
+   "tag": "DEFINITIONAL",
+   "basis": "SiO2",
+   "alt_SiO2": [
+    100.0,
+    100.0
+   ]
+  },
+  "Feldspar": {
+   "SiO2": 64.76,
+   "FeO": 0.0,
+   "tag": "DEFINITIONAL",
+   "basis": "K-feldspar KAlSi3O8, M = 278.33",
+   "alt_SiO2": [
+    64.76,
+    64.76
+   ]
+  },
+  "Plagioclase": {
+   "SiO2": 53.0,
+   "FeO": 0.0,
+   "tag": "ASSUMED",
+   "basis": "labradorite An60, Na0.4Ca0.6Al1.6Si2.4O8, M = 271.84 -- the plagioclase TES retrieves on Mars is calcic (Bandfield 2002)",
+   "alt_SiO2": [
+    50.5,
+    55.6
+   ],
+   "alt_note": "An70 .. An50"
+  },
+  "Orthopyroxene": {
+   "SiO2": 56.3,
+   "FeO": 13.5,
+   "tag": "ASSUMED",
+   "basis": "bronzite En80, (Mg0.8Fe0.2)SiO3, M = 106.7",
+   "alt_SiO2": [
+    55.0,
+    57.5
+   ],
+   "alt_FeO": [
+    6.8,
+    20.0
+   ],
+   "alt_note": "En70 .. En90"
+  },
+  "Clinopyroxene": {
+   "SiO2": 53.2,
+   "FeO": 12.7,
+   "tag": "ASSUMED",
+   "basis": "augite Ca0.8Mg0.8Fe0.4Si2O6, M = 226.0",
+   "alt_SiO2": [
+    51.5,
+    54.5
+   ],
+   "alt_FeO": [
+    6.0,
+    18.0
+   ],
+   "alt_note": "diopside-rich .. Fe-augite"
+  },
+  "Olivine": {
+   "SiO2": 37.6,
+   "FeO": 27.0,
+   "tag": "ASSUMED",
+   "basis": "forsterite Fo70, Mg1.4Fe0.6SiO4, M = 159.6",
+   "alt_SiO2": [
+    35.0,
+    40.6
+   ],
+   "alt_FeO": [
+    9.8,
+    42.0
+   ],
+   "alt_note": "Fo50 .. Fo90"
+  },
+  "Amphibole": {
+   "SiO2": 49.7,
+   "FeO": 8.5,
+   "tag": "ESTIMATE",
+   "basis": "hornblende Ca2Mg3FeAl2Si7O22(OH)2, M = 845.5; the group spans actinolite to hornblende",
+   "alt_SiO2": [
+    45.0,
+    55.0
+   ],
+   "alt_FeO": [
+    5.0,
+    15.0
+   ]
+  },
+  "Glass_Clay": {
+   "SiO2": 60.0,
+   "FeO": 5.0,
+   "tag": "ESTIMATE",
+   "basis": "'sheet silicates / high-silica glass' group: K-rich obsidian glass ~75 wt% SiO2 to smectite ~50-60; midpoint used, widest uncertainty of the table",
+   "alt_SiO2": [
+    50.0,
+    75.0
+   ],
+   "alt_FeO": [
+    2.0,
+    30.0
+   ],
+   "alt_note": "smectite .. obsidian; nontronite would be Fe-rich"
+  },
+  "Hematite": {
+   "SiO2": 0.0,
+   "FeO": 89.98,
+   "tag": "DEFINITIONAL",
+   "basis": "Fe2O3 as FeO_T: 2*71.85/159.69",
+   "alt_SiO2": [
+    0.0,
+    0.0
+   ]
+  }
+ }
+}

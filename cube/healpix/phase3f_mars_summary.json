@@ -1,0 +1,39 @@
+{
+ "mcd_comparison": {
+  "temp_level": {
+   "gcm_cells": 2944,
+   "mean_diff_K": -0.6928430609088846,
+   "median_abs_diff_K": 4.576395942611214,
+   "p95_abs_diff_K": 11.651607528300008,
+   "pearson_r": 0.9756547771792405,
+   "mcd_p50": 202.34077699767897,
+   "model_p50": 198.1147718537827
+  },
+  "temp_range_diurnal": {
+   "gcm_cells": 2944,
+   "mean_diff_K": 3.3727343389178985,
+   "median_abs_diff_K": 5.229295392608398,
+   "p95_abs_diff_K": 14.962821185782857,
+   "pearson_r": 0.9819343339420566,
+   "mcd_p50": 68.97860677649335,
+   "model_p50": 68.8438573593555
+  },
+  "temp_range_seasonal": {
+   "gcm_cells": 2944,
+   "mean_diff_K": 5.901278896381335,
+   "median_abs_diff_K": 4.944624532014627,
+   "p95_abs_diff_K": 16.23513951740591,
+   "pearson_r": 0.977912664790096,
+   "mcd_p50": 64.89744582266178,
+   "model_p50": 74.25983319757333
+  }
+ },
+ "clipping": {
+  "ti": 15541,
+  "elev": 6,
+  "lat": 341,
+  "tau": 0,
+  "albedo_below": 7529
+ },
+ "non_converged": 112378
+}

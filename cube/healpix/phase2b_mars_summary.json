@@ -1,0 +1,52 @@
+{
+ "name": "mars_tpi_7km",
+ "units": "m",
+ "n_pixels": 3145728,
+ "expected_npix": 3145728,
+ "shape_ok": true,
+ "dtype": "float32",
+ "n_valid": 3145728,
+ "coverage_gate": {
+  "global": 100.0,
+  "abs_lat_gt_60": 100.0,
+  "abs_lat_gt_80": 100.0,
+  "abs_lat_gt_85": 100.0,
+  "lat_85S_to_90S": 100.0
+ },
+ "range_gate": {
+  "min": -375.4167175292969,
+  "p1": -65.97712783813476,
+  "p25": -3.946562945842743,
+  "p50": -0.24917791783809662,
+  "p75": 3.2588435411453247,
+  "p99": 68.67154899597166,
+  "max": 483.4222106933594,
+  "iqr": 7.205406486988068,
+  "mean": -0.00018117089107865122
+ },
+ "support_gate": {
+  "definition": "achieved weight total over expected weight total: the cos(lat)-weighted fraction of the native cells falling in the pixel that carried a usable value",
+  "n_pixels_with_reference": 3145728,
+  "min": 1.0,
+  "p1": 1.0,
+  "p5": 1.0,
+  "p25": 1.0,
+  "p50": 1.0,
+  "p75": 1.0,
+  "max": 1.0,
+  "mean": 1.0,
+  "valid_pixels_below_0.05": 0,
+  "valid_pixels_below_0.10": 0,
+  "valid_pixels_below_0.25": 0,
+  "valid_pixels_below_0.50": 0,
+  "valid_pixels_below_0.90": 0,
+  "valid_pixels_fully_supported": 3145728,
+  "thin_support_warning": "A pixel passing the coverage gate on a small support fraction is a weak measurement, not a missing one. Filter on support, not on validity alone."
+ },
+ "healpix_pixels_filled": 3145728,
+ "requested_window_km": 7.0,
+ "achieved_window_km": 6.9463,
+ "half_cells": 7,
+ "sign_convention": "TPI = z - mean(z within the window). TPI < 0 means the cell is LOWER than its surroundings, i.e. INSIDE A BOWL (crater floor, basin, valley). TPI > 0 means a rim, ridge or peak.",
+ "ew_rows_saturated": 4
+}

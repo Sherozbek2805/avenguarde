@@ -1,0 +1,109 @@
+{
+ "name": "earth_svf_30km",
+ "units": "dimensionless",
+ "n_pixels": 12582912,
+ "expected_npix": 12582912,
+ "shape_ok": true,
+ "dtype": "float32",
+ "n_valid": 12582912,
+ "coverage_gate": {
+  "global": 100.0,
+  "abs_lat_gt_60": 100.0,
+  "abs_lat_gt_80": 100.0,
+  "abs_lat_gt_85": 100.0,
+  "lat_85S_to_90S": 100.0
+ },
+ "range_gate": {
+  "min": 0.6719797253608704,
+  "p1": 0.8984135454893112,
+  "p25": 0.997978150844574,
+  "p50": 1.0,
+  "p75": 1.0,
+  "p99": 1.0,
+  "max": 1.0,
+  "iqr": 0.0020218491554260254,
+  "mean": 0.9936999069684495
+ },
+ "support_gate": {
+  "definition": "achieved weight total over expected weight total: the cos(lat)-weighted fraction of the native cells falling in the pixel that carried a usable value",
+  "n_pixels_with_reference": 12582912,
+  "min": 1.0,
+  "p1": 1.0,
+  "p5": 1.0,
+  "p25": 1.0,
+  "p50": 1.0,
+  "p75": 1.0,
+  "max": 1.0,
+  "mean": 1.0,
+  "valid_pixels_below_0.05": 0,
+  "valid_pixels_below_0.10": 0,
+  "valid_pixels_below_0.25": 0,
+  "valid_pixels_below_0.50": 0,
+  "valid_pixels_below_0.90": 0,
+  "valid_pixels_fully_supported": 12582912,
+  "thin_support_warning": "A pixel passing the coverage gate on a small support fraction is a weak measurement, not a missing one. Filter on support, not on validity alone."
+ },
+ "healpix_pixels_filled": 12582912,
+ "range_gate_stated_in_advance": [
+  0.0,
+  1.0
+ ],
+ "pixels_outside_stated_gate": 0,
+ "range_gate_pass": true,
+ "azimuths": 16,
+ "radius_km_requested": 30.0,
+ "radius_cells": 32,
+ "radius_km_achieved": 29.652,
+ "computed_at_km": 0.9266,
+ "latlon_pass": {
+  "bands": 75,
+  "core_rows": 256,
+  "halo_rows": 32,
+  "max_column_step": 167,
+  "elapsed_s": 1810.0
+ },
+ "polar_caps": [
+  {
+   "pole": "S",
+   "grid": [
+    3074,
+    3074
+   ],
+   "cell_km": 0.9266,
+   "cells_binned": 4546964,
+   "scale_factor_range": [
+    1.0000000026442484,
+    1.0076542451289576
+   ],
+   "reproject_s": 7.3,
+   "kernel_s": 18.7,
+   "src_rows": [
+    40200,
+    43200
+   ],
+   "resampling": "average (area-weighted)",
+   "dst_crs": "+proj=stere +lat_0=-90 +lon_0=0 +k=1 +x_0=0 +y_0=0 +R=6371000 +units=m +no_defs=True"
+  },
+  {
+   "pole": "N",
+   "grid": [
+    3074,
+    3074
+   ],
+   "cell_km": 0.9266,
+   "cells_binned": 4546964,
+   "scale_factor_range": [
+    1.0000000026442484,
+    1.0076542451289576
+   ],
+   "reproject_s": 7.2,
+   "kernel_s": 19.0,
+   "src_rows": [
+    0,
+    3000
+   ],
+   "resampling": "average (area-weighted)",
+   "dst_crs": "+proj=stere +lat_0=90 +lon_0=0 +k=1 +x_0=0 +y_0=0 +R=6371000 +units=m +no_defs=True"
+  }
+ ]
+}
