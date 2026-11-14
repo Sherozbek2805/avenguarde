@@ -1,0 +1,122 @@
+[
+ {
+  "target": "Jezero crater",
+  "construction": "without_composition",
+  "system": "earth_reachable_only",
+  "variables": 9,
+  "cells": 680,
+  "target_spread": 1.5095,
+  "null_spread_median": 0.92,
+  "di_observed": 1.0312,
+  "null_median": 0.6052,
+  "p": 0.825175,
+  "significant": false,
+  "control_p": 0.711289,
+  "control_passed": false,
+  "best_di": 1.021,
+  "patches_total": 8289,
+  "best_site": {
+   "lat": 23.3586,
+   "lon": 56.8652,
+   "koppen": "BWh",
+   "catalogue": "new candidate"
+  },
+  "out_dir": "runs/mars_jezero_crater__earth_reachable_only"
+ },
+ {
+  "target": "Jezero crater",
+  "construction": "without_composition",
+  "system": "all_variables",
+  "variables": 11,
+  "cells": 680,
+  "target_spread": 1.3606,
+  "null_spread_median": 0.883,
+  "di_observed": 5.1905,
+  "null_median": 5.65,
+  "p": 0.246753,
+  "significant": false,
+  "control_p": 0.000999,
+  "control_passed": true,
+  "best_di": 5.191,
+  "patches_total": 389,
+  "best_site": {
+   "lat": -18.1314,
+   "lon": -69.2139,
+   "koppen": "BSk",
+   "catalogue": "new candidate"
+  },
+  "out_dir": "runs/mars_jezero_crater__all_variables"
+ },
+ {
+  "target": "Jezero crater",
+  "construction": "all_dimensions",
+  "system": "earth_reachable_only",
+  "variables": 11,
+  "cells": 553,
+  "target_spread": 1.4799,
+  "null_spread_median": 1.184,
+  "di_observed": 1.0409,
+  "null_median": 0.7816,
+  "p": 0.814186,
+  "significant": false,
+  "control_p": 0.507493,
+  "control_passed": false,
+  "best_di": 1.019,
+  "patches_total": 6131,
+  "best_site": {
+   "lat": 10.731,
+   "lon": 37.2217,
+   "koppen": "Csb",
+   "catalogue": "new candidate"
+  },
+  "out_dir": "runs/mars_jezero_crater_all_dimensions__earth_reachable_only"
+ },
+ {
+  "target": "Jezero crater",
+  "construction": "all_dimensions",
+  "system": "all_variables",
+  "variables": 13,
+  "cells": 553,
+  "target_spread": 1.375,
+  "null_spread_median": 1.149,
+  "di_observed": 4.5785,
+  "null_median": 4.9106,
+  "p": 0.278721,
+  "significant": false,
+  "control_p": 0.000999,
+  "control_passed": true,
+  "best_di": 4.578,
+  "patches_total": 408,
+  "best_site": {
+   "lat": -18.1314,
+   "lon": -69.2139,
+   "koppen": "BSk",
+   "catalogue": "new candidate"
+  },
+  "out_dir": "runs/mars_jezero_crater_all_dimensions__all_variables"
+ },
+ {
+  "target": "Gale crater",
+  "construction": "without_composition",
+  "system": "earth_reachable_only",
+  "variables": 9,
+  "cells": 681,
+  "target_spread": 3.0286,
+  "null_spread_median": 0.976,
+  "di_observed": 2.1432,
+  "null_median": 0.6486,
+  "p": 0.941059,
+  "significant": false,
+  "control_p": 0.711289,
+  "control_passed": false,
+  "best_di": 2.115,
+  "patches_total": 5752,
+  "best_site": {
+   "lat": 51.643,
+   "lon": 104.909,
+   "koppen": "Dwb",
+   "catalogue": "new candidate"
+  },
+  "out_dir": "runs/mars_gale_crater__earth_reachable_only"
+ }
+]
