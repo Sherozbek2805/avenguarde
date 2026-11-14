@@ -1,0 +1,533 @@
+{
+ "name": "cube_provenance_v1",
+ "dtype": "uint8",
+ "codes": {
+  "0": {
+   "name": "ABSENT",
+   "meaning": "No native source cell maps to this pixel and no value was supplied. The layer value is NaN.",
+   "value_is": "NaN",
+   "support_is": "NaN"
+  },
+  "1": {
+   "name": "BINNED",
+   "meaning": "The value is an area-weighted mean of the native cells falling in this pixel. Support is the cos(lat)-weighted fraction of those cells that carried a usable value.",
+   "value_is": "finite",
+   "support_is": "greater than 0"
+  },
+  "2": {
+   "name": "COPIED_FROM_COARSER",
+   "meaning": "No native cell fell in this pixel, so the value was COPIED from the nearest source cell. The value is usable but it is shared with neighbouring pixels, so it adds no independent information. Filter on distinct_levels and largest_tie_fraction, not on support.",
+   "value_is": "finite",
+   "support_is": "exactly 0.0"
+  },
+  "3": {
+   "name": "NO_VALID_SOURCE",
+   "meaning": "The source grid COVERS this pixel but supplied no usable value. Two distinct situations share this code and the stored arrays cannot separate them: (a) the product reports nodata here BY DESIGN -- MOD11C3 is land-only, so 8.5 million ocean pixels are code 3 on every Earth thermal layer; and (b) every contributing cell FAILED a quality test, as with the 803 flat-water pixels that failed the R-squared gate on scaling_exponent_r2. Check the layer's own coverage note before reading code 3 as failure. The value is NaN either way. It is still NOT the same as ABSENT, where no source cell reaches the pixel at all.",
+   "value_is": "NaN",
+   "support_is": "exactly 0.0"
+  }
+ },
+ "why_this_exists": "support == 0.0 previously meant NO_VALID_SOURCE on the scaling-exponent layers and COPIED_FROM_COARSER on the phase 3 thermal layers. Downstream code testing `support > 0` for usability would have silently dropped every copied thermal pixel, which is 99.91% of Mars and 71.12% of the Moon. Never infer usability from support alone; read this code.",
+ "usable_for_statistics": [
+  1,
+  2
+ ],
+ "missing": [
+  0,
+  3
+ ],
+ "layers": {
+  "earth_FeO": {
+   "nside": 1024,
+   "provenance_file": "provenance_a6e1911b0e5e_nside1024.npy",
+   "counts": {
+    "ABSENT": 9228105,
+    "BINNED": 3354807,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "earth_SiO2": {
+   "nside": 1024,
+   "provenance_file": "provenance_a6e1911b0e5e_nside1024.npy",
+   "counts": {
+    "ABSENT": 9228105,
+    "BINNED": 3354807,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "earth_roughness_10.5km": {
+   "nside": 1024,
+   "provenance_file": "provenance_0392c70e353b_nside1024.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 12582912,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "earth_roughness_21km": {
+   "nside": 1024,
+   "provenance_file": "provenance_0392c70e353b_nside1024.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 12582912,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "earth_roughness_42km": {
+   "nside": 1024,
+   "provenance_file": "provenance_0392c70e353b_nside1024.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 12582912,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "earth_roughness_5.25km": {
+   "nside": 1024,
+   "provenance_file": "provenance_0392c70e353b_nside1024.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 12582912,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "earth_roughness_scaling_exponent": {
+   "nside": 1024,
+   "provenance_file": "provenance_4512a0232b37_nside1024.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 12139705,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 443207
+   }
+  },
+  "earth_scaling_exponent_r2": {
+   "nside": 1024,
+   "provenance_file": "provenance_9930d2b7ff82_nside1024.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 12582109,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 803
+   }
+  },
+  "earth_slope": {
+   "nside": 1024,
+   "provenance_file": "provenance_0392c70e353b_nside1024.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 12582912,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "earth_svf_30km": {
+   "nside": 1024,
+   "provenance_file": "provenance_0392c70e353b_nside1024.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 12582912,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "earth_temp_level": {
+   "nside": 1024,
+   "provenance_file": "provenance_94a442c0fdc3_nside1024.npy",
+   "counts": {
+    "ABSENT": 305189,
+    "BINNED": 3647966,
+    "COPIED_FROM_COARSER": 107518,
+    "NO_VALID_SOURCE": 8522239
+   }
+  },
+  "earth_temp_range_diurnal": {
+   "nside": 1024,
+   "provenance_file": "provenance_6cb4ef59c25d_nside1024.npy",
+   "counts": {
+    "ABSENT": 305218,
+    "BINNED": 3647372,
+    "COPIED_FROM_COARSER": 107488,
+    "NO_VALID_SOURCE": 8522834
+   }
+  },
+  "earth_temp_range_seasonal": {
+   "nside": 1024,
+   "provenance_file": "provenance_94a442c0fdc3_nside1024.npy",
+   "counts": {
+    "ABSENT": 305189,
+    "BINNED": 3647966,
+    "COPIED_FROM_COARSER": 107518,
+    "NO_VALID_SOURCE": 8522239
+   }
+  },
+  "earth_thermal_inertia": {
+   "nside": 1024,
+   "provenance_file": "provenance_494abaa92a6f_nside1024.npy",
+   "counts": {
+    "ABSENT": 305755,
+    "BINNED": 3632815,
+    "COPIED_FROM_COARSER": 106960,
+    "NO_VALID_SOURCE": 8537382
+   }
+  },
+  "earth_tpi_21km": {
+   "nside": 1024,
+   "provenance_file": "provenance_0392c70e353b_nside1024.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 12582912,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "earth_tpi_7km": {
+   "nside": 1024,
+   "provenance_file": "provenance_0392c70e353b_nside1024.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 12582912,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "mars_FeO": {
+   "nside": 512,
+   "provenance_file": "provenance_608816a3659a_nside512.npy",
+   "counts": {
+    "ABSENT": 1141564,
+    "BINNED": 445945,
+    "COPIED_FROM_COARSER": 1096330,
+    "NO_VALID_SOURCE": 461889
+   }
+  },
+  "mars_SiO2": {
+   "nside": 512,
+   "provenance_file": "provenance_608816a3659a_nside512.npy",
+   "counts": {
+    "ABSENT": 1141564,
+    "BINNED": 445945,
+    "COPIED_FROM_COARSER": 1096330,
+    "NO_VALID_SOURCE": 461889
+   }
+  },
+  "mars_albedo": {
+   "nside": 512,
+   "provenance_file": "provenance_5030e81ecade_nside512.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 2677672,
+    "COPIED_FROM_COARSER": 468056,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "mars_elevation": {
+   "nside": 512,
+   "provenance_file": "provenance_7781a4469f15_nside512.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 3145728,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "mars_roughness_10.5km": {
+   "nside": 512,
+   "provenance_file": "provenance_7781a4469f15_nside512.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 3145728,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "mars_roughness_21km": {
+   "nside": 512,
+   "provenance_file": "provenance_7781a4469f15_nside512.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 3145728,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "mars_roughness_42km": {
+   "nside": 512,
+   "provenance_file": "provenance_7781a4469f15_nside512.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 3145728,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "mars_roughness_5.25km": {
+   "nside": 512,
+   "provenance_file": "provenance_7781a4469f15_nside512.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 3145728,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "mars_roughness_scaling_exponent": {
+   "nside": 512,
+   "provenance_file": "provenance_fa237bec7d93_nside512.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 3062840,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 82888
+   }
+  },
+  "mars_scaling_exponent_r2": {
+   "nside": 512,
+   "provenance_file": "provenance_7781a4469f15_nside512.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 3145728,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "mars_slope": {
+   "nside": 512,
+   "provenance_file": "provenance_7781a4469f15_nside512.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 3145728,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "mars_svf_30km": {
+   "nside": 512,
+   "provenance_file": "provenance_7781a4469f15_nside512.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 3145728,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "mars_temp_level": {
+   "nside": 512,
+   "provenance_file": "provenance_ba840fceaea0_nside512.npy",
+   "counts": {
+    "ABSENT": 20116,
+    "BINNED": 3125612,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "mars_temp_range_diurnal": {
+   "nside": 512,
+   "provenance_file": "provenance_ba840fceaea0_nside512.npy",
+   "counts": {
+    "ABSENT": 20116,
+    "BINNED": 3125612,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "mars_temp_range_seasonal": {
+   "nside": 512,
+   "provenance_file": "provenance_ba840fceaea0_nside512.npy",
+   "counts": {
+    "ABSENT": 20116,
+    "BINNED": 3125612,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "mars_thermal_inertia_day": {
+   "nside": 512,
+   "provenance_file": "provenance_f8a9efff9c02_nside512.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 3136986,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 8742
+   }
+  },
+  "mars_thermal_inertia": {
+   "nside": 512,
+   "provenance_file": "provenance_b8c53f2b6d6f_nside512.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 3125612,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 20116
+   }
+  },
+  "mars_tpi_21km": {
+   "nside": 512,
+   "provenance_file": "provenance_7781a4469f15_nside512.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 3145728,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "mars_tpi_7km": {
+   "nside": 512,
+   "provenance_file": "provenance_7781a4469f15_nside512.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 3145728,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "moon_FeO": {
+   "nside": 256,
+   "provenance_file": "moon_FeO_provenance_nside256.npy",
+   "own_builder": true,
+   "counts": {
+    "ABSENT": 256,
+    "BINNED": 0,
+    "COPIED_FROM_COARSER": 786176,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "moon_SiO2": {
+   "nside": 256,
+   "provenance_file": "moon_SiO2_provenance_nside256.npy",
+   "own_builder": true,
+   "counts": {
+    "ABSENT": 256,
+    "BINNED": 0,
+    "COPIED_FROM_COARSER": 786176,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "moon_roughness_10.5km": {
+   "nside": 256,
+   "provenance_file": "provenance_478a5e5c46c0_nside256.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 786432,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "moon_roughness_21km": {
+   "nside": 256,
+   "provenance_file": "provenance_478a5e5c46c0_nside256.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 786432,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "moon_roughness_42km": {
+   "nside": 256,
+   "provenance_file": "provenance_478a5e5c46c0_nside256.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 786432,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "moon_roughness_5.25km": {
+   "nside": 256,
+   "provenance_file": "provenance_478a5e5c46c0_nside256.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 786432,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "moon_roughness_scaling_exponent": {
+   "nside": 256,
+   "provenance_file": "provenance_20906a96de46_nside256.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 765110,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 21322
+   }
+  },
+  "moon_scaling_exponent_r2": {
+   "nside": 256,
+   "provenance_file": "provenance_478a5e5c46c0_nside256.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 786432,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "moon_slope": {
+   "nside": 256,
+   "provenance_file": "provenance_478a5e5c46c0_nside256.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 786432,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "moon_svf_30km": {
+   "nside": 256,
+   "provenance_file": "provenance_478a5e5c46c0_nside256.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 786432,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "moon_temp_level": {
+   "nside": 256,
+   "provenance_file": "provenance_1158647a7e1e_nside256.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 227128,
+    "COPIED_FROM_COARSER": 559304,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "moon_temp_range_diurnal": {
+   "nside": 256,
+   "provenance_file": "provenance_1158647a7e1e_nside256.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 227128,
+    "COPIED_FROM_COARSER": 559304,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "moon_tpi_21km": {
+   "nside": 256,
+   "provenance_file": "provenance_478a5e5c46c0_nside256.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 786432,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  },
+  "moon_tpi_7km": {
+   "nside": 256,
+   "provenance_file": "provenance_478a5e5c46c0_nside256.npy",
+   "counts": {
+    "ABSENT": 0,
+    "BINNED": 786432,
+    "COPIED_FROM_COARSER": 0,
+    "NO_VALID_SOURCE": 0
+   }
+  }
+ }
+}

@@ -1,0 +1,1256 @@
+{
+ "written_by": "build/targets.py",
+ "written_utc": "2026-11-11T15:18:52Z",
+ "note": "Pixel sets and data coverage only. No distance, DI or p-value is computed here.",
+ "source_file": "sources/targets_moon_artemis3_v2.csv",
+ "body": "moon",
+ "nside": 256,
+ "cell_km2": 48.23,
+ "pairing": "earth_moon",
+ "pairing_dimensions": [
+  "slope",
+  "roughness_5.25km",
+  "roughness_10.5km",
+  "roughness_21km",
+  "roughness_42km",
+  "tpi_21km",
+  "tpi_7km",
+  "svf_30km",
+  "temp_level",
+  "temp_range_diurnal",
+  "SiO2",
+  "FeO"
+ ],
+ "overlapping_targets": [
+  [
+   "Mons Mouton Plateau",
+   "Mons Mouton",
+   3
+  ],
+  [
+   "Mons Mouton",
+   "Nobile Rim 1",
+   1
+  ]
+ ],
+ "targets": [
+  {
+   "name": "Peak near Cabeus B",
+   "body": "moon",
+   "center_lat": -83.6375,
+   "center_lon": -68.7495,
+   "geometry": {
+    "type": "polygon",
+    "vertices_lonlat": [
+     [
+      -67.1667166,
+      -83.2095021
+     ],
+     [
+      -72.4735296,
+      -83.4364437
+     ],
+     [
+      -70.5594804,
+      -84.0600477
+     ],
+     [
+      -64.7998908,
+      -83.8100059
+     ]
+    ],
+    "edges_straight_in": "south_polar_stereographic",
+    "area_km2": 397.3
+   },
+   "nside": 256,
+   "ordering": "nested",
+   "membership_rule": "pixel centre inside the region",
+   "healpix_pixels": [
+    721559,
+    721565,
+    721567,
+    721589,
+    721602,
+    721608,
+    721610
+   ],
+   "cells": 7,
+   "cells_complete_all_dims": 7,
+   "cells_complete_without_composition": 7,
+   "dims_available": 12,
+   "dimensions": [
+    "slope",
+    "roughness_5.25km",
+    "roughness_10.5km",
+    "roughness_21km",
+    "roughness_42km",
+    "tpi_21km",
+    "tpi_7km",
+    "svf_30km",
+    "temp_level",
+    "temp_range_diurnal",
+    "SiO2",
+    "FeO"
+   ],
+   "primary_construction": "all_dimensions",
+   "second_construction": null,
+   "constructions": {
+    "all_dimensions": {
+     "n_dims": 12,
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km",
+      "temp_level",
+      "temp_range_diurnal",
+      "SiO2",
+      "FeO"
+     ],
+     "cells": 7,
+     "share_of_target": 1.0,
+     "usable": true
+    },
+    "without_composition": {
+     "n_dims": 10,
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km",
+      "temp_level",
+      "temp_range_diurnal"
+     ],
+     "cells": 7,
+     "share_of_target": 1.0,
+     "usable": true
+    }
+   },
+   "cells_used_by_the_score": "all",
+   "enough_for_distribution_statistics": false,
+   "abs_lat_band": [
+    81.64,
+    85.64
+   ],
+   "per_dimension_valid": {
+    "slope": 7,
+    "roughness_5.25km": 7,
+    "roughness_10.5km": 7,
+    "roughness_21km": 7,
+    "roughness_42km": 7,
+    "tpi_21km": 7,
+    "tpi_7km": 7,
+    "svf_30km": 7,
+    "temp_level": 7,
+    "temp_range_diurnal": 7,
+    "SiO2": 7,
+    "FeO": 7
+   },
+   "geometry_source": "LROC QuickMap layer 'A3: Candidate Landing Regions 2024', file A3_9regions-lonlat-simplified.geojson, Last-Modified 28 Oct 2024",
+   "source_url": "https://files.actgate.com/lunar/A3_9regions-lonlat-simplified.geojson",
+   "source_kind": "published vector polygon (LROC QuickMap); not hosted by nasa.gov",
+   "notes": "Four corners as published. Centre computed here as the rectangle centre in south polar stereographic; the file states no centre."
+  },
+  {
+   "name": "Haworth",
+   "body": "moon",
+   "center_lat": -86.7639,
+   "center_lon": -22.776999999999987,
+   "geometry": {
+    "type": "polygon",
+    "vertices_lonlat": [
+     [
+      -26.6519617,
+      -86.1123982
+     ],
+     [
+      -34.981846,
+      -86.9578423
+     ],
+     [
+      -16.9908233,
+      -87.3935336
+     ],
+     [
+      -12.3617819,
+      -86.4427741
+     ]
+    ],
+    "edges_straight_in": "south_polar_stereographic",
+    "area_km2": 886.6
+   },
+   "nside": 256,
+   "ordering": "nested",
+   "membership_rule": "pixel centre inside the region",
+   "healpix_pixels": [
+    720975,
+    720986,
+    720987,
+    720990,
+    720991,
+    720997,
+    720998,
+    720999,
+    721008,
+    721009,
+    721010,
+    721011,
+    721012,
+    721013,
+    721014
+   ],
+   "cells": 15,
+   "cells_complete_all_dims": 15,
+   "cells_complete_without_composition": 15,
+   "dims_available": 12,
+   "dimensions": [
+    "slope",
+    "roughness_5.25km",
+    "roughness_10.5km",
+    "roughness_21km",
+    "roughness_42km",
+    "tpi_21km",
+    "tpi_7km",
+    "svf_30km",
+    "temp_level",
+    "temp_range_diurnal",
+    "SiO2",
+    "FeO"
+   ],
+   "primary_construction": "all_dimensions",
+   "second_construction": null,
+   "constructions": {
+    "all_dimensions": {
+     "n_dims": 12,
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km",
+      "temp_level",
+      "temp_range_diurnal",
+      "SiO2",
+      "FeO"
+     ],
+     "cells": 15,
+     "share_of_target": 1.0,
+     "usable": true
+    },
+    "without_composition": {
+     "n_dims": 10,
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km",
+      "temp_level",
+      "temp_range_diurnal"
+     ],
+     "cells": 15,
+     "share_of_target": 1.0,
+     "usable": true
+    }
+   },
+   "cells_used_by_the_score": "all",
+   "enough_for_distribution_statistics": false,
+   "abs_lat_band": [
+    84.76,
+    88.76
+   ],
+   "per_dimension_valid": {
+    "slope": 15,
+    "roughness_5.25km": 15,
+    "roughness_10.5km": 15,
+    "roughness_21km": 15,
+    "roughness_42km": 15,
+    "tpi_21km": 15,
+    "tpi_7km": 15,
+    "svf_30km": 15,
+    "temp_level": 15,
+    "temp_range_diurnal": 15,
+    "SiO2": 15,
+    "FeO": 15
+   },
+   "geometry_source": "LROC QuickMap layer 'A3: Candidate Landing Regions 2024', file A3_9regions-lonlat-simplified.geojson, Last-Modified 28 Oct 2024",
+   "source_url": "https://files.actgate.com/lunar/A3_9regions-lonlat-simplified.geojson",
+   "source_kind": "published vector polygon (LROC QuickMap); not hosted by nasa.gov",
+   "notes": "Four corners as published. Centre computed here as the rectangle centre in south polar stereographic; the file states no centre."
+  },
+  {
+   "name": "Malapert Massif",
+   "body": "moon",
+   "center_lat": -85.9948,
+   "center_lon": -0.23580000000001178,
+   "geometry": {
+    "type": "polygon",
+    "vertices_lonlat": [
+     [
+      -4.76364169,
+      -85.6339442
+     ],
+     [
+      -5.65948184,
+      -86.3227868
+     ],
+     [
+      5.14788482,
+      -86.3258893
+     ],
+     [
+      4.33231398,
+      -85.6365554
+     ]
+    ],
+    "edges_straight_in": "south_polar_stereographic",
+    "area_km2": 439.9
+   },
+   "nside": 256,
+   "ordering": "nested",
+   "membership_rule": "pixel centre inside the region",
+   "healpix_pixels": [
+    524832,
+    524834,
+    524840,
+    721168,
+    721169,
+    721172
+   ],
+   "cells": 6,
+   "cells_complete_all_dims": 6,
+   "cells_complete_without_composition": 6,
+   "dims_available": 12,
+   "dimensions": [
+    "slope",
+    "roughness_5.25km",
+    "roughness_10.5km",
+    "roughness_21km",
+    "roughness_42km",
+    "tpi_21km",
+    "tpi_7km",
+    "svf_30km",
+    "temp_level",
+    "temp_range_diurnal",
+    "SiO2",
+    "FeO"
+   ],
+   "primary_construction": "all_dimensions",
+   "second_construction": null,
+   "constructions": {
+    "all_dimensions": {
+     "n_dims": 12,
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km",
+      "temp_level",
+      "temp_range_diurnal",
+      "SiO2",
+      "FeO"
+     ],
+     "cells": 6,
+     "share_of_target": 1.0,
+     "usable": true
+    },
+    "without_composition": {
+     "n_dims": 10,
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km",
+      "temp_level",
+      "temp_range_diurnal"
+     ],
+     "cells": 6,
+     "share_of_target": 1.0,
+     "usable": true
+    }
+   },
+   "cells_used_by_the_score": "all",
+   "enough_for_distribution_statistics": false,
+   "abs_lat_band": [
+    83.99,
+    87.99
+   ],
+   "per_dimension_valid": {
+    "slope": 6,
+    "roughness_5.25km": 6,
+    "roughness_10.5km": 6,
+    "roughness_21km": 6,
+    "roughness_42km": 6,
+    "tpi_21km": 6,
+    "tpi_7km": 6,
+    "svf_30km": 6,
+    "temp_level": 6,
+    "temp_range_diurnal": 6,
+    "SiO2": 6,
+    "FeO": 6
+   },
+   "geometry_source": "LROC QuickMap layer 'A3: Candidate Landing Regions 2024', file A3_9regions-lonlat-simplified.geojson, Last-Modified 28 Oct 2024",
+   "source_url": "https://files.actgate.com/lunar/A3_9regions-lonlat-simplified.geojson",
+   "source_kind": "published vector polygon (LROC QuickMap); not hosted by nasa.gov",
+   "notes": "Four corners as published. Centre computed here as the rectangle centre in south polar stereographic; the file states no centre."
+  },
+  {
+   "name": "Mons Mouton Plateau",
+   "body": "moon",
+   "center_lat": -84.3347,
+   "center_lon": 30.592299999999994,
+   "geometry": {
+    "type": "polygon",
+    "vertices_lonlat": [
+     [
+      15.4941713,
+      -83.9502041
+     ],
+     [
+      22.3928418,
+      -85.7556443
+     ],
+     [
+      46.6120414,
+      -84.2893429
+     ],
+     [
+      35.4424594,
+      -82.8467104
+     ]
+    ],
+    "edges_straight_in": "south_polar_stereographic",
+    "area_km2": 4430.1
+   },
+   "nside": 256,
+   "ordering": "nested",
+   "membership_rule": "pixel centre inside the region",
+   "healpix_pixels": [
+    524539,
+    524542,
+    524543,
+    524822,
+    524823,
+    524828,
+    524829,
+    524830,
+    524831,
+    524852,
+    524853,
+    524854,
+    524855,
+    524860,
+    524861,
+    524862,
+    524863,
+    524864,
+    524865,
+    524866,
+    524867,
+    524868,
+    524869,
+    524870,
+    524871,
+    524872,
+    524873,
+    524874,
+    524875,
+    524876,
+    524877,
+    524878,
+    524879,
+    524880,
+    524881,
+    524882,
+    524883,
+    524884,
+    524885,
+    524886,
+    524887,
+    524888,
+    524889,
+    524890,
+    524891,
+    524892,
+    524893,
+    524894,
+    524895,
+    524896,
+    524897,
+    524898,
+    524899,
+    524900,
+    524901,
+    524902,
+    524903,
+    524904,
+    524905,
+    524906,
+    524907,
+    524908,
+    524909,
+    524910,
+    524911,
+    524912,
+    524913,
+    524914,
+    524915,
+    524916,
+    524917,
+    524918,
+    524919,
+    524920,
+    524921,
+    524922,
+    524923,
+    524924,
+    524926,
+    524948,
+    524949,
+    524950,
+    524951,
+    524956,
+    524992,
+    524993,
+    524994,
+    524995,
+    524996,
+    524997
+   ],
+   "cells": 90,
+   "cells_complete_all_dims": 90,
+   "cells_complete_without_composition": 90,
+   "dims_available": 12,
+   "dimensions": [
+    "slope",
+    "roughness_5.25km",
+    "roughness_10.5km",
+    "roughness_21km",
+    "roughness_42km",
+    "tpi_21km",
+    "tpi_7km",
+    "svf_30km",
+    "temp_level",
+    "temp_range_diurnal",
+    "SiO2",
+    "FeO"
+   ],
+   "primary_construction": "all_dimensions",
+   "second_construction": null,
+   "constructions": {
+    "all_dimensions": {
+     "n_dims": 12,
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km",
+      "temp_level",
+      "temp_range_diurnal",
+      "SiO2",
+      "FeO"
+     ],
+     "cells": 90,
+     "share_of_target": 1.0,
+     "usable": true
+    },
+    "without_composition": {
+     "n_dims": 10,
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km",
+      "temp_level",
+      "temp_range_diurnal"
+     ],
+     "cells": 90,
+     "share_of_target": 1.0,
+     "usable": true
+    }
+   },
+   "cells_used_by_the_score": "all",
+   "enough_for_distribution_statistics": true,
+   "abs_lat_band": [
+    82.33,
+    86.33
+   ],
+   "per_dimension_valid": {
+    "slope": 90,
+    "roughness_5.25km": 90,
+    "roughness_10.5km": 90,
+    "roughness_21km": 90,
+    "roughness_42km": 90,
+    "tpi_21km": 90,
+    "tpi_7km": 90,
+    "svf_30km": 90,
+    "temp_level": 90,
+    "temp_range_diurnal": 90,
+    "SiO2": 90,
+    "FeO": 90
+   },
+   "geometry_source": "LROC QuickMap layer 'A3: Candidate Landing Regions 2024', file A3_9regions-lonlat-simplified.geojson, Last-Modified 28 Oct 2024",
+   "source_url": "https://files.actgate.com/lunar/A3_9regions-lonlat-simplified.geojson",
+   "source_kind": "published vector polygon (LROC QuickMap); not hosted by nasa.gov",
+   "notes": "Four corners as published. Centre computed here as the rectangle centre in south polar stereographic; the file states no centre."
+  },
+  {
+   "name": "Mons Mouton",
+   "body": "moon",
+   "center_lat": -85.4266,
+   "center_lon": 31.74279999999999,
+   "geometry": {
+    "type": "polygon",
+    "vertices_lonlat": [
+     [
+      27.2879879,
+      -85.3270534
+     ],
+     [
+      30.5792269,
+      -85.7883352
+     ],
+     [
+      36.3665802,
+      -85.4973656
+     ],
+     [
+      32.7352263,
+      -85.0633036
+     ]
+    ],
+    "edges_straight_in": "south_polar_stereographic",
+    "area_km2": 255.2
+   },
+   "nside": 256,
+   "ordering": "nested",
+   "membership_rule": "pixel centre inside the region",
+   "healpix_pixels": [
+    524522,
+    524523,
+    524864,
+    524865,
+    524866
+   ],
+   "cells": 5,
+   "cells_complete_all_dims": 5,
+   "cells_complete_without_composition": 5,
+   "dims_available": 12,
+   "dimensions": [
+    "slope",
+    "roughness_5.25km",
+    "roughness_10.5km",
+    "roughness_21km",
+    "roughness_42km",
+    "tpi_21km",
+    "tpi_7km",
+    "svf_30km",
+    "temp_level",
+    "temp_range_diurnal",
+    "SiO2",
+    "FeO"
+   ],
+   "primary_construction": "all_dimensions",
+   "second_construction": null,
+   "constructions": {
+    "all_dimensions": {
+     "n_dims": 12,
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km",
+      "temp_level",
+      "temp_range_diurnal",
+      "SiO2",
+      "FeO"
+     ],
+     "cells": 5,
+     "share_of_target": 1.0,
+     "usable": true
+    },
+    "without_composition": {
+     "n_dims": 10,
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km",
+      "temp_level",
+      "temp_range_diurnal"
+     ],
+     "cells": 5,
+     "share_of_target": 1.0,
+     "usable": true
+    }
+   },
+   "cells_used_by_the_score": "all",
+   "enough_for_distribution_statistics": false,
+   "abs_lat_band": [
+    83.43,
+    87.43
+   ],
+   "per_dimension_valid": {
+    "slope": 5,
+    "roughness_5.25km": 5,
+    "roughness_10.5km": 5,
+    "roughness_21km": 5,
+    "roughness_42km": 5,
+    "tpi_21km": 5,
+    "tpi_7km": 5,
+    "svf_30km": 5,
+    "temp_level": 5,
+    "temp_range_diurnal": 5,
+    "SiO2": 5,
+    "FeO": 5
+   },
+   "geometry_source": "LROC QuickMap layer 'A3: Candidate Landing Regions 2024', file A3_9regions-lonlat-simplified.geojson, Last-Modified 28 Oct 2024",
+   "source_url": "https://files.actgate.com/lunar/A3_9regions-lonlat-simplified.geojson",
+   "source_kind": "published vector polygon (LROC QuickMap); not hosted by nasa.gov",
+   "notes": "Four corners as published. Centre computed here as the rectangle centre in south polar stereographic; the file states no centre."
+  },
+  {
+   "name": "Nobile Rim 1",
+   "body": "moon",
+   "center_lat": -85.4364,
+   "center_lon": 37.34700000000001,
+   "geometry": {
+    "type": "polygon",
+    "vertices_lonlat": [
+     [
+      31.6436679,
+      -85.3514014
+     ],
+     [
+      36.479968,
+      -85.8974903
+     ],
+     [
+      43.2066353,
+      -85.4747891
+     ],
+     [
+      38.0547222,
+      -84.9745999
+     ]
+    ],
+    "edges_straight_in": "south_polar_stereographic",
+    "area_km2": 398.7
+   },
+   "nside": 256,
+   "ordering": "nested",
+   "membership_rule": "pixel centre inside the region",
+   "healpix_pixels": [
+    524515,
+    524518,
+    524519,
+    524521,
+    524523,
+    524524,
+    524525,
+    524526,
+    524527
+   ],
+   "cells": 9,
+   "cells_complete_all_dims": 9,
+   "cells_complete_without_composition": 9,
+   "dims_available": 12,
+   "dimensions": [
+    "slope",
+    "roughness_5.25km",
+    "roughness_10.5km",
+    "roughness_21km",
+    "roughness_42km",
+    "tpi_21km",
+    "tpi_7km",
+    "svf_30km",
+    "temp_level",
+    "temp_range_diurnal",
+    "SiO2",
+    "FeO"
+   ],
+   "primary_construction": "all_dimensions",
+   "second_construction": null,
+   "constructions": {
+    "all_dimensions": {
+     "n_dims": 12,
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km",
+      "temp_level",
+      "temp_range_diurnal",
+      "SiO2",
+      "FeO"
+     ],
+     "cells": 9,
+     "share_of_target": 1.0,
+     "usable": true
+    },
+    "without_composition": {
+     "n_dims": 10,
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km",
+      "temp_level",
+      "temp_range_diurnal"
+     ],
+     "cells": 9,
+     "share_of_target": 1.0,
+     "usable": true
+    }
+   },
+   "cells_used_by_the_score": "all",
+   "enough_for_distribution_statistics": false,
+   "abs_lat_band": [
+    83.44,
+    87.44
+   ],
+   "per_dimension_valid": {
+    "slope": 9,
+    "roughness_5.25km": 9,
+    "roughness_10.5km": 9,
+    "roughness_21km": 9,
+    "roughness_42km": 9,
+    "tpi_21km": 9,
+    "tpi_7km": 9,
+    "svf_30km": 9,
+    "temp_level": 9,
+    "temp_range_diurnal": 9,
+    "SiO2": 9,
+    "FeO": 9
+   },
+   "geometry_source": "LROC QuickMap layer 'A3: Candidate Landing Regions 2024', file A3_9regions-lonlat-simplified.geojson, Last-Modified 28 Oct 2024",
+   "source_url": "https://files.actgate.com/lunar/A3_9regions-lonlat-simplified.geojson",
+   "source_kind": "published vector polygon (LROC QuickMap); not hosted by nasa.gov",
+   "notes": "Four corners as published. Centre computed here as the rectangle centre in south polar stereographic; the file states no centre."
+  },
+  {
+   "name": "Nobile Rim 2",
+   "body": "moon",
+   "center_lat": -83.9541,
+   "center_lon": 58.821500000000015,
+   "geometry": {
+    "type": "polygon",
+    "vertices_lonlat": [
+     [
+      54.461782,
+      -84.0479716
+     ],
+     [
+      59.9616123,
+      -84.4046507
+     ],
+     [
+      63.0242496,
+      -83.8263807
+     ],
+     [
+      57.8402006,
+      -83.501582
+     ]
+    ],
+    "edges_straight_in": "south_polar_stereographic",
+    "area_km2": 397.8
+   },
+   "nside": 256,
+   "ordering": "nested",
+   "membership_rule": "pixel centre inside the region",
+   "healpix_pixels": [
+    524696,
+    524697,
+    524698,
+    524699,
+    524700,
+    524701,
+    524702,
+    524720,
+    524721,
+    524724
+   ],
+   "cells": 10,
+   "cells_complete_all_dims": 10,
+   "cells_complete_without_composition": 10,
+   "dims_available": 12,
+   "dimensions": [
+    "slope",
+    "roughness_5.25km",
+    "roughness_10.5km",
+    "roughness_21km",
+    "roughness_42km",
+    "tpi_21km",
+    "tpi_7km",
+    "svf_30km",
+    "temp_level",
+    "temp_range_diurnal",
+    "SiO2",
+    "FeO"
+   ],
+   "primary_construction": "all_dimensions",
+   "second_construction": null,
+   "constructions": {
+    "all_dimensions": {
+     "n_dims": 12,
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km",
+      "temp_level",
+      "temp_range_diurnal",
+      "SiO2",
+      "FeO"
+     ],
+     "cells": 10,
+     "share_of_target": 1.0,
+     "usable": true
+    },
+    "without_composition": {
+     "n_dims": 10,
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km",
+      "temp_level",
+      "temp_range_diurnal"
+     ],
+     "cells": 10,
+     "share_of_target": 1.0,
+     "usable": true
+    }
+   },
+   "cells_used_by_the_score": "all",
+   "enough_for_distribution_statistics": false,
+   "abs_lat_band": [
+    81.95,
+    85.95
+   ],
+   "per_dimension_valid": {
+    "slope": 10,
+    "roughness_5.25km": 10,
+    "roughness_10.5km": 10,
+    "roughness_21km": 10,
+    "roughness_42km": 10,
+    "tpi_21km": 10,
+    "tpi_7km": 10,
+    "svf_30km": 10,
+    "temp_level": 10,
+    "temp_range_diurnal": 10,
+    "SiO2": 10,
+    "FeO": 10
+   },
+   "geometry_source": "LROC QuickMap layer 'A3: Candidate Landing Regions 2024', file A3_9regions-lonlat-simplified.geojson, Last-Modified 28 Oct 2024",
+   "source_url": "https://files.actgate.com/lunar/A3_9regions-lonlat-simplified.geojson",
+   "source_kind": "published vector polygon (LROC QuickMap); not hosted by nasa.gov",
+   "notes": "Four corners as published. Centre computed here as the rectangle centre in south polar stereographic; the file states no centre."
+  },
+  {
+   "name": "de Gerlache Rim 2",
+   "body": "moon",
+   "center_lat": -88.23,
+   "center_lon": -64.6284,
+   "geometry": {
+    "type": "polygon",
+    "vertices_lonlat": [
+     [
+      -60.5725436,
+      -87.7852884
+     ],
+     [
+      -77.4711923,
+      -88.0239288
+     ],
+     [
+      -71.3421115,
+      -88.6599857
+     ],
+     [
+      -49.3987054,
+      -88.3278927
+     ]
+    ],
+    "edges_straight_in": "south_polar_stereographic",
+    "area_km2": 399.8
+   },
+   "nside": 256,
+   "ordering": "nested",
+   "membership_rule": "pixel centre inside the region",
+   "healpix_pixels": [
+    720934,
+    720935,
+    720940,
+    720941,
+    720942,
+    720943,
+    721028
+   ],
+   "cells": 7,
+   "cells_complete_all_dims": 7,
+   "cells_complete_without_composition": 7,
+   "dims_available": 12,
+   "dimensions": [
+    "slope",
+    "roughness_5.25km",
+    "roughness_10.5km",
+    "roughness_21km",
+    "roughness_42km",
+    "tpi_21km",
+    "tpi_7km",
+    "svf_30km",
+    "temp_level",
+    "temp_range_diurnal",
+    "SiO2",
+    "FeO"
+   ],
+   "primary_construction": "all_dimensions",
+   "second_construction": null,
+   "constructions": {
+    "all_dimensions": {
+     "n_dims": 12,
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km",
+      "temp_level",
+      "temp_range_diurnal",
+      "SiO2",
+      "FeO"
+     ],
+     "cells": 7,
+     "share_of_target": 1.0,
+     "usable": true
+    },
+    "without_composition": {
+     "n_dims": 10,
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km",
+      "temp_level",
+      "temp_range_diurnal"
+     ],
+     "cells": 7,
+     "share_of_target": 1.0,
+     "usable": true
+    }
+   },
+   "cells_used_by_the_score": "all",
+   "enough_for_distribution_statistics": false,
+   "abs_lat_band": [
+    86.23,
+    90.0
+   ],
+   "per_dimension_valid": {
+    "slope": 7,
+    "roughness_5.25km": 7,
+    "roughness_10.5km": 7,
+    "roughness_21km": 7,
+    "roughness_42km": 7,
+    "tpi_21km": 7,
+    "tpi_7km": 7,
+    "svf_30km": 7,
+    "temp_level": 7,
+    "temp_range_diurnal": 7,
+    "SiO2": 7,
+    "FeO": 7
+   },
+   "geometry_source": "LROC QuickMap layer 'A3: Candidate Landing Regions 2024', file A3_9regions-lonlat-simplified.geojson, Last-Modified 28 Oct 2024",
+   "source_url": "https://files.actgate.com/lunar/A3_9regions-lonlat-simplified.geojson",
+   "source_kind": "published vector polygon (LROC QuickMap); not hosted by nasa.gov",
+   "notes": "Four corners as published. Centre computed here as the rectangle centre in south polar stereographic; the file states no centre."
+  },
+  {
+   "name": "Slater Plain",
+   "body": "moon",
+   "center_lat": -87.1637,
+   "center_lon": 125.53769999999997,
+   "geometry": {
+    "type": "polygon",
+    "vertices_lonlat": [
+     [
+      123.690618,
+      -87.6221578
+     ],
+     [
+      134.997613,
+      -87.2022896
+     ],
+     [
+      126.869611,
+      -86.7032367
+     ],
+     [
+      116.5672,
+      -87.0510562
+     ]
+    ],
+    "edges_straight_in": "south_polar_stereographic",
+    "area_km2": 399.3
+   },
+   "nside": 256,
+   "ordering": "nested",
+   "membership_rule": "pixel centre inside the region",
+   "healpix_pixels": [
+    589969,
+    589971,
+    589972,
+    589973,
+    589974,
+    589977,
+    589980
+   ],
+   "cells": 7,
+   "cells_complete_all_dims": 7,
+   "cells_complete_without_composition": 7,
+   "dims_available": 12,
+   "dimensions": [
+    "slope",
+    "roughness_5.25km",
+    "roughness_10.5km",
+    "roughness_21km",
+    "roughness_42km",
+    "tpi_21km",
+    "tpi_7km",
+    "svf_30km",
+    "temp_level",
+    "temp_range_diurnal",
+    "SiO2",
+    "FeO"
+   ],
+   "primary_construction": "all_dimensions",
+   "second_construction": null,
+   "constructions": {
+    "all_dimensions": {
+     "n_dims": 12,
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km",
+      "temp_level",
+      "temp_range_diurnal",
+      "SiO2",
+      "FeO"
+     ],
+     "cells": 7,
+     "share_of_target": 1.0,
+     "usable": true
+    },
+    "without_composition": {
+     "n_dims": 10,
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km",
+      "temp_level",
+      "temp_range_diurnal"
+     ],
+     "cells": 7,
+     "share_of_target": 1.0,
+     "usable": true
+    }
+   },
+   "cells_used_by_the_score": "all",
+   "enough_for_distribution_statistics": false,
+   "abs_lat_band": [
+    85.16,
+    89.16
+   ],
+   "per_dimension_valid": {
+    "slope": 7,
+    "roughness_5.25km": 7,
+    "roughness_10.5km": 7,
+    "roughness_21km": 7,
+    "roughness_42km": 7,
+    "tpi_21km": 7,
+    "tpi_7km": 7,
+    "svf_30km": 7,
+    "temp_level": 7,
+    "temp_range_diurnal": 7,
+    "SiO2": 7,
+    "FeO": 7
+   },
+   "geometry_source": "LROC QuickMap layer 'A3: Candidate Landing Regions 2024', file A3_9regions-lonlat-simplified.geojson, Last-Modified 28 Oct 2024",
+   "source_url": "https://files.actgate.com/lunar/A3_9regions-lonlat-simplified.geojson",
+   "source_kind": "published vector polygon (LROC QuickMap); not hosted by nasa.gov",
+   "notes": "Four corners as published. Centre computed here as the rectangle centre in south polar stereographic; the file states no centre."
+  }
+ ]
+}

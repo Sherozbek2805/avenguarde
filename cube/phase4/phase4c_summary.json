@@ -1,0 +1,395 @@
+{
+ "earth_moon": {
+  "dimensions": [
+   "slope",
+   "roughness_5.25km",
+   "roughness_10.5km",
+   "roughness_21km",
+   "roughness_42km",
+   "tpi_21km",
+   "tpi_7km",
+   "svf_30km",
+   "temp_level",
+   "temp_range_diurnal",
+   "SiO2",
+   "FeO"
+  ],
+  "n_reference": 3245417,
+  "whitening": "GROUP-WISE (block-diagonal): each group is whitened by the inverse square root of its own Earth correlation matrix, eigenvalues floored at 0.1; correlation BETWEEN groups is left alone (spec step 4; B34)",
+  "scale": "MIN-MAX: position = (x - lo) / (hi - lo), lo and hi over Earth + moon, one scale per variable (B38; replaces the pooled percentile of B33)",
+  "pooled_with": "moon",
+  "input_file": "cube/phase4/minmax_earth_moon.npy",
+  "target_file": "cube/phase4/minmax_moon.npy",
+  "pooled_names": [
+   "slope",
+   "roughness_5.25km",
+   "roughness_10.5km",
+   "roughness_21km",
+   "roughness_42km",
+   "tpi_21km",
+   "tpi_7km",
+   "svf_30km",
+   "temp_level",
+   "temp_range_diurnal",
+   "SiO2",
+   "FeO"
+  ],
+  "centre_note": "center_<set>.npy holds Earth's mean and sd of the min-max position per dimension; a cell's vector is ((z - mean) / sd) @ whiten_<set>.npy. Combined distance: the plain distance between two such vectors. No group weights (B35).",
+  "groups": {
+   "terrain": {
+    "dimensions": [
+     "slope",
+     "roughness_5.25km",
+     "roughness_10.5km",
+     "roughness_21km",
+     "roughness_42km",
+     "tpi_21km",
+     "tpi_7km",
+     "svf_30km"
+    ],
+    "index_range": [
+     0,
+     8
+    ],
+    "eigenvalues": [
+     0.0026527874157035065,
+     0.007272002549342949,
+     0.01983171515651343,
+     0.07051365711096971,
+     0.15052938169236885,
+     0.21873984965600982,
+     1.858377271076526,
+     5.672083335342569
+    ],
+    "eigenvalues_floored": 4,
+    "variance_fraction_floored": 0.012533770279066197,
+    "d_bar": 2.2031342258244986,
+    "share_of_squared_distance_between_earth_cells": 0.5436053244844405
+   },
+   "thermal": {
+    "dimensions": [
+     "temp_level",
+     "temp_range_diurnal"
+    ],
+    "index_range": [
+     8,
+     10
+    ],
+    "eigenvalues": [
+     0.5433988681449713,
+     1.4566011318550285
+    ],
+    "eigenvalues_floored": 0,
+    "variance_fraction_floored": 0.0,
+    "d_bar": 1.774203912979647,
+    "share_of_squared_distance_between_earth_cells": 0.22444698692718398
+   },
+   "composition": {
+    "dimensions": [
+     "SiO2",
+     "FeO"
+    ],
+    "index_range": [
+     10,
+     12
+    ],
+    "eigenvalues": [
+     0.8732214995697349,
+     1.1267785004302648
+    ],
+    "eigenvalues_floored": 0,
+    "variance_fraction_floored": 0.0,
+    "d_bar": 1.5511232583993446,
+    "share_of_squared_distance_between_earth_cells": 0.23194768858837556
+   }
+  },
+  "group_order": [
+   "terrain",
+   "thermal",
+   "composition"
+  ],
+  "cross_group_max_abs_correlation": {
+   "terrain|thermal": 0.23683563532573362,
+   "terrain|composition": 0.08709391544202534,
+   "thermal|composition": 0.14825882270647048
+  },
+  "lambda_floor": 0.1,
+  "eigenvalues_floored": 4,
+  "d_bar": 3.7247453268502837,
+  "d_bar_definition": "mean pairwise block-whitened distance between Earth reference cells",
+  "group_weights": "none in v1; the weight check and the presets are future work (B35)",
+  "d_bar_seed": 20261108,
+  "d_bar_subsample": 5000,
+  "d_bar_5seed_min": 3.6701406655070112,
+  "d_bar_5seed_max": 3.7677959786025297,
+  "d_bar_5seed_spread_pct": 2.6217983922701547,
+  "di_threshold": 0.43323644983785337,
+  "di_threshold_rule": "95th percentile of within-reference nearest-neighbour DI",
+  "di_percentiles": {
+   "p50": 0.07132500351209434,
+   "p75": 0.1810848845005173,
+   "p90": 0.3269835709394239,
+   "p95": 0.43323644983785337,
+   "p99": 0.6657370371813088
+  },
+  "calibration_subsample": 200000,
+  "warning": "d_bar and the DI threshold are PER DIMENSION SET. A DI from one is not comparable with a DI from another, and no null computed for one may be reused for another."
+ },
+ "earth_mars": {
+  "dimensions": [
+   "slope",
+   "roughness_5.25km",
+   "roughness_10.5km",
+   "roughness_21km",
+   "roughness_42km",
+   "tpi_21km",
+   "tpi_7km",
+   "svf_30km",
+   "SiO2",
+   "FeO",
+   "temp_level",
+   "temp_range_diurnal",
+   "temp_range_seasonal"
+  ],
+  "n_reference": 3245417,
+  "whitening": "GROUP-WISE (block-diagonal): each group is whitened by the inverse square root of its own Earth correlation matrix, eigenvalues floored at 0.1; correlation BETWEEN groups is left alone (spec step 4; B34)",
+  "scale": "MIN-MAX: position = (x - lo) / (hi - lo), lo and hi over Earth + mars, one scale per variable (B38; replaces the pooled percentile of B33)",
+  "pooled_with": "mars",
+  "input_file": "cube/phase4/minmax_earth_mars.npy",
+  "target_file": "cube/phase4/minmax_mars.npy",
+  "pooled_names": [
+   "slope",
+   "roughness_5.25km",
+   "roughness_10.5km",
+   "roughness_21km",
+   "roughness_42km",
+   "tpi_21km",
+   "tpi_7km",
+   "svf_30km",
+   "SiO2",
+   "FeO",
+   "temp_level",
+   "temp_range_diurnal",
+   "temp_range_seasonal"
+  ],
+  "centre_note": "center_<set>.npy holds Earth's mean and sd of the min-max position per dimension; a cell's vector is ((z - mean) / sd) @ whiten_<set>.npy. Combined distance: the plain distance between two such vectors. No group weights (B35).",
+  "groups": {
+   "terrain": {
+    "dimensions": [
+     "slope",
+     "roughness_5.25km",
+     "roughness_10.5km",
+     "roughness_21km",
+     "roughness_42km",
+     "tpi_21km",
+     "tpi_7km",
+     "svf_30km"
+    ],
+    "index_range": [
+     0,
+     8
+    ],
+    "eigenvalues": [
+     0.0026527874299846566,
+     0.007272002553264379,
+     0.019831715160398177,
+     0.07051365713570941,
+     0.15052938177877417,
+     0.2187398495651616,
+     1.8583772708134962,
+     5.67208333556321
+    ],
+    "eigenvalues_floored": 4,
+    "variance_fraction_floored": 0.01253377028491958,
+    "d_bar": 2.2278904579503243,
+    "share_of_squared_distance_between_earth_cells": 0.5045050242605595
+   },
+   "composition": {
+    "dimensions": [
+     "SiO2",
+     "FeO"
+    ],
+    "index_range": [
+     8,
+     10
+    ],
+    "eigenvalues": [
+     0.8732215142499591,
+     1.1267784857500405
+    ],
+    "eigenvalues_floored": 0,
+    "variance_fraction_floored": 0.0,
+    "d_bar": 1.5413626191704852,
+    "share_of_squared_distance_between_earth_cells": 0.20069424834707678
+   },
+   "thermal": {
+    "dimensions": [
+     "temp_level",
+     "temp_range_diurnal",
+     "temp_range_seasonal"
+    ],
+    "index_range": [
+     10,
+     13
+    ],
+    "eigenvalues": [
+     0.09579573652541606,
+     0.9958662903314716,
+     1.908337973143111
+    ],
+    "eigenvalues_floored": 1,
+    "variance_fraction_floored": 0.0319319121751387,
+    "d_bar": 2.20832936690231,
+    "share_of_squared_distance_between_earth_cells": 0.2948007273923637
+   }
+  },
+  "group_order": [
+   "terrain",
+   "composition",
+   "thermal"
+  ],
+  "cross_group_max_abs_correlation": {
+   "terrain|composition": 0.08537682577765214,
+   "terrain|thermal": 0.31259807787380806,
+   "composition|thermal": 0.1132435428136722
+  },
+  "lambda_floor": 0.1,
+  "eigenvalues_floored": 5,
+  "d_bar": 3.989786397544448,
+  "d_bar_definition": "mean pairwise block-whitened distance between Earth reference cells",
+  "group_weights": "none in v1; the weight check and the presets are future work (B35)",
+  "d_bar_seed": 20261108,
+  "d_bar_subsample": 5000,
+  "d_bar_5seed_min": 3.905696054090085,
+  "d_bar_5seed_max": 4.006127268683787,
+  "d_bar_5seed_spread_pct": 2.517207804796609,
+  "di_threshold": 0.44786938939751897,
+  "di_threshold_rule": "95th percentile of within-reference nearest-neighbour DI",
+  "di_percentiles": {
+   "p50": 0.08001045841054935,
+   "p75": 0.1919761876904092,
+   "p90": 0.3395489294047662,
+   "p95": 0.44786938939751897,
+   "p99": 0.672958633771599
+  },
+  "calibration_subsample": 200000,
+  "warning": "d_bar and the DI threshold are PER DIMENSION SET. A DI from one is not comparable with a DI from another, and no null computed for one may be reused for another."
+ },
+ "earth_mars_no_composition": {
+  "dimensions": [
+   "slope",
+   "roughness_5.25km",
+   "roughness_10.5km",
+   "roughness_21km",
+   "roughness_42km",
+   "tpi_21km",
+   "tpi_7km",
+   "svf_30km",
+   "temp_level",
+   "temp_range_diurnal",
+   "temp_range_seasonal"
+  ],
+  "n_reference": 3245417,
+  "whitening": "GROUP-WISE (block-diagonal): each group is whitened by the inverse square root of its own Earth correlation matrix, eigenvalues floored at 0.1; correlation BETWEEN groups is left alone (spec step 4; B34)",
+  "scale": "MIN-MAX: position = (x - lo) / (hi - lo), lo and hi over Earth + mars, one scale per variable (B38; replaces the pooled percentile of B33)",
+  "pooled_with": "mars",
+  "input_file": "cube/phase4/minmax_earth_mars.npy",
+  "target_file": "cube/phase4/minmax_mars.npy",
+  "pooled_names": [
+   "slope",
+   "roughness_5.25km",
+   "roughness_10.5km",
+   "roughness_21km",
+   "roughness_42km",
+   "tpi_21km",
+   "tpi_7km",
+   "svf_30km",
+   "SiO2",
+   "FeO",
+   "temp_level",
+   "temp_range_diurnal",
+   "temp_range_seasonal"
+  ],
+  "centre_note": "center_<set>.npy holds Earth's mean and sd of the min-max position per dimension; a cell's vector is ((z - mean) / sd) @ whiten_<set>.npy. Combined distance: the plain distance between two such vectors. No group weights (B35).",
+  "groups": {
+   "terrain": {
+    "dimensions": [
+     "slope",
+     "roughness_5.25km",
+     "roughness_10.5km",
+     "roughness_21km",
+     "roughness_42km",
+     "tpi_21km",
+     "tpi_7km",
+     "svf_30km"
+    ],
+    "index_range": [
+     0,
+     8
+    ],
+    "eigenvalues": [
+     0.0026527874299846566,
+     0.007272002553264379,
+     0.019831715160398177,
+     0.07051365713570941,
+     0.15052938177877417,
+     0.2187398495651616,
+     1.8583772708134962,
+     5.67208333556321
+    ],
+    "eigenvalues_floored": 4,
+    "variance_fraction_floored": 0.01253377028491958,
+    "d_bar": 2.2600463917526947,
+    "share_of_squared_distance_between_earth_cells": 0.6413250370195615
+   },
+   "thermal": {
+    "dimensions": [
+     "temp_level",
+     "temp_range_diurnal",
+     "temp_range_seasonal"
+    ],
+    "index_range": [
+     8,
+     11
+    ],
+    "eigenvalues": [
+     0.09579573652541606,
+     0.9958662903314716,
+     1.908337973143111
+    ],
+    "eigenvalues_floored": 1,
+    "variance_fraction_floored": 0.0319319121751387,
+    "d_bar": 2.1952525227316935,
+    "share_of_squared_distance_between_earth_cells": 0.3586749629804386
+   }
+  },
+  "group_order": [
+   "terrain",
+   "thermal"
+  ],
+  "cross_group_max_abs_correlation": {
+   "terrain|thermal": 0.3111724507721092
+  },
+  "lambda_floor": 0.1,
+  "eigenvalues_floored": 5,
+  "d_bar": 3.4586390420350286,
+  "d_bar_definition": "mean pairwise block-whitened distance between Earth reference cells",
+  "group_weights": "none in v1; the weight check and the presets are future work (B35)",
+  "d_bar_seed": 20261108,
+  "d_bar_subsample": 5000,
+  "d_bar_5seed_min": 3.3590203321044196,
+  "d_bar_5seed_max": 3.452995599049573,
+  "d_bar_5seed_spread_pct": 2.717116929607646,
+  "di_threshold": 0.4397384070089907,
+  "di_threshold_rule": "95th percentile of within-reference nearest-neighbour DI",
+  "di_percentiles": {
+   "p50": 0.07553449850796992,
+   "p75": 0.18090817229067574,
+   "p90": 0.32642338705916396,
+   "p95": 0.4397384070089907,
+   "p99": 0.6924334033642792
+  },
+  "calibration_subsample": 200000,
+  "warning": "d_bar and the DI threshold are PER DIMENSION SET. A DI from one is not comparable with a DI from another, and no null computed for one may be reused for another."
+ }
+}

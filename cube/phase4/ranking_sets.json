@@ -1,0 +1,1260 @@
+{
+ "decided": "Sherozbek, 11 Nov 2026; VARIABLES.md B36, B37, B38",
+ "systems": {
+  "decided": "Sherozbek, 11 Nov 2026 (VARIABLES.md B37): BOTH systems are built and one is chosen on the hackathon day after testing both.",
+  "all_variables": "Every variable of the target's parent set ranks, also those Earth cannot reach. Calibration: the parent set (base_set) in cube/phase4/phase4c_summary.json, whiten_<base_set>.npy, center_<base_set>.npy.",
+  "earth_reachable_only": "The rule below: a variable Earth cannot reach is reported and left out. Calibration: ranking_set in this file.",
+  "both": "out_of_range is reported in BOTH systems. For every preset target both systems are run and both results printed."
+ },
+ "rule": "A variable is left out of the ranking, and reported as one of Earth's limits, when the median of the target's cells lies outside the whole range of Earth's reference population in physical units.",
+ "earth_range_population": "reference population, complete cases; whole range (minimum to maximum)",
+ "sets": {
+  "earth_mars__minus__FeO__temp_level__temp_range_diurnal": {
+   "base_set": "earth_mars",
+   "pooled_with": "mars",
+   "dimensions": [
+    "slope",
+    "roughness_5.25km",
+    "roughness_10.5km",
+    "roughness_21km",
+    "roughness_42km",
+    "tpi_21km",
+    "tpi_7km",
+    "svf_30km",
+    "SiO2",
+    "temp_range_seasonal"
+   ],
+   "n_dims": 10,
+   "n_reference": 3245417,
+   "groups": {
+    "terrain": {
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km"
+     ],
+     "index_range": [
+      0,
+      8
+     ],
+     "eigenvalues_floored": 4,
+     "d_bar": 2.1834434781900987
+    },
+    "composition": {
+     "dimensions": [
+      "SiO2"
+     ],
+     "index_range": [
+      8,
+      9
+     ],
+     "eigenvalues_floored": 0,
+     "d_bar": 1.0081096939534253
+    },
+    "thermal": {
+     "dimensions": [
+      "temp_range_seasonal"
+     ],
+     "index_range": [
+      9,
+      10
+     ],
+     "eigenvalues_floored": 0,
+     "d_bar": 1.1412300308571928
+    }
+   },
+   "group_order": [
+    "terrain",
+    "composition",
+    "thermal"
+   ],
+   "lambda_floor": 0.1,
+   "eigenvalues_floored": 4,
+   "d_bar": 3.0903234530702792,
+   "d_bar_seed": 20261108,
+   "d_bar_subsample": 5000,
+   "d_bar_5seed_min": 3.060281250181942,
+   "d_bar_5seed_max": 3.1641144715012395,
+   "whiten_file": "cube/phase4/whiten_earth_mars__minus__FeO__temp_level__temp_range_diurnal.npy",
+   "center_file": "cube/phase4/center_earth_mars__minus__FeO__temp_level__temp_range_diurnal.npy",
+   "input_file": "cube/phase4/minmax_earth_mars.npy",
+   "target_file": "cube/phase4/minmax_mars.npy"
+  },
+  "earth_mars__minus__temp_level__temp_range_diurnal": {
+   "base_set": "earth_mars",
+   "pooled_with": "mars",
+   "dimensions": [
+    "slope",
+    "roughness_5.25km",
+    "roughness_10.5km",
+    "roughness_21km",
+    "roughness_42km",
+    "tpi_21km",
+    "tpi_7km",
+    "svf_30km",
+    "SiO2",
+    "FeO",
+    "temp_range_seasonal"
+   ],
+   "n_dims": 11,
+   "n_reference": 3245417,
+   "groups": {
+    "terrain": {
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km"
+     ],
+     "index_range": [
+      0,
+      8
+     ],
+     "eigenvalues_floored": 4,
+     "d_bar": 2.1834434781900987
+    },
+    "composition": {
+     "dimensions": [
+      "SiO2",
+      "FeO"
+     ],
+     "index_range": [
+      8,
+      10
+     ],
+     "eigenvalues_floored": 0,
+     "d_bar": 1.5108499443228312
+    },
+    "thermal": {
+     "dimensions": [
+      "temp_range_seasonal"
+     ],
+     "index_range": [
+      10,
+      11
+     ],
+     "eigenvalues_floored": 0,
+     "d_bar": 1.1412300308571928
+    }
+   },
+   "group_order": [
+    "terrain",
+    "composition",
+    "thermal"
+   ],
+   "lambda_floor": 0.1,
+   "eigenvalues_floored": 4,
+   "d_bar": 3.3598517797975296,
+   "d_bar_seed": 20261108,
+   "d_bar_subsample": 5000,
+   "d_bar_5seed_min": 3.349207836572936,
+   "d_bar_5seed_max": 3.4481290350378955,
+   "whiten_file": "cube/phase4/whiten_earth_mars__minus__temp_level__temp_range_diurnal.npy",
+   "center_file": "cube/phase4/center_earth_mars__minus__temp_level__temp_range_diurnal.npy",
+   "input_file": "cube/phase4/minmax_earth_mars.npy",
+   "target_file": "cube/phase4/minmax_mars.npy"
+  },
+  "earth_mars_no_composition__minus__temp_level__temp_range_diurnal": {
+   "base_set": "earth_mars_no_composition",
+   "pooled_with": "mars",
+   "dimensions": [
+    "slope",
+    "roughness_5.25km",
+    "roughness_10.5km",
+    "roughness_21km",
+    "roughness_42km",
+    "tpi_21km",
+    "tpi_7km",
+    "svf_30km",
+    "temp_range_seasonal"
+   ],
+   "n_dims": 9,
+   "n_reference": 3245417,
+   "groups": {
+    "terrain": {
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km"
+     ],
+     "index_range": [
+      0,
+      8
+     ],
+     "eigenvalues_floored": 4,
+     "d_bar": 2.1834434781900987
+    },
+    "thermal": {
+     "dimensions": [
+      "temp_range_seasonal"
+     ],
+     "index_range": [
+      8,
+      9
+     ],
+     "eigenvalues_floored": 0,
+     "d_bar": 1.1412300308571928
+    }
+   },
+   "group_order": [
+    "terrain",
+    "thermal"
+   ],
+   "lambda_floor": 0.1,
+   "eigenvalues_floored": 4,
+   "d_bar": 2.72252209281224,
+   "d_bar_seed": 20261108,
+   "d_bar_subsample": 5000,
+   "d_bar_5seed_min": 2.682161994676345,
+   "d_bar_5seed_max": 2.7741745343588615,
+   "whiten_file": "cube/phase4/whiten_earth_mars_no_composition__minus__temp_level__temp_range_diurnal.npy",
+   "center_file": "cube/phase4/center_earth_mars_no_composition__minus__temp_level__temp_range_diurnal.npy",
+   "input_file": "cube/phase4/minmax_earth_mars.npy",
+   "target_file": "cube/phase4/minmax_mars.npy"
+  },
+  "earth_moon__minus__temp_level__temp_range_diurnal": {
+   "base_set": "earth_moon",
+   "pooled_with": "moon",
+   "dimensions": [
+    "slope",
+    "roughness_5.25km",
+    "roughness_10.5km",
+    "roughness_21km",
+    "roughness_42km",
+    "tpi_21km",
+    "tpi_7km",
+    "svf_30km",
+    "SiO2",
+    "FeO"
+   ],
+   "n_dims": 10,
+   "n_reference": 3245417,
+   "groups": {
+    "terrain": {
+     "dimensions": [
+      "slope",
+      "roughness_5.25km",
+      "roughness_10.5km",
+      "roughness_21km",
+      "roughness_42km",
+      "tpi_21km",
+      "tpi_7km",
+      "svf_30km"
+     ],
+     "index_range": [
+      0,
+      8
+     ],
+     "eigenvalues_floored": 4,
+     "d_bar": 2.183443490037836
+    },
+    "composition": {
+     "dimensions": [
+      "SiO2",
+      "FeO"
+     ],
+     "index_range": [
+      8,
+      10
+     ],
+     "eigenvalues_floored": 0,
+     "d_bar": 1.510849951523332
+    }
+   },
+   "group_order": [
+    "terrain",
+    "composition"
+   ],
+   "lambda_floor": 0.1,
+   "eigenvalues_floored": 4,
+   "d_bar": 2.968196421820474,
+   "d_bar_seed": 20261108,
+   "d_bar_subsample": 5000,
+   "d_bar_5seed_min": 2.950351692013551,
+   "d_bar_5seed_max": 3.06804274785431,
+   "whiten_file": "cube/phase4/whiten_earth_moon__minus__temp_level__temp_range_diurnal.npy",
+   "center_file": "cube/phase4/center_earth_moon__minus__temp_level__temp_range_diurnal.npy",
+   "input_file": "cube/phase4/minmax_earth_moon.npy",
+   "target_file": "cube/phase4/minmax_moon.npy"
+  }
+ },
+ "targets": {
+  "moon": [
+   {
+    "name": "Peak near Cabeus B",
+    "constructions": {
+     "all_dimensions": {
+      "is_primary": true,
+      "cells": 7,
+      "base_set": "earth_moon",
+      "ranking_set": "earth_moon__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "SiO2",
+       "FeO"
+      ],
+      "n_ranked": 10,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 157.147,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 74.994,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 209.614,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 165.617,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "name": "Haworth",
+    "constructions": {
+     "all_dimensions": {
+      "is_primary": true,
+      "cells": 15,
+      "base_set": "earth_moon",
+      "ranking_set": "earth_moon__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "SiO2",
+       "FeO"
+      ],
+      "n_ranked": 10,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 129.457,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 102.684,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 161.134,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 117.137,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "name": "Malapert Massif",
+    "constructions": {
+     "all_dimensions": {
+      "is_primary": true,
+      "cells": 6,
+      "base_set": "earth_moon",
+      "ranking_set": "earth_moon__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "SiO2",
+       "FeO"
+      ],
+      "n_ranked": 10,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 180.689,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 51.452,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 210.173,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 166.177,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "name": "Mons Mouton Plateau",
+    "constructions": {
+     "all_dimensions": {
+      "is_primary": true,
+      "cells": 90,
+      "base_set": "earth_moon",
+      "ranking_set": "earth_moon__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "SiO2",
+       "FeO"
+      ],
+      "n_ranked": 10,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 163.676,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 68.465,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 192.382,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 148.386,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "name": "Mons Mouton",
+    "constructions": {
+     "all_dimensions": {
+      "is_primary": true,
+      "cells": 5,
+      "base_set": "earth_moon",
+      "ranking_set": "earth_moon__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "SiO2",
+       "FeO"
+      ],
+      "n_ranked": 10,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 145.41,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 86.731,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 168.837,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 124.84,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "name": "Nobile Rim 1",
+    "constructions": {
+     "all_dimensions": {
+      "is_primary": true,
+      "cells": 9,
+      "base_set": "earth_moon",
+      "ranking_set": "earth_moon__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "SiO2",
+       "FeO"
+      ],
+      "n_ranked": 10,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 161.087,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 71.054,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 199.938,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 155.942,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "name": "Nobile Rim 2",
+    "constructions": {
+     "all_dimensions": {
+      "is_primary": true,
+      "cells": 10,
+      "base_set": "earth_moon",
+      "ranking_set": "earth_moon__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "SiO2",
+       "FeO"
+      ],
+      "n_ranked": 10,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 148.721,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 83.42,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 183.794,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 139.798,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "name": "de Gerlache Rim 2",
+    "constructions": {
+     "all_dimensions": {
+      "is_primary": true,
+      "cells": 7,
+      "base_set": "earth_moon",
+      "ranking_set": "earth_moon__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "SiO2",
+       "FeO"
+      ],
+      "n_ranked": 10,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 153.496,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 78.645,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 180.299,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 136.303,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "name": "Slater Plain",
+    "constructions": {
+     "all_dimensions": {
+      "is_primary": true,
+      "cells": 7,
+      "base_set": "earth_moon",
+      "ranking_set": "earth_moon__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "SiO2",
+       "FeO"
+      ],
+      "n_ranked": 10,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 127.219,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 104.922,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 174.178,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 130.182,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     }
+    }
+   }
+  ],
+  "mars": [
+   {
+    "name": "Jezero crater",
+    "constructions": {
+     "without_composition": {
+      "is_primary": true,
+      "cells": 680,
+      "base_set": "earth_mars_no_composition",
+      "ranking_set": "earth_mars_no_composition__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "temp_range_seasonal"
+      ],
+      "n_ranked": 9,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 220.127,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 12.013,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 81.967,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 37.97,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     },
+     "all_dimensions": {
+      "is_primary": false,
+      "cells": 553,
+      "base_set": "earth_mars",
+      "ranking_set": "earth_mars__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "SiO2",
+       "FeO",
+       "temp_range_seasonal"
+      ],
+      "n_ranked": 11,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 220.29,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 11.851,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 82.701,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 38.704,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "name": "Gale crater",
+    "constructions": {
+     "without_composition": {
+      "is_primary": true,
+      "cells": 681,
+      "base_set": "earth_mars_no_composition",
+      "ranking_set": "earth_mars_no_composition__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "temp_range_seasonal"
+      ],
+      "n_ranked": 9,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 219.395,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 12.746,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 84.109,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 40.112,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     },
+     "all_dimensions": {
+      "is_primary": false,
+      "cells": 188,
+      "base_set": "earth_mars",
+      "ranking_set": "earth_mars__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "SiO2",
+       "FeO",
+       "temp_range_seasonal"
+      ],
+      "n_ranked": 11,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 220.628,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 11.513,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 82.02,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 38.024,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "name": "Meridiani Planum, Endeavour",
+    "constructions": {
+     "without_composition": {
+      "is_primary": true,
+      "cells": 682,
+      "base_set": "earth_mars_no_composition",
+      "ranking_set": "earth_mars_no_composition__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "temp_range_seasonal"
+      ],
+      "n_ranked": 9,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 222.599,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 9.542,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 100.306,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 56.31,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     },
+     "all_dimensions": {
+      "is_primary": false,
+      "cells": 596,
+      "base_set": "earth_mars",
+      "ranking_set": "earth_mars__minus__FeO__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "SiO2",
+       "temp_range_seasonal"
+      ],
+      "n_ranked": 10,
+      "out_of_range": [
+       {
+        "variable": "FeO",
+        "units": "wt%",
+        "target_median": 27.601,
+        "earth_min": 0.15,
+        "earth_max": 22.0,
+        "side": "above Earth's range",
+        "gap": 5.601,
+        "share_of_target_cells_outside": 0.567
+       },
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 222.572,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 9.569,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 100.635,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 56.639,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "name": "Gusev crater",
+    "constructions": {
+     "without_composition": {
+      "is_primary": true,
+      "cells": 683,
+      "base_set": "earth_mars_no_composition",
+      "ranking_set": "earth_mars_no_composition__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "temp_range_seasonal"
+      ],
+      "n_ranked": 9,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 214.975,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 17.166,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 92.802,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 48.806,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     },
+     "all_dimensions": {
+      "is_primary": false,
+      "cells": 105,
+      "base_set": "earth_mars",
+      "ranking_set": "earth_mars__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "SiO2",
+       "FeO",
+       "temp_range_seasonal"
+      ],
+      "n_ranked": 11,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 214.853,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 17.288,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 92.749,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 48.753,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "name": "Erebus Montes, Arcadia",
+    "constructions": {
+     "without_composition": {
+      "is_primary": true,
+      "cells": 684,
+      "base_set": "earth_mars_no_composition",
+      "ranking_set": "earth_mars_no_composition__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "temp_range_seasonal"
+      ],
+      "n_ranked": 9,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 198.97,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 33.171,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 85.156,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 41.16,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     },
+     "all_dimensions": {
+      "is_primary": false,
+      "cells": 17,
+      "base_set": "earth_mars",
+      "ranking_set": "earth_mars__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "SiO2",
+       "FeO",
+       "temp_range_seasonal"
+      ],
+      "n_ranked": 11,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 198.15,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 33.991,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 86.086,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 42.089,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "name": "Deuteronilus Mensae",
+    "constructions": {
+     "without_composition": {
+      "is_primary": true,
+      "cells": 680,
+      "base_set": "earth_mars_no_composition",
+      "ranking_set": "earth_mars_no_composition__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "temp_range_seasonal"
+      ],
+      "n_ranked": 9,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 202.535,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 29.606,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 78.244,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 34.247,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     },
+     "all_dimensions": {
+      "is_primary": false,
+      "cells": 271,
+      "base_set": "earth_mars",
+      "ranking_set": "earth_mars__minus__temp_level__temp_range_diurnal",
+      "ranked_dimensions": [
+       "slope",
+       "roughness_5.25km",
+       "roughness_10.5km",
+       "roughness_21km",
+       "roughness_42km",
+       "tpi_21km",
+       "tpi_7km",
+       "svf_30km",
+       "SiO2",
+       "FeO",
+       "temp_range_seasonal"
+      ],
+      "n_ranked": 11,
+      "out_of_range": [
+       {
+        "variable": "temp_level",
+        "units": "K",
+        "target_median": 203.924,
+        "earth_min": 232.141,
+        "earth_max": 314.276,
+        "side": "below Earth's range",
+        "gap": 28.216,
+        "share_of_target_cells_outside": 1.0
+       },
+       {
+        "variable": "temp_range_diurnal",
+        "units": "K",
+        "target_median": 76.055,
+        "earth_min": 0.622,
+        "earth_max": 43.997,
+        "side": "above Earth's range",
+        "gap": 32.058,
+        "share_of_target_cells_outside": 1.0
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ "controls": [
+  {
+   "control": "positive_atacama",
+   "body": "earth",
+   "ranking_sets": [
+    "earth_mars__minus__FeO__temp_level__temp_range_diurnal",
+    "earth_mars__minus__temp_level__temp_range_diurnal",
+    "earth_mars_no_composition__minus__temp_level__temp_range_diurnal",
+    "earth_moon__minus__temp_level__temp_range_diurnal"
+   ],
+   "note": "The only control. Under earth_reachable_only it runs once on each ranking set a preset target uses; under all_variables on the parent set of the pairing."
+  }
+ ],
+ "built_utc": "2026-11-11T17:58:49Z"
+}

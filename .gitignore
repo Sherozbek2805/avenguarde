@@ -1,0 +1,62 @@
+# ALLOW-LIST. Everything is ignored unless it is named below.
+# The project folder holds 80 GB of raw downloads and intermediates that must
+# not go to GitHub, and it may hold private key files. Nothing is published by
+# accident: a new file or folder stays out until a line here lets it in.
+
+/*
+
+# --- text, code, plans
+!/.gitignore
+!/README.md
+!/VARIABLES.md
+!/SOURCES.md
+!/CUBE_STATE.md
+!/build/
+!/contract/
+!/docs/
+!/export/
+
+# --- the cube
+!/cube/
+/cube/*
+!/cube/*.json
+!/cube/healpix/
+!/cube/phase4/
+
+# files over GitHub's 100 MB limit; rebuilt by one command (see README)
+/cube/phase4/minmax_earth_moon.npy
+/cube/phase4/minmax_earth_mars.npy
+/cube/phase4/minmax_mars.npy
+/cube/phase4/percentiles.npy
+/export/site_assets/*.zip
+
+# --- of the raw sources, only the small tables written by this project
+!/sources/
+/sources/*
+!/sources/artemis3_regions.csv
+!/sources/gee_sources.csv
+!/sources/geomap_composition_lookup.csv
+!/sources/glim_composition_lookup.csv
+!/sources/glim_composition_lookup_v2.csv
+!/sources/mars_site_candidates_v1.csv
+!/sources/targets_mars_v1.csv
+!/sources/targets_moon_artemis3_v2.csv
+!/sources/tier4_catalogues/
+/sources/tier4_catalogues/*
+!/sources/tier4_catalogues/*.csv
+
+# --- never, wherever they are
+*auth*.json
+*credential*
+*service*account*
+*secret*
+*token*
+*.pem
+*.key
+*.p12
+.env*
+.netrc
+__pycache__/
+*.pyc
+*.part
+*.log

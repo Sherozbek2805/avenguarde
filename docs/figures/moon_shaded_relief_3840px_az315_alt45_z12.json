@@ -1,0 +1,25 @@
+{
+ "figure": "moon_shaded_relief_3840px_az315_alt45_z12.png",
+ "body": "moon",
+ "source": "cube/dem/moon_dem_1_64deg.npy",
+ "native_shape": [
+  11520,
+  23040
+ ],
+ "rendered_shape": [
+  1920,
+  3840
+ ],
+ "downsample_factor": 6,
+ "downsample_method": "NaN-aware block mean, then shade",
+ "displayed_cell_km": 2.8428,
+ "sun_azimuth_deg": 315.0,
+ "sun_altitude_deg": 45.0,
+ "vertical_exaggeration": 12.0,
+ "nodata_percent_at_display_scale": 0.0,
+ "nodata_colour": "magenta (255, 0, 255)",
+ "edge_rule": "longitude wraps, latitude clips",
+ "caveat": "Shaded AFTER downsampling, so relief finer than the displayed cell is suppressed. Do not judge small-scale roughness from this image.",
+ "purpose": "deck/video figure AND visual validation gate",
+ "written_utc": "2026-11-06T18:45:06Z"
+}

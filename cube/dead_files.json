@@ -1,0 +1,24 @@
+{
+ "purpose": "Files on disk that look like data and are NOT. Check here before treating any file in sources/ as usable.",
+ "files": [
+  {
+   "path": "sources/tier3_composition/Lunar_Clementine_UVVIS_FeO_ClrBinned_70S70N_1km.tif",
+   "bytes": 139304752,
+   "why_dead": "NOT numeric FeO. It is a 3-band uint8 RGB COLOUR image (ClrBinned = colour-binned), 79/97/119 distinct values per band. Same trap as the Diviner level-4 .tif files. Additionally it covers only +/-70 deg latitude, so it excludes every lunar target at 85-90S.",
+   "superseded_by": "Lunar Prospector GRS 2 deg, sources/lp_grs/",
+   "action": "LEFT IN PLACE. sources/ is write-once; not deleted."
+  },
+  {
+   "path": "sources/tier3_composition/Lunar_Clementine_UVVIS_FeO_ClrBinned_70S70N_1km.tif.part",
+   "bytes": 73400320,
+   "why_dead": "Incomplete download fragment, never cleaned up.",
+   "action": "LEFT IN PLACE. sources/ is write-once; not deleted."
+  },
+  {
+   "path": "LRO_Diviner/level4/*.tif",
+   "why_dead": "uint8 colour renderings, values 0-255, NOT kelvin. The numeric data are the .xyz files.",
+   "action": "left in place; never read the .tif"
+  }
+ ],
+ "written_utc": "2026-11-08T09:11:38Z"
+}

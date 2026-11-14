@@ -1,0 +1,991 @@
+{
+ "decided": "Sherozbek, 11 Nov 2026; VARIABLES.md B38 (replaces the pooled percentile of B33)",
+ "transform": "position = (x - lo) / (hi - lo); lo and hi are the smallest and largest value on Earth or the body",
+ "earth_population": "reference population, complete cases (phase4a)",
+ "body_population": "every finite cell of the layer",
+ "note": "lo and hi cancel in step 4 (standardising by Earth's mean and sd): no distance depends on them. They set what is displayed.",
+ "earth_cells": 3245417,
+ "pairings": {
+  "moon": {
+   "names": [
+    "slope",
+    "roughness_5.25km",
+    "roughness_10.5km",
+    "roughness_21km",
+    "roughness_42km",
+    "tpi_21km",
+    "tpi_7km",
+    "svf_30km",
+    "temp_level",
+    "temp_range_diurnal",
+    "SiO2",
+    "FeO"
+   ],
+   "refused": {},
+   "body_nside": 256,
+   "variables": {
+    "slope": {
+     "units": "degrees",
+     "lo": 0.0,
+     "hi": 28.674400329589844,
+     "lo_set_by": "Earth",
+     "hi_set_by": "moon",
+     "body_cells": 786432,
+     "earth_mean_value": 1.0384760345434192,
+     "earth_sd_value": 1.5479878404245415,
+     "earth_position_p1_p50_p99": [
+      0.0004521931645240169,
+      0.0133822376580821,
+      0.2579040045114808
+     ],
+     "body_position_p1_p50_p99": [
+      0.0043155461063282465,
+      0.12565001705507992,
+      0.565030345270913
+     ],
+     "earth_value_p1_p50_p99": [
+      0.012966367825865745,
+      0.38372763991355896,
+      7.395242671966546
+     ],
+     "body_value_p1_p50_p99": [
+      0.12374569669365883,
+      3.6029388904571533,
+      16.201906318664534
+     ],
+     "tenth_of_scale_in_units": 2.8674400329589846,
+     "prob_body_above_earth": 0.8456925054749388,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.9800363801040007e-08
+     }
+    },
+    "roughness_5.25km": {
+     "units": "m",
+     "lo": 8.093577343970537e-05,
+     "hi": 936.2459716796875,
+     "lo_set_by": "Earth",
+     "hi_set_by": "Earth",
+     "body_cells": 786432,
+     "earth_mean_value": 45.294283825002815,
+     "earth_sd_value": 67.64696817299807,
+     "earth_position_p1_p50_p99": [
+      0.0006036285442619489,
+      0.01743099710802559,
+      0.3429323800374093
+     ],
+     "body_position_p1_p50_p99": [
+      0.004977272761079634,
+      0.13854654524653692,
+      0.5378189896540045
+     ],
+     "earth_value_p1_p50_p99": [
+      0.5652256798744202,
+      16.319780349731445,
+      321.0691125488281
+     ],
+     "body_value_p1_p50_p99": [
+      4.660032105445862,
+      129.71371459960938,
+      503.53089996337883
+     ],
+     "tenth_of_scale_in_units": 93.62458907439141,
+     "prob_body_above_earth": 0.8236821147990404,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.980083795187085e-08
+     }
+    },
+    "roughness_10.5km": {
+     "units": "m",
+     "lo": 0.0,
+     "hi": 1573.025390625,
+     "lo_set_by": "Earth",
+     "hi_set_by": "moon",
+     "body_cells": 786432,
+     "earth_mean_value": 63.98276739140961,
+     "earth_sd_value": 92.38758799996502,
+     "earth_position_p1_p50_p99": [
+      0.000556516408348656,
+      0.015412494721106819,
+      0.27732587994745395
+     ],
+     "body_position_p1_p50_p99": [
+      0.005207313773123143,
+      0.14049092755953957,
+      0.5472333765112262
+     ],
+     "earth_value_p1_p50_p99": [
+      0.8754144406318665,
+      24.244245529174805,
+      436.24065063476553
+     ],
+     "body_value_p1_p50_p99": [
+      8.191236782073975,
+      220.99579620361328,
+      860.8119958496093
+     ],
+     "tenth_of_scale_in_units": 157.30253906250002,
+     "prob_body_above_earth": 0.849150479289083,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.980095325311768e-08
+     }
+    },
+    "roughness_21km": {
+     "units": "m",
+     "lo": 2.7294134270050563e-05,
+     "hi": 2463.261962890625,
+     "lo_set_by": "Earth",
+     "hi_set_by": "moon",
+     "body_cells": 786432,
+     "earth_mean_value": 86.51624772491417,
+     "earth_sd_value": 118.855227623411,
+     "earth_position_p1_p50_p99": [
+      0.0005663582388765586,
+      0.014249129348780058,
+      0.22694093739182367
+     ],
+     "body_position_p1_p50_p99": [
+      0.005983174198625297,
+      0.14448489099295903,
+      0.5080665509297644
+     ],
+     "earth_value_p1_p50_p99": [
+      1.3951159858703612,
+      35.099365234375,
+      559.0149999999999
+     ],
+     "body_value_p1_p50_p99": [
+      14.738152551651002,
+      355.90415954589844,
+      1251.5010229492186
+     ],
+     "tenth_of_scale_in_units": 246.32619355964908,
+     "prob_body_above_earth": 0.8751227043890735,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.9801392181873332e-08
+     }
+    },
+    "roughness_42km": {
+     "units": "m",
+     "lo": 1.817194242903497e-05,
+     "hi": 3023.64794921875,
+     "lo_set_by": "Earth",
+     "hi_set_by": "moon",
+     "body_cells": 786432,
+     "earth_mean_value": 116.92968899939933,
+     "earth_sd_value": 152.08758442359033,
+     "earth_position_p1_p50_p99": [
+      0.0008119414819707691,
+      0.017186236005046682,
+      0.2370739725007575
+     ],
+     "body_position_p1_p50_p99": [
+      0.009106519351147617,
+      0.1795444159112652,
+      0.5473465757073412
+     ],
+     "earth_value_p1_p50_p99": [
+      2.455043354034424,
+      51.965145111083984,
+      716.8282446289056
+     ],
+     "body_value_p1_p50_p99": [
+      27.534926567077637,
+      542.8791198730469,
+      1654.9833593749995
+     ],
+     "tenth_of_scale_in_units": 302.36479310468076,
+     "prob_body_above_earth": 0.898567631417878,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.9801891378821718e-08
+     }
+    },
+    "tpi_21km": {
+     "units": "m",
+     "lo": -2405.8876953125,
+     "hi": 2033.249755859375,
+     "lo_set_by": "moon",
+     "hi_set_by": "moon",
+     "body_cells": 786432,
+     "earth_mean_value": 1.448227969517472,
+     "earth_sd_value": 75.10650039913713,
+     "earth_position_p1_p50_p99": [
+      0.4920858934810972,
+      0.5418438115075108,
+      0.6054660870903323
+     ],
+     "body_position_p1_p50_p99": [
+      0.3797837049235848,
+      0.5406480571824199,
+      0.6952734227087308
+     ],
+     "earth_value_p1_p50_p99": [
+      -221.4507763671875,
+      -0.5685389637947083,
+      281.8594873046866
+     ],
+     "body_value_p1_p50_p99": [
+      -719.9756274414062,
+      -5.876656770706177,
+      680.526594238281
+     ],
+     "tenth_of_scale_in_units": 443.91374511718755,
+     "prob_body_above_earth": 0.4753717466898825,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.980231419245728e-08
+     }
+    },
+    "tpi_7km": {
+     "units": "m",
+     "lo": -565.240234375,
+     "hi": 391.4162292480469,
+     "lo_set_by": "moon",
+     "hi_set_by": "Earth",
+     "body_cells": 786432,
+     "earth_mean_value": 0.22773953069041003,
+     "earth_sd_value": 20.622593427964944,
+     "earth_position_p1_p50_p99": [
+      0.5243898379017625,
+      0.5907236072340777,
+      0.6706293689183573
+     ],
+     "body_position_p1_p50_p99": [
+      0.43036811944754255,
+      0.5896735943281471,
+      0.7477459881530772
+     ],
+     "earth_value_p1_p50_p99": [
+      -63.57930648803711,
+      -0.12067729979753494,
+      76.32168609619137
+     ],
+     "body_value_p1_p50_p99": [
+      -153.5257911682129,
+      -1.1251789331436157,
+      150.09579833984358
+     ],
+     "tenth_of_scale_in_units": 95.6656463623047,
+     "prob_body_above_earth": 0.4764545827353719,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.9802311929979196e-08
+     }
+    },
+    "svf_30km": {
+     "units": "dimensionless, 0..1",
+     "lo": 0.6218239068984985,
+     "hi": 1.0,
+     "lo_set_by": "moon",
+     "hi_set_by": "Earth",
+     "body_cells": 786432,
+     "earth_mean_value": 0.9772717662785904,
+     "earth_sd_value": 0.03179665865635119,
+     "earth_position_p1_p50_p99": [
+      0.6075132322165346,
+      0.9763946272362217,
+      0.9991843639977795
+     ],
+     "body_position_p1_p50_p99": [
+      0.47776740330812506,
+      0.8467908545375052,
+      0.9934366235853246
+     ],
+     "earth_value_p1_p50_p99": [
+      0.8515708875656128,
+      0.9910730123519897,
+      0.9996915459632874
+     ],
+     "body_value_p1_p50_p99": [
+      0.8025041168928146,
+      0.9420599639415741,
+      0.9975178879499436
+     ],
+     "tenth_of_scale_in_units": 0.03781760931015015,
+     "prob_body_above_earth": 0.17681507282361966,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.9802312993358274e-08
+     }
+    },
+    "temp_level": {
+     "units": "K",
+     "lo": 39.85689926147461,
+     "hi": 314.2762451171875,
+     "lo_set_by": "moon",
+     "hi_set_by": "Earth",
+     "body_cells": 786432,
+     "earth_mean_value": 288.0274668743454,
+     "earth_sd_value": 13.354648516675839,
+     "earth_position_p1_p50_p99": [
+      0.7950164199046157,
+      0.9223709341116584,
+      0.9723294918212554
+     ],
+     "body_position_p1_p50_p99": [
+      0.40621665466433066,
+      0.7034274737676384,
+      0.7479545935677255
+     ],
+     "earth_value_p1_p50_p99": [
+      258.02478515625,
+      292.97332763671875,
+      306.68292236328125
+     ],
+     "body_value_p1_p50_p99": [
+      151.33060791015626,
+      232.89100646972656,
+      245.11010955810548
+     ],
+     "tenth_of_scale_in_units": 27.44193458557129,
+     "prob_body_above_earth": 1.6910821096314634e-05,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.9802318659162485e-08
+     }
+    },
+    "temp_range_diurnal": {
+     "units": "K",
+     "lo": 0.621666669845581,
+     "hi": 345.8182067871094,
+     "lo_set_by": "Earth",
+     "hi_set_by": "moon",
+     "body_cells": 786432,
+     "earth_mean_value": 15.199284580727364,
+     "earth_sd_value": 7.039262011124237,
+     "earth_position_p1_p50_p99": [
+      0.00923628397854416,
+      0.03758728190556708,
+      0.08655455619573911
+     ],
+     "body_position_p1_p50_p99": [
+      0.5246355334175931,
+      0.8170184098747075,
+      0.8703326758294953
+     ],
+     "earth_value_p1_p50_p99": [
+      3.809999942779541,
+      13.59666633605957,
+      30.5
+     ],
+     "body_value_p1_p50_p99": [
+      181.72403762817382,
+      282.6535949707031,
+      301.0574951171875
+     ],
+     "tenth_of_scale_in_units": 34.51965401172638,
+     "prob_body_above_earth": 0.9999994527547235,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.980196544548562e-08
+     }
+    },
+    "SiO2": {
+     "units": "wt%",
+     "lo": 1.0,
+     "hi": 87.0,
+     "lo_set_by": "Earth",
+     "hi_set_by": "Earth",
+     "body_cells": 786176,
+     "earth_mean_value": 56.71806689372083,
+     "earth_sd_value": 18.998327763288763,
+     "earth_position_p1_p50_p99": [
+      0.04418604872947515,
+      0.7325581395348837,
+      1.0
+     ],
+     "body_position_p1_p50_p99": [
+      0.3436162859894509,
+      0.49153487626896347,
+      0.6180465165958848
+     ],
+     "earth_value_p1_p50_p99": [
+      4.800000190734863,
+      64.0,
+      87.0
+     ],
+     "body_value_p1_p50_p99": [
+      30.551000595092773,
+      43.27199935913086,
+      54.152000427246094
+     ],
+     "tenth_of_scale_in_units": 8.6,
+     "prob_body_above_earth": 0.18563128103325582,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.9109245122865188e-08
+     }
+    },
+    "FeO": {
+     "units": "wt%",
+     "lo": 0.0,
+     "hi": 30.749000549316406,
+     "lo_set_by": "moon",
+     "hi_set_by": "moon",
+     "body_cells": 786176,
+     "earth_mean_value": 4.001026161484461,
+     "earth_sd_value": 2.39535541637859,
+     "earth_position_p1_p50_p99": [
+      0.02016325713656911,
+      0.12358125091648754,
+      0.33171809252486084
+     ],
+     "body_position_p1_p50_p99": [
+      0.06959250482528367,
+      0.17894890757165724,
+      0.7799603035282693
+     ],
+     "earth_value_p1_p50_p99": [
+      0.6200000047683716,
+      3.799999952316284,
+      10.199999809265137
+     ],
+     "body_value_p1_p50_p99": [
+      2.139899969100952,
+      5.502500057220459,
+      23.982999801635742
+     ],
+     "tenth_of_scale_in_units": 3.074900054931641,
+     "prob_body_above_earth": 0.769323791202047,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.9778489894187818e-08
+     }
+    }
+   },
+   "files": {
+    "earth": "cube/phase4/minmax_earth_moon.npy",
+    "body": "cube/phase4/minmax_moon.npy"
+   }
+  },
+  "mars": {
+   "names": [
+    "slope",
+    "roughness_5.25km",
+    "roughness_10.5km",
+    "roughness_21km",
+    "roughness_42km",
+    "tpi_21km",
+    "tpi_7km",
+    "svf_30km",
+    "SiO2",
+    "FeO",
+    "temp_level",
+    "temp_range_diurnal",
+    "temp_range_seasonal"
+   ],
+   "refused": {
+    "thermal_inertia": {
+     "earth_units": "K^-1 (apparent thermal inertia)",
+     "body_units": "tiu = J m-2 K-1 s-1/2",
+     "reason": "G1: different quantities; cannot share one scale"
+    }
+   },
+   "body_nside": 512,
+   "variables": {
+    "slope": {
+     "units": "degrees",
+     "lo": 0.0,
+     "hi": 28.95421028137207,
+     "lo_set_by": "Earth",
+     "hi_set_by": "mars",
+     "body_cells": 3145728,
+     "earth_mean_value": 1.0384760345434192,
+     "earth_sd_value": 1.5479878404245415,
+     "earth_position_p1_p50_p99": [
+      0.0004478232250115198,
+      0.013252913347819171,
+      0.25541165171147273
+     ],
+     "body_position_p1_p50_p99": [
+      0.0013706991363667954,
+      0.021021538253906614,
+      0.3104928066522862
+     ],
+     "earth_value_p1_p50_p99": [
+      0.012966367825865745,
+      0.38372763991355896,
+      7.395242671966546
+     ],
+     "body_value_p1_p50_p99": [
+      0.03968751102685929,
+      0.6086620390415192,
+      8.990074014663696
+     ],
+     "tenth_of_scale_in_units": 2.895421028137207,
+     "prob_body_above_earth": 0.5886503169645529,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.979838220971964e-08
+     }
+    },
+    "roughness_5.25km": {
+     "units": "m",
+     "lo": 8.093577343970537e-05,
+     "hi": 936.2459716796875,
+     "lo_set_by": "Earth",
+     "hi_set_by": "Earth",
+     "body_cells": 3145728,
+     "earth_mean_value": 45.294283825002815,
+     "earth_sd_value": 67.64696817299807,
+     "earth_position_p1_p50_p99": [
+      0.0006036285442619489,
+      0.01743099710802559,
+      0.3429323800374093
+     ],
+     "body_position_p1_p50_p99": [
+      0.001566953505741589,
+      0.02514299611245622,
+      0.3046499636121268
+     ],
+     "earth_value_p1_p50_p99": [
+      0.5652256798744202,
+      16.319780349731445,
+      321.0691125488281
+     ],
+     "body_value_p1_p50_p99": [
+      1.4671347165107727,
+      23.54010772705078,
+      285.2273574829101
+     ],
+     "tenth_of_scale_in_units": 93.62458907439141,
+     "prob_body_above_earth": 0.5636065636455635,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.979780108837579e-08
+     }
+    },
+    "roughness_10.5km": {
+     "units": "m",
+     "lo": 0.0,
+     "hi": 1679.6234130859375,
+     "lo_set_by": "Earth",
+     "hi_set_by": "mars",
+     "body_cells": 3145728,
+     "earth_mean_value": 63.98276739140961,
+     "earth_sd_value": 92.38758799996502,
+     "earth_position_p1_p50_p99": [
+      0.0005211968550875851,
+      0.014434334113401856,
+      0.25972527367504933
+     ],
+     "body_position_p1_p50_p99": [
+      0.0015522153725546397,
+      0.02277377498051343,
+      0.2896732400763836
+     ],
+     "earth_value_p1_p50_p99": [
+      0.8754144406318665,
+      24.244245529174805,
+      436.24065063476553
+     ],
+     "body_value_p1_p50_p99": [
+      2.607137281894684,
+      38.251365661621094,
+      486.5419561767577
+     ],
+     "tenth_of_scale_in_units": 167.96234130859375,
+     "prob_body_above_earth": 0.5869707765595661,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.9801536148174784e-08
+     }
+    },
+    "roughness_21km": {
+     "units": "m",
+     "lo": 2.7294134270050563e-05,
+     "hi": 2611.0634765625,
+     "lo_set_by": "Earth",
+     "hi_set_by": "mars",
+     "body_cells": 3145728,
+     "earth_mean_value": 86.51624772491417,
+     "earth_sd_value": 118.855227623411,
+     "earth_position_p1_p50_p99": [
+      0.0005342990390091833,
+      0.013442545009802713,
+      0.21409474858318922
+     ],
+     "body_position_p1_p50_p99": [
+      0.0018148541369325264,
+      0.023730729299907077,
+      0.27720436506409024
+     ],
+     "earth_value_p1_p50_p99": [
+      1.3951159858703612,
+      35.099365234375,
+      559.0149999999999
+     ],
+     "body_value_p1_p50_p99": [
+      4.738726596832276,
+      61.962467193603516,
+      723.798212890625
+     ],
+     "tenth_of_scale_in_units": 261.1063449268366,
+     "prob_body_above_earth": 0.6116584454318016,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.9794755894153798e-08
+     }
+    },
+    "roughness_42km": {
+     "units": "m",
+     "lo": 1.817194242903497e-05,
+     "hi": 3458.766845703125,
+     "lo_set_by": "Earth",
+     "hi_set_by": "mars",
+     "body_cells": 3145728,
+     "earth_mean_value": 116.92968899939933,
+     "earth_sd_value": 152.08758442359033,
+     "earth_position_p1_p50_p99": [
+      0.0007097978281017446,
+      0.01502417755528016,
+      0.2072496534750869
+     ],
+     "body_position_p1_p50_p99": [
+      0.0025054175201135063,
+      0.030579194895641933,
+      0.29710132728432104
+     ],
+     "earth_value_p1_p50_p99": [
+      2.455043354034424,
+      51.965145111083984,
+      716.8282446289056
+     ],
+     "body_value_p1_p50_p99": [
+      8.665673179626465,
+      105.76632308959961,
+      1027.6042333984371
+     ],
+     "tenth_of_scale_in_units": 345.8766827531183,
+     "prob_body_above_earth": 0.6391438046334433,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.9802246682200137e-08
+     }
+    },
+    "tpi_21km": {
+     "units": "m",
+     "lo": -1805.256103515625,
+     "hi": 2043.3067626953125,
+     "lo_set_by": "mars",
+     "hi_set_by": "mars",
+     "body_cells": 3145728,
+     "earth_mean_value": 1.448227969517472,
+     "earth_sd_value": 75.10650039913713,
+     "earth_position_p1_p50_p99": [
+      0.4115316241950223,
+      0.46892505781739163,
+      0.5423103801017443
+     ],
+     "body_position_p1_p50_p99": [
+      0.3872675397043977,
+      0.4688170903165867,
+      0.5482653532113483
+     ],
+     "earth_value_p1_p50_p99": [
+      -221.4507763671875,
+      -0.5685389637947083,
+      281.8594873046866
+     ],
+     "body_value_p1_p50_p99": [
+      -314.83263092041017,
+      -0.984058678150177,
+      304.7775756835936
+     ],
+     "tenth_of_scale_in_units": 384.8562866210938,
+     "prob_body_above_earth": 0.501898511076618,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.9802228804736057e-08
+     }
+    },
+    "tpi_7km": {
+     "units": "m",
+     "lo": -375.4167175292969,
+     "hi": 483.4222106933594,
+     "lo_set_by": "mars",
+     "hi_set_by": "mars",
+     "body_cells": 3145728,
+     "earth_mean_value": 0.22773953069041003,
+     "earth_sd_value": 20.622593427964944,
+     "earth_position_p1_p50_p99": [
+      0.36309184504083764,
+      0.43698070487578416,
+      0.5259873403274214
+     ],
+     "body_position_p1_p50_p99": [
+      0.360299911336738,
+      0.43683108355120537,
+      0.5170798061567808
+     ],
+     "earth_value_p1_p50_p99": [
+      -63.57930648803711,
+      -0.12067729979753494,
+      76.32168609619137
+     ],
+     "body_value_p1_p50_p99": [
+      -65.97712783813476,
+      -0.24917791783809662,
+      68.67154899597166
+     ],
+     "tenth_of_scale_in_units": 85.88389282226564,
+     "prob_body_above_earth": 0.498656939543953,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.9802184720075292e-08
+     }
+    },
+    "svf_30km": {
+     "units": "dimensionless, 0..1",
+     "lo": 0.6762466430664062,
+     "hi": 1.0,
+     "lo_set_by": "Earth",
+     "hi_set_by": "Earth",
+     "body_cells": 3145728,
+     "earth_mean_value": 0.9772717662785904,
+     "earth_sd_value": 0.03179665865635119,
+     "earth_position_p1_p50_p99": [
+      0.5415364528101803,
+      0.9724265788853541,
+      0.999047256097561
+     ],
+     "body_position_p1_p50_p99": [
+      0.639013522519736,
+      0.963306932661718,
+      0.9972816384617651
+     ],
+     "earth_value_p1_p50_p99": [
+      0.8515708875656128,
+      0.9910730123519897,
+      0.9996915459632874
+     ],
+     "body_value_p1_p50_p99": [
+      0.8831294161081314,
+      0.9881204962730408,
+      0.9991199213266373
+     ],
+     "tenth_of_scale_in_units": 0.032375335693359375,
+     "prob_body_above_earth": 0.45362907352209403,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.980162008246643e-08
+     }
+    },
+    "SiO2": {
+     "units": "wt%",
+     "lo": 1.0,
+     "hi": 87.0,
+     "lo_set_by": "Earth",
+     "hi_set_by": "Earth",
+     "body_cells": 1542275,
+     "earth_mean_value": 56.71806689372083,
+     "earth_sd_value": 18.998327763288763,
+     "earth_position_p1_p50_p99": [
+      0.04418604872947515,
+      0.7325581395348837,
+      1.0
+     ],
+     "body_position_p1_p50_p99": [
+      0.4318154357200445,
+      0.6250031937000363,
+      0.7084838068762491
+     ],
+     "earth_value_p1_p50_p99": [
+      4.800000190734863,
+      64.0,
+      87.0
+     ],
+     "body_value_p1_p50_p99": [
+      38.13612747192383,
+      54.750274658203125,
+      61.92960739135742
+     ],
+     "tenth_of_scale_in_units": 8.6,
+     "prob_body_above_earth": 0.31906829964563227,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.9109245122865188e-08
+     }
+    },
+    "FeO": {
+     "units": "wt%",
+     "lo": 0.0,
+     "hi": 87.70718383789062,
+     "lo_set_by": "mars",
+     "hi_set_by": "mars",
+     "body_cells": 1542275,
+     "earth_mean_value": 4.001026161484461,
+     "earth_sd_value": 2.39535541637859,
+     "earth_position_p1_p50_p99": [
+      0.007068976310017192,
+      0.043325982958703046,
+      0.11629605880537469
+     ],
+     "body_position_p1_p50_p99": [
+      0.021079151659940242,
+      0.0755917287348699,
+      0.3802608064957799
+     ],
+     "earth_value_p1_p50_p99": [
+      0.6200000047683716,
+      3.799999952316284,
+      10.199999809265137
+     ],
+     "body_value_p1_p50_p99": [
+      1.8487930297851562,
+      6.629937648773193,
+      33.35160446166992
+     ],
+     "tenth_of_scale_in_units": 8.770718383789063,
+     "prob_body_above_earth": 0.8030225210382207,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.9777051497772347e-08
+     }
+    },
+    "temp_level": {
+     "units": "K",
+     "lo": 170.9393768310547,
+     "hi": 314.2762451171875,
+     "lo_set_by": "mars",
+     "hi_set_by": "Earth",
+     "body_cells": 3125612,
+     "earth_mean_value": 288.0274668743454,
+     "earth_sd_value": 13.354648516675839,
+     "earth_position_p1_p50_p99": [
+      0.6075576323556416,
+      0.8513786596903784,
+      0.9470246361267761
+     ],
+     "body_position_p1_p50_p99": [
+      0.035782432421643175,
+      0.23715331245059867,
+      0.3700293312823188
+     ],
+     "earth_value_p1_p50_p99": [
+      258.02478515625,
+      292.97332763671875,
+      306.68292236328125
+     ],
+     "body_value_p1_p50_p99": [
+      176.0683186340332,
+      204.93218994140625,
+      223.97822235107424
+     ],
+     "tenth_of_scale_in_units": 14.333686828613281,
+     "prob_body_above_earth": 0.0,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.9802274799029918e-08
+     }
+    },
+    "temp_range_diurnal": {
+     "units": "K",
+     "lo": 0.621666669845581,
+     "hi": 148.9177703857422,
+     "lo_set_by": "Earth",
+     "hi_set_by": "mars",
+     "body_cells": 3125612,
+     "earth_mean_value": 15.199284580727364,
+     "earth_sd_value": 7.039262011124237,
+     "earth_position_p1_p50_p99": [
+      0.021499777762483362,
+      0.08749386761415724,
+      0.20147753434840654
+     ],
+     "body_position_p1_p50_p99": [
+      0.06904688855410769,
+      0.5586087661843784,
+      0.9064824532554951
+     ],
+     "earth_value_p1_p50_p99": [
+      3.809999942779541,
+      13.59666633605957,
+      30.5
+     ],
+     "body_value_p1_p50_p99": [
+      10.861051216125489,
+      83.4611701965332,
+      135.0494825744629
+     ],
+     "tenth_of_scale_in_units": 14.829610371589661,
+     "prob_body_above_earth": 0.9820628263506626,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.980229052502951e-08
+     }
+    },
+    "temp_range_seasonal": {
+     "units": "K",
+     "lo": 0.6549999713897705,
+     "hi": 113.26632690429688,
+     "lo_set_by": "Earth",
+     "hi_set_by": "mars",
+     "body_cells": 3125612,
+     "earth_mean_value": 23.242173978882214,
+     "earth_sd_value": 14.789170116537505,
+     "earth_position_p1_p50_p99": [
+      0.015584578942813919,
+      0.1884357515940908,
+      0.49997184737641626
+     ],
+     "body_position_p1_p50_p99": [
+      0.08586337204598368,
+      0.45392220607125877,
+      0.891679562371203
+     ],
+     "earth_value_p1_p50_p99": [
+      2.4100000858306885,
+      21.875,
+      56.957493133544915
+     ],
+     "body_value_p1_p50_p99": [
+      10.324188232421875,
+      51.77178192138672,
+      101.06821868896485
+     ],
+     "tenth_of_scale_in_units": 11.261132693290712,
+     "prob_body_above_earth": 0.7992806207991953,
+     "gates": {
+      "G2": true,
+      "G3": true,
+      "G3_max_error_share_of_range": 2.980228345689857e-08
+     }
+    }
+   },
+   "files": {
+    "earth": "cube/phase4/minmax_earth_mars.npy",
+    "body": "cube/phase4/minmax_mars.npy"
+   }
+  }
+ },
+ "built_utc": "2026-11-11T17:53:41Z"
+}

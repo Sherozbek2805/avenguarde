@@ -1,0 +1,434 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://example.invalid/nasa-analog/point_schema.json",
+ "title": "Terrestrial analog finder - click payload, contract 2.0",
+ "description": "What the backend returns when the user clicks ANY Earth pixel on a result map: the characterization of that pixel against the current target. Same variable rows as a site in output_schema.json. A pixel outside the reference population still answers, with in_reference_population false, the reason, and null distances.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "contract_version",
+  "target_name",
+  "lat",
+  "lon",
+  "healpix_pixel",
+  "in_reference_population",
+  "reason_excluded",
+  "di_combined",
+  "di_group",
+  "worst_group",
+  "dims_used_here",
+  "variables",
+  "agrees",
+  "partial",
+  "differs",
+  "best3",
+  "worst3",
+  "koppen",
+  "lithology",
+  "catalogue",
+  "limits",
+  "use"
+ ],
+ "properties": {
+  "contract_version": {
+   "const": "2.4"
+  },
+  "target_name": {
+   "type": "string"
+  },
+  "lat": {
+   "type": "number",
+   "minimum": -90,
+   "maximum": 90
+  },
+  "lon": {
+   "type": "number",
+   "minimum": -180,
+   "maximum": 180
+  },
+  "healpix_pixel": {
+   "type": "integer",
+   "minimum": 0
+  },
+  "in_reference_population": {
+   "type": "boolean"
+  },
+  "reason_excluded": {
+   "type": [
+    "string",
+    "null"
+   ],
+   "enum": [
+    "ocean",
+    "water",
+    "ice",
+    "missing_dimension",
+    null
+   ],
+   "description": "Null inside the reference population. 'ice': the pixel is ice sheet; it is reported through the thermal group only, see di_group."
+  },
+  "di_combined": {
+   "type": [
+    "number",
+    "null"
+   ],
+   "minimum": 0,
+   "description": "Null outside the reference population."
+  },
+  "di_group": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "terrain",
+    "thermal",
+    "composition"
+   ],
+   "properties": {
+    "terrain": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0
+    },
+    "thermal": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0
+    },
+    "composition": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0
+    }
+   },
+   "description": "Per-group index. On an ice pixel only thermal may be non-null."
+  },
+  "worst_group": {
+   "type": [
+    "object",
+    "null"
+   ],
+   "additionalProperties": false,
+   "required": [
+    "name",
+    "di"
+   ],
+   "properties": {
+    "name": {
+     "type": "string",
+     "enum": [
+      "terrain",
+      "thermal",
+      "composition"
+     ]
+    },
+    "di": {
+     "type": "number",
+     "minimum": 0
+    }
+   }
+  },
+  "dims_used_here": {
+   "type": "integer",
+   "minimum": 0
+  },
+  "variables": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "name",
+     "group",
+     "units",
+     "earth",
+     "target_median",
+     "earth_position",
+     "target_position",
+     "position_gap",
+     "physical_gap",
+     "verdict",
+     "modelled",
+     "ranked"
+    ],
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "group": {
+      "type": "string",
+      "enum": [
+       "terrain",
+       "thermal",
+       "composition"
+      ]
+     },
+     "units": {
+      "type": "string"
+     },
+     "earth": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "target_median": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "earth_position": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "target_position": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+     },
+     "position_gap": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "physical_gap": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "verdict": {
+      "type": "string",
+      "enum": [
+       "agrees",
+       "partial",
+       "differs",
+       "withheld"
+      ]
+     },
+     "modelled": {
+      "type": "boolean"
+     },
+     "ranked": {
+      "type": "boolean"
+     }
+    }
+   }
+  },
+  "agrees": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "partial": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "differs": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "best3": {
+   "type": "array",
+   "maxItems": 3,
+   "items": {
+    "type": "string"
+   }
+  },
+  "worst3": {
+   "type": "array",
+   "maxItems": 3,
+   "items": {
+    "type": "string"
+   }
+  },
+  "koppen": {
+   "type": [
+    "object",
+    "null"
+   ],
+   "additionalProperties": false,
+   "required": [
+    "code",
+    "symbol",
+    "description"
+   ],
+   "properties": {
+    "code": {
+     "type": "integer"
+    },
+    "symbol": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    }
+   }
+  },
+  "lithology": {
+   "type": [
+    "object",
+    "null"
+   ],
+   "additionalProperties": false,
+   "required": [
+    "l1_code",
+    "description",
+    "source"
+   ],
+   "properties": {
+    "l1_code": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    },
+    "source": {
+     "type": "string",
+     "enum": [
+      "GLiM",
+      "GeoMAP"
+     ]
+    }
+   }
+  },
+  "catalogue": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "status",
+    "name",
+    "citation",
+    "distance_km"
+   ],
+   "properties": {
+    "status": {
+     "type": "string",
+     "enum": [
+      "known",
+      "new candidate"
+     ]
+    },
+    "name": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "citation": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "distance_km": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0
+    }
+   }
+  },
+  "limits": {
+   "type": "string",
+   "minLength": 1
+  },
+  "use": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "succeeds",
+    "fails",
+    "beyond_earth",
+    "general"
+   ],
+   "description": "Where this site works as an analog, where it does not, and where Earth itself stops. Built from the fixed table contract/use_table.json, never written at run time. Three lists, each line tied to a group.",
+   "properties": {
+    "succeeds": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/use_line"
+     },
+     "description": "Rows of the use table whose variables all agree."
+    },
+    "fails": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/use_line"
+     },
+     "description": "Rows with a variable that differs. MUST be rendered next to succeeds."
+    },
+    "beyond_earth": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/use_line"
+     },
+     "description": "Rows with a variable no Earth cell reaches for this target (run.ranking.out_of_range)."
+    },
+    "general": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "The general sentence of the use table when succeeds is empty; null otherwise."
+    }
+   }
+  }
+ },
+ "$defs": {
+  "use_line": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "key",
+    "group",
+    "label",
+    "variables",
+    "text"
+   ],
+   "properties": {
+    "key": {
+     "type": "string"
+    },
+    "group": {
+     "type": "string",
+     "enum": [
+      "terrain",
+      "thermal",
+      "composition"
+     ]
+    },
+    "label": {
+     "type": "string"
+    },
+    "variables": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "text": {
+     "type": "string"
+    }
+   }
+  }
+ }
+}

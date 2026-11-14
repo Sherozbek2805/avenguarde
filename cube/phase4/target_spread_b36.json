@@ -1,0 +1,233 @@
+[
+ {
+  "target": "Peak near Cabeus B",
+  "body": "moon",
+  "construction": "all_dimensions",
+  "n_dims": 10,
+  "distinct_cells": 7,
+  "spread": 5.215,
+  "copy_all_median": 3.832,
+  "copy_all_best": 3.554,
+  "copy_5_median": 2.904
+ },
+ {
+  "target": "Haworth",
+  "body": "moon",
+  "construction": "all_dimensions",
+  "n_dims": 10,
+  "distinct_cells": 15,
+  "spread": 2.802,
+  "copy_all_median": 2.587,
+  "copy_all_best": 2.144,
+  "copy_5_median": 1.462
+ },
+ {
+  "target": "Malapert Massif",
+  "body": "moon",
+  "construction": "all_dimensions",
+  "n_dims": 10,
+  "distinct_cells": 6,
+  "spread": 4.831,
+  "copy_all_median": 4.071,
+  "copy_all_best": 3.201,
+  "copy_5_median": 3.386
+ },
+ {
+  "target": "Mons Mouton Plateau",
+  "body": "moon",
+  "construction": "all_dimensions",
+  "n_dims": 10,
+  "distinct_cells": 90,
+  "spread": 4.429,
+  "copy_all_median": 4.222,
+  "copy_all_best": 3.167,
+  "copy_5_median": 1.331
+ },
+ {
+  "target": "Mons Mouton",
+  "body": "moon",
+  "construction": "all_dimensions",
+  "n_dims": 10,
+  "distinct_cells": 5,
+  "spread": 4.013,
+  "copy_all_median": 2.853,
+  "copy_all_best": 2.536,
+  "copy_5_median": 2.853
+ },
+ {
+  "target": "Nobile Rim 1",
+  "body": "moon",
+  "construction": "all_dimensions",
+  "n_dims": 10,
+  "distinct_cells": 9,
+  "spread": 4.929,
+  "copy_all_median": 3.988,
+  "copy_all_best": 3.301,
+  "copy_5_median": 2.547
+ },
+ {
+  "target": "Nobile Rim 2",
+  "body": "moon",
+  "construction": "all_dimensions",
+  "n_dims": 10,
+  "distinct_cells": 10,
+  "spread": 4.214,
+  "copy_all_median": 3.63,
+  "copy_all_best": 3.121,
+  "copy_5_median": 2.132
+ },
+ {
+  "target": "de Gerlache Rim 2",
+  "body": "moon",
+  "construction": "all_dimensions",
+  "n_dims": 10,
+  "distinct_cells": 7,
+  "spread": 2.996,
+  "copy_all_median": 2.773,
+  "copy_all_best": 1.912,
+  "copy_5_median": 1.895
+ },
+ {
+  "target": "Slater Plain",
+  "body": "moon",
+  "construction": "all_dimensions",
+  "n_dims": 10,
+  "distinct_cells": 7,
+  "spread": 2.197,
+  "copy_all_median": 1.812,
+  "copy_all_best": 1.502,
+  "copy_5_median": 1.372
+ },
+ {
+  "target": "Jezero crater",
+  "body": "mars",
+  "construction": "without_composition",
+  "n_dims": 9,
+  "distinct_cells": 680,
+  "spread": 1.509,
+  "copy_all_median": 1.3,
+  "copy_all_best": 1.036,
+  "copy_5_median": 0.305
+ },
+ {
+  "target": "Jezero crater",
+  "body": "mars",
+  "construction": "all_dimensions",
+  "n_dims": 11,
+  "distinct_cells": 553,
+  "spread": 1.48,
+  "copy_all_median": 1.319,
+  "copy_all_best": 1.052,
+  "copy_5_median": 0.332
+ },
+ {
+  "target": "Gale crater",
+  "body": "mars",
+  "construction": "without_composition",
+  "n_dims": 9,
+  "distinct_cells": 681,
+  "spread": 3.029,
+  "copy_all_median": 2.726,
+  "copy_all_best": 2.166,
+  "copy_5_median": 0.539
+ },
+ {
+  "target": "Gale crater",
+  "body": "mars",
+  "construction": "all_dimensions",
+  "n_dims": 11,
+  "distinct_cells": 188,
+  "spread": 2.367,
+  "copy_all_median": 2.226,
+  "copy_all_best": 1.738,
+  "copy_5_median": 0.621
+ },
+ {
+  "target": "Meridiani Planum, Endeavour",
+  "body": "mars",
+  "construction": "without_composition",
+  "n_dims": 9,
+  "distinct_cells": 681,
+  "spread": 0.732,
+  "copy_all_median": 0.569,
+  "copy_all_best": 0.471,
+  "copy_5_median": 0.107
+ },
+ {
+  "target": "Meridiani Planum, Endeavour",
+  "body": "mars",
+  "construction": "all_dimensions",
+  "n_dims": 10,
+  "distinct_cells": 596,
+  "spread": 0.638,
+  "copy_all_median": 0.512,
+  "copy_all_best": 0.423,
+  "copy_5_median": 0.111
+ },
+ {
+  "target": "Gusev crater",
+  "body": "mars",
+  "construction": "without_composition",
+  "n_dims": 9,
+  "distinct_cells": 683,
+  "spread": 2.026,
+  "copy_all_median": 1.831,
+  "copy_all_best": 1.42,
+  "copy_5_median": 0.397
+ },
+ {
+  "target": "Gusev crater",
+  "body": "mars",
+  "construction": "all_dimensions",
+  "n_dims": 11,
+  "distinct_cells": 105,
+  "spread": 1.613,
+  "copy_all_median": 1.335,
+  "copy_all_best": 1.133,
+  "copy_5_median": 0.335
+ },
+ {
+  "target": "Erebus Montes, Arcadia",
+  "body": "mars",
+  "construction": "without_composition",
+  "n_dims": 9,
+  "distinct_cells": 684,
+  "spread": 0.425,
+  "copy_all_median": 0.298,
+  "copy_all_best": 0.268,
+  "copy_5_median": 0.037
+ },
+ {
+  "target": "Erebus Montes, Arcadia",
+  "body": "mars",
+  "construction": "all_dimensions",
+  "n_dims": 11,
+  "distinct_cells": 17,
+  "spread": 0.545,
+  "copy_all_median": 0.448,
+  "copy_all_best": 0.407,
+  "copy_5_median": 0.205
+ },
+ {
+  "target": "Deuteronilus Mensae",
+  "body": "mars",
+  "construction": "without_composition",
+  "n_dims": 9,
+  "distinct_cells": 680,
+  "spread": 2.301,
+  "copy_all_median": 2.073,
+  "copy_all_best": 1.621,
+  "copy_5_median": 0.379
+ },
+ {
+  "target": "Deuteronilus Mensae",
+  "body": "mars",
+  "construction": "all_dimensions",
+  "n_dims": 11,
+  "distinct_cells": 271,
+  "spread": 2.578,
+  "copy_all_median": 2.457,
+  "copy_all_best": 1.864,
+  "copy_5_median": 0.446
+ }
+]

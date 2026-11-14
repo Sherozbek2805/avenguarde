@@ -1,0 +1,126 @@
+{
+ "source": "sources/koppen_geiger/legend.txt (Beck et al. 2023)",
+ "code_0": "no class (ocean / outside the product footprint)",
+ "classes": {
+  "1": {
+   "symbol": "Af",
+   "description": "Tropical, rainforest"
+  },
+  "2": {
+   "symbol": "Am",
+   "description": "Tropical, monsoon"
+  },
+  "3": {
+   "symbol": "Aw",
+   "description": "Tropical, savannah"
+  },
+  "4": {
+   "symbol": "BWh",
+   "description": "Arid, desert, hot"
+  },
+  "5": {
+   "symbol": "BWk",
+   "description": "Arid, desert, cold"
+  },
+  "6": {
+   "symbol": "BSh",
+   "description": "Arid, steppe, hot"
+  },
+  "7": {
+   "symbol": "BSk",
+   "description": "Arid, steppe, cold"
+  },
+  "8": {
+   "symbol": "Csa",
+   "description": "Temperate, dry summer, hot summer"
+  },
+  "9": {
+   "symbol": "Csb",
+   "description": "Temperate, dry summer, warm summer"
+  },
+  "10": {
+   "symbol": "Csc",
+   "description": "Temperate, dry summer, cold summer"
+  },
+  "11": {
+   "symbol": "Cwa",
+   "description": "Temperate, dry winter, hot summer"
+  },
+  "12": {
+   "symbol": "Cwb",
+   "description": "Temperate, dry winter, warm summer"
+  },
+  "13": {
+   "symbol": "Cwc",
+   "description": "Temperate, dry winter, cold summer"
+  },
+  "14": {
+   "symbol": "Cfa",
+   "description": "Temperate, no dry season, hot summer"
+  },
+  "15": {
+   "symbol": "Cfb",
+   "description": "Temperate, no dry season, warm summer"
+  },
+  "16": {
+   "symbol": "Cfc",
+   "description": "Temperate, no dry season, cold summer"
+  },
+  "17": {
+   "symbol": "Dsa",
+   "description": "Cold, dry summer, hot summer"
+  },
+  "18": {
+   "symbol": "Dsb",
+   "description": "Cold, dry summer, warm summer"
+  },
+  "19": {
+   "symbol": "Dsc",
+   "description": "Cold, dry summer, cold summer"
+  },
+  "20": {
+   "symbol": "Dsd",
+   "description": "Cold, dry summer, very cold winter"
+  },
+  "21": {
+   "symbol": "Dwa",
+   "description": "Cold, dry winter, hot summer"
+  },
+  "22": {
+   "symbol": "Dwb",
+   "description": "Cold, dry winter, warm summer"
+  },
+  "23": {
+   "symbol": "Dwc",
+   "description": "Cold, dry winter, cold summer"
+  },
+  "24": {
+   "symbol": "Dwd",
+   "description": "Cold, dry winter, very cold winter"
+  },
+  "25": {
+   "symbol": "Dfa",
+   "description": "Cold, no dry season, hot summer"
+  },
+  "26": {
+   "symbol": "Dfb",
+   "description": "Cold, no dry season, warm summer"
+  },
+  "27": {
+   "symbol": "Dfc",
+   "description": "Cold, no dry season, cold summer"
+  },
+  "28": {
+   "symbol": "Dfd",
+   "description": "Cold, no dry season, very cold winter"
+  },
+  "29": {
+   "symbol": "ET",
+   "description": "Polar, tundra"
+  },
+  "30": {
+   "symbol": "EF",
+   "description": "Polar, frost"
+  }
+ }
+}

@@ -1,0 +1,191 @@
+{
+ "when": "2026-11-08T13:24:32Z",
+ "freed_bytes": 1540249246,
+ "freed_gib": 1.434,
+ "removed": [
+  {
+   "path": "data",
+   "bytes": 265467472,
+   "why": "exact copy of LRO_Diviner/cylindrical/img, all 9 files verified"
+  },
+  {
+   "path": "GVP_Volcano_List_Holocene_202611041235.xls",
+   "bytes": 1101360,
+   "why": "duplicate of sources/tier4_catalogues/ copy"
+  },
+  {
+   "path": "INGESTION.md.bak",
+   "bytes": 23100,
+   "why": "stale backup"
+  },
+  {
+   "path": "README.txt.bak",
+   "bytes": 1107,
+   "why": "stale backup"
+  },
+  {
+   "path": "VARIABLES.md.bak",
+   "bytes": 35373,
+   "why": "stale backup"
+  },
+  {
+   "path": "grids/manifest.json.bak",
+   "bytes": 107250,
+   "why": "stale backup"
+  },
+  {
+   "path": "grids/manifest_parts/earth.json.bak",
+   "bytes": 42383,
+   "why": "stale backup"
+  },
+  {
+   "path": "grids/manifest_parts/mars.json.bak",
+   "bytes": 19625,
+   "why": "stale backup"
+  },
+  {
+   "path": "grids/manifest_parts/moon.json.bak",
+   "bytes": 25797,
+   "why": "stale backup"
+  },
+  {
+   "path": "build/__pycache__",
+   "bytes": 168132,
+   "why": "bytecode cache"
+  },
+  {
+   "path": "cube/_smoke",
+   "bytes": 396591,
+   "why": "phase 0 smoke output, superseded by phase 2"
+  },
+  {
+   "path": "cube/dem/_earth_wc30s_valid_months.npy",
+   "bytes": 933120128,
+   "why": "WorldClim cache; WorldClim was DEMOTED, no script reads it"
+  },
+  {
+   "path": "cube/healpix/earth_roughness_10.5km_support_nside1024.npy",
+   "bytes": 50331776,
+   "why": "constant, value in manifest"
+  },
+  {
+   "path": "cube/healpix/earth_roughness_21km_support_nside1024.npy",
+   "bytes": 50331776,
+   "why": "constant, value in manifest"
+  },
+  {
+   "path": "cube/healpix/earth_roughness_42km_support_nside1024.npy",
+   "bytes": 50331776,
+   "why": "constant, value in manifest"
+  },
+  {
+   "path": "cube/healpix/earth_roughness_5.25km_support_nside1024.npy",
+   "bytes": 50331776,
+   "why": "constant, value in manifest"
+  },
+  {
+   "path": "cube/healpix/earth_tpi_21km_support_nside1024.npy",
+   "bytes": 50331776,
+   "why": "constant, value in manifest"
+  },
+  {
+   "path": "cube/healpix/mars_roughness_10.5km_support_nside512.npy",
+   "bytes": 12583040,
+   "why": "constant, value in manifest"
+  },
+  {
+   "path": "cube/healpix/mars_roughness_21km_support_nside512.npy",
+   "bytes": 12583040,
+   "why": "constant, value in manifest"
+  },
+  {
+   "path": "cube/healpix/mars_roughness_42km_support_nside512.npy",
+   "bytes": 12583040,
+   "why": "constant, value in manifest"
+  },
+  {
+   "path": "cube/healpix/mars_roughness_5.25km_support_nside512.npy",
+   "bytes": 12583040,
+   "why": "constant, value in manifest"
+  },
+  {
+   "path": "cube/healpix/mars_tpi_21km_support_nside512.npy",
+   "bytes": 12583040,
+   "why": "constant, value in manifest"
+  },
+  {
+   "path": "cube/healpix/moon_FeO_support_nside256.npy",
+   "bytes": 3145856,
+   "why": "constant, value in manifest"
+  },
+  {
+   "path": "cube/healpix/moon_SiO2_support_nside256.npy",
+   "bytes": 3145856,
+   "why": "constant, value in manifest"
+  },
+  {
+   "path": "cube/healpix/moon_roughness_10.5km_support_nside256.npy",
+   "bytes": 3145856,
+   "why": "constant, value in manifest"
+  },
+  {
+   "path": "cube/healpix/moon_roughness_21km_support_nside256.npy",
+   "bytes": 3145856,
+   "why": "constant, value in manifest"
+  },
+  {
+   "path": "cube/healpix/moon_roughness_42km_support_nside256.npy",
+   "bytes": 3145856,
+   "why": "constant, value in manifest"
+  },
+  {
+   "path": "cube/healpix/moon_roughness_5.25km_support_nside256.npy",
+   "bytes": 3145856,
+   "why": "constant, value in manifest"
+  },
+  {
+   "path": "cube/healpix/moon_scaling_exponent_r2_support_nside256.npy",
+   "bytes": 3145856,
+   "why": "constant, value in manifest"
+  },
+  {
+   "path": "cube/healpix/moon_tpi_21km_support_nside256.npy",
+   "bytes": 3145856,
+   "why": "constant, value in manifest"
+  }
+ ],
+ "deliberately_kept": {
+  "sources/**": "WRITE-ONCE by standing folder rule. Nothing deleted, including the dead Clementine .tif and its .part -- both are registered in cube/dead_files.json.",
+  "cube/dem/earth_land_mask_1_240deg.npy": "superseded by land_reference BUT it is the provenance chain; land_reference cannot be re-derived without it.",
+  "cube/dem/earth_ice_free_land_1_240deg.npy": "same -- provenance chain.",
+  "cube/dem/_earth_ice_1_60deg.npy": "phase 1b intermediate, part of the ice-mask provenance chain.",
+  "cube/dem/*_dem_*.npy": "the three working-resolution DEMs, 18.85 GiB; needed for any rebuild.",
+  "17 varying support arrays": "carry real per-pixel information."
+ },
+ "later_removals": [
+  {
+   "when": "2026-11-09T11:57:26Z",
+   "path": "cube/healpix/provenance_69772b93103f_nside1024.npy",
+   "bytes": 12583040,
+   "why": "orphaned provenance array: no manifest layer references it after the layers it described were rebuilt; superseded by the arrays written in this run"
+  },
+  {
+   "when": "2026-11-09T11:57:26Z",
+   "path": "cube/healpix/provenance_f79fdb4abdd5_nside1024.npy",
+   "bytes": 12583040,
+   "why": "orphaned provenance array: no manifest layer references it after the layers it described were rebuilt; superseded by the arrays written in this run"
+  },
+  {
+   "when": "2026-11-09T18:06:20Z",
+   "path": "cube/healpix/provenance_f1e02f4d1709_nside512.npy",
+   "bytes": 3145856,
+   "why": "orphaned provenance array: no manifest layer references it after the layers it described were rebuilt; superseded by the arrays written in this run"
+  },
+  {
+   "when": "2026-11-10T15:53:17Z",
+   "path": "cube/healpix/provenance_75b935a0605d_nside1024.npy",
+   "bytes": 12583040,
+   "why": "orphaned provenance array: no manifest layer references it after the layers it described were rebuilt; superseded by the arrays written in this run"
+  }
+ ]
+}

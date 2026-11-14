@@ -1,0 +1,137 @@
+{
+ "earth_reference_mask": {
+  "n_finite": 12582912,
+  "pixels_fraction_gt_0": 3362634,
+  "pixels_in_reference_population": 3260787,
+  "pct_of_sphere_in_reference": 25.9144,
+  "pct_of_sphere_by_fraction_sum": 25.8916,
+  "coverage_gate": {
+   "global": 25.9144,
+   "abs_lat_gt_60": 22.8179,
+   "abs_lat_gt_80": 3.9698,
+   "abs_lat_gt_85": 0.9049,
+   "lat_85S_to_90S": 1.8098
+  },
+  "fraction_stats": {
+   "min": 0.00042620388558134437,
+   "p1": 0.07070126488804818,
+   "p25": 1.0,
+   "p50": 1.0,
+   "p75": 1.0,
+   "p99": 1.0,
+   "max": 1.0,
+   "mean": 0.968857719888534
+  },
+  "note": "pct_of_sphere_by_fraction_sum is the area of reference land as the mask measures it; pct_of_sphere_in_reference is the area after the > 0.5 rule. Their difference is the coastal and lake-edge pixels the rule drops or absorbs.",
+  "expected_from_phase4a": {
+   "reference_pixels": 3260787
+  }
+ },
+ "earth_lithology_l3": {
+  "n_valid": 3712659,
+  "coverage_gate": {
+   "global": 29.5056,
+   "abs_lat_gt_60": 44.924,
+   "abs_lat_gt_80": 51.0143,
+   "abs_lat_gt_85": 49.7435,
+   "lat_85S_to_90S": 99.4871
+  },
+  "distinct_levels_all_pixels": 391,
+  "largest_tie_fraction_all_pixels": 0.10059259414882972,
+  "largest_class_all_pixels": "mt____",
+  "distinct_levels_land_per_summary": 388,
+  "largest_tie_fraction_land_per_summary": 0.11140064991119948,
+  "tie_note": "all-pixel figures include water bodies (wb) and ice (ig), which is why the largest class there is not the land figure in lithology_summary.json"
+ },
+ "earth_lithology_l1": {
+  "n_valid": 3712659,
+  "coverage_gate": {
+   "global": 29.5056,
+   "abs_lat_gt_60": 44.924,
+   "abs_lat_gt_80": 51.0143,
+   "abs_lat_gt_85": 49.7435,
+   "lat_85S_to_90S": 99.4871
+  },
+  "distinct_levels_all_pixels": 16,
+  "class_counts_all_pixels": {
+   "ev": 10306,
+   "ig": 326070,
+   "mt": 493242,
+   "nd": 2663,
+   "pa": 216107,
+   "pb": 23617,
+   "pi": 13840,
+   "py": 23933,
+   "sc": 274449,
+   "sm": 542714,
+   "ss": 607734,
+   "su": 909726,
+   "va": 38196,
+   "vb": 131950,
+   "vi": 66644,
+   "wb": 31468
+  },
+  "distinct_levels_land_per_summary": 13,
+  "largest_tie_fraction_land_per_summary": 0.2713608940067258,
+  "footprint_matches_l3": true
+ },
+ "earth_lithology_support": {
+  "n_finite": 3712659,
+  "finite_where_l3_classified": 3712659,
+  "finite_where_l3_unclassified": 0,
+  "stats": {
+   "min": 0.15165910124778748,
+   "p1": 0.3786201274394989,
+   "p25": 0.7517962455749512,
+   "p50": 1.0,
+   "p75": 1.0,
+   "p99": 1.0,
+   "max": 1.0,
+   "mean": 0.8720255288777412
+  },
+  "pixels_below_0_50": 176146,
+  "note": "support is finite only where the vote produced a class; a NaN here with a class in l3 would be a contradiction and is counted above as finite_where_l3_classified vs n_valid"
+ },
+ "earth_thermal_nsamples": {
+  "n_finite": 12582912,
+  "stats": {
+   "min": 0.0,
+   "p1": 0.0,
+   "p25": 0.0,
+   "p50": 0.0,
+   "p75": 12.0,
+   "p99": 12.0,
+   "max": 12.0,
+   "mean": 3.5614099511714947
+  },
+  "pixels_zero": 8826866,
+  "coverage_gate": {
+   "global": 29.8504,
+   "abs_lat_gt_60": 45.6618,
+   "abs_lat_gt_80": 51.4913,
+   "abs_lat_gt_85": 50.0,
+   "lat_85S_to_90S": 100.0
+  }
+ },
+ "moon_thermal_nsamples": {
+  "n_finite": 786432,
+  "stats": {
+   "min": 40.0,
+   "p1": 48.0,
+   "p25": 55.0,
+   "p50": 58.0,
+   "p75": 64.0,
+   "p99": 84.0,
+   "max": 96.0,
+   "mean": 60.23788777304677
+  },
+  "pixels_zero": 0,
+  "coverage_gate": {
+   "global": 100.0,
+   "abs_lat_gt_60": 100.0,
+   "abs_lat_gt_80": 100.0,
+   "abs_lat_gt_85": 100.0,
+   "lat_85S_to_90S": 100.0
+  }
+ }
+}

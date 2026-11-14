@@ -1,0 +1,94 @@
+{
+ "figures": {
+  "moon_temp_level_platecarree_2880px.png": {
+   "body": "moon",
+   "layer": "temp_level",
+   "valid_pct": 100.0,
+   "vmin": 151.33060791015626,
+   "vmax": 245.11010955810548
+  },
+  "moon_temp_level_southpolar_85S_to_90S_1600px.png": {
+   "body": "moon",
+   "layer": "temp_level",
+   "projection": "south polar"
+  },
+  "moon_temp_range_diurnal_platecarree_2880px.png": {
+   "body": "moon",
+   "layer": "temp_range_diurnal",
+   "valid_pct": 100.0,
+   "vmin": 181.72403762817382,
+   "vmax": 301.0574951171875
+  },
+  "moon_temp_range_diurnal_southpolar_85S_to_90S_1600px.png": {
+   "body": "moon",
+   "layer": "temp_range_diurnal",
+   "projection": "south polar"
+  },
+  "mars_temp_level_platecarree_2880px.png": {
+   "body": "mars",
+   "layer": "temp_level",
+   "valid_pct": 100.0,
+   "vmin": 164.197021484375,
+   "vmax": 227.59213256835938
+  },
+  "mars_temp_level_southpolar_85S_to_90S_1600px.png": {
+   "body": "mars",
+   "layer": "temp_level",
+   "projection": "south polar"
+  },
+  "mars_temp_range_diurnal_platecarree_2880px.png": {
+   "body": "mars",
+   "layer": "temp_range_diurnal",
+   "valid_pct": 100.0,
+   "vmin": 3.681166648864746,
+   "vmax": 128.56591796875
+  },
+  "mars_temp_range_diurnal_southpolar_85S_to_90S_1600px.png": {
+   "body": "mars",
+   "layer": "temp_range_diurnal",
+   "projection": "south polar"
+  },
+  "mars_temp_range_seasonal_platecarree_2880px.png": {
+   "body": "mars",
+   "layer": "temp_range_seasonal",
+   "valid_pct": 100.0,
+   "vmin": 7.163416862487793,
+   "vmax": 102.9834976196289
+  },
+  "mars_temp_range_seasonal_southpolar_85S_to_90S_1600px.png": {
+   "body": "mars",
+   "layer": "temp_range_seasonal",
+   "projection": "south polar"
+  },
+  "earth_temp_level_platecarree_2880px.png": {
+   "body": "earth",
+   "layer": "temp_level",
+   "valid_pct": 29.8352,
+   "vmin": 217.26364685058593,
+   "vmax": 305.5377197265625
+  },
+  "earth_temp_range_diurnal_platecarree_2880px.png": {
+   "body": "earth",
+   "layer": "temp_range_diurnal",
+   "valid_pct": 29.8352,
+   "vmin": -0.20674770176410673,
+   "vmax": 18.440138092041018
+  },
+  "earth_temp_range_seasonal_platecarree_2880px.png": {
+   "body": "earth",
+   "layer": "temp_range_seasonal",
+   "valid_pct": 29.7871,
+   "vmin": 2.799999952316284,
+   "vmax": 59.776870536804196
+  }
+ },
+ "absent_colour": "#2a2a2a",
+ "colour_range": "per-layer 1st to 99th percentile, stated on each figure",
+ "coverage_edges": {
+  "modis": "EXPECTED AND PRESENT. MOD11C3 is land only, so the coastline is a hard edge in all three Earth figures and 71% of the sphere is dark grey.",
+  "diviner": "EXPECTED AT 60 DEGREES AND CORRECTLY ABSENT. The lunar thermal layers come from the Diviner GCP, which is GLOBAL to +/-90 and 100% valid, so there is no 60-degree edge to see. The +/-60 limit belongs to the DGDR cylindrical regolith-temperature product, which is an ANOMALY rather than a temperature and was not used. Nothing filled anything in -- a different product was chosen, and that is why the edge is not there.",
+  "mars": "No edge: MCD is a global model, 100% valid, and upsampled 1,024:1 from 3,072 cells."
+ },
+ "purpose": "deck and video figures, and a visual gate on coverage",
+ "written_utc": "2026-11-07T18:04:33Z"
+}

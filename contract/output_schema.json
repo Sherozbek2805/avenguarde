@@ -1,0 +1,1144 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://example.invalid/nasa-analog/output_schema.json",
+ "title": "Terrestrial analog finder - engine output, contract 2.0",
+ "description": "One run of the engine for one target. FROZEN 10 Nov 2026 for the hackathon. EVERY field is required; where a value is unavailable the field is present with null, never omitted. Version 2.0 replaces 1.0: distances are reported PER GROUP before the combined index, each site names its worst group, variables carry signed percentile gaps and the spec's three-way verdict, presets replace free weights, and the null may come from a precomputed table. Method reference: analog_finder_method_spec_rev9.docx, steps 5-11. Version 2.2 (11 Nov 2026) removes the weight presets and the weight-check fields: sensitivity analysis is future work. Version 2.3 (11 Nov 2026): the score uses ALL target cells (k removed); variables out of Earth's range are reported and not ranked (run.ranking); a rank raster drives the top-percent slider. Version 2.4 (11 Nov 2026, night): the shared scale is MIN-MAX (positions, not percentiles; three fields renamed); the Atacama patch is the only control; sites are patches of the best share; each site carries a `use` block from the fixed use table.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "contract_version",
+  "run",
+  "null_test",
+  "sites",
+  "rasters",
+  "earths_limits",
+  "limits",
+  "ai_disclosure",
+  "sources"
+ ],
+ "properties": {
+  "contract_version": {
+   "const": "2.4"
+  },
+  "run": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "code_version",
+    "run_utc",
+    "target",
+    "variables",
+    "groups",
+    "grid",
+    "target_cells_used",
+    "ranking",
+    "rank_bands",
+    "distance",
+    "scale",
+    "eigen_floor",
+    "floored_directions",
+    "d_bar_earth",
+    "d_bar_target",
+    "dims_used",
+    "verdict_thresholds",
+    "site_rule",
+    "site_top_share",
+    "patches_total",
+    "reference_population"
+   ],
+   "properties": {
+    "code_version": {
+     "type": "string",
+     "description": "Engine version or commit. The literal 'EXAMPLE-NOT-A-RESULT' marks a hand-made example file."
+    },
+    "run_utc": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "target": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "body",
+      "name",
+      "selection",
+      "cells",
+      "cells_distinct",
+      "spread",
+      "abs_lat_range"
+     ],
+     "properties": {
+      "body": {
+       "type": "string",
+       "enum": [
+        "moon",
+        "mars"
+       ],
+       "description": "Earth is always the search side, never the target."
+      },
+      "name": {
+       "type": "string"
+      },
+      "selection": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "method",
+        "params"
+       ],
+       "properties": {
+        "method": {
+         "type": "string",
+         "enum": [
+          "named_feature",
+          "circle",
+          "rectangle",
+          "pixel_list"
+         ]
+        },
+        "params": {
+         "type": "object",
+         "description": "named_feature: {catalogue, feature_id}. circle: {lat, lon, radius_km}. rectangle: {lat_min, lat_max, lon_min, lon_max}. pixel_list: {nside, pixels[]}."
+        }
+       }
+      },
+      "cells": {
+       "type": "integer",
+       "minimum": 1,
+       "description": "HEALPix pixels in the target. MUST be shown beside any DI: a small target matches more easily than a large one."
+      },
+      "cells_distinct": {
+       "type": "integer",
+       "minimum": 1,
+       "description": "Target cells with distinct feature vectors. k = min(5, cells_distinct). Copied composition and thermal pixels can make this smaller than cells."
+      },
+      "spread": {
+       "type": "number",
+       "minimum": 0,
+       "description": "Median pairwise whitened distance between the distinct target cells. 0 for a single-cell target."
+      },
+      "abs_lat_range": {
+       "type": "array",
+       "minItems": 2,
+       "maxItems": 2,
+       "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 90
+       },
+       "description": "[min, max] of |latitude| over the target. The null is drawn from this band."
+      }
+     }
+    },
+    "variables": {
+     "type": "array",
+     "minItems": 3,
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "name",
+       "group",
+       "units",
+       "modelled",
+       "weak",
+       "ranked"
+      ],
+      "properties": {
+       "name": {
+        "type": "string",
+        "description": "Cube layer name without the body prefix, e.g. roughness_21km, temp_level, SiO2."
+       },
+       "group": {
+        "type": "string",
+        "enum": [
+         "terrain",
+         "thermal",
+         "composition"
+        ]
+       },
+       "units": {
+        "type": "string"
+       },
+       "modelled": {
+        "type": "boolean",
+        "description": "True where the TARGET-body layer is modelled, not measured. Today: Mars temp_level, temp_range_diurnal, temp_range_seasonal. The UI MUST mark these."
+       },
+       "weak": {
+        "type": "boolean",
+        "description": "True where the manifest flags the dimension weak on the target body (composition on Moon and Mars)."
+       },
+       "ranked": {
+        "type": "boolean",
+        "description": "False for a variable reported as one of Earth's limits (run.ranking.out_of_range)."
+       }
+      }
+     },
+     "description": "The dimensions actually used, in order. Length MUST equal dims_used."
+    },
+    "groups": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "terrain",
+      "thermal",
+      "composition"
+     ],
+     "properties": {
+      "terrain": {
+       "$ref": "#/$defs/group_info"
+      },
+      "thermal": {
+       "$ref": "#/$defs/group_info"
+      },
+      "composition": {
+       "$ref": "#/$defs/group_info"
+      }
+     }
+    },
+    "grid": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "scheme",
+      "nside_target",
+      "nside_earth"
+     ],
+     "properties": {
+      "scheme": {
+       "const": "healpix_nested"
+      },
+      "nside_target": {
+       "type": "integer",
+       "enum": [
+        256,
+        512
+       ]
+      },
+      "nside_earth": {
+       "const": 1024
+      }
+     }
+    },
+    "distance": {
+     "const": "mahalanobis_whitened",
+     "description": "Plain distance between whitened vectors. Each group (terrain, thermal, composition) is whitened on its own with Earth's reference correlation (block-diagonal). No group weights: every group counts once."
+    },
+    "scale": {
+     "const": "minmax",
+     "description": "How a physical value becomes a position. MIN-MAX: for each variable, position = (value - lo) / (hi - lo), where lo and hi are the smallest and largest value on Earth or the target body. One straight line for both bodies, so equal physical differences are equal position differences. Decided 11 Nov 2026 (VARIABLES.md B38); replaces the pooled percentile."
+    },
+    "eigen_floor": {
+     "type": "number",
+     "description": "Eigenvalues of the rank-correlation matrix below this are raised to it before whitening. 0.10."
+    },
+    "floored_directions": {
+     "type": "integer",
+     "minimum": 0,
+     "description": "How many eigenvalues were floored. 4 for Earth-Moon and 5 for Earth-Mars on the 10 Nov cube."
+    },
+    "d_bar_earth": {
+     "type": "number",
+     "exclusiveMinimum": 0,
+     "description": "MEAN pairwise group-wise-whitened distance between Earth reference pixels in this dimension set (phase4c_summary.json: d_bar). di_combined is divided by it."
+    },
+    "d_bar_target": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "exclusiveMinimum": 0,
+     "description": "The same on the target; null for a single distinct cell."
+    },
+    "dims_used": {
+     "type": "integer",
+     "minimum": 3,
+     "maximum": 20,
+     "description": "Number of RANKED variables in this run (run.ranking.ranked_variables). On the 11 Nov cube: 10 for every Artemis region; 9 for a Mars zone without composition, 11 with (10 for Meridiani). DI figures from runs with different ranked variables are NOT comparable."
+    },
+    "verdict_thresholds": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "agrees_below",
+      "differs_above"
+     ],
+     "properties": {
+      "agrees_below": {
+       "const": 0.1
+      },
+      "differs_above": {
+       "const": 0.25
+      }
+     },
+     "description": "On |position_gap|: under 0.10 agrees, over 0.25 differs, between is partial. On the min-max scale 0.10 is one tenth of the full range of the variable on Earth and the target body together. In ONE place so the numbers are not scattered."
+    },
+    "reference_population": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "pixels",
+      "definition"
+     ],
+     "properties": {
+      "pixels": {
+       "type": "integer",
+       "minimum": 1
+      },
+      "definition": {
+       "type": "string",
+       "description": "Ice-free, water-free land with every used dimension present. Antarctica enters as exposed rock; the ice sheet is excluded from ranking."
+      }
+     }
+    },
+    "target_cells_used": {
+     "const": "all",
+     "description": "The score of an Earth cell is its mean distance to ALL distinct cells of the target, divided by d_bar_earth. There is no 'k nearest'."
+    },
+    "ranking": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "system",
+      "rule",
+      "ranking_set",
+      "ranked_variables",
+      "out_of_range"
+     ],
+     "description": "Which variables rank Earth's cells for THIS target, under run.ranking.system. out_of_range lists the variables whose target median lies outside the whole range of Earth's reference population. It is filled in BOTH systems: under earth_reachable_only those variables do not rank; under all_variables they rank and are still listed here as Earth's limits.",
+     "properties": {
+      "rule": {
+       "type": "string"
+      },
+      "ranking_set": {
+       "type": "string",
+       "description": "Key of the calibration: a ranking set in cube/phase4/ranking_sets.json (earth_reachable_only) or a parent set in cube/phase4/phase4c_summary.json (all_variables)."
+      },
+      "ranked_variables": {
+       "type": "array",
+       "minItems": 1,
+       "items": {
+        "type": "string"
+       }
+      },
+      "out_of_range": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+         "variable",
+         "units",
+         "target_median",
+         "earth_min",
+         "earth_max",
+         "side",
+         "gap",
+         "share_of_target_cells_outside"
+        ],
+        "properties": {
+         "variable": {
+          "type": "string"
+         },
+         "units": {
+          "type": "string"
+         },
+         "target_median": {
+          "type": "number"
+         },
+         "earth_min": {
+          "type": "number"
+         },
+         "earth_max": {
+          "type": "number"
+         },
+         "side": {
+          "type": "string",
+          "enum": [
+           "below Earth's range",
+           "above Earth's range"
+          ]
+         },
+         "gap": {
+          "type": "number",
+          "minimum": 0,
+          "description": "How far beyond Earth's nearest extreme, in the variable's own unit."
+         },
+         "share_of_target_cells_outside": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+         }
+        }
+       }
+      },
+      "system": {
+       "type": "string",
+       "enum": [
+        "all_variables",
+        "earth_reachable_only"
+       ],
+       "description": "Which of the two ranking systems made this run. BOTH are built; the team keeps one as the main result on the hackathon day after testing both (Sherozbek, 11 Nov 2026, VARIABLES.md B37). all_variables: every variable of the target's set ranks, also those Earth cannot reach. earth_reachable_only: those variables are reported and left out of the distance."
+      }
+     }
+    },
+    "rank_bands": {
+     "type": "array",
+     "items": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 1
+     },
+     "description": "Shares of Earth's reference cells drawn as bands by default, best first: 0.01 is 'the best 1% of Earth', 0.05 the best 5%. A best 1% always exists; it means best on Earth, not a good match."
+    },
+    "site_rule": {
+     "const": "patches_of_top_share",
+     "description": "How sites[] is made: the best site_top_share of reference cells by rank, grouped into patches of touching cells, one entry per patch. The spec's spacing by decorrelation length is not built in version 1 (B38)."
+    },
+    "site_top_share": {
+     "type": "number",
+     "exclusiveMinimum": 0,
+     "maximum": 1,
+     "description": "The share of reference cells grouped into patches (0.01 = best 1%)."
+    },
+    "patches_total": {
+     "type": "integer",
+     "minimum": 0,
+     "description": "How many patches exist at site_top_share. sites[] lists at most 20 of them, best first."
+    }
+   }
+  },
+  "null_test": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "B",
+    "statistic",
+    "null_source",
+    "band_abs_lat",
+    "patch_cells",
+    "earth_sample_n",
+    "seed",
+    "di_observed",
+    "null_median",
+    "p",
+    "p_at_floor",
+    "positive_control"
+   ],
+   "properties": {
+    "B": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "statistic": {
+     "const": "minimum di_combined over the Earth sample"
+    },
+    "null_source": {
+     "type": "string",
+     "enum": [
+      "live",
+      "precomputed_table"
+     ],
+     "description": "precomputed_table: the null distribution for this |latitude| band and patch size was computed in advance with the same statistic. Used for custom targets so the answer does not wait on 1,000 searches."
+    },
+    "band_abs_lat": {
+     "type": "array",
+     "minItems": 2,
+     "maxItems": 2,
+     "items": {
+      "type": "number"
+     },
+     "description": "The |latitude| band the random patches were drawn from, both hemispheres."
+    },
+    "patch_cells": {
+     "type": "integer",
+     "minimum": 1,
+     "description": "Cell count of each null patch. Equal to target.cells_distinct for a live null. For a table: the neighbouring tabulated size that gave the larger (more conservative) p; see docs/NULL_TABLE_DESIGN_2026-11-10.md."
+    },
+    "earth_sample_n": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "seed": {
+     "type": "integer"
+    },
+    "di_observed": {
+     "type": "number",
+     "minimum": 0
+    },
+    "null_median": {
+     "type": "number",
+     "minimum": 0,
+     "description": "Median of the null statistic. Shown beside di_observed: a target above its null median is a WORSE Earth analog than random terrain at the same latitude."
+    },
+    "p": {
+     "type": "number",
+     "minimum": 0,
+     "maximum": 1,
+     "description": "(1 + count) / (1 + B), one-sided."
+    },
+    "p_at_floor": {
+     "type": "boolean",
+     "description": "True when p = 1/(B+1). Render 'p < 0.001' for B = 1000."
+    },
+    "positive_control": {
+     "$ref": "#/$defs/control",
+     "description": "The ONE control (B38): a 20-cell patch of the Atacama, treated as a target. It must come out significant. If it does not, the test has no power and p must not be read as evidence either way."
+    }
+   }
+  },
+  "sites": {
+   "type": "array",
+   "minItems": 0,
+   "maxItems": 20,
+   "description": "At most 20 entries, best first: one per patch of the best site_top_share of Earth. lat/lon/healpix_pixel are the patch's BEST cell and every other field describes that cell. MAY be populated when the null is non-significant: the ranking exists, it carries no evidence. Lead with the null verdict, stated plainly.",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "rank",
+     "lat",
+     "lon",
+     "healpix_pixel",
+     "di_combined",
+     "di_target",
+     "di_group",
+     "worst_group",
+     "dims_used_here",
+     "catalogue",
+     "koppen",
+     "lithology",
+     "variables",
+     "agrees",
+     "partial",
+     "differs",
+     "best3",
+     "worst3",
+     "use",
+     "patch_cells",
+     "patch_area_km2"
+    ],
+    "properties": {
+     "rank": {
+      "type": "integer",
+      "minimum": 1
+     },
+     "lat": {
+      "type": "number",
+      "minimum": -90,
+      "maximum": 90,
+      "description": "Render FIXED 2 decimals."
+     },
+     "lon": {
+      "type": "number",
+      "minimum": -180,
+      "maximum": 180,
+      "description": "Render FIXED 2 decimals."
+     },
+     "healpix_pixel": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "NESTED index at Nside 1024."
+     },
+     "di_combined": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Mean whitened distance to the k nearest distinct target cells over ALL used dimensions, divided by d_bar_earth. The compact index. Never shown without di_group."
+     },
+     "di_target": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "minimum": 0,
+      "description": "Same distance divided by d_bar_target."
+     },
+     "di_group": {
+      "$ref": "#/$defs/per_group"
+     },
+     "worst_group": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "name",
+       "di"
+      ],
+      "properties": {
+       "name": {
+        "type": "string",
+        "enum": [
+         "terrain",
+         "thermal",
+         "composition"
+        ]
+       },
+       "di": {
+        "type": "number",
+        "minimum": 0
+       }
+      },
+      "description": "The largest di_group. The number that stops an average hiding a failure."
+     },
+     "dims_used_here": {
+      "type": "integer",
+      "minimum": 3,
+      "description": "Dimensions present at this pixel. Equal to run.dims_used inside the reference population."
+     },
+     "catalogue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "status",
+       "name",
+       "citation",
+       "distance_km"
+      ],
+      "properties": {
+       "status": {
+        "type": "string",
+        "enum": [
+         "known",
+         "new candidate"
+        ],
+        "description": "known = a published analog site within 100 km. A label, never a filter."
+       },
+       "name": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "citation": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "distance_km": {
+        "type": [
+         "number",
+         "null"
+        ],
+        "minimum": 0,
+        "description": "Distance to the NEAREST catalogue entry, always given."
+       }
+      }
+     },
+     "koppen": {
+      "$ref": "#/$defs/koppen"
+     },
+     "lithology": {
+      "$ref": "#/$defs/lithology"
+     },
+     "variables": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+       "$ref": "#/$defs/variable_row"
+      }
+     },
+     "agrees": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "partial": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "differs": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "description": "MUST be rendered next to agrees."
+     },
+     "best3": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+       "type": "string"
+      },
+      "description": "The three ranked variables with the smallest |position_gap|."
+     },
+     "worst3": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+       "type": "string"
+      },
+      "description": "The three ranked variables with the largest |position_gap|. MUST be rendered next to best3."
+     },
+     "patch_cells": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of touching cells in this patch."
+     },
+     "patch_area_km2": {
+      "type": "number",
+      "minimum": 0,
+      "description": "patch_cells times the cell area (40.54 km2 at Nside 1024)."
+     },
+     "use": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "succeeds",
+       "fails",
+       "beyond_earth",
+       "general"
+      ],
+      "description": "Where this site works as an analog, where it does not, and where Earth itself stops. Built from the fixed table contract/use_table.json, never written at run time. Three lists, each line tied to a group.",
+      "properties": {
+       "succeeds": {
+        "type": "array",
+        "items": {
+         "$ref": "#/$defs/use_line"
+        },
+        "description": "Rows of the use table whose variables all agree."
+       },
+       "fails": {
+        "type": "array",
+        "items": {
+         "$ref": "#/$defs/use_line"
+        },
+        "description": "Rows with a variable that differs. MUST be rendered next to succeeds."
+       },
+       "beyond_earth": {
+        "type": "array",
+        "items": {
+         "$ref": "#/$defs/use_line"
+        },
+        "description": "Rows with a variable no Earth cell reaches for this target (run.ranking.out_of_range)."
+       },
+       "general": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "description": "The general sentence of the use table when succeeds is empty; null otherwise."
+       }
+      }
+     }
+    }
+   }
+  },
+  "rasters": {
+   "type": "array",
+   "minItems": 1,
+   "description": "The maps of this run. di_combined and one di_<group> per group that has a ranked variable; rank_combined is each Earth cell's rank of di_combined among reference cells (0 = best on Earth), the layer behind the top-percent slider.",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "name",
+     "file",
+     "format",
+     "units",
+     "vmin",
+     "vmax",
+     "colormap",
+     "views"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "enum": [
+       "di_combined",
+       "di_terrain",
+       "di_thermal",
+       "di_composition",
+       "rank_combined",
+       "nearest_target_index"
+      ]
+     },
+     "file": {
+      "type": "string",
+      "description": "Relative path of the HEALPix array (.npy, float32, Nside 1024 NESTED) or GeoTIFF."
+     },
+     "format": {
+      "type": "string",
+      "enum": [
+       "healpix_npy",
+       "geotiff"
+      ]
+     },
+     "units": {
+      "type": "string"
+     },
+     "vmin": {
+      "type": "number"
+     },
+     "vmax": {
+      "type": "number"
+     },
+     "colormap": {
+      "type": "string"
+     },
+     "views": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "global",
+       "north_polar",
+       "south_polar"
+      ],
+      "properties": {
+       "global": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "description": "PNG, plate carree, -180..180 x 90..-90, transparent where masked."
+       },
+       "north_polar": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "description": "PNG, polar stereographic, 60..90 N."
+       },
+       "south_polar": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "description": "PNG, polar stereographic, 60..90 S."
+       }
+      }
+     },
+     "encoding": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "How a view PNG stores its value when it is data, not a picture. rank_combined: 8-bit grey v, rank = (v / 255) squared, so the best 1% is v <= 25 and the slider is a threshold in the browser. Null for a coloured picture."
+     }
+    }
+   }
+  },
+  "earths_limits": {
+   "type": "array",
+   "minItems": 5,
+   "description": "Fixed block, identical in every output: what Earth cannot reproduce. Spec step 9.",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "what",
+     "numbers",
+     "invalidates"
+    ],
+    "properties": {
+     "what": {
+      "type": "string"
+     },
+     "numbers": {
+      "type": "string"
+     },
+     "invalidates": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "limits": {
+   "type": "string",
+   "minLength": 1,
+   "description": "What THIS run cannot tell you: modelled layers used, weak dimensions, partial coverage, target geometry caveats."
+  },
+  "ai_disclosure": {
+   "type": "string",
+   "minLength": 1
+  },
+  "sources": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "name",
+     "url",
+     "used_for"
+    ],
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "url": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "used_for": {
+      "type": "string"
+     }
+    }
+   }
+  }
+ },
+ "$defs": {
+  "group_info": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "n_variables"
+   ],
+   "properties": {
+    "n_variables": {
+     "type": "integer",
+     "minimum": 0,
+     "description": "0 means the group is absent for this pairing; every per-group field is then null."
+    }
+   }
+  },
+  "per_group": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "terrain",
+    "thermal",
+    "composition"
+   ],
+   "properties": {
+    "terrain": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0
+    },
+    "thermal": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0
+    },
+    "composition": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0
+    }
+   },
+   "description": "The index computed on each group's dimensions alone, each divided by that group's own d_bar. THIS answers 'which characteristics match'. null where the group is absent for the pairing or has no data at the pixel (e.g. Mars composition on dusty terrain)."
+  },
+  "control": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "name",
+    "di_observed",
+    "p",
+    "passed"
+   ],
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "di_observed": {
+     "type": "number",
+     "minimum": 0
+    },
+    "p": {
+     "type": "number",
+     "minimum": 0,
+     "maximum": 1
+    },
+    "passed": {
+     "type": "boolean",
+     "description": "True when the control is significant (p < 0.05)."
+    }
+   }
+  },
+  "koppen": {
+   "type": [
+    "object",
+    "null"
+   ],
+   "additionalProperties": false,
+   "required": [
+    "code",
+    "symbol",
+    "description"
+   ],
+   "properties": {
+    "code": {
+     "type": "integer",
+     "minimum": 1,
+     "maximum": 30
+    },
+    "symbol": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    }
+   },
+   "description": "From earth_koppen_class and cube/koppen_legend.json. Characterization only."
+  },
+  "lithology": {
+   "type": [
+    "object",
+    "null"
+   ],
+   "additionalProperties": false,
+   "required": [
+    "l1_code",
+    "description",
+    "source"
+   ],
+   "properties": {
+    "l1_code": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    },
+    "source": {
+     "type": "string",
+     "enum": [
+      "GLiM",
+      "GeoMAP"
+     ],
+     "description": "GeoMAP south of 60 S where it maps rock; GLiM elsewhere."
+    }
+   }
+  },
+  "variable_row": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "name",
+    "group",
+    "units",
+    "earth",
+    "target_median",
+    "earth_position",
+    "target_position",
+    "position_gap",
+    "physical_gap",
+    "verdict",
+    "modelled",
+    "ranked"
+   ],
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "group": {
+     "type": "string",
+     "enum": [
+      "terrain",
+      "thermal",
+      "composition"
+     ]
+    },
+    "units": {
+     "type": "string"
+    },
+    "earth": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "description": "Native units, read from the raw cube. Temperatures in kelvin."
+    },
+    "target_median": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "description": "Median over the target's distinct cells, native units."
+    },
+    "earth_position": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "description": "Position of the Earth value on the MIN-MAX scale of Earth + target body for this variable: (value - lo) / (hi - lo). Between 0 and 1 for a cell of the ranking population; a clicked cell outside it can fall outside."
+    },
+    "target_position": {
+     "type": "number",
+     "minimum": 0,
+     "maximum": 1,
+     "description": "Position of the target's median value on the SAME scale. Equal physical values give equal positions."
+    },
+    "position_gap": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "description": "earth_position minus target_position, SIGNED so the direction is visible. It is the physical gap divided by the full range of the variable. Zero means physically the same value."
+    },
+    "physical_gap": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "description": "earth minus target_median, native units. Show it beside position_gap."
+    },
+    "verdict": {
+     "type": "string",
+     "enum": [
+      "agrees",
+      "partial",
+      "differs",
+      "withheld"
+     ],
+     "description": "From |position_gap| and run.verdict_thresholds. withheld = no usable data, numeric fields null."
+    },
+    "modelled": {
+     "type": "boolean"
+    },
+    "ranked": {
+     "type": "boolean",
+     "description": "False: shown for information, not used in any distance for this target."
+    }
+   }
+  },
+  "use_line": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "key",
+    "group",
+    "label",
+    "variables",
+    "text"
+   ],
+   "properties": {
+    "key": {
+     "type": "string"
+    },
+    "group": {
+     "type": "string",
+     "enum": [
+      "terrain",
+      "thermal",
+      "composition"
+     ]
+    },
+    "label": {
+     "type": "string"
+    },
+    "variables": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "text": {
+     "type": "string"
+    }
+   }
+  }
+ }
+}

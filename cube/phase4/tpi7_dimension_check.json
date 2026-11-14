@@ -1,0 +1,181 @@
+{
+ "new_candidate": "tpi_7km",
+ "lambda_floor": 0.1,
+ "per_body": {
+  "moon": {
+   "spearman_vs_tpi_21km": 0.8518,
+   "spearman_vs_slope": 0.0235,
+   "spearman_vs_roughness_5.25km": 0.0619,
+   "n_valid": 786432,
+   "p1": -153.52578735351562,
+   "p50": -1.1251789331436157,
+   "p99": 150.09579467773438,
+   "iqr": 42.114990234375
+  },
+  "mars": {
+   "spearman_vs_tpi_21km": 0.8084,
+   "spearman_vs_slope": -0.0046,
+   "spearman_vs_roughness_5.25km": 0.0134,
+   "n_valid": 3145728,
+   "p1": -65.97712707519531,
+   "p50": -0.24917791783809662,
+   "p99": 68.67154693603516,
+   "iqr": 7.205406188964844
+  },
+  "earth": {
+   "spearman_vs_tpi_21km": 0.8468,
+   "spearman_vs_slope": -0.0334,
+   "spearman_vs_roughness_5.25km": -0.0229,
+   "n_valid": 12582912,
+   "p1": -60.069053649902344,
+   "p50": -0.12626686692237854,
+   "p99": 74.51313018798828,
+   "iqr": 8.12187385559082
+  }
+ },
+ "earth_reference": {
+  "reference_pixels": 3260787,
+  "complete_cases": 3247889,
+  "tpi_7km_nan_in_reference": 0,
+  "tpi_7km_percentile_iqr": 0.49999984605385217,
+  "correlation_row_tpi_7km": {
+   "slope": -0.032,
+   "roughness_5.25km": -0.0081,
+   "roughness_10.5km": -0.0415,
+   "roughness_21km": -0.0666,
+   "roughness_42km": -0.074,
+   "tpi_21km": 0.7821,
+   "temp_level": -0.0099,
+   "temp_range_diurnal": -0.0416,
+   "temp_range_seasonal": -0.0074,
+   "SiO2": -0.0083,
+   "FeO": -0.0188,
+   "tpi_7km": 1.0
+  },
+  "earth_moon": {
+   "without": {
+    "n": 10,
+    "lambda_min": 0.002253315280190737,
+    "lambda_max": 5.0176259388042705,
+    "condition": 2226.774913797035,
+    "n_below_floor": 3,
+    "variance_below_floor_pct": 0.3037,
+    "eigenvalues": [
+     0.0023,
+     0.0106,
+     0.0175,
+     0.1244,
+     0.505,
+     0.917,
+     0.978,
+     1.0313,
+     1.3963,
+     5.0176
+    ],
+    "smallest_eigenvector": {
+     "slope": 0.261,
+     "roughness_5.25km": 0.291,
+     "roughness_10.5km": -0.833,
+     "roughness_21km": 0.379,
+     "roughness_42km": -0.094,
+     "tpi_21km": -0.003,
+     "temp_level": 0.002,
+     "temp_range_diurnal": -0.003,
+     "SiO2": 0.0,
+     "FeO": 0.001
+    }
+   },
+   "with_tpi_7km": {
+    "n": 11,
+    "lambda_min": 0.002229842263838956,
+    "lambda_max": 5.019951179347686,
+    "condition": 2251.2584234120686,
+    "n_below_floor": 3,
+    "variance_below_floor_pct": 0.2751,
+    "eigenvalues": [
+     0.0022,
+     0.0106,
+     0.0174,
+     0.1209,
+     0.2231,
+     0.5059,
+     0.9252,
+     1.0039,
+     1.3616,
+     1.8091,
+     5.02
+    ],
+    "smallest_eigenvector": {
+     "slope": 0.258,
+     "roughness_5.25km": 0.293,
+     "roughness_10.5km": -0.834,
+     "roughness_21km": 0.38,
+     "roughness_42km": -0.093,
+     "tpi_21km": 0.003,
+     "temp_level": 0.002,
+     "temp_range_diurnal": -0.003,
+     "SiO2": 0.0,
+     "FeO": 0.001,
+     "tpi_7km": -0.008
+    }
+   },
+   "verdict": "KEEP -- lambda_min of the set did not fall below the floor because of tpi_7km; the floored directions are the roughness family, as before"
+  },
+  "earth_mars": {
+   "without": {
+    "n": 6,
+    "lambda_min": 0.0022608887325714327,
+    "lambda_max": 4.830449657537775,
+    "condition": 2136.5269276404592,
+    "n_below_floor": 3,
+    "variance_below_floor_pct": 0.517,
+    "eigenvalues": [
+     0.0023,
+     0.0111,
+     0.0177,
+     0.1299,
+     1.0086,
+     4.8304
+    ],
+    "smallest_eigenvector": {
+     "slope": -0.258,
+     "roughness_5.25km": -0.293,
+     "roughness_10.5km": 0.833,
+     "roughness_21km": -0.381,
+     "roughness_42km": 0.095,
+     "tpi_21km": 0.003
+    }
+   },
+   "with_tpi_7km": {
+    "n": 7,
+    "lambda_min": 0.0022371281366389477,
+    "lambda_max": 4.8335360913449055,
+    "condition": 2160.5986765723624,
+    "n_below_floor": 3,
+    "variance_below_floor_pct": 0.4415,
+    "eigenvalues": [
+     0.0022,
+     0.0111,
+     0.0176,
+     0.1258,
+     0.2245,
+     1.7852,
+     4.8335
+    ],
+    "smallest_eigenvector": {
+     "slope": 0.255,
+     "roughness_5.25km": 0.295,
+     "roughness_10.5km": -0.833,
+     "roughness_21km": 0.381,
+     "roughness_42km": -0.093,
+     "tpi_21km": 0.003,
+     "tpi_7km": -0.008
+    }
+   },
+   "verdict": "KEEP -- lambda_min of the set did not fall below the floor because of tpi_7km; the floored directions are the roughness family, as before"
+  }
+ },
+ "elapsed_s": 26.7,
+ "run_utc": "2026-11-09T12:29:21Z",
+ "note": "Measured on the SAME reference population and rank transform as phase4a, over complete cases across all 12 candidates. phase 4 artifacts were not modified; percentiles.npy still holds the 11-candidate B24 run."
+}

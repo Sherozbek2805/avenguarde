@@ -1,0 +1,25 @@
+{
+ "figure": "earth_shaded_relief_4320px_az315_alt45_z14.png",
+ "body": "earth",
+ "source": "cube/dem/earth_dem_1_240deg.npy",
+ "native_shape": [
+  43200,
+  86400
+ ],
+ "rendered_shape": [
+  2160,
+  4320
+ ],
+ "downsample_factor": 20,
+ "downsample_method": "NaN-aware block mean, then shade",
+ "displayed_cell_km": 9.2662,
+ "sun_azimuth_deg": 315.0,
+ "sun_altitude_deg": 45.0,
+ "vertical_exaggeration": 14.0,
+ "nodata_percent_at_display_scale": 0.0,
+ "nodata_colour": "magenta (255, 0, 255)",
+ "edge_rule": "longitude wraps, latitude clips",
+ "caveat": "Shaded AFTER downsampling, so relief finer than the displayed cell is suppressed. Do not judge small-scale roughness from this image.",
+ "purpose": "deck/video figure AND visual validation gate",
+ "written_utc": "2026-11-06T18:46:07Z"
+}

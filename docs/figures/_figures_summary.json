@@ -1,0 +1,67 @@
+{
+ "sun_azimuth_deg": 315.0,
+ "sun_altitude_deg": 45.0,
+ "figures": {
+  "moon": {
+   "file": "moon_shaded_relief_3840px_az315_alt45_z12.png",
+   "nodata_percent": 0.0,
+   "shape": [
+    1920,
+    3840
+   ],
+   "displayed_cell_km": 2.8428,
+   "hs_mean": 0.5736,
+   "z_p2": -4844.7,
+   "z_p98": 4923.4
+  },
+  "mars": {
+   "file": "mars_shaded_relief_3840px_az315_alt45_z10.png",
+   "nodata_percent": 0.0,
+   "shape": [
+    1920,
+    3840
+   ],
+   "displayed_cell_km": 5.557,
+   "hs_mean": 0.6939,
+   "z_p2": -5100.1,
+   "z_p98": 4701.7
+  },
+  "earth": {
+   "file": "earth_shaded_relief_4320px_az315_alt45_z14.png",
+   "nodata_percent": 0.0,
+   "shape": [
+    2160,
+    4320
+   ],
+   "displayed_cell_km": 9.2662,
+   "hs_mean": 0.6914,
+   "z_p2": -5690.1,
+   "z_p98": 3239.5
+  },
+  "ice_free_mask": {
+   "file": "earth_ice_free_land_mask_4320px.png",
+   "pixel_share_percent": {
+    "ocean": 66.8443,
+    "ice": 10.0314,
+    "ice_free_land": 23.1243
+   },
+   "shape": [
+    2160,
+    4320
+   ]
+  },
+  "moon_south_polar": {
+   "file": "moon_south_polar_85S_to_90S_2400px_az315_alt45_z12.png",
+   "nodata_percent": 0.0,
+   "displayed_cell_km": 0.1263
+  },
+  "mars_south_polar": {
+   "file": "mars_south_polar_85S_to_90S_2400px_az315_alt45_z10.png",
+   "nodata_percent": 0.0,
+   "displayed_cell_km": 0.247
+  }
+ },
+ "peak_rss_gib": 3.506664276123047,
+ "written_utc": "2026-11-06T18:50:18Z",
+ "polar_note": "The global plate carree figures stretch the polar rows across the full image width and cannot validate them. The lunar targets are at 85-89.9S, so south polar stereographic figures were added for the Moon and Mars."
+}

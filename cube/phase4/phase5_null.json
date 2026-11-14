@@ -1,0 +1,330 @@
+{
+ "dimension_set": "earth_moon",
+ "dimensions": [
+  "slope",
+  "roughness_5.25km",
+  "roughness_10.5km",
+  "roughness_21km",
+  "roughness_42km",
+  "tpi_21km",
+  "temp_level",
+  "temp_range_diurnal",
+  "SiO2",
+  "FeO"
+ ],
+ "d_bar": 3.7161003891360553,
+ "di_threshold": 0.19698574159946686,
+ "n_null_per_seed": 1000,
+ "seeds": [
+  20261109,
+  20261110,
+  20261111,
+  20261112,
+  20261113
+ ],
+ "abs_latitude_band_deg": 2.0,
+ "radius_km": 8.462843753216344,
+ "method": "null windows drawn in the same ABSOLUTE-latitude band as the target, from BOTH hemispheres, same disc radius. Banding on SIGNED latitude would make the matching set two disjoint arcs, because a disc's pixel count depends on |lat|; that error produced a 95% rejection rate before it was caught.",
+ "p_definition": "fraction of null windows with DI <= observed DI",
+ "warning": "This null belongs to the earth_moon dimension set ONLY. A p-value from here may not be quoted against a DI computed in any other set.",
+ "targets": [
+  {
+   "nasa_region": "Peak near Cabeus B",
+   "DI": 0.2999527271167549,
+   "p_mean": 0.8977999999999999,
+   "p_min": 0.884,
+   "p_max": 0.906,
+   "p_per_seed": [
+    0.9,
+    0.906,
+    0.901,
+    0.898,
+    0.884
+   ],
+   "p_spread": 0.02200000000000002,
+   "verdict": "not significant",
+   "null_n_per_seed": 1000,
+   "seeds": [
+    20261109,
+    20261110,
+    20261111,
+    20261112,
+    20261113
+   ],
+   "null_DI_p05": 0.09707084750055237,
+   "null_DI_p50": 0.19700731077301303,
+   "null_DI_p95": 0.3436129169637667,
+   "abs_lat_band": [
+    80.26,
+    84.26
+   ],
+   "covered": false,
+   "offset_class": "NEAR"
+  },
+  {
+   "nasa_region": "Haworth",
+   "DI": 0.28544995866040235,
+   "p_mean": 0.9132000000000001,
+   "p_min": 0.903,
+   "p_max": 0.922,
+   "p_per_seed": [
+    0.922,
+    0.918,
+    0.903,
+    0.904,
+    0.919
+   ],
+   "p_spread": 0.019000000000000017,
+   "verdict": "not significant",
+   "null_n_per_seed": 1000,
+   "seeds": [
+    20261109,
+    20261110,
+    20261111,
+    20261112,
+    20261113
+   ],
+   "null_DI_p05": 0.10545348171111438,
+   "null_DI_p50": 0.1842628128803695,
+   "null_DI_p95": 0.32275021224770284,
+   "abs_lat_band": [
+    85.45,
+    89.45
+   ],
+   "covered": false,
+   "offset_class": "CENTRE"
+  },
+  {
+   "nasa_region": "Malapert Massif",
+   "DI": 0.19259863521412787,
+   "p_mean": 0.547,
+   "p_min": 0.533,
+   "p_max": 0.558,
+   "p_per_seed": [
+    0.547,
+    0.558,
+    0.533,
+    0.554,
+    0.543
+   ],
+   "p_spread": 0.025000000000000022,
+   "verdict": "not significant",
+   "null_n_per_seed": 1000,
+   "seeds": [
+    20261109,
+    20261110,
+    20261111,
+    20261112,
+    20261113
+   ],
+   "null_DI_p05": 0.10033576985420048,
+   "null_DI_p50": 0.18500202831846485,
+   "null_DI_p95": 0.3195144058612795,
+   "abs_lat_band": [
+    83.98,
+    87.98
+   ],
+   "covered": true,
+   "offset_class": "CENTRE"
+  },
+  {
+   "nasa_region": "Mons Mouton Plateau",
+   "DI": 0.2756953991593815,
+   "p_mean": 0.867,
+   "p_min": 0.853,
+   "p_max": 0.889,
+   "p_per_seed": [
+    0.867,
+    0.863,
+    0.863,
+    0.853,
+    0.889
+   ],
+   "p_spread": 0.03600000000000003,
+   "verdict": "not significant",
+   "null_n_per_seed": 1000,
+   "seeds": [
+    20261109,
+    20261110,
+    20261111,
+    20261112,
+    20261113
+   ],
+   "null_DI_p05": 0.09593625615745198,
+   "null_DI_p50": 0.18647172009526775,
+   "null_DI_p95": 0.3355987814974168,
+   "abs_lat_band": [
+    82.6,
+    86.6
+   ],
+   "covered": false,
+   "offset_class": "CENTRE"
+  },
+  {
+   "nasa_region": "Mons Mouton",
+   "DI": 0.2756953991593815,
+   "p_mean": 0.867,
+   "p_min": 0.853,
+   "p_max": 0.889,
+   "p_per_seed": [
+    0.867,
+    0.863,
+    0.863,
+    0.853,
+    0.889
+   ],
+   "p_spread": 0.03600000000000003,
+   "verdict": "not significant",
+   "null_n_per_seed": 1000,
+   "seeds": [
+    20261109,
+    20261110,
+    20261111,
+    20261112,
+    20261113
+   ],
+   "null_DI_p05": 0.09593625615745198,
+   "null_DI_p50": 0.18647172009526775,
+   "null_DI_p95": 0.3355987814974168,
+   "abs_lat_band": [
+    82.6,
+    86.6
+   ],
+   "covered": false,
+   "offset_class": "CENTRE"
+  },
+  {
+   "nasa_region": "Nobile Rim 1",
+   "DI": 0.22417336806649202,
+   "p_mean": 0.7136,
+   "p_min": 0.694,
+   "p_max": 0.729,
+   "p_per_seed": [
+    0.718,
+    0.706,
+    0.721,
+    0.729,
+    0.694
+   ],
+   "p_spread": 0.03500000000000003,
+   "verdict": "not significant",
+   "null_n_per_seed": 1000,
+   "seeds": [
+    20261109,
+    20261110,
+    20261111,
+    20261112,
+    20261113
+   ],
+   "null_DI_p05": 0.09702366526762356,
+   "null_DI_p50": 0.1845498721484497,
+   "null_DI_p95": 0.3298335265858578,
+   "abs_lat_band": [
+    83.28,
+    87.28
+   ],
+   "covered": false,
+   "offset_class": "RIM"
+  },
+  {
+   "nasa_region": "Nobile Rim 2",
+   "DI": 0.22417336806649202,
+   "p_mean": 0.7136,
+   "p_min": 0.694,
+   "p_max": 0.729,
+   "p_per_seed": [
+    0.718,
+    0.706,
+    0.721,
+    0.729,
+    0.694
+   ],
+   "p_spread": 0.03500000000000003,
+   "verdict": "not significant",
+   "null_n_per_seed": 1000,
+   "seeds": [
+    20261109,
+    20261110,
+    20261111,
+    20261112,
+    20261113
+   ],
+   "null_DI_p05": 0.09702366526762356,
+   "null_DI_p50": 0.1845498721484497,
+   "null_DI_p95": 0.3298335265858578,
+   "abs_lat_band": [
+    83.28,
+    87.28
+   ],
+   "covered": false,
+   "offset_class": "RIM"
+  },
+  {
+   "nasa_region": "de Gerlache Rim 2",
+   "DI": 0.1731409825387077,
+   "p_mean": 0.36319999999999997,
+   "p_min": 0.35,
+   "p_max": 0.385,
+   "p_per_seed": [
+    0.351,
+    0.35,
+    0.385,
+    0.372,
+    0.358
+   ],
+   "p_spread": 0.03500000000000003,
+   "verdict": "not significant",
+   "null_n_per_seed": 1000,
+   "seeds": [
+    20261109,
+    20261110,
+    20261111,
+    20261112,
+    20261113
+   ],
+   "null_DI_p05": 0.10448283200955351,
+   "null_DI_p50": 0.19214204707641053,
+   "null_DI_p95": 0.3375808361404927,
+   "abs_lat_band": [
+    86.48,
+    90.0
+   ],
+   "covered": true,
+   "offset_class": "RIM"
+  },
+  {
+   "nasa_region": "Slater Plain",
+   "DI": 0.14081016456028822,
+   "p_mean": 0.18159999999999998,
+   "p_min": 0.171,
+   "p_max": 0.189,
+   "p_per_seed": [
+    0.178,
+    0.189,
+    0.184,
+    0.186,
+    0.171
+   ],
+   "p_spread": 0.017999999999999988,
+   "verdict": "not significant",
+   "null_n_per_seed": 1000,
+   "seeds": [
+    20261109,
+    20261110,
+    20261111,
+    20261112,
+    20261113
+   ],
+   "null_DI_p05": 0.10622268521592487,
+   "null_DI_p50": 0.1895417772648584,
+   "null_DI_p95": 0.3339668740627554,
+   "abs_lat_band": [
+    86.08,
+    90.0
+   ],
+   "covered": true,
+   "offset_class": "NEAR"
+  }
+ ],
+ "built_utc": "2026-11-09T07:39:22Z"
+}

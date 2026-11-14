@@ -1,0 +1,410 @@
+{
+ "generated_utc": "2026-11-11T18:14:00Z",
+ "contract_version": "2.4",
+ "projections": {
+  "global": "plate carree, 2880 x 1440, lon -180..180 left to right, lat 90..-90 top to bottom",
+  "north_polar": "azimuthal equidistant, 1200 x 1200, pole at centre, edge at 60 N; x = 0.5 + 0.5*((90-lat)/30)*sin(lon), y = 0.5 + 0.5*((90-lat)/30)*cos(lon)",
+  "south_polar": "azimuthal equidistant, 1200 x 1200, pole at centre, edge at 60 S; x = 0.5 + 0.5*((90+lat)/30)*sin(lon), y = 0.5 - 0.5*((90+lat)/30)*cos(lon)"
+ },
+ "masked": "transparent (alpha 0); draw as neutral grey, never as a low value",
+ "bodies": {
+  "earth": {
+   "nside": 1024,
+   "pixel_km": 6.37,
+   "shown_population": "reference population: ice-free, water-free land (what ranks)",
+   "basemap": {
+    "global": "earth/basemap_global.png",
+    "north_polar": "earth/basemap_north.png",
+    "south_polar": "earth/basemap_south.png",
+    "source": "earth_dem_1_240deg.npy",
+    "vertical_exaggeration": 14.0,
+    "note": "shaded relief, block-mean then shade; a picture, not data"
+   },
+   "layers": [
+    {
+     "name": "roughness_21km",
+     "label": "Roughness, 21 km window",
+     "units": "m",
+     "scale": "log10",
+     "vmin": 1.9249483346939087,
+     "vmax": 470.5433349609375,
+     "colormap": "viridis",
+     "files": {
+      "global": "earth/roughness_21km_global.png",
+      "north_polar": "earth/roughness_21km_north.png",
+      "south_polar": "earth/roughness_21km_south.png"
+     },
+     "modelled": false,
+     "weak": false,
+     "coverage_pct": 25.89,
+     "stands_for": "terrain texture: slope and the four roughness scales"
+    },
+    {
+     "name": "tpi_21km",
+     "label": "Topographic position index, 21 km",
+     "units": "m",
+     "scale": "linear",
+     "vmin": -256.75347900390625,
+     "vmax": 256.75347900390625,
+     "colormap": "RdBu_r",
+     "files": {
+      "global": "earth/tpi_21km_global.png",
+      "north_polar": "earth/tpi_21km_north.png",
+      "south_polar": "earth/tpi_21km_south.png"
+     },
+     "modelled": false,
+     "weak": false,
+     "coverage_pct": 25.89,
+     "stands_for": "terrain form: TPI 21 km and 7 km"
+    },
+    {
+     "name": "svf_30km",
+     "label": "Sky view factor, 30 km radius",
+     "units": "dimensionless",
+     "scale": "linear",
+     "vmin": 0.6,
+     "vmax": 1.0,
+     "colormap": "cividis",
+     "files": {
+      "global": "earth/svf_30km_global.png",
+      "north_polar": "earth/svf_30km_north.png",
+      "south_polar": "earth/svf_30km_south.png"
+     },
+     "modelled": false,
+     "weak": false,
+     "coverage_pct": 25.89,
+     "stands_for": "openness"
+    },
+    {
+     "name": "temp_level",
+     "label": "Temperature level",
+     "units": "K",
+     "scale": "linear",
+     "vmin": 259.2462158203125,
+     "vmax": 305.5712585449219,
+     "colormap": "inferno",
+     "files": {
+      "global": "earth/temp_level_global.png",
+      "north_polar": "earth/temp_level_north.png",
+      "south_polar": "earth/temp_level_south.png"
+     },
+     "modelled": false,
+     "weak": false,
+     "coverage_pct": 25.89,
+     "stands_for": "temperature level"
+    },
+    {
+     "name": "temp_range_diurnal",
+     "label": "Diurnal temperature range",
+     "units": "K",
+     "scale": "linear",
+     "vmin": 4.619166374206543,
+     "vmax": 29.09583282470703,
+     "colormap": "plasma",
+     "files": {
+      "global": "earth/temp_range_diurnal_global.png",
+      "north_polar": "earth/temp_range_diurnal_north.png",
+      "south_polar": "earth/temp_range_diurnal_south.png"
+     },
+     "modelled": false,
+     "weak": false,
+     "coverage_pct": 25.89,
+     "stands_for": "diurnal temperature range"
+    },
+    {
+     "name": "SiO2",
+     "label": "Silica, SiO2",
+     "units": "wt%",
+     "scale": "linear",
+     "vmin": 35.0,
+     "vmax": 70.0,
+     "colormap": "coolwarm",
+     "files": {
+      "global": "earth/SiO2_global.png",
+      "north_polar": "earth/SiO2_north.png",
+      "south_polar": "earth/SiO2_south.png"
+     },
+     "modelled": false,
+     "weak": true,
+     "coverage_pct": 25.79,
+     "stands_for": "composition: SiO2 and FeO"
+    }
+   ]
+  },
+  "moon": {
+   "nside": 256,
+   "pixel_km": 6.95,
+   "shown_population": "all pixels",
+   "basemap": {
+    "global": "moon/basemap_global.png",
+    "north_polar": "moon/basemap_north.png",
+    "south_polar": "moon/basemap_south.png",
+    "source": "moon_dem_1_64deg.npy",
+    "vertical_exaggeration": 12.0,
+    "note": "shaded relief, block-mean then shade; a picture, not data"
+   },
+   "layers": [
+    {
+     "name": "roughness_21km",
+     "label": "Roughness, 21 km window",
+     "units": "m",
+     "scale": "log10",
+     "vmin": 19.16815757751465,
+     "vmax": 1151.741943359375,
+     "colormap": "viridis",
+     "files": {
+      "global": "moon/roughness_21km_global.png",
+      "north_polar": "moon/roughness_21km_north.png",
+      "south_polar": "moon/roughness_21km_south.png"
+     },
+     "modelled": false,
+     "weak": false,
+     "coverage_pct": 100.0,
+     "stands_for": "terrain texture: slope and the four roughness scales"
+    },
+    {
+     "name": "tpi_21km",
+     "label": "Topographic position index, 21 km",
+     "units": "m",
+     "scale": "linear",
+     "vmin": -697.2322998046875,
+     "vmax": 697.2322998046875,
+     "colormap": "RdBu_r",
+     "files": {
+      "global": "moon/tpi_21km_global.png",
+      "north_polar": "moon/tpi_21km_north.png",
+      "south_polar": "moon/tpi_21km_south.png"
+     },
+     "modelled": false,
+     "weak": false,
+     "coverage_pct": 100.0,
+     "stands_for": "terrain form: TPI 21 km and 7 km"
+    },
+    {
+     "name": "svf_30km",
+     "label": "Sky view factor, 30 km radius",
+     "units": "dimensionless",
+     "scale": "linear",
+     "vmin": 0.6,
+     "vmax": 1.0,
+     "colormap": "cividis",
+     "files": {
+      "global": "moon/svf_30km_global.png",
+      "north_polar": "moon/svf_30km_north.png",
+      "south_polar": "moon/svf_30km_south.png"
+     },
+     "modelled": false,
+     "weak": false,
+     "coverage_pct": 100.0,
+     "stands_for": "openness"
+    },
+    {
+     "name": "temp_level",
+     "label": "Temperature level",
+     "units": "K",
+     "scale": "linear",
+     "vmin": 162.9514923095703,
+     "vmax": 244.6754150390625,
+     "colormap": "inferno",
+     "files": {
+      "global": "moon/temp_level_global.png",
+      "north_polar": "moon/temp_level_north.png",
+      "south_polar": "moon/temp_level_south.png"
+     },
+     "modelled": false,
+     "weak": false,
+     "coverage_pct": 100.0,
+     "stands_for": "temperature level"
+    },
+    {
+     "name": "temp_range_diurnal",
+     "label": "Diurnal temperature range",
+     "units": "K",
+     "scale": "linear",
+     "vmin": 193.60269165039062,
+     "vmax": 300.32110595703125,
+     "colormap": "plasma",
+     "files": {
+      "global": "moon/temp_range_diurnal_global.png",
+      "north_polar": "moon/temp_range_diurnal_north.png",
+      "south_polar": "moon/temp_range_diurnal_south.png"
+     },
+     "modelled": false,
+     "weak": false,
+     "coverage_pct": 100.0,
+     "stands_for": "diurnal temperature range"
+    },
+    {
+     "name": "SiO2",
+     "label": "Silica, SiO2",
+     "units": "wt%",
+     "scale": "linear",
+     "vmin": 35.0,
+     "vmax": 70.0,
+     "colormap": "coolwarm",
+     "files": {
+      "global": "moon/SiO2_global.png",
+      "north_polar": "moon/SiO2_north.png",
+      "south_polar": "moon/SiO2_south.png"
+     },
+     "modelled": false,
+     "weak": true,
+     "coverage_pct": 99.97,
+     "stands_for": "composition: SiO2 and FeO"
+    }
+   ]
+  },
+  "mars": {
+   "nside": 512,
+   "pixel_km": 6.79,
+   "shown_population": "all pixels",
+   "basemap": {
+    "global": "mars/basemap_global.png",
+    "north_polar": "mars/basemap_north.png",
+    "south_polar": "mars/basemap_south.png",
+    "source": "mars_dem_1_128deg.npy",
+    "vertical_exaggeration": 10.0,
+    "note": "shaded relief, block-mean then shade; a picture, not data"
+   },
+   "layers": [
+    {
+     "name": "roughness_21km",
+     "label": "Roughness, 21 km window",
+     "units": "m",
+     "scale": "log10",
+     "vmin": 7.527832508087158,
+     "vmax": 591.70751953125,
+     "colormap": "viridis",
+     "files": {
+      "global": "mars/roughness_21km_global.png",
+      "north_polar": "mars/roughness_21km_north.png",
+      "south_polar": "mars/roughness_21km_south.png"
+     },
+     "modelled": false,
+     "weak": false,
+     "coverage_pct": 100.0,
+     "stands_for": "terrain texture: slope and the four roughness scales"
+    },
+    {
+     "name": "tpi_21km",
+     "label": "Topographic position index, 21 km",
+     "units": "m",
+     "scale": "linear",
+     "vmin": -309.8441467285156,
+     "vmax": 309.8441467285156,
+     "colormap": "RdBu_r",
+     "files": {
+      "global": "mars/tpi_21km_global.png",
+      "north_polar": "mars/tpi_21km_north.png",
+      "south_polar": "mars/tpi_21km_south.png"
+     },
+     "modelled": false,
+     "weak": false,
+     "coverage_pct": 100.0,
+     "stands_for": "terrain form: TPI 21 km and 7 km"
+    },
+    {
+     "name": "svf_30km",
+     "label": "Sky view factor, 30 km radius",
+     "units": "dimensionless",
+     "scale": "linear",
+     "vmin": 0.6,
+     "vmax": 1.0,
+     "colormap": "cividis",
+     "files": {
+      "global": "mars/svf_30km_global.png",
+      "north_polar": "mars/svf_30km_north.png",
+      "south_polar": "mars/svf_30km_south.png"
+     },
+     "modelled": false,
+     "weak": false,
+     "coverage_pct": 100.0,
+     "stands_for": "openness"
+    },
+    {
+     "name": "temp_level",
+     "label": "Temperature level",
+     "units": "K",
+     "scale": "linear",
+     "vmin": 177.35968017578125,
+     "vmax": 222.8765869140625,
+     "colormap": "inferno",
+     "files": {
+      "global": "mars/temp_level_global.png",
+      "north_polar": "mars/temp_level_north.png",
+      "south_polar": "mars/temp_level_south.png"
+     },
+     "modelled": true,
+     "weak": false,
+     "coverage_pct": 99.36,
+     "stands_for": "temperature level"
+    },
+    {
+     "name": "temp_range_diurnal",
+     "label": "Diurnal temperature range",
+     "units": "K",
+     "scale": "linear",
+     "vmin": 17.493022918701172,
+     "vmax": 132.23306274414062,
+     "colormap": "plasma",
+     "files": {
+      "global": "mars/temp_range_diurnal_global.png",
+      "north_polar": "mars/temp_range_diurnal_north.png",
+      "south_polar": "mars/temp_range_diurnal_south.png"
+     },
+     "modelled": true,
+     "weak": false,
+     "coverage_pct": 99.36,
+     "stands_for": "diurnal temperature range"
+    },
+    {
+     "name": "SiO2",
+     "label": "Silica, SiO2",
+     "units": "wt%",
+     "scale": "linear",
+     "vmin": 35.0,
+     "vmax": 70.0,
+     "colormap": "coolwarm",
+     "files": {
+      "global": "mars/SiO2_global.png",
+      "north_polar": "mars/SiO2_north.png",
+      "south_polar": "mars/SiO2_south.png"
+     },
+     "modelled": false,
+     "weak": true,
+     "coverage_pct": 49.03,
+     "stands_for": "composition: SiO2 and FeO"
+    }
+   ]
+  }
+ },
+ "catalogue": {
+  "known_analog_sites": {
+   "file": "catalogue/known_analog_sites.geojson",
+   "body": "earth",
+   "n": 214,
+   "n_without_coordinates": 1,
+   "use": "second map layer and the known / new label (100 km); a label, never a filter"
+  },
+  "apollo_training_sites": {
+   "file": "catalogue/apollo_training_sites.geojson",
+   "body": "earth",
+   "n": 9,
+   "use": "second positive control for lunar targets"
+  },
+  "targets_moon_artemis3": {
+   "file": "catalogue/targets_moon_artemis3.geojson",
+   "body": "moon",
+   "n": 9,
+   "use": "preset targets; pixel sets and data coverage are in contract/targets_moon.json",
+   "caveat": "Points with a radius or polygon in the properties. Draw the shape from the properties, not a fixed marker size."
+  },
+  "targets_mars": {
+   "file": "catalogue/targets_mars.geojson",
+   "body": "mars",
+   "n": 6,
+   "use": "preset targets; pixel sets and data coverage are in contract/targets_mars.json",
+   "caveat": "Points with a radius or polygon in the properties. Draw the shape from the properties, not a fixed marker size."
+  }
+ }
+}

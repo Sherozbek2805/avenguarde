@@ -1,0 +1,808 @@
+{
+ "verdict": "PASS",
+ "quick": false,
+ "manifest_entries": 72,
+ "layer_failures": 0,
+ "orphans": [],
+ "encoding_issues": [],
+ "pairings": {
+  "earth_moon": [
+   "FeO",
+   "SiO2",
+   "roughness_10.5km",
+   "roughness_21km",
+   "roughness_42km",
+   "roughness_5.25km",
+   "slope",
+   "svf_30km",
+   "temp_level",
+   "temp_range_diurnal",
+   "tpi_21km",
+   "tpi_7km"
+  ],
+  "earth_mars": [
+   "FeO",
+   "SiO2",
+   "roughness_10.5km",
+   "roughness_21km",
+   "roughness_42km",
+   "roughness_5.25km",
+   "slope",
+   "svf_30km",
+   "temp_level",
+   "temp_range_diurnal",
+   "temp_range_seasonal",
+   "tpi_21km",
+   "tpi_7km"
+  ]
+ },
+ "pairing_failures": [],
+ "layers": {
+  "dem_earth": {
+   "checks": {
+    "file": "ok float32 (43200, 86400)"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "dem_earth_seam_check": {
+   "checks": {
+    "file": "no file field (summary entry)"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "dem_mars": {
+   "checks": {
+    "file": "ok float32 (23040, 46080)"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "dem_moon": {
+   "checks": {
+    "file": "ok float32 (11520, 23040)"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_FeO": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 3354807,
+    "range_gate": "[0,40] outside=0",
+    "support": "ok",
+    "provenance": "ABSENT 9,228,105 BINNED 3,354,807 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_SiO2": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 3354807,
+    "range_gate": "[0,100] outside=0",
+    "support": "ok",
+    "provenance": "ABSENT 9,228,105 BINNED 3,354,807 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_composition_source": {
+   "checks": {
+    "file": "ok uint8 (12582912,)",
+    "n_valid_on_disk": 3354807,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "n/a",
+    "provenance": "n/a"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_composition_support": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 3354807,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "n/a",
+    "provenance": "n/a"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_geomap_lithcode": {
+   "checks": {
+    "file": "ok uint8 (12582912,)",
+    "n_valid_on_disk": 15587,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "ok",
+    "provenance": "n/a"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_geomap_rock_fraction": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 12582912,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "n/a",
+    "provenance": "n/a"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_geomap_simpcode": {
+   "checks": {
+    "file": "ok uint8 (12582912,)",
+    "n_valid_on_disk": 15587,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "ok",
+    "provenance": "n/a"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_geomap_support": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 15587,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "n/a",
+    "provenance": "n/a"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_ice_free_land": {
+   "checks": {
+    "file": "ok bool (43200, 86400)"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_koppen_class": {
+   "checks": {
+    "file": "ok uint8 (12582912,)",
+    "n_valid_on_disk": 3712128,
+    "range_gate": "[1,30] outside=0",
+    "support": "ok",
+    "provenance": "ABSENT 0 BINNED 3,712,128 COPIED 0 NOVALID 8,870,784; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_land_mask": {
+   "checks": {
+    "file": "ok bool (43200, 86400)"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_lithology_l1": {
+   "checks": {
+    "file": "ok uint8 (12582912,)",
+    "n_valid_on_disk": 3712659,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "ok",
+    "provenance": "ABSENT 0 BINNED 3,712,659 COPIED 0 NOVALID 8,870,253; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_lithology_l3": {
+   "checks": {
+    "file": "ok uint16 (12582912,)",
+    "n_valid_on_disk": 3712659,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "ok",
+    "provenance": "ABSENT 0 BINNED 3,712,659 COPIED 0 NOVALID 8,870,253; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_lithology_support": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 3712659,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "n/a",
+    "provenance": "n/a"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_reference_mask": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 12582912,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "n/a",
+    "provenance": "n/a"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_roughness_10.5km": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 12582912,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 12,582,912 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_roughness_21km": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 12582912,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 12,582,912 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_roughness_42km": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 12582912,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 12,582,912 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_roughness_5.25km": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 12582912,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 12,582,912 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_roughness_scaling_exponent": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 12139705,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "ok",
+    "provenance": "ABSENT 0 BINNED 12,139,705 COPIED 0 NOVALID 443,207; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_scaling_exponent_r2": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 12582109,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "ok",
+    "provenance": "ABSENT 0 BINNED 12,582,109 COPIED 0 NOVALID 803; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_slope": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 12582912,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "ok",
+    "provenance": "ABSENT 0 BINNED 12,582,912 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_svf_30km": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 12582912,
+    "range_gate": "[0,1] outside=0",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 12,582,912 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_temp_level": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 3755484,
+    "range_gate": "[180,350] outside=0",
+    "support": "ok",
+    "provenance": "ABSENT 305,189 BINNED 3,647,966 COPIED 107,518 NOVALID 8,522,239; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_temp_range_diurnal": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 3754860,
+    "range_gate": "[0,80] outside=0",
+    "support": "ok",
+    "provenance": "ABSENT 305,218 BINNED 3,647,372 COPIED 107,488 NOVALID 8,522,834; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_temp_range_seasonal": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 3755484,
+    "range_gate": "[0,100] outside=0",
+    "support": "ok",
+    "provenance": "ABSENT 305,189 BINNED 3,647,966 COPIED 107,518 NOVALID 8,522,239; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_thermal_inertia": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 3739775,
+    "range_gate": "[0,1] outside=0",
+    "support": "ok",
+    "provenance": "ABSENT 305,755 BINNED 3,632,815 COPIED 106,960 NOVALID 8,537,382; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_thermal_nsamples": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 12582912,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "n/a",
+    "provenance": "n/a"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_tpi_21km": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 12582912,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 12,582,912 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "earth_tpi_7km": {
+   "checks": {
+    "file": "ok float32 (12582912,)",
+    "n_valid_on_disk": 12582912,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 12,582,912 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_FeO": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 1542275,
+    "range_gate": "[0,45] outside=2,396",
+    "support": "ok",
+    "provenance": "ABSENT 1,141,564 BINNED 445,945 COPIED 1,096,330 NOVALID 461,889; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": [
+    "stated gate (0.0, 45.0) FAILS on 2,396 values -- RECORDED by the builder, counted not clipped"
+   ]
+  },
+  "mars_SiO2": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 1542275,
+    "range_gate": "[35,70] outside=7,177",
+    "support": "ok",
+    "provenance": "ABSENT 1,141,564 BINNED 445,945 COPIED 1,096,330 NOVALID 461,889; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": [
+    "stated gate (35.0, 70.0) FAILS on 7,177 values -- RECORDED by the builder, counted not clipped"
+   ]
+  },
+  "mars_albedo": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3145728,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "ok",
+    "provenance": "ABSENT 0 BINNED 2,677,672 COPIED 468,056 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_elevation": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3145728,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 3,145,728 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_roughness_10.5km": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3145728,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 3,145,728 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_roughness_21km": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3145728,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 3,145,728 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_roughness_42km": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3145728,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 3,145,728 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_roughness_5.25km": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3145728,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 3,145,728 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_roughness_scaling_exponent": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3062840,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "ok",
+    "provenance": "ABSENT 0 BINNED 3,062,840 COPIED 0 NOVALID 82,888; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_scaling_exponent_r2": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3145728,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "ok",
+    "provenance": "ABSENT 0 BINNED 3,145,728 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_slope": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3145728,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "ok",
+    "provenance": "ABSENT 0 BINNED 3,145,728 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_svf_30km": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3145728,
+    "range_gate": "[0,1] outside=0",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 3,145,728 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_temp_frost_seasons": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3125612,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "n/a",
+    "provenance": "n/a"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_temp_level": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3125612,
+    "range_gate": "[120,310] outside=0",
+    "support": "ok",
+    "provenance": "ABSENT 20,116 BINNED 3,125,612 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_temp_model_rms": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3125612,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "n/a",
+    "provenance": "n/a"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_temp_range_diurnal": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3125612,
+    "range_gate": "[0,200] outside=0",
+    "support": "ok",
+    "provenance": "ABSENT 20,116 BINNED 3,125,612 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_temp_range_seasonal": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3125612,
+    "range_gate": "[0,150] outside=0",
+    "support": "ok",
+    "provenance": "ABSENT 20,116 BINNED 3,125,612 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_thermal_inertia": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3125612,
+    "range_gate": "[5,5000] outside=0",
+    "support": "ok",
+    "provenance": "ABSENT 0 BINNED 3,125,612 COPIED 0 NOVALID 20,116; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_thermal_inertia_day": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3136986,
+    "range_gate": "[5,5000] outside=0",
+    "support": "ok",
+    "provenance": "ABSENT 0 BINNED 3,136,986 COPIED 0 NOVALID 8,742; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_tpi_21km": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3145728,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 3,145,728 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "mars_tpi_7km": {
+   "checks": {
+    "file": "ok float32 (3145728,)",
+    "n_valid_on_disk": 3145728,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 3,145,728 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "moon_FeO": {
+   "checks": {
+    "file": "ok float32 (786432,)",
+    "n_valid_on_disk": 786176,
+    "range_gate": "[0,32] outside=0",
+    "support": "constant 0.0 (recorded)",
+    "provenance": "ABSENT 256 BINNED 0 COPIED 786,176 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "moon_SiO2": {
+   "checks": {
+    "file": "ok float32 (786432,)",
+    "n_valid_on_disk": 786176,
+    "range_gate": "[15,70] outside=0",
+    "support": "constant 0.0 (recorded)",
+    "provenance": "ABSENT 256 BINNED 0 COPIED 786,176 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "moon_roughness_10.5km": {
+   "checks": {
+    "file": "ok float32 (786432,)",
+    "n_valid_on_disk": 786432,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 786,432 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "moon_roughness_21km": {
+   "checks": {
+    "file": "ok float32 (786432,)",
+    "n_valid_on_disk": 786432,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 786,432 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "moon_roughness_42km": {
+   "checks": {
+    "file": "ok float32 (786432,)",
+    "n_valid_on_disk": 786432,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 786,432 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "moon_roughness_5.25km": {
+   "checks": {
+    "file": "ok float32 (786432,)",
+    "n_valid_on_disk": 786432,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 786,432 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "moon_roughness_scaling_exponent": {
+   "checks": {
+    "file": "ok float32 (786432,)",
+    "n_valid_on_disk": 765110,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "ok",
+    "provenance": "ABSENT 0 BINNED 765,110 COPIED 0 NOVALID 21,322; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "moon_scaling_exponent_r2": {
+   "checks": {
+    "file": "ok float32 (786432,)",
+    "n_valid_on_disk": 786432,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 786,432 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "moon_slope": {
+   "checks": {
+    "file": "ok float32 (786432,)",
+    "n_valid_on_disk": 786432,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "ok",
+    "provenance": "ABSENT 0 BINNED 786,432 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "moon_svf_30km": {
+   "checks": {
+    "file": "ok float32 (786432,)",
+    "n_valid_on_disk": 786432,
+    "range_gate": "[0,1] outside=0",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 786,432 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "moon_temp_level": {
+   "checks": {
+    "file": "ok float32 (786432,)",
+    "n_valid_on_disk": 786432,
+    "range_gate": "[20,450] outside=0",
+    "support": "ok",
+    "provenance": "ABSENT 0 BINNED 227,128 COPIED 559,304 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "moon_temp_range_diurnal": {
+   "checks": {
+    "file": "ok float32 (786432,)",
+    "n_valid_on_disk": 786432,
+    "range_gate": "[0,400] outside=0",
+    "support": "ok",
+    "provenance": "ABSENT 0 BINNED 227,128 COPIED 559,304 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "moon_thermal_nsamples": {
+   "checks": {
+    "file": "ok float32 (786432,)",
+    "n_valid_on_disk": 786432,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "n/a",
+    "provenance": "n/a"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "moon_tpi_21km": {
+   "checks": {
+    "file": "ok float32 (786432,)",
+    "n_valid_on_disk": 786432,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 786,432 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "moon_tpi_7km": {
+   "checks": {
+    "file": "ok float32 (786432,)",
+    "n_valid_on_disk": 786432,
+    "range_gate": "no stated bounds (statistics only)",
+    "support": "constant 1.0 (recorded)",
+    "provenance": "ABSENT 0 BINNED 786,432 COPIED 0 NOVALID 0; disagree with values on 0"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "smoke_moon_ruggedness": {
+   "checks": {
+    "file": "no file field (summary entry)"
+   },
+   "fail": [],
+   "warn": []
+  },
+  "smoke_moon_slope": {
+   "checks": {
+    "file": "no file field (summary entry)"
+   },
+   "fail": [],
+   "warn": []
+  }
+ },
+ "elapsed_s": 6.9,
+ "run_utc": "2026-11-14T05:58:02Z"
+}

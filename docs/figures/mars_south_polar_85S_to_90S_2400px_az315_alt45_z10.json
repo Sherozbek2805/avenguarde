@@ -1,0 +1,23 @@
+{
+ "figure": "mars_south_polar_85S_to_90S_2400px_az315_alt45_z10.png",
+ "body": "mars",
+ "source": "cube/dem/mars_dem_1_128deg.npy",
+ "projection": "south polar stereographic (azimuthal, pole at centre)",
+ "extent": "85S to 90S",
+ "rendered_shape": [
+  2400,
+  2400
+ ],
+ "displayed_cell_km": 0.247,
+ "resampling": "bilinear. Each source row is first band-limited along longitude over round(1/cos(lat)) columns to make it roughly isotropic, then nearest neighbour onto the polar grid. Without the band-limiting step a plate carree row near the pole is ~8 m wide east-west against 474 m north-south and the polar resampling moires badly. FIGURE ONLY -- no layer is built this way.",
+ "limiting_resolution_km": 0.4631,
+ "sun_azimuth_deg": 315.0,
+ "sun_altitude_deg": 45.0,
+ "vertical_exaggeration": 10.0,
+ "nodata_percent_inside_disc": 0.0,
+ "nodata_colour": "magenta (255, 0, 255); outside the disc is black",
+ "graticule": "1-degree colatitude rings in orange: 89S, 88S, 87S, 86S, 85S",
+ "why": "The global plate carree figures stretch the polar rows across the full image width and cannot be used to inspect them. The lunar targets are at 85 to 89.9 degrees south, so the region these figures cannot show is the one that matters most.",
+ "purpose": "visual validation of the polar region AND a deck figure",
+ "written_utc": "2026-11-06T18:50:18Z"
+}

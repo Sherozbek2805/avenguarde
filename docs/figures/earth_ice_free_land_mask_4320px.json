@@ -1,0 +1,27 @@
+{
+ "figure": "earth_ice_free_land_mask_4320px.png",
+ "sources": [
+  "cube/dem/earth_land_mask_1_240deg.npy",
+  "cube/dem/earth_ice_free_land_1_240deg.npy"
+ ],
+ "rendered_shape": [
+  2160,
+  4320
+ ],
+ "downsample_factor": 20,
+ "downsample_method": "per-block majority vote (>= 0.5 of the block), NOT a mean -- these are categories, and a mean would invent a half-ice cell",
+ "colours": {
+  "ocean": "rgb(12,28,58)",
+  "ice": "rgb(236,240,248)",
+  "ice_free_land": "rgb(122,158,92)",
+  "graticule": "rgb(255,90,0) dashed, every 30 deg of latitude"
+ },
+ "pixel_share_percent_of_plate_carree": {
+  "ocean": 66.8443,
+  "ice": 10.0314,
+  "ice_free_land": 23.1243
+ },
+ "warning": "Plate carree: these pixel shares are NOT area shares. Antarctica is grossly exaggerated here. The area-weighted figures are in the phase 1b manifest entry: ice-free land is 26.1558% of Earth's AREA.",
+ "purpose": "show that Antarctica and Greenland are excluded from the Earth reference population",
+ "written_utc": "2026-11-06T18:46:38Z"
+}

@@ -1,0 +1,456 @@
+{
+ "moon": {
+  "slope": {
+   "lo": 0.0,
+   "hi": 28.674400329589844,
+   "set_by": "E/Mo",
+   "tenth_of_scale": 2.8674400329589846,
+   "earth_median_position": 0.0133822376580821,
+   "body_median_position": 0.12565001705507992,
+   "earth_mean": 1.0384760345434192,
+   "earth_sd": 1.5479878404245415,
+   "earth_p1_p99_position": [
+    0.0004521931645240169,
+    0.2579040045114808
+   ],
+   "targets_median_in_earth_sd": [
+    2.091458983633556,
+    10.693117194337402
+   ]
+  },
+  "roughness_5.25km": {
+   "lo": 8.093577343970537e-05,
+   "hi": 936.2459716796875,
+   "set_by": "E/E",
+   "tenth_of_scale": 93.62458907439141,
+   "earth_median_position": 0.01743099710802559,
+   "body_median_position": 0.1385465452465369,
+   "earth_mean": 45.294283825002815,
+   "earth_sd": 67.64696817299807,
+   "earth_p1_p99_position": [
+    0.0006036285442619489,
+    0.3429323800374092
+   ],
+   "targets_median_in_earth_sd": [
+    1.7267222163882137,
+    6.643130410648287
+   ]
+  },
+  "roughness_10.5km": {
+   "lo": 0.0,
+   "hi": 1573.025390625,
+   "set_by": "E/Mo",
+   "tenth_of_scale": 157.30253906250002,
+   "earth_median_position": 0.015412494721106819,
+   "body_median_position": 0.14049092755953954,
+   "earth_mean": 63.98276739140961,
+   "earth_sd": 92.38758799996502,
+   "earth_p1_p99_position": [
+    0.000556516408348656,
+    0.2773258799474539
+   ],
+   "targets_median_in_earth_sd": [
+    2.5486964353093575,
+    8.732638796086055
+   ]
+  },
+  "roughness_21km": {
+   "lo": 2.7294134270050563e-05,
+   "hi": 2463.261962890625,
+   "set_by": "E/Mo",
+   "tenth_of_scale": 246.32619355964908,
+   "earth_median_position": 0.014249129348780058,
+   "body_median_position": 0.144484890992959,
+   "earth_mean": 86.51624772491417,
+   "earth_sd": 118.855227623411,
+   "earth_p1_p99_position": [
+    0.0005663582388765585,
+    0.22694093739182367
+   ],
+   "targets_median_in_earth_sd": [
+    3.078772020084584,
+    10.774933840073656
+   ]
+  },
+  "roughness_42km": {
+   "lo": 1.817194242903497e-05,
+   "hi": 3023.64794921875,
+   "set_by": "E/Mo",
+   "tenth_of_scale": 302.36479310468076,
+   "earth_median_position": 0.017186236005046682,
+   "body_median_position": 0.17954441591126516,
+   "earth_mean": 116.92968899939933,
+   "earth_sd": 152.08758442359033,
+   "earth_p1_p99_position": [
+    0.0008119414819707691,
+    0.2370739725007575
+   ],
+   "targets_median_in_earth_sd": [
+    3.226603800402101,
+    11.909760994574702
+   ]
+  },
+  "tpi_21km": {
+   "lo": -2405.8876953125,
+   "hi": 2033.249755859375,
+   "set_by": "Mo/Mo",
+   "tenth_of_scale": 443.91374511718755,
+   "earth_median_position": 0.5418438115075108,
+   "body_median_position": 0.5406480571824199,
+   "earth_mean": 1.448227969517472,
+   "earth_sd": 75.10650039913713,
+   "earth_p1_p99_position": [
+    0.49208589348109716,
+    0.6054660870903324
+   ],
+   "targets_median_in_earth_sd": [
+    1.0095437032681434,
+    14.65376695782066
+   ]
+  },
+  "tpi_7km": {
+   "lo": -565.240234375,
+   "hi": 391.4162292480469,
+   "set_by": "Mo/E",
+   "tenth_of_scale": 95.6656463623047,
+   "earth_median_position": 0.5907236072340777,
+   "body_median_position": 0.5896735943281471,
+   "earth_mean": 0.22773953069041003,
+   "earth_sd": 20.622593427964944,
+   "earth_p1_p99_position": [
+    0.5243898379017625,
+    0.6706293689183572
+   ],
+   "targets_median_in_earth_sd": [
+    -0.4517156010743383,
+    7.911250889043966
+   ]
+  },
+  "svf_30km": {
+   "lo": 0.6218239068984985,
+   "hi": 1.0,
+   "set_by": "Mo/E",
+   "tenth_of_scale": 0.03781760931015015,
+   "earth_median_position": 0.9763946272362217,
+   "body_median_position": 0.8467908545375052,
+   "earth_mean": 0.9772717662785904,
+   "earth_sd": 0.03179665865635119,
+   "earth_p1_p99_position": [
+    0.6075132322165346,
+    0.9991843639977795
+   ],
+   "targets_median_in_earth_sd": [
+    -2.900429692533196,
+    -0.7474823872568249
+   ]
+  },
+  "temp_level": {
+   "lo": 39.85689926147461,
+   "hi": 314.2762451171875,
+   "set_by": "Mo/E",
+   "tenth_of_scale": 27.44193458557129,
+   "earth_median_position": 0.9223709341116584,
+   "body_median_position": 0.7034274737676384,
+   "earth_mean": 288.0274668743454,
+   "earth_sd": 13.354648516675839,
+   "earth_p1_p99_position": [
+    0.7950164199046157,
+    0.9723294918212554
+   ],
+   "targets_median_in_earth_sd": [
+    -12.041381059019564,
+    -8.037533961407261
+   ]
+  },
+  "temp_range_diurnal": {
+   "lo": 0.621666669845581,
+   "hi": 345.8182067871094,
+   "set_by": "E/Mo",
+   "tenth_of_scale": 34.51965401172638,
+   "earth_median_position": 0.03758728190556708,
+   "body_median_position": 0.8170184098747075,
+   "earth_mean": 15.199284580727364,
+   "earth_sd": 7.039262011124237,
+   "earth_p1_p99_position": [
+    0.00923628397854416,
+    0.08655455619573911
+   ],
+   "targets_median_in_earth_sd": [
+    20.731480252572215,
+    27.698095927816205
+   ]
+  },
+  "SiO2": {
+   "lo": 1.0,
+   "hi": 87.0,
+   "set_by": "E/E",
+   "tenth_of_scale": 8.6,
+   "earth_median_position": 0.7325581395348837,
+   "body_median_position": 0.49153487626896347,
+   "earth_mean": 56.71806689372083,
+   "earth_sd": 18.998327763288763,
+   "earth_p1_p99_position": [
+    0.04418604872947515,
+    1.0
+   ],
+   "targets_median_in_earth_sd": [
+    -0.719277278514891,
+    -0.560052858930607
+   ]
+  },
+  "FeO": {
+   "lo": 0.0,
+   "hi": 30.749000549316406,
+   "set_by": "Mo/Mo",
+   "tenth_of_scale": 3.074900054931641,
+   "earth_median_position": 0.12358125091648754,
+   "body_median_position": 0.17894890757165724,
+   "earth_mean": 4.001026161484461,
+   "earth_sd": 2.39535541637859,
+   "earth_p1_p99_position": [
+    0.02016325713656911,
+    0.33171809252486084
+   ],
+   "targets_median_in_earth_sd": [
+    0.31388826767446837,
+    0.5426642794133413
+   ]
+  }
+ },
+ "mars": {
+  "slope": {
+   "lo": 0.0,
+   "hi": 28.95421028137207,
+   "set_by": "E/Ma",
+   "tenth_of_scale": 2.895421028137207,
+   "earth_median_position": 0.013252913347819171,
+   "body_median_position": 0.021021538253906614,
+   "earth_mean": 1.0384760345434192,
+   "earth_sd": 1.5479878404245415,
+   "earth_p1_p99_position": [
+    0.0004478232250115198,
+    0.25541165171147273
+   ],
+   "targets_median_in_earth_sd": [
+    -0.589485061205829,
+    1.4095852702481375
+   ]
+  },
+  "roughness_5.25km": {
+   "lo": 8.093577343970537e-05,
+   "hi": 936.2459716796875,
+   "set_by": "E/E",
+   "tenth_of_scale": 93.62458907439141,
+   "earth_median_position": 0.01743099710802559,
+   "body_median_position": 0.02514299611245622,
+   "earth_mean": 45.294283825002815,
+   "earth_sd": 67.64696817299807,
+   "earth_p1_p99_position": [
+    0.0006036285442619489,
+    0.3429323800374092
+   ],
+   "targets_median_in_earth_sd": [
+    -0.5929415291479921,
+    0.8208530228468135
+   ]
+  },
+  "roughness_10.5km": {
+   "lo": 0.0,
+   "hi": 1679.6234130859375,
+   "set_by": "E/Ma",
+   "tenth_of_scale": 167.96234130859375,
+   "earth_median_position": 0.014434334113401856,
+   "body_median_position": 0.022773774980513427,
+   "earth_mean": 63.98276739140961,
+   "earth_sd": 92.38758799996502,
+   "earth_p1_p99_position": [
+    0.0005211968550875851,
+    0.25972527367504933
+   ],
+   "targets_median_in_earth_sd": [
+    -0.6067148137218844,
+    1.4408425970885206
+   ]
+  },
+  "roughness_21km": {
+   "lo": 2.7294134270050563e-05,
+   "hi": 2611.0634765625,
+   "set_by": "E/Ma",
+   "tenth_of_scale": 261.1063449268366,
+   "earth_median_position": 0.013442545009802713,
+   "body_median_position": 0.023730729299907077,
+   "earth_mean": 86.51624772491417,
+   "earth_sd": 118.855227623411,
+   "earth_p1_p99_position": [
+    0.0005342990390091833,
+    0.21409474858318922
+   ],
+   "targets_median_in_earth_sd": [
+    -0.6150834870896995,
+    2.3778211431962655
+   ]
+  },
+  "roughness_42km": {
+   "lo": 1.817194242903497e-05,
+   "hi": 3458.766845703125,
+   "set_by": "E/Ma",
+   "tenth_of_scale": 345.8766827531183,
+   "earth_median_position": 0.01502417755528016,
+   "body_median_position": 0.030579194895641933,
+   "earth_mean": 116.92968899939933,
+   "earth_sd": 152.08758442359033,
+   "earth_p1_p99_position": [
+    0.0007097978281017446,
+    0.2072496534750869
+   ],
+   "targets_median_in_earth_sd": [
+    -0.6179821287841238,
+    3.7915529595022974
+   ]
+  },
+  "tpi_21km": {
+   "lo": -1805.256103515625,
+   "hi": 2043.3067626953125,
+   "set_by": "Ma/Ma",
+   "tenth_of_scale": 384.8562866210938,
+   "earth_median_position": 0.46892505781739163,
+   "body_median_position": 0.4688170903165867,
+   "earth_mean": 1.448227969517472,
+   "earth_sd": 75.10650039913713,
+   "earth_p1_p99_position": [
+    0.4115316241950223,
+    0.5423103801017443
+   ],
+   "targets_median_in_earth_sd": [
+    -0.5970632018680135,
+    0.005408033189406368
+   ]
+  },
+  "tpi_7km": {
+   "lo": -375.4167175292969,
+   "hi": 483.4222106933594,
+   "set_by": "Ma/Ma",
+   "tenth_of_scale": 85.88389282226564,
+   "earth_median_position": 0.43698070487578416,
+   "body_median_position": 0.4368310835512053,
+   "earth_mean": 0.22773953069041003,
+   "earth_sd": 20.622593427964944,
+   "earth_p1_p99_position": [
+    0.36309184504083764,
+    0.5259873403274214
+   ],
+   "targets_median_in_earth_sd": [
+    -0.3300972076299466,
+    0.006926637328350153
+   ]
+  },
+  "svf_30km": {
+   "lo": 0.6762466430664062,
+   "hi": 1.0,
+   "set_by": "E/E",
+   "tenth_of_scale": 0.032375335693359375,
+   "earth_median_position": 0.9724265788853541,
+   "body_median_position": 0.963306932661718,
+   "earth_mean": 0.9772717662785904,
+   "earth_sd": 0.03179665865635119,
+   "earth_p1_p99_position": [
+    0.5415364528101804,
+    0.999047256097561
+   ],
+   "targets_median_in_earth_sd": [
+    -1.0402131873299267,
+    0.6019614242597223
+   ]
+  },
+  "SiO2": {
+   "lo": 1.0,
+   "hi": 87.0,
+   "set_by": "E/E",
+   "tenth_of_scale": 8.6,
+   "earth_median_position": 0.7325581395348837,
+   "body_median_position": 0.6250031937000363,
+   "earth_mean": 56.71806689372083,
+   "earth_sd": 18.998327763288763,
+   "earth_p1_p99_position": [
+    0.04418604872947515,
+    1.0
+   ],
+   "targets_median_in_earth_sd": [
+    -0.8285978533280889,
+    0.25324512009279976
+   ]
+  },
+  "FeO": {
+   "lo": 0.0,
+   "hi": 87.70718383789062,
+   "set_by": "Ma/Ma",
+   "tenth_of_scale": 8.770718383789063,
+   "earth_median_position": 0.043325982958703046,
+   "body_median_position": 0.0755917287348699,
+   "earth_mean": 4.001026161484461,
+   "earth_sd": 2.39535541637859,
+   "earth_p1_p99_position": [
+    0.007068976310017192,
+    0.11629605880537469
+   ],
+   "targets_median_in_earth_sd": [
+    -0.9071423001094021,
+    9.85240346446117
+   ]
+  },
+  "temp_level": {
+   "lo": 170.9393768310547,
+   "hi": 314.2762451171875,
+   "set_by": "Ma/E",
+   "tenth_of_scale": 14.333686828613281,
+   "earth_median_position": 0.8513786596903784,
+   "body_median_position": 0.23715331245059867,
+   "earth_mean": 288.0274668743454,
+   "earth_sd": 13.354648516675839,
+   "earth_p1_p99_position": [
+    0.6075576323556416,
+    0.9470246361267761
+   ],
+   "targets_median_in_earth_sd": [
+    -6.668645735308558,
+    -4.899288019819492
+   ]
+  },
+  "temp_range_diurnal": {
+   "lo": 0.621666669845581,
+   "hi": 148.9177703857422,
+   "set_by": "E/Ma",
+   "tenth_of_scale": 14.829610371589661,
+   "earth_median_position": 0.08749386761415724,
+   "body_median_position": 0.5586087661843785,
+   "earth_mean": 15.199284580727364,
+   "earth_sd": 7.039262011124237,
+   "earth_p1_p99_position": [
+    0.021499777762483362,
+    0.20147753434840654
+   ],
+   "targets_median_in_earth_sd": [
+    8.95614482753874,
+    12.090328460403867
+   ]
+  },
+  "temp_range_seasonal": {
+   "lo": 0.6549999713897705,
+   "hi": 113.26632690429688,
+   "set_by": "E/Ma",
+   "tenth_of_scale": 11.261132693290712,
+   "earth_median_position": 0.1884357515940908,
+   "body_median_position": 0.4539222060712587,
+   "earth_mean": 23.242173978882214,
+   "earth_sd": 14.789170116537505,
+   "earth_p1_p99_position": [
+    0.015584578942813919,
+    0.49997184737641626
+   ],
+   "targets_median_in_earth_sd": [
+    -0.39684994365925363,
+    2.388161197295973
+   ]
+  }
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "final_mask": "cube/dem/earth_land_reference_1_240deg.npy",
+ "provenance": "ice-free land AND NOT wb, wb from LiMW_GIS 2015.gdb GLiM_export at ~3 km",
+ "area_percent_of_earth": {
+  "all land": 28.8623,
+  "ice-free land": 26.1558,
+  "PROVISIONAL (0.5 deg wb)": 25.9018,
+  "NEW (3 km vector wb)": 25.8916
+ },
+ "superseded": {
+  "file": "earth_ice_free_land_nowater_1_240deg.npy",
+  "status": "DELETED after comparison; it existed only between two commits",
+  "reason": "built from the 0.5 degree GLiM raster, which wraps every lake in a 55 km block and discarded roughly twice the genuine inland-water area. Superseded by the 3 km vector. Three land masks on disk is how a project ends up with three definitions of the same thing: ONE mask, ONE provenance, ONE filename.",
+  "water_removed_pct_of_ice_free_land_raster": 0.971,
+  "water_removed_pct_of_ice_free_land_vector": 1.0102
+ },
+ "geometric_layer_bias_measured": {
+  "note": "measured with the provisional raster mask before it was deleted",
+  "healpix_pixels_land": 3290265,
+  "healpix_pixels_water": 31845,
+  "slope_water_p25": 0.0189,
+  "slope_land_p25": 0.1565,
+  "roughness21_water_p25": 3.0628,
+  "roughness21_land_p25": 14.7544,
+  "median_water_percentile_in_land_slope": 21.6,
+  "median_water_percentile_in_land_roughness21": 29.69
+ },
+ "written_utc": "2026-11-07T17:31:11Z",
+ "b31e_antarctic_rule": {
+  "decided": "Sherozbek, 10 Nov 2026; VARIABLES.md B31(e), option B",
+  "rule_north_of_60S": "land AND NOT ice (ETOPO surface - bed) AND NOT wb (GLiM), binned from cube/dem/earth_land_reference_1_240deg.npy; unchanged",
+  "rule_south_of_60S": "exposed rock + moraine share of the pixel, SCAR GeoMAP v.2022-08 (earth_geomap_rock_fraction)",
+  "reference_pixels_before": 3260787,
+  "reference_pixels_after": 3258022,
+  "south_of_60S": {
+   "before": 3155,
+   "after": 390,
+   "kept": 285,
+   "added": 105,
+   "removed": 2870,
+   "reference_area_km2_before": 127892.0,
+   "reference_area_km2_after": 15809.0,
+   "exposed_rock_km2_inside_after": 10966.0,
+   "exposed_rock_km2_all": 49878.0
+  },
+  "gates": {
+   "G1": true,
+   "G2": true,
+   "G3": true
+  },
+  "superseded_array": "the 8 Nov mask, kept as a copy in cube/_work/reference_mask_before_B31e/ (not part of the cube)",
+  "written_utc": "2026-11-10T16:27:47Z"
+ }
+}
