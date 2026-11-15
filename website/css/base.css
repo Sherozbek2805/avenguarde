@@ -1,0 +1,41 @@
+/* Shared pieces: type roles, header, buttons, chips. Rules come from design_system.md. */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+h1, h2, h3, p, figure, ol, ul { margin: 0; }
+img { display: block; }
+[hidden] { display: none !important; }
+
+.label { font: 500 12px/1.3 var(--f-sans); letter-spacing: 0.04em; text-transform: uppercase; color: var(--on-surface-2); }
+.display { font: 400 clamp(44px, 4.6vw, 76px)/1.08 var(--f-sans); letter-spacing: -0.02em; text-wrap: balance; }
+.headline { font: 400 clamp(32px, 2.9vw, 45px)/1.15 var(--f-sans); }
+.body-l { font: 400 18px/1.6 var(--f-sans); color: var(--on-surface-2); max-width: 64ch; }
+.body-l strong { font-weight: 500; color: var(--on-surface); }
+.value { font: 400 13px/1.3 var(--f-mono); font-variant-numeric: tabular-nums; }
+
+.head { position: absolute; inset: 0 0 auto 0; z-index: 10; height: var(--head-h); display: flex; align-items: center; gap: 12px;
+  padding: 0 max(var(--pad), calc((100vw - var(--max-w)) / 2)); }
+.head__brand { font: 500 18px/1 var(--f-sans); color: var(--on-surface); text-decoration: none; }
+.head__brand img { display: block; height: 52px; width: auto; margin: 0 -6px 0 -8px; }   /* the team's logo; its dark background is cut out */
+.head__name { font: 400 14px/1 var(--f-sans); color: var(--on-surface-2); padding-left: 12px; border-left: 1px solid var(--outline-2); }
+.head__nav { margin-left: auto; display: flex; gap: 4px; }
+.head__nav a { padding: 10px 14px; border-radius: 3px; font: 400 14px/1 var(--f-sans); color: var(--on-surface-2); text-decoration: none; transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease); }
+.head__nav a:hover, .head__nav a:focus-visible { background: var(--white); color: var(--space); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 24px; border-radius: 3px;
+  font: 500 14px/1 var(--f-sans); white-space: nowrap; text-decoration: none; transition: background-color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease); }
+.btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.btn--filled { background: var(--primary); color: var(--on-primary); }
+.btn--filled:hover { box-shadow: var(--shadow-1); filter: brightness(1.06); }
+.btn[disabled], .btn.is-off { background: rgba(227, 227, 227, 0.12); color: rgba(227, 227, 227, 0.38); box-shadow: none; filter: none; cursor: default; }
+.btn--tile { height: clamp(52px, 3.6vw, 72px); padding: 0 clamp(24px, 1.9vw, 40px); border-radius: 3px; background: var(--white); color: var(--space); font-size: clamp(16px, 1.1vw, 22px); font-weight: 450; }
+.btn--tile svg { width: 1.15em; height: 1.15em; stroke-width: 1.6; }
+.btn--text { padding: 0 12px; color: var(--primary); }
+.btn--text:hover { background: rgba(168, 199, 250, 0.08); }
+
+.chip { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px; border-radius: var(--r-s); border: 1px solid var(--outline-2);
+  font: 500 13px/1 var(--f-sans); color: var(--on-surface); background: var(--surface-1); white-space: nowrap; }
+.chip i { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.chip i.is-answer { background: var(--answer); }
+.chip i.is-primary { background: var(--primary); }
+
+@media (max-width: 900px) { :root { --pad: 24px; } }

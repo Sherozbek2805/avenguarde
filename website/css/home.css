@@ -1,0 +1,98 @@
+/* Home, part 1: the opening screen. The picture (img/hero.jpg) is the team's own: Earth's horizon and the Moon on black space.
+   Text, button and chips are live HTML placed over it. */
+.head--home { height: max(48px, 5.2vh); }
+
+.hero { position: relative; height: 100vh; min-height: 560px; overflow: hidden; background: var(--space); }
+
+/* The picture behaves like "cover", anchored to the bottom centre, so the horizon always sits on the bottom edge.
+   Chips are placed in percent of the picture, so they stay on the Moon and on Earth at any window size. */
+.hero__art { position: absolute; left: 50%; bottom: 0; width: max(100vw, 179.17vh); aspect-ratio: 2576 / 1438; transform: translateX(-50%); }
+.hero__art img { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.hero__text { position: absolute; z-index: 2; top: 12.2vh; left: max(var(--pad), calc((100vw - var(--max-w)) / 2)); }
+.hero__text .label { color: var(--primary); }
+.hero__text .display { margin-top: 3.4vh; font-size: clamp(40px, min(13.5vw, clamp(9.53vh, 5.2vw, 10.4vh)), 140px); line-height: 0.97; letter-spacing: -0.01em; }
+.hero__text .display span { display: block; }
+.hero__text .btn { margin-top: 5.2vh; }
+
+/* The project in two boxes, on the bottom edge of the opening screen, over the picture of Earth. */
+.hero__boxes { position: absolute; z-index: 2; bottom: 4.4vh; left: max(var(--pad), calc((100vw - var(--max-w)) / 2)); right: max(var(--pad), calc((100vw - var(--max-w)) / 2));
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.hbox { padding: 2.3vh 22px 2.5vh; background: rgba(14, 14, 15, 0.76); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border: 1px solid var(--outline-2); border-radius: 3px; }
+.hbox .label { margin: 0; color: var(--primary); }
+.hbox--answer .label { color: var(--answer); }
+.hbox p { margin: 8px 0 0; font: 400 clamp(15px, 2.35vh, 20px)/1.45 var(--f-sans); color: var(--on-surface); }
+/* On a narrow screen the boxes sit one under the other, and the opening screen grows to hold them. */
+@media (max-width: 760px) {
+  .hero { height: auto; min-height: 100vh; display: flex; flex-direction: column; }
+  .hero__text { position: relative; top: auto; left: auto; padding: 12.2vh var(--pad) 0; }
+  .hero__boxes { position: relative; left: auto; right: auto; bottom: auto; margin: auto var(--pad) 28px; padding-top: 32px; grid-template-columns: 1fr; gap: 12px; }
+  .hbox p { font-size: 16px; }
+}
+
+/* Home, part 2: the two buttons. Each tile is one link: the body's picture, its name, one line of facts, the button.
+   Sizes follow the window (vw, vh), so the section keeps the proportions of the team's reference picture at any size. */
+.worlds { min-height: 100vh; background: var(--space); display: grid; align-content: center; justify-items: center;
+  padding: 6vh 5.57vw; text-align: center; }
+.worlds .headline { margin: 0 0 6.3vh; font-size: clamp(36px, 3.05vw, 64px); }
+.worlds__grid { width: 100%; max-width: 1760px; display: grid; grid-template-columns: 1fr 1fr; gap: 1.7vw; }
+.world { display: grid; justify-items: center; align-content: center; min-height: 72vh; padding: 4vh 24px;
+  border-radius: clamp(28px, 2.35vw, 48px); background: var(--surface-2); color: var(--on-surface); text-decoration: none;
+  transition: background-color var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease); }
+.world:hover, .world:focus-visible { background: var(--surface-3); box-shadow: var(--shadow-3); }
+.world:hover .world__go { background: var(--on-surface); }
+.world__globe { width: min(18.6vw, 33.4vh); height: min(18.6vw, 33.4vh); transition: transform var(--t-base) var(--ease); }
+.world:hover .world__globe { transform: scale(1.03); }
+.world__name { margin-top: 3.6vh; font: 400 clamp(34px, 3.05vw, 64px)/1.15 var(--f-sans); }
+.world__fact { margin-top: 1.4vh; font: 400 clamp(15px, 1.1vw, 22px)/1.5 var(--f-sans); color: var(--on-surface-2); }
+.world__go { margin-top: 3.8vh; }
+.world.is-off { pointer-events: none; }
+.world.is-off .world__globe { opacity: 0.35; }
+.world.is-off .world__name { color: var(--on-surface-2); }
+.world.is-off .world__go { background: rgba(227, 227, 227, 0.12); color: rgba(227, 227, 227, 0.38); }
+@media (max-width: 900px) { .worlds__grid { grid-template-columns: 1fr; gap: 16px; } .world { min-height: 0; padding: 32px 20px; } .world__globe { width: 200px; height: 200px; } }
+
+/* Home, part 3: how the search works. A list of steps, the stage, the caption, the controls. */
+.method { background: var(--space); padding: 96px max(var(--pad), calc((100vw - var(--max-w)) / 2)) 96px; }
+.method:focus { outline: none; }
+.method .headline { font-size: clamp(36px, 3.05vw, 64px); }
+.method__lead { margin: 16px 0 48px; }
+.method__grid { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 48px; align-items: start; }
+.method__chapters { display: grid; gap: 6px; position: sticky; top: 24px; }
+.chapter { display: grid; grid-template-columns: 28px 1fr; align-items: center; gap: 12px; min-height: 64px; padding: 10px 12px; border-radius: 3px;
+  text-align: left; font: 500 15px/1.3 var(--f-sans); color: var(--on-surface-2); transition: background-color var(--t-fast) var(--ease); }
+.chapter:hover { background: var(--surface-3); color: var(--on-surface); }
+.chapter[aria-current="true"] { background: var(--primary-container); color: var(--on-primary-container); }
+.chapter__name small { display: block; margin-top: 2px; font: 400 13px/1.35 var(--f-sans); color: var(--on-surface-2); }
+.chapter[aria-current="true"] .chapter__name small { color: inherit; opacity: 0.85; }
+.chapter__n { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 3px; border: 1px solid var(--outline-2); font: 500 12px/1 var(--f-mono); }
+.chapter[aria-current="true"] .chapter__n { background: var(--primary); color: var(--on-primary); border-color: transparent; }
+.method__main { max-width: min(1180px, 100vh); }   /* so the stage, the caption and the buttons fit in one window */
+.method__stage { position: relative; aspect-ratio: 16 / 9; background: var(--surface-1); border-radius: 3px; overflow: hidden; }
+.method__stage canvas { display: block; width: 100%; height: 100%; }
+.method__tag { position: absolute; right: 12px; top: 12px; border-radius: 3px; }
+.method__bar { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: var(--answer); }
+.method__caption { min-height: 9em; padding-top: 24px; }
+.method__caption .label { color: var(--primary); }
+.method__title { margin: 8px 0 12px; font: 400 clamp(22px, 1.7vw, 30px)/1.25 var(--f-sans); text-wrap: balance; }
+.method__caption .body-l { max-width: 70ch; }
+.method__controls { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
+.method__controls .btn--tile { height: 48px; padding: 0 24px; font-size: 16px; }
+.method__controls .btn--tile[disabled] { background: rgba(255, 255, 255, 0.14); color: rgba(227, 227, 227, 0.45); cursor: default; }
+.method__count { margin-left: auto; color: var(--on-surface-2); }
+.method__hint { margin-top: 16px; font: 400 13px/1.5 var(--f-sans); color: var(--on-surface-2); }
+@media (max-width: 1000px) { .method__grid { grid-template-columns: 1fr; gap: 24px; } .method__chapters { position: static; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); } }
+
+/* Part 4: the notes. Quiet, small, two columns. */
+.notes { background: var(--space); padding: 48px max(var(--pad), calc((100vw - var(--max-w)) / 2)) 96px; border-top: 1px solid var(--outline-2); }
+.notes .headline { font-size: clamp(28px, 2.2vw, 40px); margin: 24px 0 8px; }
+.notes__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 96px; }
+.notes h3 { margin: 28px 0 10px; font: 500 13px/1.3 var(--f-sans); letter-spacing: 0.04em; text-transform: uppercase; color: var(--on-surface-2); }
+.notes ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.notes li { font: 400 16px/1.5 var(--f-sans); color: var(--on-surface-2); max-width: 68ch; }
+.notes li b { font-weight: 500; color: var(--on-surface); font-variant-numeric: tabular-nums; }
+.notes a { color: var(--primary); text-decoration: none; }
+.notes a:hover { text-decoration: underline; }
+.notes__src li span::before { content: ' · '; }
+@media (max-width: 1000px) { .notes__grid { grid-template-columns: 1fr; } .head__nav { display: none; } }

@@ -1,0 +1,173 @@
+/* Results: the Earth map, the places, the place card. Builds on explore.css. */
+.results { overflow: auto; }
+.map { position: absolute; inset: 0; }
+.map__canvas { position: absolute; inset: 0; width: 100%; height: 100%; cursor: grab; touch-action: none; }
+.map__canvas:active { cursor: grabbing; }
+.map__canvas.is-place { cursor: pointer; }
+.map__canvas:focus-visible { outline-offset: -4px; }
+
+.verdict { display: grid; gap: 6px; padding: 12px; background: var(--surface-2); border-radius: 3px; font: 400 14px/1.45 var(--f-sans); color: var(--on-surface-2); }
+.verdict b { font-weight: 500; color: var(--on-surface); font-size: 16px; }
+.verdict .value { color: inherit; font-size: 15px; }
+.switches { display: grid; gap: 8px; }
+.seg { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; border: 1px solid var(--outline); border-radius: 3px; overflow: hidden; }
+.seg > button { min-height: 40px; padding: 4px 10px; border-left: 1px solid var(--outline); font: 500 13px/1.25 var(--f-sans); color: var(--on-surface); }
+.seg > button:first-child { border-left: 0; }
+.seg > button:hover { background: rgba(227, 227, 227, 0.08); }
+.seg > button[aria-pressed="true"] { background: var(--primary-container); color: var(--on-primary-container); }
+.results .row { grid-template-columns: 32px 1fr auto; min-height: 48px; font-size: 14px; }
+.listnote { font-size: 13px; }
+
+.bar { position: absolute; z-index: 6; left: calc(var(--edge) + 360px + 16px); right: calc(var(--edge) + 44px + 16px); bottom: 44px; max-width: 760px; margin: 0 auto; display: grid; gap: 2px; padding: 12px 16px; }
+.results.has-card .bar { right: calc(var(--edge) + 440px + 16px); }
+.bar__row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.bar__label { font: 500 15px/1.3 var(--f-sans); }
+.bar__label .value { font-size: 15px; color: var(--answer); }
+.bar__read { color: var(--on-surface-2); }
+.bar .range { height: 32px; }
+.legend { justify-content: flex-start; gap: 6px 18px; font: 400 12px/1.3 var(--f-sans); color: var(--on-surface-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { display: inline-block; width: 22px; height: 10px; border-radius: 2px; }
+.sw--answer { background: var(--answer); }
+.sw--ramp { background: linear-gradient(to right, var(--surface-4), var(--primary)); }
+.sw--place { background: transparent; border: 1.5px solid var(--white); }
+.sw--none { background: var(--no-rank); border: 1px solid var(--outline-2); }
+.bar__note { font-size: 12px; margin-top: 2px; }
+.range { appearance: none; -webkit-appearance: none; width: 100%; margin: 0; background: transparent; }
+.range::-webkit-slider-runnable-track { height: 4px; border-radius: 2px; background: var(--surface-4); }
+.range::-moz-range-track { height: 4px; border-radius: 2px; background: var(--surface-4); }
+.range::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; margin-top: -7px; border-radius: 3px; background: var(--white); border: 0; }
+.range::-moz-range-thumb { width: 18px; height: 18px; border-radius: 3px; background: var(--white); border: 0; }
+
+.proc { position: absolute; z-index: 7; left: calc(var(--edge) + 360px + 16px); right: var(--edge); bottom: 50%; margin: 0 auto; width: max-content; display: flex; align-items: center; gap: 12px;
+  padding: 12px 18px; background: var(--surface-1); border-radius: 3px; box-shadow: var(--shadow-3); font: 400 14px/1.3 var(--f-sans); color: var(--on-surface-2); }
+.proc b { font-weight: 500; color: var(--on-surface); }
+.spin { width: 18px; height: 18px; border: 3px solid var(--surface-4); border-top-color: var(--white); border-radius: 50%; animation: spin 0.9s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.results .status { right: calc(var(--edge) + 44px + 16px); }
+.results.has-card .status { right: calc(var(--edge) + 440px + 16px); }
+.results.has-card .mapbtns { right: calc(var(--edge) + 440px + 12px); }
+
+/* the place card */
+.card { position: absolute; z-index: 11; right: var(--edge); top: var(--head-h); bottom: var(--edge); width: 440px; overflow-y: auto; display: grid; align-content: start; gap: 14px; }
+.card__head { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: start; }
+.card__close { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 3px; background: var(--white); color: var(--space); }
+.card__close svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.card .value { color: var(--on-surface-2); }
+.card h3 { margin: 0 0 6px; font: 500 12px/1.3 var(--f-sans); letter-spacing: 0.04em; text-transform: uppercase; color: var(--on-surface-2); }
+.card p { margin: 0; }
+.use { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.use ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font: 400 13px/1.45 var(--f-sans); color: var(--on-surface-2); }
+.use li b { display: block; font-weight: 500; color: var(--on-surface); }
+.use__beyond { grid-column: 1 / 3; padding-left: 12px; border-left: 2px solid var(--beyond); }
+.use__beyond h3 { color: var(--beyond); }
+.vars { width: 100%; border-collapse: collapse; font: 400 13px/1.35 var(--f-sans); }
+.vars th { text-align: left; padding: 6px 8px 6px 0; border-bottom: 1px solid var(--outline-2); font: 500 11px/1.3 var(--f-sans); letter-spacing: 0.04em; text-transform: uppercase; color: var(--on-surface-2); }
+.vars td { padding: 7px 8px 7px 0; border-bottom: 1px solid var(--outline-2); vertical-align: top; }
+.vars .num { text-align: right; white-space: nowrap; font: 400 12px/1.4 var(--f-mono); font-variant-numeric: tabular-nums; }
+.vars .grp td { padding-top: 12px; font: 500 12px/1.3 var(--f-sans); color: var(--on-surface-2); border-bottom-color: var(--outline); }
+.tagc { display: inline-block; margin: 2px 4px 0 0; padding: 1px 5px; border: 1px solid var(--outline-2); border-radius: 3px; font: 500 10px/1.4 var(--f-sans); letter-spacing: 0.03em; color: var(--on-surface-2); }
+.tagc--beyond { border-color: var(--beyond); color: var(--beyond); }
+details.score summary { cursor: pointer; font: 500 13px/1.4 var(--f-sans); color: var(--on-surface); min-height: 32px; }
+details.score p { font: 400 13px/1.5 var(--f-sans); color: var(--on-surface-2); }
+
+.foot { background: var(--surface); padding: 32px max(24px, calc((100vw - 1100px) / 2)) 48px; display: grid; gap: 10px; }
+.foot .label { margin-top: 12px; font-weight: 500; }
+.foot ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; font: 400 13px/1.5 var(--f-sans); color: var(--on-surface-2); }
+.foot ul b { font-weight: 500; color: var(--on-surface); }
+.foot .body { font-size: 13px; max-width: 110ch; }
+.foot a { color: var(--primary); }
+
+.vars td:last-child, .vars th:last-child { white-space: nowrap; padding-right: 0; }
+.vd { display: inline-block; width: 9px; height: 9px; margin-right: 6px; border: 1.5px solid var(--on-surface); border-radius: 2px; vertical-align: baseline; }
+.vd--agrees { background: var(--on-surface); }
+.vd--partial { background: linear-gradient(to right, var(--on-surface) 50%, transparent 50%); }
+
+/* the place card, in the manner of a map app: a picture on top, then the name, then the facts */
+.card { padding: 0 16px 16px; }
+.card__pic { position: relative; margin: 0 -16px; aspect-ratio: 2 / 1; background: var(--surface-3); overflow: hidden; }
+.card__pic img, .card__pic canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.card__pic .card__close { position: absolute; right: 12px; top: 12px; z-index: 2; }
+.card__cap { position: absolute; left: 0; bottom: 0; z-index: 2; padding: 4px 8px; background: var(--scrim); font: 400 11px/1.3 var(--f-sans); color: var(--on-surface); }
+.card__title .label { color: var(--primary); margin-bottom: 4px; }
+.card__title .title { margin-bottom: 4px; }
+.card__where { display: grid; grid-template-columns: 150px 1fr; gap: 12px; align-items: center; }
+.card__where canvas { width: 150px; height: 75px; border-radius: 3px; }
+.card__pic { aspect-ratio: auto; height: 220px; flex: none; }
+.results.has-card .bar { right: calc(var(--edge) + 440px + 16px + 44px + 16px); }
+.results.has-card #statusRun, .results.has-card .bar__note { display: none; }
+.results .status > span { white-space: nowrap; }
+
+/* the simpler place card: larger type, short lines, details on request */
+.card { gap: 16px; }
+.card__name { margin: 0; font: 400 30px/1.15 var(--f-sans); }
+.card__sub { margin-top: 4px; font: 400 18px/1.35 var(--f-sans); color: var(--on-surface-2); }
+.card__where { grid-template-columns: 1fr 150px; align-items: start; }
+.facts { margin: 0; display: grid; gap: 10px; }
+.facts dt { font: 500 12px/1.3 var(--f-sans); letter-spacing: 0.04em; text-transform: uppercase; color: var(--on-surface-2); }
+.facts dd { margin: 2px 0 0; font: 400 16px/1.35 var(--f-sans); color: var(--on-surface); }
+.card__test { font: 400 15px/1.5 var(--f-sans); color: var(--on-surface-2); padding: 10px 12px; background: var(--surface-2); border-radius: 3px; }
+.card__test b { font-weight: 500; color: var(--on-surface); }
+.uses h3 { margin: 14px 0 4px; font-size: 13px; }
+.uses h3:first-child { margin-top: 0; }
+.uses ul { list-style: none; margin: 0; padding: 0; font: 400 16px/1.4 var(--f-sans); color: var(--on-surface); }
+.uses li { border-bottom: 1px solid var(--outline-2); }
+.uses li:not(:has(details)) { padding: 9px 0; color: var(--on-surface-2); }
+.uses summary { cursor: pointer; padding: 9px 0; list-style-position: outside; margin-left: 18px; }
+.uses details p { margin: 0 0 10px 18px; font: 400 14.5px/1.5 var(--f-sans); color: var(--on-surface-2); }
+.uses__beyond { margin-top: 14px; padding-left: 12px; border-left: 2px solid var(--beyond); }
+.uses__beyond h3 { color: var(--beyond); margin-top: 0; }
+details.more { border-top: 1px solid var(--outline-2); }
+details.more summary { cursor: pointer; padding: 10px 0; font: 500 15px/1.4 var(--f-sans); color: var(--on-surface); }
+details.more p { font: 400 14px/1.55 var(--f-sans); color: var(--on-surface-2); margin: 0 0 10px; }
+
+/* The place card sits along the bottom of the map: picture, name, three short lists. The slider and the map buttons move up above it. */
+.results .card { left: calc(var(--edge) + 360px + 16px); right: var(--edge); top: auto; bottom: var(--edge); width: auto; max-height: 46vh; padding: 16px;
+  grid-template-columns: 300px minmax(190px, 0.9fr) 1fr 1fr 1fr; gap: 12px 24px; align-items: start; }
+.results .card__pic { margin: 0; height: 150px; aspect-ratio: auto; border-radius: 3px; }
+.results .card__close { position: absolute; right: 12px; top: 12px; }
+.results .card__id .label { color: var(--primary); margin-bottom: 4px; }
+.results .card__id .facts { margin-top: 12px; }
+.results .uses h3 { margin: 0 0 4px; }
+.results .uses__beyond { margin-top: 0; padding-right: 44px; }
+.card__foot { grid-column: 1 / -1; display: grid; gap: 0; }
+.card__foot .card__test { margin-bottom: 4px; }
+.results.has-card .bar { right: calc(var(--edge) + 44px + 16px); bottom: calc(var(--card-h, 0px) + 12px); }
+.results.has-card .mapbtns { right: var(--edge); bottom: calc(var(--card-h, 0px) + 12px); }
+.results.has-card .status { display: none; }
+@media (max-width: 1500px) { .results .card { grid-template-columns: 240px minmax(170px, 0.9fr) 1fr 1fr; } .results .uses__beyond { grid-column: 3 / 5; } .results .card__pic { height: 120px; } }
+
+/* The list panel folds to its title line. The title is a button: press it to fold or unfold. */
+.side__title { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; text-align: left; border-radius: 3px; }
+.side__title svg { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform var(--t-fast) var(--ease); }
+.side__body { display: flex; flex-direction: column; gap: 12px; min-height: 0; flex: 1 1 auto; }
+.side-off .side { bottom: auto; }
+.side-off .side__body { display: none; }
+.side-off .side__title svg { transform: rotate(-90deg); }
+.results.side-off .card { left: var(--edge); }
+.results.side-off .bar { left: var(--edge); }
+.results.side-off .proc { left: var(--edge); }
+.results.side-off .status { left: calc(var(--edge) + 360px + 16px); }
+
+/* The share slider and its legend now sit in the left panel, so the bottom of the map is clear. */
+.shareblock { display: grid; gap: 4px; padding: 12px; background: var(--surface-2); border-radius: 3px; }
+.shareblock .range { height: 28px; }
+.shareblock .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.results .status { bottom: 12px; }
+
+/* The live engine: one line of state, one button, one note. It sits under the chance test. */
+.live { display: grid; gap: 8px; padding: 12px; background: var(--surface-2); border-radius: 3px; }
+.live__state { margin: 0; font: 400 14px/1.45 var(--f-sans); color: var(--on-surface); }
+.live__state b { font-weight: 500; color: var(--answer); }
+.live__note { margin: 0; font: 400 13px/1.45 var(--f-sans); color: var(--on-surface-2); }
+.live__go { height: 44px; padding: 0 16px; font-size: 15px; width: 100%; }
+.live__go[disabled] { background: rgba(255, 255, 255, 0.14); color: rgba(227, 227, 227, 0.45); cursor: default; }
+.proc__stop { height: 36px; padding: 0 14px; font-size: 14px; margin-left: 8px; }
+/* On a short screen the whole panel body scrolls as one, so no block is squeezed or pushed out of the panel. */
+.side__body { overflow-y: auto; overscroll-behavior: contain; padding-right: 2px; }
+.side__body > * { flex: none; }
+.side__body .targets { overflow: visible; }
+/* A message with a button (no result for "your place") may wrap on a narrow window. */
+.proc { max-width: calc(100vw - 2 * var(--edge) - 376px); flex-wrap: wrap; }
+.results.side-off .proc { max-width: calc(100vw - 2 * var(--edge)); }
+a.proc__stop { display: inline-flex; align-items: center; text-decoration: none; }

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Place · Terrestrial Analog Finder</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preload" href="fonts/google-sans-flex-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/tokens.css?v=40">
+<link rel="stylesheet" href="css/base.css?v=40">
+<link rel="stylesheet" href="css/explore.css?v=40">
+<link rel="stylesheet" href="css/results.css?v=40">
+<link rel="stylesheet" href="css/place.css?v=40">
+</head>
+<body class="explore placepage">
+
+<header class="head">
+  <a class="head__brand" href="./"><img src="img/logo.webp" alt="AvenGuarde" width="110" height="52"></a>
+  <span class="head__name">Terrestrial Analog Finder</span>
+  <nav class="path" aria-label="Where you are">
+    <a class="chip" href="./#worlds" id="pathBody">World</a>
+    <span class="path__sep" aria-hidden="true">›</span>
+    <a class="chip" href="#" id="pathTarget">Target</a>
+    <span class="path__sep" aria-hidden="true">›</span>
+    <a class="chip" href="#" id="pathPlaces">Places on Earth</a>
+    <span class="path__sep" aria-hidden="true">›</span>
+    <span class="chip chip--on" id="pathPlace">Place</span>
+  </nav>
+  <a class="btn head__switch" id="backToMap" href="#">Change place</a>
+</header>
+
+<main class="place">
+  <!-- the image, on top -->
+  <figure class="place__pic">
+    <img id="cardImg" alt="" hidden>
+    <canvas id="cardPic" aria-label="A picture of this place from space, with its outline"></canvas>
+    <figcaption class="card__cap" id="cardPicCap"></figcaption>
+  </figure>
+
+  <!-- the data, under it -->
+  <section class="place__data" id="data" aria-live="polite"><p class="body" id="loading">Reading the result…</p></section>
+</main>
+
+<div id="tracer" aria-hidden="true"></div>
+<script type="module" src="js/place.js?v=40"></script>
+</body>
+</html>

@@ -62,6 +62,16 @@
 /sources/tier4_catalogues/*
 !/sources/tier4_catalogues/*.csv
 
+# --- the website (frontend). It reads runs/, contract/ and export/ from this repository;
+#     copies of them inside website/data, and upload archives, stay out.
+!/website/
+/website/data/runs/
+/website/data/contract/
+/website/data/export/
+/website/data/docs/
+/website/_deploy/
+/website/_to_delete/
+
 # --- never, wherever they are
 *auth*.json
 *credential*

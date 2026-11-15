@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explore · Terrestrial Analog Finder</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preload" href="fonts/google-sans-flex-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/tokens.css?v=40">
+<link rel="stylesheet" href="css/base.css?v=40">
+<link rel="stylesheet" href="css/explore.css?v=40">
+</head>
+<body class="explore">
+
+<main class="app">
+  <div class="globe" id="globe"></div>
+
+  <header class="head">
+    <a class="head__brand" href="./"><img src="img/logo.webp" alt="AvenGuarde" width="110" height="52"></a>
+    <span class="head__name">Terrestrial Analog Finder</span>
+    <nav class="path" aria-label="Where you are">
+      <a class="chip" href="./#worlds" id="pathBody">World</a>
+      <span class="path__sep" aria-hidden="true">›</span>
+      <span class="chip chip--on" id="pathTarget">Choose a target</span>
+    </nav>
+    <a class="btn btn--text head__switch" id="switchBody" href="#"></a>
+  </header>
+
+  <!-- Stage A: choose a target -->
+  <aside class="panel side" aria-labelledby="sideTitle">
+    <h1 class="title" id="sideTitle">Choose a target</h1>
+    <p class="body" id="sideIntro">&nbsp;</p>
+    <ol class="targets" id="targetList"></ol>
+    <div class="side__foot">
+      <p class="chosen" id="chosenLine">No target chosen yet.</p>
+      <div class="pick" id="pickBox" hidden>
+        <div class="pick__at">
+          <label>Latitude<input type="number" id="pickLat" min="-90" max="90" step="0.01" inputmode="decimal"></label>
+          <label>Longitude<input type="number" id="pickLon" min="-180" max="180" step="0.01" inputmode="decimal"></label>
+        </div>
+        <label class="pick__label" for="pickRadius"><span>Radius</span><output class="value" id="pickOut" for="pickRadius"></output></label>
+        <input class="range" type="range" id="pickRadius">
+        <div class="pick__ticks" aria-hidden="true" id="pickTicks"></div>
+        <p class="pick__note" id="pickNote"></p>
+      </div>
+      <button class="btn btn--filled side__go" type="button" id="goSearch" disabled>Search Earth for places like this</button>
+    </div>
+  </aside>
+
+  <div class="mapbtns" role="group" aria-label="Globe controls">
+    <button class="fab" type="button" id="zoomIn" title="Zoom in" aria-label="Zoom in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+    <button class="fab" type="button" id="zoomOut" title="Zoom out" aria-label="Zoom out"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+    <button class="fab" type="button" id="resetView" title="Reset view" aria-label="Reset view"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.6-5.9M4 4v5h5"/></svg></button>
+  </div>
+
+  <p class="status" aria-live="off">
+    <span id="statusPos">Move the pointer over the globe</span>
+    <span class="status__scale"><i id="scaleBar"></i><span id="scaleText"></span></span>
+  </p>
+</main>
+
+<script type="module" src="js/explore.js?v=40"></script>
+</body>
+</html>
