@@ -3,6 +3,7 @@
 import { CONFIG } from './config.js';
 import { EarthMap } from './earthmap.js';
 import { fmtSig3, fmtInt, fmtP, unit } from './format.js';
+import { loadNames, coords, regionAt, countryAt as countryNamed } from './names.js';
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -76,7 +77,7 @@ function picture(map, s, n = 0, run = ++pictureRun) {
 function data(doc, s) {
   const t = doc.null_test, floor = t.p_at_floor || atFloor(t.p, t.B), cat = s.catalogue, u = s.use;
   const weak = new Set(doc.run.variables.filter((v) => v.weak).map((v) => v.name)), beyond = new Map(doc.run.ranking.out_of_range.map((o) => [o.variable, o]));
-  const country = countryAt(s.lon, s.lat), climate = s.koppen ? s.koppen.description : null;
+  const country = countryNamed(s.lon, s.lat), climate = s.koppen ? s.koppen.description : null;
   const n = (k) => s[k].length, th = doc.run.verdict_thresholds, sig = t.p < 0.05;
   const pct = (x) => (Math.max(0, Math.min(1, x)) * 100).toFixed(1) + '%';
   // One row per variable: its name, where this place and the target sit on the shared 0-1 scale, the verdict, the two values.
@@ -94,13 +95,14 @@ function data(doc, s) {
     const o = x.variables.map((k) => beyond.get(k)).find(Boolean);
     return `<li><b>${esc(x.label)}${o ? `: <i>${fmtSig3(o.gap)}${unit(o.units)} ${o.side === "below Earth's range" ? 'below' : 'above'}</i> Earth's range (${fmtSig3(o.earth_min)}–${fmtSig3(o.earth_max)}${unit(o.units)})` : ''}.</b> ${esc(x.text)}</li>`;
   };
-  const place = country || climate || 'Place ' + s.rank;
+  const region = regionAt(s.lon, s.lat);   // a known analog region from the backend's file, when the place lies in one
+  const place = region || country || climate || 'Place ' + s.rank;
   $('pathPlace').textContent = `Place ${s.rank}`;
   document.title = `${place} · ${target} · Terrestrial Analog Finder`;
   $('data').innerHTML = `
     <div class="place__id"><p class="label">Place ${s.rank} · like ${esc(target)}</p>
       <h1 class="place__name">${esc(place)}</h1>
-      <p class="place__sub">${[country && climate ? esc(climate) : '', s.lithology ? esc(s.lithology.description) + ' rock' : ''].filter(Boolean).join(' · ')}</p>
+      <p class="place__sub"><span class="value">${coords(s.lat, s.lon)}</span>${[region && country ? esc(country) : '', (region || country) && climate ? esc(climate) : '', s.lithology ? esc(s.lithology.description) + ' rock' : ''].filter(Boolean).map((x) => ' · ' + x).join('')}</p>
       <div class="tiles">
         <div class="tile"><b>${fmtInt(s.rank)}<small> of ${fmtInt(doc.run.patches_total)}</small></b><span>rank among the places found</span></div>
         <div class="tile"><b>${n('agrees')}<small> of ${s.variables.length}</small></b><span>agree · ${n('partial')} partial · ${n('differs')} differ</span></div>
@@ -109,7 +111,7 @@ function data(doc, s) {
       </div>
       <div class="dist"><h3>Distance to the target <span>lower is closer</span></h3>
         <dl>${Object.keys(GROUP).map((g) => `<div><dt>${GROUP[g]}</dt><dd>${s.di_group[g] == null ? 'no data' : fmtSig3(s.di_group[g])}</dd></div>`).join('')}<div class="dist__all"><dt>All</dt><dd>${fmtSig3(s.di_combined)}</dd></div></dl>
-        <p>Target's own spread <b>${fmtSig3(doc.run.target.spread)}</b>, over <b>${fmtInt(doc.run.target.cells)}</b> cells. Read the rank, not the score.</p></div>
+        <p>A distance of <b>1</b> is the usual distance between two places on Earth. Target's own spread <b>${fmtSig3(doc.run.target.spread)}</b>, over <b>${fmtInt(doc.run.target.cells)}</b> cells. Read the rank, not the score.</p></div>
     </div>
     <div class="place__vars">
       <h2 class="place__h">Variable by variable</h2>
@@ -152,6 +154,7 @@ async function start() {
   }
   const s = doc.sites[place - 1]; if (!s) throw new Error(`this result has no place ${place}`);
   try { countries = (await json('countries.json')).countries; } catch (e) { countries = null; }   // optional: only names the country
+  await loadNames();   // optional too: the known analog regions
   data(doc, s);
   // the outline of the place: traced from the rank picture, as on the map page
   const map = new EarthMap($('tracer'), { left: 0, right: 0, top: 0, bottom: 0 });

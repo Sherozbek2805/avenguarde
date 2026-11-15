@@ -3,6 +3,7 @@
 import { CONFIG } from './config.js';
 import { EarthMap } from './earthmap.js';
 import { fmtCoord, fmtSig3, fmtInt, fmtGap, fmtP, unit } from './format.js';
+import { loadNames, coords, regionAt, countryAt } from './names.js';
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -66,7 +67,10 @@ function list() {
   const ol = $('placeList'); ol.innerHTML = '';
   doc.sites.forEach((s, i) => {
     const li = document.createElement('li'), b = document.createElement('button'); b.type = 'button'; b.className = 'row';
-    b.innerHTML = `<span class="row__n">${s.rank}</span><span>${esc(s.koppen ? s.koppen.description : 'Climate: no data')}</span><span class="value">${fmtSig3(s.patch_area_km2)} km²</span>`;
+    const climate = s.koppen ? s.koppen.description : 'Climate: no data', name = regionAt(s.lon, s.lat) || countryAt(s.lon, s.lat), at = coords(s.lat, s.lon);
+    // the name comes from the backend's known regions or the country outlines; before those files arrive, and at sea, the coordinates stand in
+    b.innerHTML = `<span class="row__n">${s.rank}</span><span class="row__w"><b>${esc(name || at)}</b><small>${esc(name ? at + ' · ' + climate : climate)}</small></span><span class="value">${fmtSig3(s.patch_area_km2)} km²</span>`;
+    b.setAttribute('aria-label', `Place ${s.rank}: ${name || at}, ${climate}, ${fmtSig3(s.patch_area_km2)} square kilometres`);
     b.addEventListener('click', () => choose(i));
     b.addEventListener('pointerenter', () => { map.hover = i; map.draw(); }); b.addEventListener('pointerleave', () => { map.hover = -1; map.draw(); });
     li.append(b); ol.append(li); s.row = b;
@@ -107,16 +111,22 @@ function foot() {
 }
 
 // Draws one result: the stored one from the site's files, or a fresh one from the engine. rankUrl: its rank picture.
-async function show(result, rankUrl) {
+// wordsFirst: the chance test and the list are shown as soon as the result file is read, and the map (1 MB) follows.
+//             It is used when nothing else is on the page yet. A live search keeps the stored result until its own map is ready.
+async function show(result, rankUrl, wordsFirst) {
   if (result.contract_version !== '2.4') throw new Error(`contract version is ${result.contract_version}, expected 2.4`);
+  const words = () => {
+    doc = result;
+    if (state.share < 0) state.share = Math.max(0, SHARES.indexOf(doc.run.rank_bands[0] * 100));
+    verdict(); switches(); list(); foot(); setUrl();
+    $('statusRun').textContent = `Computed ${doc.run.run_utc.replace('T', ' ').replace('Z', ' UTC')}`;
+  };
+  if (wordsFirst) words();
   $('procText').textContent = 'Loading the map of Earth (about 1 MB)…';
   await map.load(CONFIG.BASEMAP('earth'), rankUrl);
-  doc = result;
-  if (state.share < 0) state.share = Math.max(0, SHARES.indexOf(doc.run.rank_bands[0] * 100));
-  verdict(); switches(); list();
+  if (!wordsFirst) words();
   map.setSites(doc.sites.map((s) => ({ lat: s.lat, lon: s.lon, label: String(s.rank) })), doc.run.site_top_share);
-  share(); foot(); setUrl();
-  $('statusRun').textContent = `Computed ${doc.run.run_utc.replace('T', ' ').replace('Z', ' UTC')} · code ${doc.run.code_version}`;
+  share();
 }
 
 // the stored run for this target: the construction asked for, else "without composition", else the only one
@@ -135,7 +145,7 @@ async function loadStored() {
   const run = storedRun();
   state.construction = runs.length > 1 ? run.construction : null;
   const stored = await json(`${run.out_dir}/output.json`);
-  await show(stored, CONFIG.DATA_BASE + stored.rasters.find((r) => r.name === 'rank_combined').views.global);
+  await show(stored, CONFIG.DATA_BASE + stored.rasters.find((r) => r.name === 'rank_combined').views.global, true);
   $('proc').hidden = true; $('bar').hidden = false;
   document.title = `${target} · places on Earth · Terrestrial Analog Finder`;
 }
@@ -208,7 +218,7 @@ async function ownLoad() {
     const id = encodeURIComponent(own.run), fresh = await api('/runs/' + id, {}, 30000);
     const sel = fresh.run.target.selection;
     if (sel && sel.method === 'circle') { own.lat = Number(sel.params.lat); own.lon = Number(sel.params.lon); own.r = Number(sel.params.radius_km); names(); }
-    await show(fresh, `${API}/runs/${id}/files/rank_combined_global.png`);
+    await show(fresh, `${API}/runs/${id}/files/rank_combined_global.png`, true);
     $('proc').hidden = true; $('bar').hidden = false;
     $('live').hidden = false; $('liveGo').hidden = true;
     $('liveState').innerHTML = seconds != null ? `<b>Live result.</b> The engine searched your place just now in <span class="value">${fmtSig3(seconds)} s</span>.`
@@ -268,6 +278,7 @@ async function start() {
   $('share').addEventListener('input', (e) => { state.share = Number(e.target.value); share(); setUrl(); });
   $('liveGo').addEventListener('click', liveRun);
   $('procStop').addEventListener('click', () => { live.stop = true; });
+  loadNames().then(() => { if (doc) list(); });   // names for the list arrive on their own; the list is drawn again with them
   if (own.on) { runs = []; await ownLoad(); return; }
   summary = await json(`runs/${body}_summary.json`);
   await load();

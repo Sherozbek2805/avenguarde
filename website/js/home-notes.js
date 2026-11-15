@@ -23,7 +23,10 @@ async function notes() {
 
   // the sources, the engine's AI line and Earth's limits are the same in every result file: read them from one
   const doc = await json(`${all[0].out_dir}/output.json`);
-  $('notesSources').innerHTML = doc.sources.map((s) => `<li><a href="${esc(s.url)}" rel="noopener">${esc(s.name)}</a><span>${esc(s.used_for)}</span></li>`).join('');
+  // The result files still name the Mars elevation source by its old label. The repository's SOURCES.md is the authority:
+  // the terrain layers come from the MOLA – HRSC blend at 200 m (Fergason et al. 2018). The label is corrected here until the files are rebuilt.
+  const FIX = { 'MOLA 463 m Mars DEM': { name: 'MOLA – HRSC blended elevation model, 200 m (Fergason et al. 2018, USGS Astrogeology)', url: 'https://github.com/Sherozbek2805/avenguarde/blob/main/SOURCES.md' } };
+  $('notesSources').innerHTML = doc.sources.map((s) => ({ ...s, ...(FIX[s.name] || {}) })).map((s) => `<li><a href="${esc(s.url)}" rel="noopener">${esc(s.name)}</a><span>${esc(s.used_for)}</span></li>`).join('');
   $('notesAi').textContent = doc.ai_disclosure;
   const li = document.createElement('li');
   li.textContent = `Every place on Earth is a partial analog. These differ everywhere: ${doc.earths_limits.map((l) => l.what.toLowerCase()).join(', ')}.`;
