@@ -1,0 +1,57 @@
+/* Tokens. Copied from design_system.md, section 2. Do not write a hex colour anywhere else. Fonts: SIL Open Font License (fonts/OFL.txt). */
+@font-face { font-family: 'Google Sans Flex'; font-style: normal; font-display: swap; font-weight: 1 1000;
+  src: url('../fonts/google-sans-flex-latin-wght-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Google Sans Flex'; font-style: normal; font-display: swap; font-weight: 1 1000;
+  src: url('../fonts/google-sans-flex-latin-ext-wght-normal.woff2') format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Google Sans Code'; font-style: normal; font-display: swap; font-weight: 300 800;
+  src: url('../fonts/google-sans-code-latin-wght-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Google Sans Code'; font-style: normal; font-display: swap; font-weight: 300 800;
+  src: url('../fonts/google-sans-code-latin-ext-wght-normal.woff2') format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+
+:root {
+  color-scheme: dark;
+  /* surfaces, low to high */
+  --space: #000000;            /* behind a globe */
+  --surface: #131314;          /* page background on reading pages */
+  --surface-1: #1B1B1B;        /* panels over a map */
+  --surface-2: #1E1F20;        /* cards, the header */
+  --surface-3: #282A2C;        /* hover, round map buttons */
+  --surface-4: #333537;        /* pressed, selected row */
+  --on-surface: #E3E3E3;       /* text */
+  --on-surface-2: #C4C7C5;     /* supporting text, icons */
+  --outline: #8E918F;          /* borders of buttons and fields */
+  --outline-2: #444746;        /* dividers */
+  /* meaning */
+  --primary: #A8C7FA;          /* accent: links, focus, the pressed or chosen control */
+  --on-primary: #062E6F;       /* text on a filled blue button */
+  --primary-container: #0842A0;
+  --on-primary-container: #D3E3FD;
+  --answer: #FDD663;           /* on maps: the best X% and the outlines of places */
+  --beyond: #F28B82;           /* beyond Earth: lines, outlines and short labels only */
+  --no-rank: #2A2B2D;          /* on maps: ice, water, missing data */
+  --scrim: rgba(0, 0, 0, 0.6);
+  --white: #FFFFFF;            /* only the two large "Explore" buttons on the home page */
+
+  --f-sans: 'Google Sans Flex', 'Google Sans', Roboto, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-mono: 'Google Sans Code', 'Roboto Mono', ui-monospace, Consolas, monospace;
+
+  --r-xs: 4px;  --r-s: 8px;  --r-m: 12px;  --r-l: 16px;  --r-xl: 28px;  --r-full: 999px;
+  --shadow-1: 0 1px 2px rgba(0,0,0,.3), 0 1px 3px 1px rgba(0,0,0,.15);
+  --shadow-2: 0 1px 2px rgba(0,0,0,.3), 0 2px 6px 2px rgba(0,0,0,.15);
+  --shadow-3: 0 1px 3px rgba(0,0,0,.3), 0 4px 8px 3px rgba(0,0,0,.15);
+
+  --pad: 72px;  --gut: 24px;  --head-h: 64px;  --max-w: 1600px;  --edge: 12px;  --target-min: 44px;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --t-fast: 150ms;  --t-base: 250ms;  --t-move: 700ms;   /* --t-move: camera moves only */
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--surface); color: var(--on-surface); -webkit-font-smoothing: antialiased; }
+body { margin: 0; font: 400 16px/1.5 var(--f-sans); }
+a { color: var(--primary); text-underline-offset: 3px; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+::selection { background: var(--primary-container); color: var(--on-primary-container); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
