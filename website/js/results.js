@@ -24,6 +24,9 @@ const own = { run: q.get('run'), lat: num('lat'), lon: num('lon'), r: num('r') }
 own.on = !target && CONFIG.CUSTOM_BODIES.includes(body) && !!CONFIG.API_BASE && (!!own.run || (Math.abs(own.lat) <= 90 && Math.abs(own.lon) <= 360 && own.r > 0));
 const ownWhere = () => `${Math.abs(own.lat).toFixed(2)}°${own.lat < 0 ? 'S' : 'N'}, ${Math.abs(own.lon).toFixed(2)}°${own.lon < 0 ? 'W' : 'E'}`;
 const ownBack = () => `explore.html?body=${body}` + (isFinite(own.lat) ? `&lat=${own.lat}&lon=${own.lon}&r=${own.r}` : '');
+// The live engine's state: busy = a search is running; loading = a stored result is being read. Only one of them at a time.
+const live = { online: null, busy: false, stop: false, loading: false };
+const lockSwitches = (on) => { for (const b of $('switches').querySelectorAll('button')) b.disabled = on; };   // the view cannot change while the engine works on it
 const state = { system: CONFIG.MAIN_SYSTEM,   // the page shows the main result only
    construction: q.get('construction'), share: SHARES.indexOf(Number(q.get('share'))) >= 0 ? SHARES.indexOf(Number(q.get('share'))) : -1, place: Number(q.get('place')) || 0 };
 let summary, doc, map, runs;
@@ -50,7 +53,7 @@ function verdict() {
 function switches() {
   const el = $('switches'); el.innerHTML = '';
   const seg = (items, current, onpick) => { const d = document.createElement('div'); d.className = 'seg';
-    for (const [value, label] of items) { const b = document.createElement('button'); b.type = 'button'; b.textContent = label; b.setAttribute('aria-pressed', String(value === current)); b.addEventListener('click', () => { if (value !== current) onpick(value); }); d.append(b); }
+    for (const [value, label] of items) { const b = document.createElement('button'); b.type = 'button'; b.textContent = label; b.setAttribute('aria-pressed', String(value === current)); b.addEventListener('click', () => { if (value !== current && !live.busy && !live.loading) onpick(value); }); d.append(b); }   // a click is ignored while a search or a load is running
     el.append(d); };
   const cons = [...new Set(runs.map((r) => r.construction))];
   if (cons.length > 1) {   // Mars: with and without composition
@@ -119,6 +122,12 @@ async function show(result, rankUrl) {
 const storedRun = () => runs.find((r) => r.construction === state.construction) || runs.find((r) => r.construction === 'without_composition') || runs[0];
 
 async function load() {
+  if (live.busy || live.loading) return;   // one thing at a time: a live search or another load is still running
+  live.loading = true; $('liveGo').disabled = true;
+  try { await loadStored(); } finally { live.loading = false; }
+  liveReady();
+}
+async function loadStored() {
   $('proc').hidden = false; $('procText').textContent = `Reading the result for ${target}…`; $('bar').hidden = true;
   runs = summary.filter((r) => r.target === target && r.system === state.system);
   if (!runs.length) throw new Error(`no result for ${target}`);
@@ -128,13 +137,12 @@ async function load() {
   await show(stored, CONFIG.DATA_BASE + stored.rasters.find((r) => r.name === 'rank_combined').views.global);
   $('proc').hidden = true; $('bar').hidden = false;
   document.title = `${target} · places on Earth · Terrestrial Analog Finder`;
-  liveReady();
 }
 
 // ---------------------------------------------------------------- the live engine (optional)
 // The stored result is always shown first. A live search replaces it only when it succeeds; any failure leaves the stored one.
 const API = CONFIG.API_BASE, LIVE_TIME = { moon: 'under a minute', mars: 'under a minute' };
-const live = { online: null, busy: false, stop: false };
+
 async function api(path, opts = {}, ms = 15000) {
   const c = new AbortController(), t = setTimeout(() => c.abort(), ms);
   try {
@@ -151,7 +159,7 @@ async function liveReady() {   // the text and the button under the chance test
     $('liveGo').disabled = true; $('liveState').textContent = 'This is the stored result. Checking the engine…'; $('liveNote').textContent = '';
     try { await api('/health', {}, 8000); live.online = true; } catch (e) { live.online = false; }
   }
-  $('liveGo').hidden = !live.online; $('liveGo').disabled = false;
+  $('liveGo').hidden = !live.online; $('liveGo').disabled = live.busy;
   $('liveState').textContent = live.online ? 'This is the stored result. The engine is online.' : 'This is the stored result. The engine is not reachable right now.';
   $('liveNote').textContent = live.online ? `A live search scores all of Earth again for this target. It takes ${LIVE_TIME[body]}.` : '';
 }
@@ -214,8 +222,8 @@ async function ownLoad() {
 }
 
 async function liveRun() {
-  if (live.busy) return;
-  live.busy = true; live.stop = false; $('liveGo').disabled = true;
+  if (live.busy || live.loading) return;
+  live.busy = true; live.stop = false; $('liveGo').disabled = true; lockSwitches(true);
   const clock = clockFrom(Date.now());
   $('proc').hidden = false; $('procStop').hidden = false; $('procText').textContent = 'Sending the target to the engine…';
   try {
@@ -231,7 +239,7 @@ async function liveRun() {
   } catch (e) {
     $('liveState').textContent = e.message === 'stopped' ? 'You stopped waiting. The stored result is shown.' : `The live search did not finish: ${e.message}. The stored result is shown.`;
     $('liveNote').textContent = '';
-  } finally { live.busy = false; $('liveGo').disabled = false; $('proc').hidden = true; $('procStop').hidden = true; }
+  } finally { live.busy = false; $('liveGo').disabled = false; lockSwitches(false); $('proc').hidden = true; $('procStop').hidden = true; }
 }
 
 // The names and links in the header and the panel title. For "your place" they are set again when its circle is read from the run.

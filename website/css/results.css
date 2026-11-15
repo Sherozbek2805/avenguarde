@@ -171,3 +171,4 @@ details.more p { font: 400 14px/1.55 var(--f-sans); color: var(--on-surface-2); 
 .proc { max-width: calc(100vw - 2 * var(--edge) - 376px); flex-wrap: wrap; }
 .results.side-off .proc { max-width: calc(100vw - 2 * var(--edge)); }
 a.proc__stop { display: inline-flex; align-items: center; text-decoration: none; }
+.seg button[disabled] { opacity: 0.45; cursor: default; }
