@@ -3,6 +3,7 @@
 import { CONFIG } from './config.js';
 import { EarthMap } from './earthmap.js';
 import { fmtCoord, fmtSig3, fmtInt, fmtGap, fmtP, unit } from './format.js';
+import { loadNames, coords, regionAt, countryAt } from './names.js';
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -24,6 +25,9 @@ const own = { run: q.get('run'), lat: num('lat'), lon: num('lon'), r: num('r') }
 own.on = !target && CONFIG.CUSTOM_BODIES.includes(body) && !!CONFIG.API_BASE && (!!own.run || (Math.abs(own.lat) <= 90 && Math.abs(own.lon) <= 360 && own.r > 0));
 const ownWhere = () => `${Math.abs(own.lat).toFixed(2)}°${own.lat < 0 ? 'S' : 'N'}, ${Math.abs(own.lon).toFixed(2)}°${own.lon < 0 ? 'W' : 'E'}`;
 const ownBack = () => `explore.html?body=${body}` + (isFinite(own.lat) ? `&lat=${own.lat}&lon=${own.lon}&r=${own.r}` : '');
+// The live engine's state: busy = a search is running; loading = a stored result is being read. Only one of them at a time.
+const live = { online: null, busy: false, stop: false, loading: false };
+const lockSwitches = (on) => { for (const b of $('switches').querySelectorAll('button')) b.disabled = on; };   // the view cannot change while the engine works on it
 const state = { system: CONFIG.MAIN_SYSTEM,   // the page shows the main result only
    construction: q.get('construction'), share: SHARES.indexOf(Number(q.get('share'))) >= 0 ? SHARES.indexOf(Number(q.get('share'))) : -1, place: Number(q.get('place')) || 0 };
 let summary, doc, map, runs;
@@ -32,7 +36,7 @@ function setUrl() {
   const p = new URLSearchParams({ body });
   if (own.on) { if (own.run) p.set('run', own.run); else { p.set('lat', own.lat); p.set('lon', own.lon); p.set('r', own.r); } }
   else { p.set('target', target); if (state.construction) p.set('construction', state.construction); }
-  p.set('share', SHARES[state.share]);
+  if (state.share >= 0) p.set('share', SHARES[state.share]);
   history.replaceState(null, '', '?' + p);
 }
 const atFloor = (p, B) => p <= 1 / (B + 1) + 1e-9;
@@ -50,7 +54,7 @@ function verdict() {
 function switches() {
   const el = $('switches'); el.innerHTML = '';
   const seg = (items, current, onpick) => { const d = document.createElement('div'); d.className = 'seg';
-    for (const [value, label] of items) { const b = document.createElement('button'); b.type = 'button'; b.textContent = label; b.setAttribute('aria-pressed', String(value === current)); b.addEventListener('click', () => { if (value !== current) onpick(value); }); d.append(b); }
+    for (const [value, label] of items) { const b = document.createElement('button'); b.type = 'button'; b.textContent = label; b.setAttribute('aria-pressed', String(value === current)); b.addEventListener('click', () => { if (value !== current && !live.busy && !live.loading) onpick(value); }); d.append(b); }   // a click is ignored while a search or a load is running
     el.append(d); };
   const cons = [...new Set(runs.map((r) => r.construction))];
   if (cons.length > 1) {   // Mars: with and without composition
@@ -63,7 +67,10 @@ function list() {
   const ol = $('placeList'); ol.innerHTML = '';
   doc.sites.forEach((s, i) => {
     const li = document.createElement('li'), b = document.createElement('button'); b.type = 'button'; b.className = 'row';
-    b.innerHTML = `<span class="row__n">${s.rank}</span><span>${esc(s.koppen ? s.koppen.description : 'Climate: no data')}</span><span class="value">${fmtSig3(s.patch_area_km2)} km²</span>`;
+    const climate = s.koppen ? s.koppen.description : 'Climate: no data', name = regionAt(s.lon, s.lat) || countryAt(s.lon, s.lat), at = coords(s.lat, s.lon);
+    // the name comes from the backend's known regions or the country outlines; before those files arrive, and at sea, the coordinates stand in
+    b.innerHTML = `<span class="row__n">${s.rank}</span><span class="row__w"><b>${esc(name || at)}</b><small>${esc(name ? at + ' · ' + climate : climate)}</small></span><span class="value">${fmtSig3(s.patch_area_km2)} km²</span>`;
+    b.setAttribute('aria-label', `Place ${s.rank}: ${name || at}, ${climate}, ${fmtSig3(s.patch_area_km2)} square kilometres`);
     b.addEventListener('click', () => choose(i));
     b.addEventListener('pointerenter', () => { map.hover = i; map.draw(); }); b.addEventListener('pointerleave', () => { map.hover = -1; map.draw(); });
     li.append(b); ol.append(li); s.row = b;
@@ -104,37 +111,49 @@ function foot() {
 }
 
 // Draws one result: the stored one from the site's files, or a fresh one from the engine. rankUrl: its rank picture.
-async function show(result, rankUrl) {
+// wordsFirst: the chance test and the list are shown as soon as the result file is read, and the map (1 MB) follows.
+//             It is used when nothing else is on the page yet. A live search keeps the stored result until its own map is ready.
+async function show(result, rankUrl, wordsFirst) {
   if (result.contract_version !== '2.4') throw new Error(`contract version is ${result.contract_version}, expected 2.4`);
+  const words = () => {
+    doc = result;
+    if (state.share < 0) state.share = Math.max(0, SHARES.indexOf(doc.run.rank_bands[0] * 100));
+    verdict(); switches(); list(); foot(); setUrl();
+    $('statusRun').textContent = `Computed ${doc.run.run_utc.replace('T', ' ').replace('Z', ' UTC')}`;
+  };
+  if (wordsFirst) words();
+  $('procText').textContent = 'Loading the map of Earth (about 1 MB)…';
   await map.load(CONFIG.BASEMAP('earth'), rankUrl);
-  doc = result;
-  if (state.share < 0) state.share = Math.max(0, SHARES.indexOf(doc.run.rank_bands[0] * 100));
-  verdict(); switches(); list();
+  if (!wordsFirst) words();
   map.setSites(doc.sites.map((s) => ({ lat: s.lat, lon: s.lon, label: String(s.rank) })), doc.run.site_top_share);
-  share(); foot(); setUrl();
-  $('statusRun').textContent = `Computed ${doc.run.run_utc.replace('T', ' ').replace('Z', ' UTC')} · code ${doc.run.code_version}`;
+  share();
 }
 
 // the stored run for this target: the construction asked for, else "without composition", else the only one
 const storedRun = () => runs.find((r) => r.construction === state.construction) || runs.find((r) => r.construction === 'without_composition') || runs[0];
 
 async function load() {
+  if (live.busy || live.loading) return;   // one thing at a time: a live search or another load is still running
+  live.loading = true; $('liveGo').disabled = true;
+  try { await loadStored(); } finally { live.loading = false; }
+  liveReady();
+}
+async function loadStored() {
   $('proc').hidden = false; $('procText').textContent = `Reading the result for ${target}…`; $('bar').hidden = true;
   runs = summary.filter((r) => r.target === target && r.system === state.system);
   if (!runs.length) throw new Error(`no result for ${target}`);
   const run = storedRun();
   state.construction = runs.length > 1 ? run.construction : null;
   const stored = await json(`${run.out_dir}/output.json`);
-  await show(stored, CONFIG.DATA_BASE + stored.rasters.find((r) => r.name === 'rank_combined').views.global);
+  await show(stored, CONFIG.DATA_BASE + stored.rasters.find((r) => r.name === 'rank_combined').views.global, true);
   $('proc').hidden = true; $('bar').hidden = false;
   document.title = `${target} · places on Earth · Terrestrial Analog Finder`;
-  liveReady();
 }
 
 // ---------------------------------------------------------------- the live engine (optional)
 // The stored result is always shown first. A live search replaces it only when it succeeds; any failure leaves the stored one.
 const API = CONFIG.API_BASE, LIVE_TIME = { moon: 'under a minute', mars: 'under a minute' };
-const live = { online: null, busy: false, stop: false };
+
 async function api(path, opts = {}, ms = 15000) {
   const c = new AbortController(), t = setTimeout(() => c.abort(), ms);
   try {
@@ -151,7 +170,7 @@ async function liveReady() {   // the text and the button under the chance test
     $('liveGo').disabled = true; $('liveState').textContent = 'This is the stored result. Checking the engine…'; $('liveNote').textContent = '';
     try { await api('/health', {}, 8000); live.online = true; } catch (e) { live.online = false; }
   }
-  $('liveGo').hidden = !live.online; $('liveGo').disabled = false;
+  $('liveGo').hidden = !live.online; $('liveGo').disabled = live.busy;
   $('liveState').textContent = live.online ? 'This is the stored result. The engine is online.' : 'This is the stored result. The engine is not reachable right now.';
   $('liveNote').textContent = live.online ? `A live search scores all of Earth again for this target. It takes ${LIVE_TIME[body]}.` : '';
 }
@@ -193,13 +212,13 @@ async function ownLoad() {
       waitNote(); $('procStop').hidden = false; $('procStop').textContent = 'Choose another place'; $('procText').textContent = 'Sending your place to the engine…';
       const req = { body, system: state.system, selection: { method: 'circle', params: { lat: own.lat, lon: own.lon, radius_km: own.r } }, name: `Custom circle ${ownWhere().replace(',', '')}, radius ${own.r} km` };
       const s = await liveJob(req, clockFrom(Date.now()), `job:${body}:${own.lat}:${own.lon}:${own.r}`);
-      own.run = s.run_id; seconds = s.seconds;
+      own.run = s.run_id; seconds = s.seconds; setUrl();   // from here a reload reads the finished run; it does not search again
     }
     $('procStop').hidden = true; $('procText').textContent = 'Reading the result…';
     const id = encodeURIComponent(own.run), fresh = await api('/runs/' + id, {}, 30000);
     const sel = fresh.run.target.selection;
     if (sel && sel.method === 'circle') { own.lat = Number(sel.params.lat); own.lon = Number(sel.params.lon); own.r = Number(sel.params.radius_km); names(); }
-    await show(fresh, `${API}/runs/${id}/files/rank_combined_global.png`);
+    await show(fresh, `${API}/runs/${id}/files/rank_combined_global.png`, true);
     $('proc').hidden = true; $('bar').hidden = false;
     $('live').hidden = false; $('liveGo').hidden = true;
     $('liveState').innerHTML = seconds != null ? `<b>Live result.</b> The engine searched your place just now in <span class="value">${fmtSig3(seconds)} s</span>.`
@@ -214,8 +233,8 @@ async function ownLoad() {
 }
 
 async function liveRun() {
-  if (live.busy) return;
-  live.busy = true; live.stop = false; $('liveGo').disabled = true;
+  if (live.busy || live.loading) return;
+  live.busy = true; live.stop = false; $('liveGo').disabled = true; lockSwitches(true);
   const clock = clockFrom(Date.now());
   $('proc').hidden = false; $('procStop').hidden = false; $('procText').textContent = 'Sending the target to the engine…';
   try {
@@ -231,7 +250,7 @@ async function liveRun() {
   } catch (e) {
     $('liveState').textContent = e.message === 'stopped' ? 'You stopped waiting. The stored result is shown.' : `The live search did not finish: ${e.message}. The stored result is shown.`;
     $('liveNote').textContent = '';
-  } finally { live.busy = false; $('liveGo').disabled = false; $('proc').hidden = true; $('procStop').hidden = true; }
+  } finally { live.busy = false; $('liveGo').disabled = false; lockSwitches(false); $('proc').hidden = true; $('procStop').hidden = true; }
 }
 
 // The names and links in the header and the panel title. For "your place" they are set again when its circle is read from the run.
@@ -259,6 +278,7 @@ async function start() {
   $('share').addEventListener('input', (e) => { state.share = Number(e.target.value); share(); setUrl(); });
   $('liveGo').addEventListener('click', liveRun);
   $('procStop').addEventListener('click', () => { live.stop = true; });
+  loadNames().then(() => { if (doc) list(); });   // names for the list arrive on their own; the list is drawn again with them
   if (own.on) { runs = []; await ownLoad(); return; }
   summary = await json(`runs/${body}_summary.json`);
   await load();

@@ -101,6 +101,7 @@ async function start() {
     const li = document.createElement('li'), row = document.createElement('button');
     row.type = 'button'; row.className = 'row';
     row.innerHTML = `<span class="row__n">${i + 1}</span><span>${p.name}</span><span class="value">${fmtSig3(p.area_km2)} km²</span>`;
+    row.setAttribute('aria-label', `Target ${i + 1}: ${p.name}, ${fmtSig3(p.area_km2)} square kilometres`);
     row.addEventListener('click', () => choose(t));
     row.addEventListener('pointerenter', () => { state.hover = t; paint(); });
     row.addEventListener('pointerleave', () => { state.hover = null; paint(); });
