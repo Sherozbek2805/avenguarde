@@ -2,7 +2,12 @@
 // rank_combined is data (contract 2.4): grey value v, rank = (v / 255)^2, transparent = no rank. Best X% = v <= 255 * sqrt(X).
 const css = () => getComputedStyle(document.documentElement);
 const rgb = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
-const loadImage = (src) => new Promise((ok, no) => { const i = new Image(); i.crossOrigin = 'anonymous'; i.onload = () => ok(i); i.onerror = () => no(new Error('cannot load ' + src)); i.src = src; });
+// A picture that does not arrive in two minutes is reported, so a page never waits without end on a broken connection.
+const loadImage = (src, ms = 120000) => new Promise((ok, no) => {
+  const i = new Image(); i.crossOrigin = 'anonymous';
+  const t = setTimeout(() => { i.onload = i.onerror = null; i.src = ''; no(new Error('the map did not arrive in two minutes; the connection is too slow or was cut. Reload the page to try again')); }, ms);
+  i.onload = () => { clearTimeout(t); ok(i); }; i.onerror = () => { clearTimeout(t); no(new Error('cannot load ' + src)); }; i.src = src;
+});
 
 export class EarthMap {
   // host: a positioned element the map fills. inset: { left, right, top, bottom } in CSS px kept clear for panels.

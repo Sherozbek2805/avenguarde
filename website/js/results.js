@@ -35,7 +35,7 @@ function setUrl() {
   const p = new URLSearchParams({ body });
   if (own.on) { if (own.run) p.set('run', own.run); else { p.set('lat', own.lat); p.set('lon', own.lon); p.set('r', own.r); } }
   else { p.set('target', target); if (state.construction) p.set('construction', state.construction); }
-  p.set('share', SHARES[state.share]);
+  if (state.share >= 0) p.set('share', SHARES[state.share]);
   history.replaceState(null, '', '?' + p);
 }
 const atFloor = (p, B) => p <= 1 / (B + 1) + 1e-9;
@@ -109,6 +109,7 @@ function foot() {
 // Draws one result: the stored one from the site's files, or a fresh one from the engine. rankUrl: its rank picture.
 async function show(result, rankUrl) {
   if (result.contract_version !== '2.4') throw new Error(`contract version is ${result.contract_version}, expected 2.4`);
+  $('procText').textContent = 'Loading the map of Earth (about 1 MB)…';
   await map.load(CONFIG.BASEMAP('earth'), rankUrl);
   doc = result;
   if (state.share < 0) state.share = Math.max(0, SHARES.indexOf(doc.run.rank_bands[0] * 100));
@@ -201,7 +202,7 @@ async function ownLoad() {
       waitNote(); $('procStop').hidden = false; $('procStop').textContent = 'Choose another place'; $('procText').textContent = 'Sending your place to the engine…';
       const req = { body, system: state.system, selection: { method: 'circle', params: { lat: own.lat, lon: own.lon, radius_km: own.r } }, name: `Custom circle ${ownWhere().replace(',', '')}, radius ${own.r} km` };
       const s = await liveJob(req, clockFrom(Date.now()), `job:${body}:${own.lat}:${own.lon}:${own.r}`);
-      own.run = s.run_id; seconds = s.seconds;
+      own.run = s.run_id; seconds = s.seconds; setUrl();   // from here a reload reads the finished run; it does not search again
     }
     $('procStop').hidden = true; $('procText').textContent = 'Reading the result…';
     const id = encodeURIComponent(own.run), fresh = await api('/runs/' + id, {}, 30000);
