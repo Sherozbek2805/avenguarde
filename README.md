@@ -4,13 +4,15 @@ NASA Space Apps Challenge 2026. Where on Earth is most like a place on the Moon 
 
 Give the tool a region on the Moon or Mars. It scores every piece of Earth's ice-free land against it, ranks the result, checks the best match against chance, and says where the match holds, where it breaks, and what no place on Earth can offer.
 
-**State on 15 November 2026:** the data cube, the calibration and the specifications were prepared before the hackathon weekend. The engine (score, check against chance, sites, description), the web API and all results were made on 14 November and are in `engine/` and `runs/`.
+Team AvenGuarde, Tashkent. **Live website: https://avenguarde.eengineer.net**
+
+**State on 15 November 2026:** the data cube, the calibration and the specifications were prepared before the hackathon weekend. The engine (score, check against chance, sites, description), the web API and all results were made on 14 November and are in `engine/` and `runs/`. The website was built on 14 and 15 November and is in `website/`.
 
 ## The result in short
 
 - **15 NASA targets, 42 result sets.** Nine Artemis III candidate regions at the lunar south pole and six Mars Exploration Zones, each under two ranking systems. The Mars zones are also run with and without rock composition.
 - **Where Earth comes closest:** the Altiplano and Atacama, the Tibetan Plateau and the summit of Mauna Loa. High, cold, dry, bare ground.
-- **Closest is not close.** No target passes the check against chance. The main reason is temperature: the Artemis regions are about 50 to 105 K colder than the coldest ice-free ground on Earth.
+- **Closest is not close.** None of the 15 NASA targets passes the check against chance. The main reason is temperature: the Artemis regions are about 50 to 105 K colder than the coldest ice-free ground on Earth.
 - **A plausibility check.** The engine is never given a list of analog sites. This is how much of five well-known analog regions falls inside Earth's best 1% (by chance: 1%):
 
 | region | Moon, 9 targets | Mars, 6 targets |
@@ -31,8 +33,9 @@ Every result file is in `runs/`. The full method and the result tables are in `d
 |---|---|
 | anyone | the animated explainer: `docs/Analog_Finder_Explained.html` (open in a browser) |
 | a judge | `docs/analog_finder_method_spec_rev11.docx` (10 pages), then `runs/README.md` |
-| building the website | `contract/README.md`, then a real result such as `runs/moon_haworth__all_variables/output.json` |
-| checking a decision | `VARIABLES.md`, the decision log. Sections B33 to B39 hold the method as it stands |
+| looking at the website | https://avenguarde.eengineer.net, or `website/README.md` to run it on your computer |
+| building on the output | `contract/README.md`, then a real result such as `runs/moon_haworth__all_variables/output.json` |
+| checking a decision | `VARIABLES.md`, the decision log. Sections B33 to B39 hold the method as it stands; B40 is the website and its server |
 | looking for a source | `SOURCES.md` |
 | asking how AI was used | `AI_USE.md` |
 
@@ -138,6 +141,7 @@ A search body is one of:
 | path | what |
 |---|---|
 | `engine/` | the search engine, the web API and their tests |
+| `website/` | the website: plain HTML, CSS and JavaScript that reads `runs/`, `contract/` and `export/site_assets/` |
 | `runs/` | the results: one folder per target and ranking system, with `output.json` and the maps |
 | `build/` | the scripts that built the cube and the calibration. One script per step; run them one at a time |
 | `cube/healpix/` | the cube: 131 layers, one `.npy` file each (12 × Nside² values; Nside 1024 Earth, 256 Moon, 512 Mars) |
@@ -174,7 +178,7 @@ The scripts find the project folder from their own location. To point them elsew
 ## Honest limits
 
 - No place on Earth copies lunar or martian gravity, air pressure, radiation or day length. Every site is a partial analog.
-- No target passes the check against chance. The closest ground on Earth is still far from the lunar pole and from Mars, mainly in temperature.
+- None of the 15 NASA targets passes the check against chance. The closest ground on Earth is still far from the lunar pole and from Mars, mainly in temperature. Two test areas drawn by hand on the Moon, at Tycho crater and near Copernicus, did pass under `all_variables` (p = 0.001). They have not been examined (`VARIABLES.md` B39g, B40c).
 - Mars temperatures are modelled, not measured. Earth's rock chemistry is a lookup by rock class.
 - One cell is 6 to 7 km across. Nothing here describes boulders or soil.
 - The three `contract/example_*.json` files show the SHAPE of the output and carry placeholder scores. Real results are the `output.json` files in `runs/`.
@@ -182,7 +186,7 @@ The scripts find the project folder from their own location. To point them elsew
 
 ## Use of AI
 
-An AI assistant, Claude (Anthropic), was used for the code, the documents and the slides, under the team's direction. Every method decision was made by the team and is dated in `VARIABLES.md`. No image, map, audio or video is AI-generated, and no data is: every number comes from the public datasets through this code. The full statement is `AI_USE.md`.
+An AI assistant, Claude (Anthropic), was used for the code, the documents, the website and the slides, under the team's direction. Every method decision was made by the team and is dated in `VARIABLES.md`. Three decorative pictures on the website (the opening picture and two globe pictures) were made with Google Flow, an AI tool, and are marked as such. Every map, chart and number comes from the public datasets through this code, and no data is AI-generated. The full statement is `AI_USE.md`.
 
 ## Licence
 

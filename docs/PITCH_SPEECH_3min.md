@@ -1,7 +1,6 @@
 # Terrestrial Analog Finder: pitch speech (3 minutes)
 
-Spoken text for the 7-slide demo deck. About 375 words, which is 2 minutes 50 seconds at a calm pace.
-Replace `[Team name]` before you rehearse.
+Spoken text for the 7-slide demo deck, in the order of its slides. About 380 words, which is under 3 minutes at a calm pace.
 
 ## Slide 1. Title (0:00 to 0:15)
 
@@ -9,67 +8,59 @@ Before astronauts walk on the Moon again, they will rehearse here, on Earth.
 
 But where on Earth?
 
-We are team [Team name], and we built the Terrestrial Analog Finder to help answer that question.
+We are team AvenGuarde, and we built the Terrestrial Analog Finder to help answer that question.
 
 ## Slide 2. The problem (0:15 to 0:45)
 
-In 1967, Apollo astronauts trained in Iceland. In 2024, the Artemis II crew trained there again.
+In 2013, the wheels of the Curiosity rover began to tear. This was a 2.5 billion dollar mission.
 
-Fifty-seven years apart, on the same ground.
+The wheels had passed their tests on Earth. On Mars they met sharp rocks fixed in the ground.
 
-It works. But it was chosen by experience. A review of the field says there are no clearly defined criteria to evaluate these sites.
+The project manager said: "We misunderstood what Mars was."
 
-So three things are missing: a common score, a check against chance, and stated limits.
+And rehearsal ground is still chosen by experience. Apollo crews trained in Iceland in 1967. Artemis II trained there in 2024.
 
 ## Slide 3. The solution (0:45 to 1:10)
 
-Our tool adds them.
+So we built a search engine.
 
-You pick one of fifteen NASA sites on the Moon or Mars. We compare it with every six-kilometre square of Earth's land. That is 3.2 million squares.
+You pick a NASA landing site. It ranks every six-kilometre square of Earth's land by likeness. That is 3.2 million squares.
 
-We compare three things: terrain, temperature and rock.
+It is built on open NASA data and published methods.
 
-And you get a map of Earth, coloured from most alike to least.
+As far as we found, no other tool ranks all of Earth and checks each match against chance.
 
 ## Slide 4. How it works (1:10 to 1:40)
 
-It works in five steps.
+How does it work? A landing site goes in.
 
-We collect open data from NASA's Lunar Reconnaissance Orbiter, Lunar Prospector, Mars Global Surveyor and MODIS.
+Each square of Earth, and the site, becomes a point in a space of twelve measures: terrain, temperature and rock. The nearer two points, the more alike the places.
 
-We cut each world into equal squares. We measure the same things in every square. We compare each square with the site.
+Out comes Earth, ranked.
 
-Then we rank Earth, and check the best match against a thousand random patches.
+This chart is real. The dark points are a lunar landing region. They sit fifty-one kelvin below the coldest ice-free ground on Earth.
 
-## Slide 5. Results (1:40 to 2:15)
+## Slide 5. One result: Central Asia (1:40 to 2:10)
 
-Does it work?
+Here is one result, from our own region.
 
-We never told it where analog sites are. Then we looked at the places experts already use.
+The target is Malapert Massif, where NASA plans to land near the lunar south pole.
 
-By chance, one percent of any region would land in Earth's best one percent.
+The orange squares are in Earth's best one percent. They are in the high Pamir. Tashkent ranks in the middle.
 
-For the lunar south pole, sixty-four percent of the Atacama and Altiplano lands there. Sixty-nine percent of the Qaidam basin.
+And the honest part: even the Pamir does not pass our check against chance. The lunar pole is simply colder.
 
-And Iceland? Zero.
+## Slide 6. Strengths and impact (2:10 to 2:40)
 
-Iceland is still a good school for geology. But now we can measure the match.
+Can we trust it?
 
-## Slide 6. A local example (2:15 to 2:40)
+We never told it where analog sites are. Yet sixty-four percent of the Atacama, and sixty-nine percent of the Qaidam basin, land in Earth's best one percent. By chance it would be one.
 
-And it works close to home.
-
-This is Central Asia, compared with Malapert Massif, where NASA plans to land near the lunar south pole.
-
-The orange squares are in Earth's best one percent. They are in the high Pamir.
-
-Tashkent itself is in the middle of the ranking.
+Mission planners, field teams and students can use it. A new target is one more run.
 
 ## Slide 7. Limits and close (2:40 to 3:00)
 
-We also say what it cannot do.
-
-Even the closest ground on Earth is far warmer than the lunar pole. And our squares are six kilometres wide, so we point to regions, not rocks.
+It has limits. Our squares are six kilometres wide, so we point to regions, not rocks. And no NASA site is truly close.
 
 Our tool does not replace experts. It gives them a measure.
 
@@ -80,15 +71,17 @@ Thank you.
 ## Delivery notes
 
 - **Pace:** the text is written for about 130 words a minute. Do not speed up; cut instead.
-- **If you run long:** drop the sentence with the dataset names on slide 4. The slide shows them.
-- **Pauses:** stop for one second after "But where on Earth?" and after "Zero."
+- **If you run long:** drop the last two sentences of slide 4 (the chart).
+- **Pauses:** stop for one second after "But where on Earth?" and after "We misunderstood what Mars was."
 - **Slides:** change the slide on the first word of each section. Do not read the slide text aloud.
-- **One speaker or two:** one voice is simplest. If you split, change speaker at slide 5.
 - **Rehearse** twice with a timer, standing up, before you present.
 
 ## If a judge asks
 
+- **"Would your tool have saved Curiosity's wheels?"** No, and we do not claim it. Our squares are six kilometres wide; that damage came from single rocks. The story shows what happens when test ground does not match the target.
 - **"Is Iceland a bad site, then?"** No. Iceland teaches geology up close. We measure six-kilometre squares, not rocks.
-- **"Is the match good?"** It is the closest on Earth, and still not close. No NASA site passes our check against chance, mainly because of temperature.
+- **"Is the match good?"** It is the closest on Earth, and still not close. None of the 15 NASA sites passes our check against chance, mainly because of temperature.
+- **"Does anything pass?"** Two test areas we drew on the Moon, at Tycho crater and near Copernicus, did. We have not examined why yet.
 - **"Is this new?"** The methods are proven ones. Using them across Earth, the Moon and Mars is new as far as we found. We do not claim to be first.
-- **"Can I choose my own area?"** On the Moon, yes: about 20 seconds to 2 minutes for areas of 10 to 50 km radius. On Mars it takes several minutes today.
+- **"Can I choose my own area?"** On the Moon, yes: the website allows a circle of 10 to 30 km and answers in under a minute. On Mars it takes longer, so the website offers the six NASA zones.
+- **"How did you use AI?"** For the code, the text, the website and the slides, under our direction. Three decorative pictures on the website are AI-made and marked. Every map and number is computed from open data.

@@ -7265,9 +7265,9 @@
    "used_for": "lunar terrain layers"
   },
   {
-   "name": "MOLA 463 m Mars DEM",
-   "url": "https://astrogeology.usgs.gov/search/map/Mars/GlobalSurveyor/MOLA/Mars_MGS_MOLA_DEM_mosaic_global_463m",
-   "used_for": "Mars terrain layers"
+   "name": "MOLA-HRSC blended Mars DEM, 200 m v2",
+   "url": "https://astrogeology.usgs.gov/search/map/Mars/Topography/HRSC_MOLA_Blend/Mars_HRSC_MOLA_BlendDEM_Global_200mp_v2",
+   "used_for": "Mars terrain layers (resampled to the 463 m working grid)"
   },
   {
    "name": "ETOPO 2022 15 arc-second",

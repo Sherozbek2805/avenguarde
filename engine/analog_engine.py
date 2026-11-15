@@ -77,7 +77,7 @@ EARTHS_LIMITS = [
 ]
 SOURCES = [
     dict(name="LOLA 118 m lunar DEM", url="https://pds-geosciences.wustl.edu/missions/lro/lola.htm", used_for="lunar terrain layers"),
-    dict(name="MOLA 463 m Mars DEM", url="https://astrogeology.usgs.gov/search/map/Mars/GlobalSurveyor/MOLA/Mars_MGS_MOLA_DEM_mosaic_global_463m", used_for="Mars terrain layers"),
+    dict(name="MOLA-HRSC blended Mars DEM, 200 m v2", url="https://astrogeology.usgs.gov/search/map/Mars/Topography/HRSC_MOLA_Blend/Mars_HRSC_MOLA_BlendDEM_Global_200mp_v2", used_for="Mars terrain layers (resampled to the 463 m working grid)"),
     dict(name="ETOPO 2022 15 arc-second", url="https://www.ncei.noaa.gov/products/etopo-global-relief-model", used_for="Earth terrain layers"),
     dict(name="Diviner GCP", url="https://doi.org/10.17189/1520655", used_for="lunar temperature level and diurnal range"),
     dict(name="MODIS MOD11C3 / MYD11C3", url="https://lpdaac.usgs.gov/products/mod11c3v061/", used_for="Earth temperature level and diurnal range"),

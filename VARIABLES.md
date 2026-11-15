@@ -4,7 +4,7 @@
 >
 > **What this file is.** The team's working log: every method decision, the
 > measurement behind it, and every correction, in the order they happened
-> (B1 to B39). It is long and blunt on purpose. Nothing is deleted: a
+> (B1 to B40). It is long and blunt on purpose. Nothing is deleted: a
 > statement that was later found wrong is struck through and the correction
 > is written beside it.
 >
@@ -13,7 +13,8 @@
 > the data cube, fixing the method. The local organisers confirmed that
 > preparing data in advance is allowed. Section B39 (14 November) is the
 > hackathon day: the engine, all the results and the choice of the main
-> ranking system.
+> ranking system. Section B40 (14 and 15 November) is the website and its
+> server.
 >
 > **Who decided.** The team. An AI assistant (Claude, Anthropic) wrote most
 > of the text and the code, proposed options with measurements and gave

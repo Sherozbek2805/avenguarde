@@ -96,6 +96,7 @@ def main():
           table(["Topic", "Revision 10 (11 November)", "Revision 11 (15 November)"],
                 [["Engine", "Specified; not written", "Written and run: engine/, with a web API"],
                  ["Results", "None", "42 result sets for 15 NASA targets (section 12)"],
+                 ["Website", "Not present", "Built and live; code in website/ (VARIABLES.md B40)"],
                  ["Main ranking system", "Two systems built; the choice left for the day", "all_variables is the main result; the other is the second view (VARIABLES.md B39)"],
                  ["Known-region check", "Not present", "Added as a plausibility check (section 13)"],
                  ["Form of this document", "Inserted blocks on revisions 8 and 9", "Rewritten in order; no method changed"]],
@@ -200,7 +201,7 @@ def main():
     B += [heading("11. Outputs", 1),
           para("Each run writes one output.json (contract version 2.4; schema in contract/output_schema.json), maps as PNG in three views, and the values behind them. "
                "A second schema (contract/point_schema.json) covers the answer for any single cell of Earth. "
-               "engine/api.py serves finished runs, starts new ones and answers point queries over HTTP.")]
+               "engine/api.py serves finished runs, starts new ones and answers point queries over HTTP. The website in website/ reads these files and is live at avenguarde.eengineer.net.")]
 
     # ------------------------------------------------------------------ 12 results
     def rows_for(rows):
@@ -222,7 +223,7 @@ def main():
           heading("Mars: six Exploration Zones", 2),
           table(["Target", "Cells", "Variables", "Best cell on Earth", "p", "Passes"], rows_for(mars), [2900, 800, 1100, 2400, 900, 926]),
           heading("What the results say", 2),
-          bullets([("No target passes the check against chance under either system." if not any_sig else "At least one target passes the check against chance; see the tables."),
+          bullets([("None of the fifteen NASA targets passes the check against chance under either system. Two test areas drawn by hand on the Moon, at Tycho crater and near Copernicus, did pass under all_variables (p = 0.001); they have not been examined (VARIABLES.md B39g, B40c)." if not any_sig else "At least one target passes the check against chance; see the tables."),
                    f"The control passes under all_variables (p = {', '.join(f'{p:.4g}' for p in ctl_all)}) and fails under earth_reachable_only (p = {', '.join(f'{p:.3g}' for p in ctl_reach)}). "
                    "Under all_variables it passes partly because random patches of the Moon or Mars lie far from Earth in temperature.",
                    f"Under all_variables the targets share much of their best ground. The share of one target's best 1% that is also in another's: Moon, median {shared(cmp_moon, 'all_variables')}; "
@@ -247,7 +248,7 @@ def main():
 
     # ------------------------------------------------------------------ 14 limits
     B += [heading("14. Limits", 1),
-          bullets(["The closest ground on Earth is not close. No target passes the check against chance, mainly because of temperature: the Artemis regions are about 50 to 105 K colder than the coldest ice-free ground on Earth.",
+          bullets(["The closest ground on Earth is not close. None of the fifteen NASA targets passes the check against chance, mainly because of temperature: the Artemis regions are about 50 to 105 K colder than the coldest ice-free ground on Earth.",
                    "One cell is 6 to 7 km across. Nothing here describes boulders, soil or single outcrops.",
                    "Mars temperatures are modelled, not measured.",
                    "Earth's rock chemistry is a value per rock class, not a measurement at each cell.",
@@ -268,7 +269,8 @@ def main():
           bullets(["Code: the build scripts, the engine, the web API and the tests were written with the assistant and run by the team.",
                    "Documents: this specification, the README, the test specification and the decision log were drafted with the assistant and reviewed by the team.",
                    "Decisions: every method decision was made by the team. The assistant proposed options with measurements and a recommendation; the team chose, in several cases against the recommendation. Each decision is dated in VARIABLES.md.",
-                   "Data and figures: every number comes from the public datasets through the code. No image, map, audio or video in the project is AI-generated."])]
+                   "Website: its code and text were written with the assistant. Three decorative pictures on it (the opening picture and two globe pictures) were made with Google Flow, an AI tool, and are marked as AI-generated.",
+                   "Data and figures: every number, map and chart comes from the public datasets through the code. No data, map, chart, audio or video is AI-generated."])]
 
     # ------------------------------------------------------------------ 17 references
     B += [heading("17. References", 1),

@@ -28,6 +28,6 @@ Folder names: nine lunar targets (`moon_<target>__<system>`), six Mars targets w
 
 **Read the results with these in mind** (they are also written in every `output.json` under `limits`):
 
-- No target, on the Moon or on Mars, is significant under either ranking system.
+- None of the 15 NASA targets, on the Moon or on Mars, is significant under either ranking system. Two test areas drawn by hand on the Moon, at Tycho crater and near Copernicus, did pass under `all_variables` (p = 0.001). They have not been examined (`VARIABLES.md` B39g, B40c). Their folders are test runs and are not published here.
 - The Atacama control FAILED under `earth_reachable_only` (Moon p = 0.11; Mars p = 0.51 and 0.71) and passed under `all_variables` (p = 0.001). Under `all_variables` it passes partly because random patches of the Moon or Mars lie far from Earth in temperature.
 - The score is a cell's mean distance to every cell of the target, so a target that is varied inside scores worse whatever Earth looks like. Read ranks, not score values.
