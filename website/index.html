@@ -7,10 +7,10 @@
 <meta name="description" content="Find the places on Earth most like a region on the Moon or Mars. NASA Space Apps Challenge 2026, team AvenGuarde.">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preload" href="fonts/google-sans-flex-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="img/hero.jpg" as="image">
+<link rel="preload" href="img/hero.jpg?v=46" as="image">
 <link rel="stylesheet" href="css/tokens.css?v=45">
 <link rel="stylesheet" href="css/base.css?v=45">
-<link rel="stylesheet" href="css/home.css?v=45">
+<link rel="stylesheet" href="css/home.css?v=46">
 </head>
 <body>
 
@@ -29,7 +29,7 @@
   <!-- Part 1: the opening screen. The picture is the team's own (img/hero.jpg); the words and the button are live. -->
   <section class="hero" aria-labelledby="heroTitle">
     <div class="hero__art" aria-hidden="true">
-      <img src="img/hero.jpg" alt="" width="2576" height="1438" decoding="async" fetchpriority="high">
+      <img src="img/hero.jpg?v=46" alt="" width="2576" height="1438" decoding="async" fetchpriority="high">
     </div>
     <div class="hero__text">
       <p class="label">NASA Space Apps Challenge 2026</p>
@@ -49,6 +49,8 @@
         <p>We measured Earth, the Moon and Mars the same way: terrain, temperature and rock. Pick a target, and the tool compares it with all of Earth's land, maps the closest places, and tests if the match is better than chance.</p>
       </div>
     </div>
+    <!-- The picture behind this screen is AI-generated; this label says so. -->
+    <p class="aimark hero__mark">AI-generated image · made with Google Flow</p>
   </section>
 
   <!-- Part 2: the two buttons. The globes are the team's own pictures; the facts on each tile are read from the backend's files by js/home-worlds.js. -->
@@ -56,7 +58,10 @@
     <h2 class="headline" id="worldsTitle">Choose a world</h2>
     <div class="worlds__grid">
       <a class="world" id="worldMoon" href="explore.html?body=moon" data-body="moon">
-        <img class="world__globe" src="img/globe-moon.png" alt="" width="488" height="488" decoding="async">
+        <span class="world__pic">
+          <img class="world__globe" src="img/globe-moon.png?v=46" alt="" width="488" height="488" decoding="async">
+          <span class="aimark">AI-generated image</span>
+        </span>
         <span class="world__name">Moon</span>
         <span class="world__fact" data-fact>&nbsp;</span>
         <span class="btn btn--tile world__go">Explore analog locations for the Moon
@@ -64,7 +69,10 @@
         </span>
       </a>
       <a class="world" id="worldMars" href="explore.html?body=mars" data-body="mars">
-        <img class="world__globe" src="img/globe-mars.png" alt="" width="488" height="488" decoding="async">
+        <span class="world__pic">
+          <img class="world__globe" src="img/globe-mars.png?v=46" alt="" width="488" height="488" decoding="async">
+          <span class="aimark">AI-generated image</span>
+        </span>
         <span class="world__name">Mars</span>
         <span class="world__fact" data-fact>&nbsp;</span>
         <span class="btn btn--tile world__go">Explore analog locations for Mars
