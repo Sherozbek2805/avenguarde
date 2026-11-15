@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terrestrial Analog Finder · AvenGuarde</title>
+<meta name="description" content="Find the places on Earth most like a region on the Moon or Mars. NASA Space Apps Challenge 2026, team AvenGuarde.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preload" href="fonts/google-sans-flex-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/hero.jpg" as="image">
+<link rel="stylesheet" href="css/tokens.css?v=42">
+<link rel="stylesheet" href="css/base.css?v=42">
+<link rel="stylesheet" href="css/home.css?v=42">
+</head>
+<body>
+
+<header class="head head--home">
+  <a class="head__brand" href="./"><img src="img/logo.webp" alt="AvenGuarde" width="110" height="52"></a>
+  <span class="head__name">Terrestrial Analog Finder</span>
+  <nav class="head__nav" aria-label="On this page">
+    <a href="#worlds">Choose a world</a>
+    <a href="#method">How it works</a>
+    <a href="results.html?body=moon&amp;target=Haworth" id="navEarth">Earth analogs</a>
+    <a href="#notes">Notes</a>
+  </nav>
+</header>
+
+<main>
+  <!-- Part 1: the opening screen. The picture is the team's own (img/hero.jpg); the words and the button are live. -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="hero__art" aria-hidden="true">
+      <img src="img/hero.jpg" alt="" width="2576" height="1438" decoding="async" fetchpriority="high">
+    </div>
+    <div class="hero__text">
+      <p class="label">NASA Space Apps Challenge 2026</p>
+      <h1 class="display" id="heroTitle"><span>Practise for</span> <span>another world</span> <span>on this one.</span></h1>
+      <a class="btn btn--tile" href="#worlds">Choose a world
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+      </a>
+    </div>
+    <!-- The project in two boxes: the problem, and what the team built. -->
+    <div class="hero__boxes">
+      <div class="hbox">
+        <h2 class="label">The problem</h2>
+        <p>Before a crew or a rover goes to the Moon or Mars, it practises on Earth. The practice helps only if the ground on Earth is like the ground where it will land. Which place on Earth is that?</p>
+      </div>
+      <div class="hbox hbox--answer">
+        <h2 class="label">Our solution</h2>
+        <p>We measured Earth, the Moon and Mars the same way: terrain, temperature and rock. Pick a target, and the tool compares it with all of Earth's land, maps the closest places, and tests if the match is better than chance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Part 2: the two buttons. The globes are the team's own pictures; the facts on each tile are read from the backend's files by js/home-worlds.js. -->
+  <section class="worlds" id="worlds" aria-labelledby="worldsTitle">
+    <h2 class="headline" id="worldsTitle">Choose a world</h2>
+    <div class="worlds__grid">
+      <a class="world" id="worldMoon" href="explore.html?body=moon" data-body="moon">
+        <img class="world__globe" src="img/globe-moon.png" alt="" width="488" height="488" decoding="async">
+        <span class="world__name">Moon</span>
+        <span class="world__fact" data-fact>&nbsp;</span>
+        <span class="btn btn--tile world__go">Explore analog locations for the Moon
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+      <a class="world" id="worldMars" href="explore.html?body=mars" data-body="mars">
+        <img class="world__globe" src="img/globe-mars.png" alt="" width="488" height="488" decoding="async">
+        <span class="world__name">Mars</span>
+        <span class="world__fact" data-fact>&nbsp;</span>
+        <span class="btn btn--tile world__go">Explore analog locations for Mars
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Part 3: how the search works. The scenes are the team's method explainer (js/method/scenes.js), played in the site's look. -->
+  <section class="method" id="method" aria-labelledby="methodHead" tabindex="-1">
+    <h2 class="headline" id="methodHead">How the search works</h2>
+    <p class="body-l method__lead">From the raw data to the answer, in four steps. Press Next, or pick a step.</p>
+    <div class="method__grid">
+      <nav class="method__chapters" id="methodChapters" aria-label="Steps of the method"></nav>
+      <div class="method__main">
+        <div class="method__stage">
+          <canvas id="methodCanvas" role="img" aria-label="Animated diagram for the current step"></canvas>
+          <span class="chip method__tag" id="methodTag" hidden></span>
+          <i class="method__bar" id="methodBar"></i>
+        </div>
+        <div class="method__caption" aria-live="polite">
+          <p class="label" id="methodKicker"></p>
+          <h3 class="method__title" id="methodTitle"></h3>
+          <p class="body-l" id="methodText"></p>
+        </div>
+        <div class="method__controls">
+          <button class="btn btn--tile" type="button" id="methodPrev">Back</button>
+          <button class="btn btn--tile" type="button" id="methodReplay">Replay</button>
+          <button class="btn btn--tile" type="button" id="methodNext">Next
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <span class="value method__count" id="methodCount"></span>
+        </div>
+        <p class="method__hint">Scenes marked "illustration" use invented numbers. Every other number is read from the project's data.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Part 4: the notes. The counts, the data sources and the AI line of the engine are read from the backend's files by js/home-notes.js. -->
+  <section class="notes" id="notes" aria-labelledby="notesHead">
+    <h2 class="headline" id="notesHead">Notes</h2>
+    <div class="notes__grid">
+      <div class="notes__col">
+        <h3>Results today</h3>
+        <ul id="notesResults"><li>Reading the results…</li></ul>
+        <h3>How to read a result</h3>
+        <ul>
+          <li>Every target has a best 1% of Earth. It is an order, not a quality.</li>
+          <li>Read the rank and the chance test, not the score.</li>
+          <li>A place in a list is not a result by itself.</li>
+        </ul>
+        <h3>Limits</h3>
+        <ul id="notesLimits">
+          <li>One cell is 6 to 7 km across. Nothing here describes boulders or soil.</li>
+          <li>Rock composition is weak data on the Moon and on Mars.</li>
+          <li>The Mars temperatures come from a model, not from measurements.</li>
+        </ul>
+      </div>
+      <div class="notes__col">
+        <h3>Data</h3>
+        <ul class="notes__src" id="notesSources"><li>Reading the sources…</li></ul>
+        <h3>On this website</h3>
+        <ul class="notes__src">
+          <li><a href="https://www.naturalearthdata.com/" rel="noopener">Natural Earth</a><span>country outlines, used to name the country of a place</span></li>
+          <li><a href="https://s2maps.eu" rel="noopener">Sentinel-2 cloudless</a> by <a href="https://eox.at" rel="noopener">EOX IT Services GmbH</a><span>the picture of a place from space (contains modified Copernicus Sentinel data 2020; CC BY-NC-SA 4.0)</span></li>
+          <li><a href="https://www.earthdata.nasa.gov/engage/open-data-services-software/earthdata-developer-portal/gibs-api" rel="noopener">NASA GIBS, Blue Marble</a><span>the picture of a place, when the first one cannot be loaded</span></li>
+          <li><a href="fonts/OFL.txt">Google Sans Flex and Google Sans Code</a><span>the typefaces, under the SIL Open Font License</span></li>
+        </ul>
+        <h3>Use of AI</h3>
+        <ul>
+          <li id="notesAi">&nbsp;</li>
+          <li>This website was built with Claude (Anthropic) under the team's direction.</li>
+          <li>The opening picture and the two globe pictures were made with Google Flow.</li>
+        </ul>
+        <h3>Team</h3>
+        <ul>
+          <li>AvenGuarde · NASA Space Apps Challenge 2026 · <a href="https://github.com/Sherozbek2805/avenguarde" rel="noopener">code on GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script type="module" src="js/home-worlds.js?v=42"></script>
+<script type="module" src="js/home-notes.js?v=42"></script>
+<script src="js/method/data.js?v=42"></script>
+<script src="js/method/scenes.js?v=42"></script>
+<script src="js/method/player.js?v=42"></script>
+</body>
+</html>

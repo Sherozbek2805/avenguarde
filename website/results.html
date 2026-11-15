@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Places on Earth · Terrestrial Analog Finder</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preload" href="fonts/google-sans-flex-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/tokens.css?v=40">
+<link rel="stylesheet" href="css/base.css?v=40">
+<link rel="stylesheet" href="css/explore.css?v=40">
+<link rel="stylesheet" href="css/results.css?v=40">
+</head>
+<body class="explore results">
+
+<main class="app">
+  <div class="map" id="map"></div>
+
+  <header class="head">
+    <a class="head__brand" href="./"><img src="img/logo.webp" alt="AvenGuarde" width="110" height="52"></a>
+    <span class="head__name">Terrestrial Analog Finder</span>
+    <nav class="path" aria-label="Where you are">
+      <a class="chip" href="./#worlds" id="pathBody">World</a>
+      <span class="path__sep" aria-hidden="true">›</span>
+      <a class="chip" href="#" id="pathTarget">Target</a>
+      <span class="path__sep" aria-hidden="true">›</span>
+      <span class="chip chip--on" id="pathPlace">Places on Earth</span>
+    </nav>
+    <a class="btn head__switch" id="changeTarget" href="#">Change target</a>
+  </header>
+
+  <aside class="panel side" aria-labelledby="sideTitle">
+    <button class="side__title" type="button" id="sideToggle" aria-expanded="true" aria-controls="sideBody" title="Show or hide the list of places">
+      <h1 class="title" id="sideTitle">Places on Earth</h1>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="side__body" id="sideBody">
+      <div class="verdict" id="verdict"></div>
+      <div class="live" id="live" hidden>
+        <p class="live__state" id="liveState" aria-live="polite"></p>
+        <button class="btn btn--tile live__go" type="button" id="liveGo">Run this search live</button>
+        <p class="live__note" id="liveNote"></p>
+      </div>
+      <div class="shareblock" id="bar" hidden>
+        <label class="bar__label" for="share">Show the best <b class="value" id="shareOut">1%</b> of Earth for this target</label>
+        <input class="range" id="share" type="range" min="0" max="9" step="1" value="3">
+        <div class="legend">
+          <span><i class="sw sw--answer"></i>best <span id="legendShare">1%</span></span>
+          <span><i class="sw sw--ramp"></i>less like the target → more</span>
+          <span><i class="sw sw--place"></i>a listed place</span>
+          <span><i class="sw sw--none"></i>no rank</span>
+        </div>
+      </div>
+      <div class="switches" id="switches"></div>
+      <ol class="targets" id="placeList"></ol>
+      <p class="body listnote" id="listNote"></p>
+    </div>
+  </aside>
+
+  <div class="proc" id="proc"><span class="spin" aria-hidden="true"></span><b>Processing</b><span id="procText">Reading the result…</span><button class="btn btn--tile proc__stop" type="button" id="procStop" hidden>Stop waiting</button></div>
+
+  <div class="mapbtns" role="group" aria-label="Map controls">
+    <button class="fab" type="button" id="zoomIn" title="Zoom in" aria-label="Zoom in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+    <button class="fab" type="button" id="zoomOut" title="Zoom out" aria-label="Zoom out"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+    <button class="fab" type="button" id="resetView" title="Reset view" aria-label="Reset view"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.6-5.9M4 4v5h5"/></svg></button>
+  </div>
+
+  <p class="status"><span id="statusPos">Move the pointer over the map</span><span id="statusRun"></span></p>
+</main>
+
+<!-- The one footnote of this page: what Earth cannot reproduce, what this run cannot tell you, and the sources. -->
+<footer class="foot" id="foot" hidden>
+  <h2 class="label">Earth's limits</h2>
+  <ul class="foot__limits" id="footLimits"></ul>
+  <h2 class="label">Limits of this result</h2>
+  <p class="body" id="footRun"></p>
+  <h2 class="label">Sources</h2>
+  <ul class="foot__sources" id="footSources"></ul>
+  <p class="body" id="footAi"></p>
+</footer>
+
+<script type="module" src="js/results.js?v=40"></script>
+</body>
+</html>

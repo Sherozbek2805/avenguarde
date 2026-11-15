@@ -1,0 +1,83 @@
+/* The page of one place: the picture on top, the data under it. Numbers lead; words are few. */
+.placepage { overflow: auto; background: var(--space); }
+.placepage .head { position: sticky; top: 0; background: var(--space); }
+.placepage .head::before { display: none; }
+.place { max-width: 1320px; margin: 0 auto; padding: 8px 24px 80px; }
+.place__pic { position: relative; margin: 0; height: min(46vh, 500px); background: var(--surface-2); border-radius: 3px; overflow: hidden; }
+.place__pic img, .place__pic canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.place__pic .card__cap { font-size: 13px; padding: 6px 10px; }
+.place__pic .card__cap a { color: inherit; }
+.place__data { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 48px 56px; padding-top: 28px; }
+.place b { font-weight: 500; }
+.place__h { margin: 0 0 14px; font: 400 26px/1.25 var(--f-sans); color: var(--on-surface); }
+.place__h span { margin-left: 12px; font-size: 16px; color: var(--on-surface-2); }
+.place h3 { margin: 0 0 10px; font: 500 14px/1.3 var(--f-sans); letter-spacing: 0.04em; text-transform: uppercase; color: var(--on-surface-2); }
+
+/* who: name, climate and rock */
+.place__id .label { font-size: 13px; color: var(--primary); margin-bottom: 8px; }
+.place__name { margin: 0; font: 400 clamp(40px, 3.6vw, 60px)/1.05 var(--f-sans); }
+.place__sub { margin-top: 10px; font: 400 23px/1.35 var(--f-sans); color: var(--on-surface-2); }
+
+/* four numbers */
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 24px; }
+.tile { padding: 14px 16px 16px; background: var(--surface-2); border-radius: 3px; }
+.tile > b { display: block; font: 400 34px/1.15 var(--f-sans); color: var(--on-surface); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tile small { font: 400 18px/1 var(--f-sans); color: var(--on-surface-2); }
+.tile > span { display: block; margin-top: 6px; font: 400 15px/1.4 var(--f-sans); color: var(--on-surface-2); }
+
+/* the score, by group */
+.dist { margin-top: 24px; }
+.dist h3 span { margin-left: 8px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+.dist dl { margin: 0; display: grid; grid-template-columns: repeat(4, auto); justify-content: space-between; column-gap: 16px; border-top: 1px solid var(--outline-2); border-bottom: 1px solid var(--outline-2); }
+.dist dl > div { padding: 10px 0; }
+.dist dt { font: 400 15px/1.3 var(--f-sans); color: var(--on-surface-2); }
+.dist dd { margin: 2px 0 0; font: 400 24px/1.2 var(--f-sans); color: var(--on-surface); font-variant-numeric: tabular-nums; }
+.dist p { margin: 10px 0 0; font: 400 15px/1.5 var(--f-sans); color: var(--on-surface-2); }
+.dist p b { color: var(--on-surface); }
+
+/* variable by variable: one row each. A dot for this place, a square for the target, on one 0-1 scale. */
+.place__vars { padding: 20px 24px 18px; background: var(--surface-1); border-radius: 3px; align-self: start; }
+.vkey { display: flex; flex-wrap: wrap; gap: 6px 28px; margin: 0 0 14px; font: 400 15px/1.4 var(--f-sans); color: var(--on-surface-2); }
+.vkey span { display: inline-flex; align-items: center; gap: 8px; }
+.vkey i { position: static; margin: 0; }
+.vlist { list-style: none; margin: 0; padding: 0; }
+.vrow { display: grid; grid-template-columns: 190px minmax(110px, 1fr) 96px 216px; align-items: center; column-gap: 16px; min-height: 38px; }
+.vrow__name { text-align: right; font: 400 16px/1.25 var(--f-sans); color: var(--on-surface); }
+.vrow__trk { position: relative; height: 16px; }
+.vrow__trk::before { content: ''; position: absolute; left: 0; right: 0; top: 6px; height: 4px; border-radius: 2px; background: var(--surface-4); }
+.vrow__gap { position: absolute; top: 6px; height: 4px; background: var(--outline); }
+.vrow__e, .vrow__t { position: absolute; top: 2px; width: 12px; height: 12px; margin-left: -6px; box-sizing: border-box; display: inline-block; flex: none; }
+.vrow__e { border-radius: 50%; background: var(--answer); }                       /* this place: the yellow of the map */
+.vrow__t { border-radius: 2px; background: var(--on-surface); }                   /* the target */
+.vrow__verdict { font: 500 16px/1.25 var(--f-sans); color: var(--on-surface-2); white-space: nowrap; }
+.vrow__val { font: 400 15px/1.25 var(--f-sans); color: var(--on-surface-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.vrow__val b { font-weight: 400; color: var(--on-surface); }
+.vrow__val .tagc { margin: 0 0 0 8px; vertical-align: 1px; text-transform: lowercase; }
+.vrow--agrees .vrow__gap { background: var(--on-surface); }
+.vrow--agrees .vrow__verdict { color: var(--on-surface); }
+.vrow--differs .vrow__gap { background: var(--beyond); }
+.vrow--differs .vrow__verdict, .vrow--limit .vrow__verdict { color: var(--beyond); }
+.vrow--limit .vrow__gap { height: 0; top: 7px; background: none; border-top: 2px dashed var(--beyond); }
+.vaxis { display: grid; grid-template-columns: 190px minmax(110px, 1fr) 96px 216px; column-gap: 16px; margin: 6px 0 0; font: 400 13px/1.3 var(--f-sans); color: var(--on-surface-2); }
+.vaxis span:nth-child(1) { grid-column: 2; grid-row: 1; justify-self: start; }
+.vaxis span:nth-child(2) { grid-column: 2; grid-row: 1; justify-self: center; }
+.vaxis span:nth-child(3) { grid-column: 2; grid-row: 1; justify-self: end; }
+.vnote { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--outline-2); font: 400 14px/1.5 var(--f-sans); color: var(--on-surface-2); }
+.vnote b { color: var(--on-surface); }
+
+/* what the place can be used for: short lines, the label run into its sentence */
+.place__uses, .place__limits { grid-column: 1 / -1; }
+.place__limits { margin-top: -12px; }
+.uselist { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 56px; }
+.uselist li { font: 400 16px/1.5 var(--f-sans); color: var(--on-surface-2); }
+.uselist li b { font-weight: 500; color: var(--on-surface); }
+
+/* Earth's limits: what this target asks that Earth cannot give, then the limits true for every place */
+.limcols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 56px; align-items: start; }
+.limcols > :only-child { grid-column: 1 / -1; }
+.uselist--far { grid-template-columns: 1fr; padding-left: 18px; border-left: 2px solid var(--beyond); }
+.uselist--far i { font-style: normal; color: var(--beyond); font-variant-numeric: tabular-nums; }
+.limtext { margin: 0; font: 400 16px/1.5 var(--f-sans); color: var(--on-surface-2); }
+.limtext b { color: var(--on-surface); }
+#tracer { position: absolute; left: -9999px; top: 0; width: 800px; height: 400px; overflow: hidden; }
+@media (max-width: 1000px) { .place__data, .uselist, .limcols { grid-template-columns: 1fr; } }
