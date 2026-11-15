@@ -1,0 +1,11 @@
+# Python 3.11 or later
+numpy
+scipy
+astropy
+astropy-healpix
+jsonschema
+pillow
+matplotlib
+# the web API (engine/api.py)
+fastapi
+uvicorn

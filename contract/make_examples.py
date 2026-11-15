@@ -10,7 +10,8 @@ all three against the schemas.
 WHAT IS REAL: every physical value, percentile, Koppen class, lithology class,
 catalogue distance and coordinate is read from the cube and the catalogues.
 WHAT IS NOT: di_combined, di_group, di_target, p, null_median, ranks and the
-controls. The engine does not exist yet. Those fields are filled with the mean
+controls. These files were written before the engine existed (it now does: engine/) and are kept
+as SHAPE examples; real results are in runs/. Those fields are filled with the mean
 absolute percentile gap (a stand-in with the right shape and range) and the file
 says so in code_version and limits. Do not quote any distance from these files.
 """
@@ -206,7 +207,9 @@ def main():
     groups = {g: dict(n_variables=sum(1 for d in order if GROUP[d] == g and d in RANKED)) for g in ("terrain", "thermal", "composition")}
     PLACEHOLDER = ("EXAMPLE FILE, NOT A RESULT. Physical values, percentiles, Koppen and lithology classes, coordinates and catalogue "
                    "distances are real and read from the cube of 10 Nov 2026. Every di_* value, p, null_median, rank and control is a "
-                   "PLACEHOLDER (the mean absolute percentile gap), because the engine is written on the hackathon day. ")
+                   "PLACEHOLDER (the mean absolute percentile gap): these files were written before the engine existed and are kept only to show "
+                   "the SHAPE of the output. The target's spread, d_bar_target, patches_total, the patch sizes and the choice of the three sites are "
+                   "placeholders too. Real results are the output.json files in runs/. ")
     run = dict(
         code_version="EXAMPLE-NOT-A-RESULT", run_utc=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         target=dict(body="moon", name="Haworth (Artemis III candidate region)",
@@ -248,7 +251,7 @@ def main():
         return dict(contract_version="2.4", run=run, null_test=nt, sites=sites, rasters=rasters,
                     earths_limits=EARTHS_LIMITS,
                     limits=PLACEHOLDER + "Composition is a weak dimension at both ends. The Haworth region is the polygon LROC QuickMap publishes for NASA's 28 October 2024 update.",
-                    ai_disclosure="PLACEHOLDER. The team's AI-use disclosure goes here verbatim (spec Appendix G).", sources=sources)
+                    ai_disclosure="EXAMPLE FILE. In a real run this field carries the team's AI-use statement; see AI_USE.md in the repository and the ai_disclosure field of any runs/*/output.json.", sources=sources)
 
     import jsonschema
     schema = json.load(io.open(os.path.join(OUT, "output_schema.json"), encoding="utf-8"))

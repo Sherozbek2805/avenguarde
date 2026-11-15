@@ -1,13 +1,16 @@
 # ALLOW-LIST. Everything is ignored unless it is named below.
-# The project folder holds 80 GB of raw downloads and intermediates that must
-# not go to GitHub, and it may hold private key files. Nothing is published by
-# accident: a new file or folder stays out until a line here lets it in.
+# The project folder holds about 60 GB of raw downloads and intermediates that
+# must not go to GitHub. Nothing is published by accident: a new file or folder
+# stays out until a line here lets it in.
 
 /*
 
 # --- text, code, plans
 !/.gitignore
 !/README.md
+!/AI_USE.md
+!/requirements.txt
+!/LICENSE
 !/VARIABLES.md
 !/SOURCES.md
 !/CUBE_STATE.md
@@ -30,6 +33,9 @@
 /cube/phase4/minmax_mars.npy
 /cube/phase4/percentiles.npy
 /export/site_assets/*.zip
+
+# a zip of the PNGs that are already in docs/figures/atlas/
+/docs/figures/atlas.zip
 
 # --- results: the JSON files and the map images of preset runs; never the 48 MB full-resolution maps
 !/runs/

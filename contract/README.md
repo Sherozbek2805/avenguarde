@@ -1,6 +1,6 @@
 # Output contract 2.4 — for the website developer
 
-Frozen 10 November 2026. Changed four times on 11 November as the method was decided; **2.4 is the version to build against.** This page describes 2.4 only. The history is in `../VARIABLES.md` (B33 to B38).
+Frozen 10 November 2026. Changed four times on 11 November as the method was decided; **2.4 is the version to build against.** This page describes 2.4 only. The history is in `../VARIABLES.md` (B33 to B39).
 
 | file | what it is |
 |---|---|
@@ -13,10 +13,12 @@ Frozen 10 November 2026. Changed four times on 11 November as the method was dec
 | `use_table.json` | The fixed table that turns verdicts into "succeeds / fails / beyond Earth" lines. For the engine; the website only shows the result. |
 | `targets_moon.json`, `targets_mars.json` | The preset targets: nine Artemis III regions and six NASA Exploration Zones on Mars. Pixel lists, cell counts, sources. |
 | `targets_ranking.json` | Per preset target: which variables Earth can match and which it cannot, with the gap in physical units. |
-| `control_fixtures.json` | The pixels of the Atacama control. For the engine. |
+| `control_fixtures.json` | The pixels of the Atacama control. For the engine. The file also holds the fixtures of two controls that were dropped on 11 November (a negative control and an Apollo control); the engine does not use them. |
 | `../export/site_assets/` | Static map tiles of the cube layers and the catalogues as GeoJSON. |
 
-**The examples are half real.** Every physical value, position, Köppen class, rock class, coordinate and catalogue distance is read from the cube. Every `di_*`, `p`, rank, patch size and control is a placeholder, because the engine is written on the hackathon day. `code_version` is `"EXAMPLE-NOT-A-RESULT"`. Never quote a distance from an example file.
+**The three `example_*.json` files show the SHAPE of the output. They are not results.** They were written before the engine existed. Every physical value, position, Köppen class, rock class, coordinate and catalogue distance in them is read from the cube. Every `di_*`, `p`, rank, patch size and control is a placeholder. `code_version` is `"EXAMPLE-NOT-A-RESULT"`. Never quote a distance from an example file.
+
+**Real results are in `../runs/`** (since 14 November 2026): one `output.json` per target and ranking system, in exactly this format, for example `../runs/moon_haworth__all_variables/output.json`. Build the website against those. Keep `example_output.json` only to test the "significant" case, which no real target reaches.
 
 ## What changed in 2.4 — read this if you built against 2.3
 

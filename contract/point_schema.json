@@ -1,7 +1,7 @@
 {
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "$id": "https://example.invalid/nasa-analog/point_schema.json",
- "title": "Terrestrial analog finder - click payload, contract 2.0",
+ "title": "Terrestrial analog finder - click payload, contract 2.4",
  "description": "What the backend returns when the user clicks ANY Earth pixel on a result map: the characterization of that pixel against the current target. Same variable rows as a site in output_schema.json. A pixel outside the reference population still answers, with in_reference_population false, the reason, and null distances.",
  "type": "object",
  "additionalProperties": false,

@@ -196,7 +196,7 @@ def main():
               + f"; floored {info['eigenvalues_floored']}; d_bar {info['d_bar']:.4f} "
               f"(five seeds {info['d_bar_5seed_min']:.3f}-{info['d_bar_5seed_max']:.3f})")
     systems = dict(
-        decided="Sherozbek, 11 Nov 2026 (VARIABLES.md B37): BOTH systems are built and one is chosen on the hackathon day after testing both.",
+        decided="Sherozbek, 11 Nov 2026 (VARIABLES.md B37): BOTH systems are built and both are run. Decided 14 Nov 2026 (VARIABLES.md B39): all_variables is the main result; earth_reachable_only is the second view.",
         all_variables="Every variable of the target's parent set ranks, also those Earth cannot reach. Calibration: the parent "
                       "set (base_set) in cube/phase4/phase4c_summary.json, whiten_<base_set>.npy, center_<base_set>.npy.",
         earth_reachable_only="The rule below: a variable Earth cannot reach is reported and left out. Calibration: ranking_set "

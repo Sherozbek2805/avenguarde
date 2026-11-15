@@ -75,7 +75,12 @@ def check_layer(key, e, quick):
         return r
     fp = absp(f)
     if not os.path.exists(fp):
-        r["fail"].append(f"file missing: {f}")
+        if f.replace("\\", "/").startswith("cube/dem/"):
+            # the working-resolution elevation grids and masks (30 GB) are not in the public repository;
+            # they are needed only to rebuild a layer, never to run the engine
+            r["warn"].append(f"not in this copy: {f} (working-resolution grid, needed only to rebuild a layer)")
+        else:
+            r["fail"].append(f"file missing: {f}")
         return r
     a = np.load(fp, mmap_mode="r")
     nside = e.get("nside")

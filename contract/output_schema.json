@@ -1,8 +1,8 @@
 {
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "$id": "https://example.invalid/nasa-analog/output_schema.json",
- "title": "Terrestrial analog finder - engine output, contract 2.0",
- "description": "One run of the engine for one target. FROZEN 10 Nov 2026 for the hackathon. EVERY field is required; where a value is unavailable the field is present with null, never omitted. Version 2.0 replaces 1.0: distances are reported PER GROUP before the combined index, each site names its worst group, variables carry signed percentile gaps and the spec's three-way verdict, presets replace free weights, and the null may come from a precomputed table. Method reference: analog_finder_method_spec_rev9.docx, steps 5-11. Version 2.2 (11 Nov 2026) removes the weight presets and the weight-check fields: sensitivity analysis is future work. Version 2.3 (11 Nov 2026): the score uses ALL target cells (k removed); variables out of Earth's range are reported and not ranked (run.ranking); a rank raster drives the top-percent slider. Version 2.4 (11 Nov 2026, night): the shared scale is MIN-MAX (positions, not percentiles; three fields renamed); the Atacama patch is the only control; sites are patches of the best share; each site carries a `use` block from the fixed use table.",
+ "title": "Terrestrial analog finder - engine output, contract 2.4",
+ "description": "One run of the engine for one target. FROZEN 10 Nov 2026 for the hackathon. EVERY field is required; where a value is unavailable the field is present with null, never omitted. Version 2.0 replaces 1.0: distances are reported PER GROUP before the combined index, each site names its worst group, variables carry signed percentile gaps and the spec's three-way verdict, presets replace free weights, and the null may come from a precomputed table. Method reference: analog_finder_method_spec_rev11.docx, sections 7 to 11 (rev9.docx steps 5-11 at the time of freezing). Version 2.2 (11 Nov 2026) removes the weight presets and the weight-check fields: sensitivity analysis is future work. Version 2.3 (11 Nov 2026): the score uses ALL target cells (k removed); variables out of Earth's range are reported and not ranked (run.ranking); a rank raster drives the top-percent slider. Version 2.4 (11 Nov 2026, night): the shared scale is MIN-MAX (positions, not percentiles; three fields renamed); the Atacama patch is the only control; sites are patches of the best share; each site carries a `use` block from the fixed use table.",
  "type": "object",
  "additionalProperties": false,
  "required": [
@@ -110,12 +110,12 @@
       "cells_distinct": {
        "type": "integer",
        "minimum": 1,
-       "description": "Target cells with distinct feature vectors. k = min(5, cells_distinct). Copied composition and thermal pixels can make this smaller than cells."
+       "description": "Target cells with distinct feature vectors. Copied composition and thermal pixels can make this smaller than cells."
       },
       "spread": {
        "type": "number",
        "minimum": 0,
-       "description": "Median pairwise whitened distance between the distinct target cells. 0 for a single-cell target."
+       "description": "Mean pairwise whitened distance between the distinct target cells. 0 for a single-cell target."
       },
       "abs_lat_range": {
        "type": "array",
@@ -378,7 +378,7 @@
         "all_variables",
         "earth_reachable_only"
        ],
-       "description": "Which of the two ranking systems made this run. BOTH are built; the team keeps one as the main result on the hackathon day after testing both (Sherozbek, 11 Nov 2026, VARIABLES.md B37). all_variables: every variable of the target's set ranks, also those Earth cannot reach. earth_reachable_only: those variables are reported and left out of the distance."
+       "description": "Which of the two ranking systems made this run. BOTH are built and both are run. The main result is all_variables (the team's decision, 14 Nov 2026, VARIABLES.md B39); earth_reachable_only is the second view. all_variables: every variable of the target's set ranks, also those Earth cannot reach. earth_reachable_only: those variables are reported and left out of the distance."
       }
      }
     },
@@ -543,7 +543,7 @@
      "di_combined": {
       "type": "number",
       "minimum": 0,
-      "description": "Mean whitened distance to the k nearest distinct target cells over ALL used dimensions, divided by d_bar_earth. The compact index. Never shown without di_group."
+      "description": "Mean whitened distance to ALL distinct target cells over ALL used dimensions, divided by d_bar_earth. The compact index. Never shown without di_group."
      },
      "di_target": {
       "type": [

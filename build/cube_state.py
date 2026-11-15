@@ -75,9 +75,8 @@ def main():
     w(f"| **Earth-Moon** | **{len(em)}** | {', '.join(em)} |")
     w(f"| **Earth-Mars** | **{len(emx)}** | {', '.join(emx)} |")
     w("")
-    w("Counts are NOMINAL. The VIF and smallest-eigenvalue step in "
-      "VARIABLES.md B8 will cut them -- the four roughness scales are "
-      "strongly correlated by construction.")
+    w("These are the sets the engine ranks with. Correlated variables (the four roughness scales, for example) are not dropped: "
+      "double counting is removed by group-wise whitening (VARIABLES.md B34).")
     w("")
     w("## Per body")
     w("")
@@ -98,17 +97,14 @@ def main():
       "H=1, detecting discrete features rather than fractal texture. It is "
       "NOT redundant with ruggedness (measured -0.157) -- the B8 prediction "
       "was wrong. Built and stored. VARIABLES.md B12, B15. |")
-    w("| Mars thermal (3 layers) | **`matching_eligible: false`.** The MCD "
-      "grid is 64x48 = 3,072 cells for the whole planet, 1,024 HEALPix "
-      "pixels per value. Any candidate patch is thermally constant. "
-      "VARIABLES.md B17a. |")
-    w("| Mars composition | **Not built.** Option (b). TES gives mineral "
-      "fractions, not oxides; no gridded oxide product confirmed. "
-      "VARIABLES.md B20. |")
+    w("| Mars thermal (3 layers) | **Built, MODELLED.** Three layers from a thermal model driven by TES thermal inertia and albedo "
+      "(VARIABLES.md B28). The coarse climate grid first considered (B17a) is not used. |")
+    w("| Mars composition | **Built where the maps have data.** `mars_SiO2` and `mars_FeO` "
+      "from the TES mineral maps (VARIABLES.md B27c). |")
     w("| `temp_range_seasonal` on the Moon | The Moon has no meaningful "
       "seasonal cycle (axial tilt 1.54 deg). Correctly absent. |")
-    w("| Thermal inertia | **Costed at 4-6.5 h with one unbounded leg; not "
-      "built.** Logged as the next upgrade. VARIABLES.md B23. |")
+    w("| Thermal inertia | **Stored, never ranked.** Earth's layer and Mars's layer are "
+      "different quantities and cannot share one scale (VARIABLES.md B27, B38). |")
     w("")
     w("## Health warnings that must travel with the data")
     w("")
@@ -176,7 +172,7 @@ def main():
     w("cube/healpix/                  the cube")
     w("cube/dem/                      working-resolution DEMs and masks")
     w("SOURCES.md                     context sources and what they are NOT for")
-    w("VARIABLES.md                   the decision log (B1-B30)")
+    w("VARIABLES.md                   the decision log (B1-B39)")
     w("```")
     w("")
     w(f"Manifest entries by phase: " +

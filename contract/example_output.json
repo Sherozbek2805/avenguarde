@@ -1230,8 +1230,8 @@
    "invalidates": "Grain shape, soil chemistry, mineral alteration products"
   }
  ],
- "limits": "EXAMPLE FILE, NOT A RESULT. Physical values, percentiles, Koppen and lithology classes, coordinates and catalogue distances are real and read from the cube of 10 Nov 2026. Every di_* value, p, null_median, rank and control is a PLACEHOLDER (the mean absolute percentile gap), because the engine is written on the hackathon day. Composition is a weak dimension at both ends. The Haworth region is the polygon LROC QuickMap publishes for NASA's 28 October 2024 update.",
- "ai_disclosure": "PLACEHOLDER. The team's AI-use disclosure goes here verbatim (spec Appendix G).",
+ "limits": "EXAMPLE FILE, NOT A RESULT. Physical values, percentiles, Koppen and lithology classes, coordinates and catalogue distances are real and read from the cube of 10 Nov 2026. Every di_* value, p, null_median, rank and control is a PLACEHOLDER (the mean absolute percentile gap): these files were written before the engine existed and are kept only to show the SHAPE of the output. The target's spread, d_bar_target, patches_total, the patch sizes and the choice of the three sites are placeholders too. Real results are the output.json files in runs/. Composition is a weak dimension at both ends. The Haworth region is the polygon LROC QuickMap publishes for NASA's 28 October 2024 update.",
+ "ai_disclosure": "EXAMPLE FILE. In a real run this field carries the team's AI-use statement; see AI_USE.md in the repository and the ai_disclosure field of any runs/*/output.json.",
  "sources": [
   {
    "name": "LOLA 118 m lunar DEM",

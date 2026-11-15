@@ -1,5 +1,7 @@
 # Appendix B — Glossary
 
+> **Note of 15 November 2026.** This glossary was written on 9 November, before decisions B33 to B38. Four of its entries describe the method as it was then: the percentile transform and the normal score (now ONE min-max scale per variable), the k nearest target cells (now ALL target cells), the exclusion radius (now patches of the best 1%), and the Apollo and negative controls (now ONE control, the Atacama patch). The method as it stands is in `analog_finder_method_spec_rev11.docx`.
+
 Every technical term in this document, in plain English. If a term here is
 still unclear, ask — it means the definition needs rewriting, not that you
 missed something.

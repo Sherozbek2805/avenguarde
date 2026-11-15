@@ -1,12 +1,41 @@
-# VARIABLES.md — specifications for new and corrected variables
+# VARIABLES.md — the decision log
 
-**Specifications only. Nothing here is implemented.** Read on hackathon day and
-turned into code then. Formulas, parameters, costs and pseudocode.
+> **Read this first (added 15 November 2026).**
+>
+> **What this file is.** The team's working log: every method decision, the
+> measurement behind it, and every correction, in the order they happened
+> (B1 to B39). It is long and blunt on purpose. Nothing is deleted: a
+> statement that was later found wrong is struck through and the correction
+> is written beside it.
+>
+> **When the work was done.** Sections B1 to B38 (6 to 11 November) are the
+> PREPARATION before the hackathon weekend: choosing the variables, building
+> the data cube, fixing the method. The local organisers confirmed that
+> preparing data in advance is allowed. Section B39 (14 November) is the
+> hackathon day: the engine, all the results and the choice of the main
+> ranking system.
+>
+> **Who decided.** The team. An AI assistant (Claude, Anthropic) wrote most
+> of the text and the code, proposed options with measurements and gave
+> recommendations. The team chose, sometimes against the recommendation, and
+> the log says so each time. See `AI_USE.md`.
+>
+> **Paths that are not in the repository.** `HANDOVER.md`, `CONTEXT.md` and
+> `cube/_work/`, named in places below, are local working files.
+>
+> **Where to read the method without the history.** The method as it stands
+> is in `docs/analog_finder_method_spec_rev11.docx` (10 pages). Sections B33
+> to B39 below hold the same thing with the reasons.
+
+~~**Specifications only. Nothing here is implemented.** Read on hackathon day and
+turned into code then.~~ *(True on 6 November 2026, when this file began. The
+cube, the calibration and the engine now exist; see B24, B25 and B39.)*
+Formulas, parameters, costs and pseudocode.
 
 Settled and not re-opened: HEALPix NESTED, Nside 1024 Earth / 256 Moon / 512 Mars
 (pixel sides 6.37 / 6.95 / 6.79 km, no area weighting); slope 7 km and ruggedness
-21 km on all bodies; SI units, temperature in kelvin; no lunar silica dimension;
-thermal inertia dropped; lunar targets polar at 85–89.9°S.
+21 km on all bodies; SI units, temperature in kelvin; ~~no lunar silica dimension;
+thermal inertia dropped;~~ *(superseded: lunar SiO2 was built, B22; thermal inertia is stored and does not rank, B27 and B38)* lunar targets polar at 85–89.9°S.
 
 HEALPix pixel counts that drive every cost below:
 Earth 12 × 1024² = **12,582,912**; Mars 12 × 512² = **3,145,728**;
@@ -4640,7 +4669,7 @@ choice B37 and B38(f) left for the day.
 | where | change |
 |---|---|
 | `engine/analog_engine.py` | `MAIN_SYSTEM = "all_variables"`; the `limits` text of every run names the main result |
-| the 50 finished `output.json` files | ONE sentence of `limits` replaced: "neither is 'the' result until the team names one" → which system is main and whether this file is it. No number changed |
+| the 50 finished `output.json` files (42 preset runs, published in `runs/`; 8 custom test runs, kept local) | ONE sentence of `limits` replaced: "neither is 'the' result until the team names one" → which system is main and whether this file is it. No number changed |
 | `runs/*_system_comparison.json` | `main_system` added |
 | `README.md`, `runs/README.md`, `contract/README.md`, `docs/TEST_SPEC`, `docs/NULL_TABLE_DESIGN`, `docs/TEAM_PLAN`, `HANDOVER.md` | the choice is recorded as made |
 | `docs/analog_finder_method_spec_rev10.docx` | step 6 block and the decisions log: the main result counts every variable |

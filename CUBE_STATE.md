@@ -11,7 +11,7 @@
 | **Earth-Moon** | **12** | FeO, SiO2, roughness_10.5km, roughness_21km, roughness_42km, roughness_5.25km, slope, svf_30km, temp_level, temp_range_diurnal, tpi_21km, tpi_7km |
 | **Earth-Mars** | **13** | FeO, SiO2, roughness_10.5km, roughness_21km, roughness_42km, roughness_5.25km, slope, svf_30km, temp_level, temp_range_diurnal, temp_range_seasonal, tpi_21km, tpi_7km |
 
-Counts are NOMINAL. The VIF and smallest-eigenvalue step in VARIABLES.md B8 will cut them -- the four roughness scales are strongly correlated by construction.
+These are the sets the engine ranks with. Correlated variables (the four roughness scales, for example) are not dropped: double counting is removed by group-wise whitening (VARIABLES.md B34).
 
 ## Per body
 
@@ -26,10 +26,10 @@ Counts are NOMINAL. The VIF and smallest-eigenvalue step in VARIABLES.md B8 will
 | what | why |
 |---|---|
 | `roughness_scaling_exponent` (all 3 bodies) | **HOLD.** Signal-to-noise 2.12x against its own estimator noise; 21.8% of pixels exceed H=1, detecting discrete features rather than fractal texture. It is NOT redundant with ruggedness (measured -0.157) -- the B8 prediction was wrong. Built and stored. VARIABLES.md B12, B15. |
-| Mars thermal (3 layers) | **`matching_eligible: false`.** The MCD grid is 64x48 = 3,072 cells for the whole planet, 1,024 HEALPix pixels per value. Any candidate patch is thermally constant. VARIABLES.md B17a. |
-| Mars composition | **Not built.** Option (b). TES gives mineral fractions, not oxides; no gridded oxide product confirmed. VARIABLES.md B20. |
+| Mars thermal (3 layers) | **Built, MODELLED.** Three layers from a thermal model driven by TES thermal inertia and albedo (VARIABLES.md B28). The coarse climate grid first considered (B17a) is not used. |
+| Mars composition | **Built where the maps have data.** `mars_SiO2` and `mars_FeO` from the TES mineral maps (VARIABLES.md B27c). |
 | `temp_range_seasonal` on the Moon | The Moon has no meaningful seasonal cycle (axial tilt 1.54 deg). Correctly absent. |
-| Thermal inertia | **Costed at 4-6.5 h with one unbounded leg; not built.** Logged as the next upgrade. VARIABLES.md B23. |
+| Thermal inertia | **Stored, never ranked.** Earth's layer and Mars's layer are different quantities and cannot share one scale (VARIABLES.md B27, B38). |
 
 ## Health warnings that must travel with the data
 
@@ -83,7 +83,7 @@ cube/koppen_legend.json        Koppen class code -> symbol -> description
 cube/healpix/                  the cube
 cube/dem/                      working-resolution DEMs and masks
 SOURCES.md                     context sources and what they are NOT for
-VARIABLES.md                   the decision log (B1-B30)
+VARIABLES.md                   the decision log (B1-B39)
 ```
 
 Manifest entries by phase: 0 smoke = 2, 1 DEMs = 5, 1b ice = 2, 2 terrain = 27, 2c sky view factor = 3, 3 thermal = 7, 3b composition = 9, 3c characterization = 1, 3d Mars thermal inertia = 2, 3e Earth apparent TI = 1, 3f Mars temperature, modelled = 6, 3g = 6, None = 1

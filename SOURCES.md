@@ -21,7 +21,7 @@ wants, and they give nothing a distance metric can consume.
   `earth_SiO2`, `earth_FeO`. See VARIABLES.md B16, B19.
 - Moon: Lunar Prospector GRS 2 degree -> `moon_SiO2`, `moon_FeO`, with the
   published error matrix. See VARIABLES.md B20, B22.
-- Mars: NOT BUILT. Option (b) was chosen; see VARIABLES.md B20.
+- Mars: MGS TES mineral maps (Bandfield 2002) -> `mars_SiO2`, `mars_FeO`, where the maps have data. See VARIABLES.md B27c and the table of 9 Nov below. ~~NOT BUILT. Option (b) was chosen; see VARIABLES.md B20.~~
 
 **Do not attempt to derive oxide abundances from either geologic map.** Age is
 not composition. A Hesperian lava plain and an Amazonian lava plain can have
@@ -94,3 +94,26 @@ Download note: Zenodo's API file links closed two transfers abruptly on 10 Nov. 
 | **Golombek et al. (2021)**, LPSC abstract 2420, Table 1 | seven SpaceX / JPL candidate Starship landing sites in Arcadia, Erebus and Phlegra | listed in `mars_site_candidates_v1.csv`; the reason Erebus Montes was chosen over the other Arcadia proposals | not a preset itself |
 
 `sources/artemis3_regions.csv` (IAU feature centres as proxies, B24) is kept and superseded.
+
+## Added 15 Nov 2026 — the primary datasets in one table
+
+Every ranking layer comes from one of these. The sections above say what the other sources are for and what they are not for. Each provider's own terms of use apply.
+
+| world | dataset and product | reference | used for | where it enters |
+|---|---|---|---|---|
+| Moon | LRO LOLA global elevation model, `LOLA_Global_LDEM_118m_Mar2014` (118 m) | Smith et al. (2010), NASA PDS / USGS Astrogeology | the eight terrain measures | `build/phase1_dems.py` |
+| Moon | LRO Diviner global cumulative products, `LRO-L-DLRE-5-GCP-V1.0` | Paige et al. (2010); Williams et al. (2017), NASA PDS | temperature level, day–night swing | `build/fetch_diviner_gcp.py` |
+| Moon | Lunar Prospector GRS element abundances, `lp-l-grs-5-elem-abundance-v1`, 2° | Prettyman et al. (2006), NASA PDS | SiO2, FeO | VARIABLES.md B20, B22 |
+| Mars | MOLA – HRSC blended elevation model, `Mars_HRSC_MOLA_BlendDEM_Global_200mp_v2` (200 m; MGS MOLA with ESA Mars Express HRSC) | Fergason et al. (2018), USGS Astrogeology | the eight terrain measures | `build/phase1_dems.py` |
+| Mars | MGS TES thermal inertia, `MGS-M-TES-5-TIMAP-V1.0`; TES bolometric albedo; dust climatology v2; KRC thermal model | Putzig & Mellon (2007); Christensen et al. (2001); Montabone et al. (2015); Kieffer (2013) | temperature level and swings, MODELLED | VARIABLES.md B27, B28 |
+| Mars | MGS TES mineral maps | Bandfield (2002) | SiO2, FeO, where the maps have data | VARIABLES.md B27c |
+| Earth | ETOPO 2022, 15 arc-second | NOAA NCEI (2022) | the eight terrain measures | `build/phase1_dems.py` |
+| Earth | MODIS land surface temperature, MOD11C3 and MYD11C3 (Terra, Aqua), monthly, 0.05° | Wan et al., NASA LP DAAC | temperature level and swings | `build/` thermal scripts |
+| Earth | MODIS albedo MCD43A3 | Schaaf & Wang, NASA LP DAAC | apparent thermal inertia (stored, not ranked) | VARIABLES.md B27 |
+| Earth | WorldClim 2.1 | Fick & Hijmans (2017) | the land mask | `build/phase1_dems.py` |
+| Earth | GLiM lithological map; SCAR GeoMAP; global whole-rock geochemical database | Hartmann & Moosdorf (2012); Cox et al. (2023); Gard et al. (2019) | SiO2 and FeO per rock class, and the check of those values | VARIABLES.md B16, B19, B31 |
+| Earth | Köppen–Geiger climate classes | Beck et al. (2023) | describing sites; never ranked | `build/koppen.py` |
+| Earth | USGS terrestrial analog sites catalogue, doi:10.5066/P9J72921 | USGS Astrogeology | the 'known site' label within 100 km | `sources/tier4_catalogues/` |
+| targets | NASA Artemis III candidate landing regions, update of 28 October 2024; region polygons as published by LROC QuickMap | NASA; LROC | the nine lunar targets | VARIABLES.md B32 |
+| targets | NASA First Landing Site / Exploration Zone Workshop for Human Missions to the Surface of Mars, 2015 | NASA; LPI | the six Mars targets | VARIABLES.md B32 |
+
