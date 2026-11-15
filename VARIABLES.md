@@ -4684,3 +4684,149 @@ choice B37 and B38(f) left for the day.
   lunar ground at the same latitude.
 - A warning from `astropy_healpix.neighbours` (invalid value) appeared once
   during the Mars batch; outputs validated.
+
+# §B40 — THE WEBSITE AND ITS SERVER. Hackathon days 1–2, 2026-11-14 to 15.
+
+Written from the frontend chat (Shohruxbek with Claude). The early part of
+that chat is known only from Claude's summary notes; everything from the AWS
+work onward is on record in full.
+
+## (a) Decisions made by the team (Shohruxbek)
+
+**Look and content**
+
+- Google Earth dark style, with a globe for targets and a flat Earth map for
+  results.
+- The team's own hero picture, white square buttons, and the methodology in
+  four steps.
+- A separate page for each place: picture on top, numbers below, with a
+  variable-by-variable chart.
+- Removed: "Do not use it for", the Rectangle and Circle tools, the hero
+  labels, "Team AvenGuarde" on the opening screen, and the general limits
+  paragraph on the place page.
+- Added: the logo, a bigger headline, and picking any place on the Moon.
+- The shorter methodology and its order: distance, then whitening, then
+  outputs, then the p-test.
+
+**Infrastructure**
+
+- AWS rather than Supabase or Google Cloud.
+- Three spending approvals, the last for the server with the cache layer.
+- The domain `avenguarde.eengineer.net`.
+- GitHub: Claude pushes only after the team approves.
+
+## (b) Decisions made by Claude
+
+- **Build:** plain HTML, CSS and JavaScript with Canvas, no framework.
+- **Place pictures:** Sentinel-2 cloudless from EOX, with NASA Blue Marble as
+  fallback. Its licence is non-commercial and it is not a NASA source; one
+  setting switches to NASA only.
+- **Server:** Lightsail in Sydney (the only region the account allows), and
+  the upload route with a token. The first server choice was wrong: it was
+  throttled and slow, and it was replaced.
+- **Cache of the chance-test draws:** Claude's proposal, approved by the team.
+- **Live search behaviour:** the stored result shows first, and a live result
+  replaces it only on success.
+- **"Your place":** circle only, Moon only, radius 10–30 km, default 15 km.
+- **Methodology details:** which scenes to keep, the new variables scene (it
+  still names temperature and rock), and keeping the Team block in Notes.
+- **Unasked extras:** version marks on style and script links, and a
+  local-server tweak for the repository layout.
+
+One thing to review: the contract says the "fails" list should be shown next
+to "succeeds". The removal of "Do not use it for" goes against that.
+
+## (c) Results
+
+- **Site:** live at https://avenguarde.eengineer.net with HTTPS. It shows 15
+  NASA targets (9 Moon, 6 Mars). None passes the chance test; the Atacama
+  control passes in 15 of 15.
+- **Engine on AWS:** it reproduces the stored p for all 18 Moon and 24 Mars
+  warm-up runs.
+- **Speed:**
+
+| Search | Before | Now |
+|---|---|---|
+| Moon target (Haworth) | 145.7 s on the first server | 14–20 s |
+| Mars target | up to 8 min | 14–49 s |
+| New place on the Moon, 15 km | — | 40.5 s |
+| New place on the Moon, 50 km | — | 129 s (so the limit is 30 km) |
+
+- **A significant result:** a 20 km circle at the centre of Tycho crater gives
+  p < 0.001, in line with the engine's own Tycho test (§B39 g).
+- **Methodology on the site:** 28 scenes cut to 19.
+
+## (d) Infrastructure
+
+**AWS**
+
+- **Account:** the free plan with $100 of credits, valid until 14 May 2027.
+  It allows new servers only in the Sydney region (ap-southeast-2), so
+  everything is there.
+- **Service:** Amazon Lightsail, AWS's simple virtual servers. Everything was
+  created and configured through the AWS connector, without the AWS console
+  or SSH.
+- **Not used:** S3 storage, a CDN (CloudFront), a database, or a load
+  balancer.
+
+| Server | Size | List price | Role |
+|---|---|---|---|
+| `avenguarde-web` | 4 CPUs, 8 GB | $84 a month (about $2.80 a day) | The one in use: website and engine |
+| `analog-engine-fast` | 4 CPUs, 8 GB | $84 a month | Old; engine only, no cache |
+| `analog-engine` | 2 CPUs with a burst limit, 8 GB | $44 a month | Old; the slow first try |
+
+The server in use also has a fixed address (a Lightsail static IP,
+54.252.12.127) and a firewall that opens only the web ports (80 and 443).
+
+**What runs on `avenguarde-web`**
+
+- **Setup:** one script runs at first boot on Ubuntu 24.04. It clones this
+  repository from GitHub (commit `cdc51c7`), installs Python, rebuilds the
+  calibration files, and copies the stored results.
+- **Web server (Caddy):** it serves the website and the stored result files,
+  passes `/api` requests to the engine, and gets the HTTPS certificate by
+  itself.
+- **Engine:** this repository's own FastAPI program, unchanged, running one
+  search at a time.
+- **Cache layer:** a small wrapper that keeps the chance test's 1,000 random
+  draws on disk, plus the warm-up that filled it for all 15 targets. The
+  draws depend only on the body, the variable set, the patch size, the
+  latitude band and the fixed seed. The result file still says
+  `null_source: "live"`.
+- **Upload door:** an address that accepts a new version of the website when
+  the request carries the secret token. The token is not in this repository.
+
+**How a visit works**
+
+1. The browser opens `avenguarde.eengineer.net`; the GoDaddy DNS record points
+   to the fixed address.
+2. The server sends the pages and the stored result for the chosen target.
+3. A live search goes to `/api`; the engine reads the data cube on the
+   server's disk and returns a new result.
+
+**Outside AWS**
+
+- **GoDaddy:** the DNS record for the domain.
+- **GitHub:** the source the server was built from.
+- **EOX and NASA GIBS:** the satellite pictures on the place page, loaded by
+  the visitor's browser.
+- **Shohruxbek's computer:** the local test server, also used to upload new
+  versions.
+
+**Limits to know**
+
+- It is one server with no backup copy and no monitoring; if it stops, the
+  site stops.
+- A restart of the server was not tested.
+- All costs so far are paid from the credits. The two old servers still use
+  about $4.30 of them a day.
+
+## (e) Still open
+
+- The two old servers still run; they are deleted only on the team's word.
+- GitHub push of the website: waiting for approval and the destination
+  folder.
+- Not tested on the public site: Firefox, Safari, phones, and the live button
+  on five of the six Mars targets.
+- Not started: the pitch deck, the prompt files, and a list of ready-made
+  known places.
