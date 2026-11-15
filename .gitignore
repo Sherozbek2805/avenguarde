@@ -87,3 +87,6 @@ __pycache__/
 *.pyc
 *.part
 *.log
+
+# one exception to *token* above: the website's style variables (design tokens), not a secret
+!/website/css/tokens.css
